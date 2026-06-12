@@ -1,0 +1,3 @@
+{{$acertos}}
+                {{$erros}}
+                {{$materias}}
