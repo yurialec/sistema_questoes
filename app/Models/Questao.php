@@ -9,11 +9,14 @@ class Questao extends Model
     protected $table = 'questoes';
 
     protected $fillable = [
+        'codigo',
         'cargo_id',
         'materia_id',
         'assunto_id',
         'texto_complementar_id',
-        'enunciado'
+        'enunciado',
+        'imagem',
+        'tabela_html',
     ];
 
     public function cargo()

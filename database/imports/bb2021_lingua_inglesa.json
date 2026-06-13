@@ -1,0 +1,177 @@
+{
+    "orgao": "Banco do Brasil",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Escriturário",
+    "materia": "Língua Inglesa",
+    "tipo_materia": "basica",
+    "questoes": [
+        {
+            "codigo": "BB2021-LI-011",
+            "numero": 11,
+            "assunto": "Interpretação de Texto",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": {
+                "conteudo": "COVID-19 Economy: Expert insights on what you need to know\nAs we practice social distancing and businesses struggle to adapt, it’s no secret the unique challenges of Covid-19 are profoundly shaping our economic climate. U.S. Bank financial industry and regulatory affairs expert Robert Schell explains what you need to know in this uncertain time.\n• Don’t panic while things are “on pause”\nImagine clicking the pause button on your favorite TV show. Whether you stopped to make dinner or put kids to bed, hitting pause gives you time to tackle what matters most. Today’s economy is similar. While we prioritize health and safety, typical activities like driving to work, eating at restaurants, traveling and attending sporting events are on hold. This widespread social distancing takes a toll on our economy, putting strain on businesses and individuals alike.\nKeep your financial habits as normal as possible during this time. Make online purchases, order takeout, pay bills and buy groceries. These everyday purchases put money back into the economy and prevent it from dipping further into a recession.\n• Low interest rates could help make ends meet\nIn March, the Federal Reserve cut rates drastically to boost economic activity and make borrowing more affordable. For you, this means interest rates are low for credit cards, loans and lines of credit, and even fixed-rate mortgages. Consider taking advantage of these low rates if you need extra help paying your bills, keeping your business running or withstanding a period of unemployment.\n• Spend on small businesses\nLooking to make a positive impact? Supporting small businesses is an easy and powerful way to help. You can order takeout, tip generously or donate to your local brick-and-mortar retail store, if they provide that option. Your support makes a big impact for struggling business owners.\n• Prior economic strength may help us bounce back\nThe thriving economy of 2019 isn’t just a distant, bittersweet memory. When our health is no longer at risk and social distancing mandates begin to diminish, we’ll slowly start to rebuild. The stability, low unemployment rate and upward-trending market we experienced prior to Covid-19 puts us in a good position to kick-start economic activity and rebound more quickly.\nAvailable at <https://www.usbank.com/financialiq/manage-your-household/personal-finance/covid-economy-expert-insights.html>. Retrieved on: Jul. 20, 2021. Adapted."
+            },
+            "enunciado": "The main purpose of the text is to",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "share ideas on how people can cope with the challenges brought by the pandemic."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "teach people how to practice social distancing while shopping at local businesses."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "encourage people to take loans in order to make donations to brick-and-mortar retail stores."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "let people know that health concerns are not as important as taking care of one’s finances."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "suggest that people should engage in diversified activities instead of watching too much TV."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LI-012",
+            "numero": 12,
+            "assunto": "Vocabulário e Expressões Idiomáticas",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "In the 1st paragraph, in the fragment “it’s no secret the unique challenges of Covid-19 are profoundly shaping our economic climate”, the expression it’s no secret (that) means",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "it’s common knowledge."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "it’s never been said before."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "it’s partially true."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "it’s a bad idea."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "it’s an important revelation."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LI-013",
+            "numero": 13,
+            "assunto": "Formação de Palavras (Prefixos)",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "In the 1st paragraph, the word uncertain, in the fragment “in this uncertain time” is formed with the prefix un-. A pair of words formed with prefixes that convey the same meaning is:",
+            "gabarito": "C",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "doubtful / joblessness"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "unique / only"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "impossible / discourage"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "certainty / envision"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "inside / intimate"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LI-014",
+            "numero": 14,
+            "assunto": "Referência Pronominal",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "In the 3rd paragraph, in the fragment “These everyday purchases put money back into the economy and prevent it from dipping further into a recession”, the pronoun it refers to",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "money"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "purchases"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "recession"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "economy"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "back"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LI-015",
+            "numero": 15,
+            "assunto": "Tempos Verbais",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "In the 4th paragraph, in the fragment “In March, the Federal Reserve cut rates drastically to boost economic activity”, the verb cut indicates a",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "habitual action repeatedly carried out by the Federal Reserve to address certain economic situations."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "future action to be carried out by the Federal Reserve to address possible problems."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "promised action to be carried out by the Federal Reserve to address the present economic challenges."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "one-time action carried out by the Federal Reserve to address the present situation."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "current action carried out by the Federal Reserve to address a permanent situation."
+                }
+            ]
+        }
+    ]
+}

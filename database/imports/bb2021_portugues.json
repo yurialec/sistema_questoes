@@ -1,0 +1,342 @@
+{
+    "orgao": "Banco do Brasil",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Escriturário",
+    "materia": "Língua Portuguesa",
+    "tipo_materia": "basica",
+    "questoes": [
+        {
+            "codigo": "BB2021-LP-001",
+            "numero": 1,
+            "assunto": "Interpretação de Texto",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": {
+                "conteudo": "Lições após um ano de ensino remoto na pandemia\nNo momento em que se tornam ainda mais complexas as discussões sobre a volta às aulas presenciais, o ensino remoto continua a ser a rotina de muitas famílias, atualmente.\nMas um ano sem precedentes na história veio acompanhado de lições inéditas para professores, alunos e estudiosos. Diante do pouco acesso a planos de dados ou a dispositivos, a alternativa de muitas famílias e professores tem sido se conectar regularmente via aplicativos de mensagens.\nUma pesquisa apontou que 83% dos professores mantinham contato com seus alunos por meio dos aplicativos de mensagens, muito mais do que pelas próprias plataformas de aprendizagem. Esse uso foi uma grande surpresa, mas é porque não temos outras ferramentas de massificação. A maior parte do ensino foi feita pelo celular e, geralmente, por um celular compartilhado (entre vários membros da família), o que é algo muito desafiador.\nOutro aspecto a ser considerado é que, felizmente, mensagens direcionadas são uma forma relativamente barata de comunicação. A importância de cultivar interações entre os estudantes, mesmo que eles não estejam no mesmo ambiente físico, também é uma forma de motivá-los e melhorar seus resultados. Recentemente, uma pesquisadora afirmou que “Aprendemos que precisamos dos demais: comparar estratégias, falar com alunos, com outros professores e dar mais oportunidades de trabalho coletivo, mesmo que seja cada um na sua casa. Além disso, a pandemia ressaltou a importância do vínculo anterior entre escolas e comunidades”.\nEmbora seja difícil prever exatamente como o fechamento das escolas vai afetar o desenvolvimento futuro dos alunos, educadores internacionais estimam que estudantes da educação básica já foram impactados. É preciso pensar em como agrupar esses alunos e averiguar os que tiveram ensino mínimo ou nulo e decidir como enfrentar essa ruptura, com aulas ou encontros extras, com anos (letivos) de transição.\nIDOETA, P.A. 8 lições após um ano de ensino remoto na pandemia. Disponível em: <https://educacao.uol.com.br/noticias/bbc/2021/04/24/8-licoes-apos-um-ano-de-ensino-remoto-napandemia.htm>. Acesso em: 21 jul. 2021. Adaptado."
+            },
+            "enunciado": "Um argumento utilizado no texto para explicar o relativo sucesso do ensino remoto durante a pandemia é:",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "O baixo custo relacionado ao uso de aplicativos de mensagens."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "O uso de plataformas de aprendizagem de alta tecnologia."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "A oportunidade de utilização de imagens e áudios disponíveis na rede."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "A possibilidade de aprofundamento dos conteúdos de várias disciplinas."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "A qualidade do acesso às atividades devido à alta conectividade."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-002",
+            "numero": 2,
+            "assunto": "Interpretação de Texto",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "No parágrafo 5, depois da afirmação de que educadores internacionais estimam que estudantes da educação básica já foram impactados pela falta de escolarização, desenvolve-se a ideia de que",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "o ensino remoto mediado por tecnologia permitiu a continuidade da escolarização durante a pandemia."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "os alunos que foram prejudicados por esse processo precisarão ter aulas ou encontros extras para enfrentar essa ruptura."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "a alternativa mais produtiva para realizar o ensino remoto tem sido a conexão via aplicativos de mensagens."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "os professores, em sua grande maioria, mantiveram contato com os alunos por meio dos aplicativos de mensagens."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "o celular, muitas vezes compartilhado pela família, foi a ferramenta mais utilizada para efetivar as atividades de ensino remoto."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-003",
+            "numero": 3,
+            "assunto": "Conjunções e Relações Sintático-Semânticas",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "No trecho “A importância de cultivar interações entre os estudantes, mesmo que eles não estejam no mesmo ambiente físico” (parágrafo 4), a expressão destacada estabelece com a oração principal a relação de",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "condição"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "concessão"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "comparação"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "conformidade"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "proporcionalidade"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-004",
+            "numero": 4,
+            "assunto": "Elementos Modalizadores e Opinião",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "O trecho em que a palavra destacada evidencia a opinião do autor do texto é:",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "“o ensino remoto continua a ser a rotina de muitas famílias, atualmente.” (parágrafo 1)"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "“tem sido se conectar regularmente via aplicativos de mensagens” (parágrafo 2)"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "“A maior parte do ensino foi feita pelo celular e, geralmente, por um celular” (parágrafo 3)"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "“felizmente, mensagens direcionadas são uma forma relativamente barata de comunicação” (parágrafo 4)"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "“Embora seja difícil prever exatamente” (parágrafo 5)"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-005",
+            "numero": 5,
+            "assunto": "Concordância Verbal",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "A concordância verbal está de acordo com as exigências da norma-padrão da língua portuguesa, na forma verbal destacada em:",
+            "gabarito": "C",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "Aspiram-se a bons cargos nas empresas para que seja possível superar os problemas causados pela inflação."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "Com a chegada da pandemia causada pela Covid-19 fazem dois anos que não viajo nas férias escolares."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "Nos últimos anos, combatem-se batalhas comerciais cotidianamente, devido às barreiras econômicas."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "Em várias regiões do nosso país, existe problemas a serem resolvidos em todas as diversas áreas do conhecimento."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Para garantir a aprendizagem dos estudantes, precisam-se de equipamentos digitais capazes de atender a demandas escolares."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-006",
+            "numero": 6,
+            "assunto": "Concordância Nominal",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "De acordo com a norma-padrão da língua portuguesa, a concordância do termo em destaque está plenamente respeitada em:",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "A capacitação dos técnicos e o atendimento aos trabalhadores da área da saúde precisam ser desenvolvidos em todo o país."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "As famílias dos alunos e os professores da rede pública das diferentes regiões brasileiras devem ser acolhidas pelas direções das escolas."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "O estudo das diferentes disciplinas e a realização de provas bimestrais, após a chegada da Covid-19, têm sido planejadas com muito cuidado."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "O tratamento das doenças respiratórias e a vacinação de toda a população devem ser implementadas pelos órgãos responsáveis."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Os arquivos escolares e as notas dos estudantes necessitam ser guardadas com o maior sigilo para recuperação no futuro."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-007",
+            "numero": 7,
+            "assunto": "Colocação Pronominal",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "O pronome oblíquo átono em destaque está colocado de acordo com a norma-padrão em:",
+            "gabarito": "E",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "No processo ensino-aprendizagem, o objetivo deve ser desenvolver aptidões para que os alunos sempre mantenham-se em dia com os avanços da ciência."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "Se reclama muito das dificuldades do ensino remoto devido a problemas de conexão."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "Os profissionais da educação nunca cansam-se de estudar os conteúdos que possam interessar os alunos nas aulas."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "Para garantir o progresso dos estudantes, os professores sempre dedicam-se a pesquisar novos métodos de ensino."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Quando as escolas se preocuparem em empregar novas metodologias no ensino-aprendizagem, alcançarão melhores resultados."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-008",
+            "numero": 8,
+            "assunto": "Crase",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "De acordo com a norma-padrão da língua portuguesa, o uso do acento grave indicativo da crase é obrigatório na palavra destacada em:",
+            "gabarito": "E",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "A prática de ensino remoto levou as famílias a situações difíceis de comunicação com as instituições de ensino."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "As aulas remotas surgem como uma alternativa para a redução dos impactos negativos no processo de aprendizagem."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "As escolas e os professores foram levados a essa prática de ensino remoto, em função da chegada inesperada do vírus."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "O interesse pelo ensino on-line não tem diminuído porque começou a ser considerado a única opção de escolarização durante a pandemia."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Os bons resultados de desempenho dos alunos são obtidos graças a dedicação dos professores no ensino on-line."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-009",
+            "numero": 9,
+            "assunto": "Pontuação",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "De acordo com a norma-padrão da língua portuguesa, o emprego adequado da vírgula está plenamente atendido em:",
+            "gabarito": "C",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "O ensino remoto, com a pandemia de Covid-19 passou a fazer parte do processo de escolarização em todo o Brasil."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "A melhor fase do ensino on-line tem sido vivida, atualmente embora permaneça a dúvida se é possível ensinar às crianças de forma remota."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "Como o país não tinha experiências significativas no ensino remoto, precisou aderir à prática de forma emergencial."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "A qualidade do ensino remoto era questionada, no passado porém o aprendizado conta com tecnologias que garantem ótimos resultados."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Um grande número de pesquisadores tem procurado avaliar, quais são as vantagens e desvantagens da educação a distância."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-LP-010",
+            "numero": 10,
+            "assunto": "Referência Anafórica",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "A palavra ou a expressão a que se refere o termo em destaque está corretamente explicitada entre colchetes em:",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "“83% dos professores mantinham contato com seus alunos por meio dos aplicativos” (parágrafo 3) – [pesquisadores]"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "“Esse uso foi uma grande surpresa, mas é porque não temos outras ferramentas” (parágrafo 3) – [contato]"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "“Aprendemos que precisamos dos demais” (parágrafo 4) – [resultados]"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "“averiguar os que tiveram ensino mínimo ou nulo e decidir” (parágrafo 5) – [alunos]"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "“decidir como enfrentar essa ruptura, com aulas ou encontros extras” (parágrafo 5) – [desenvolvimento]"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,177 @@
+{
+    "orgao": "Banco do Brasil",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Analista de Tecnologia",
+    "materia": "Probabilidade e Estatística",
+    "tipo_materia": "especifica",
+    "questoes": [
+        {
+            "codigo": "BB2021-PE-026",
+            "numero": 26,
+            "assunto": "Probabilidade Condicional e Teorema da Probabilidade Total",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": "<table><thead><tr><th>Modelo</th><th>Curto</th><th>Médio</th><th>Longo</th></tr></thead><tbody><tr><td>Modelo A</td><td>10%</td><td>20%</td><td>70%</td></tr><tr><td>Modelo B</td><td>20%</td><td>50%</td><td>30%</td></tr><tr><td>Modelo C</td><td>40%</td><td>20%</td><td>40%</td></tr></tbody></table>",
+            "texto_complementar": null,
+            "enunciado": "Uma central de assistência técnica de celulares trabalha com três modelos de um mesmo fabricante. Para melhor organizar seu sistema, foi medido o tempo de serviço para o conserto de cada aparelho, desde a chegada do pedido de manutenção até a entrega do aparelho consertado, e cada um desses prazos foi classificado como Curto, Médio ou Longo.\nA Tabela abaixo mostra a distribuição dos tempos de serviço para cada um dos três modelos aos quais a empresa prestou assistência em 2020.\nConsiderando-se que, ao longo do ano de 2020, essa empresa reparou 1.000 unidades do modelo A, 600 unidades do modelo B e 400 unidades do modelo C, qual foi a porcentagem destes atendimentos, nesse período, que tiveram tempo de serviço Curto ou Médio?",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "29%"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "48%"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "52%"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "58%"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "96%"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-PE-027",
+            "numero": 27,
+            "assunto": "Probabilidade Binomial",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Um certo sistema anti-incêndio funciona com 3 sensores acoplados de temperatura, de maneira a minimizar as chances de mau funcionamento. O alarme desse sistema soa sempre que grandes variações de temperatura são detectadas por, pelo menos, 2 desses 3 sensores.\nConsiderando-se que a probabilidade de um sensor não reagir corretamente a uma grande variação de temperatura é 1/5, qual a probabilidade de esse sistema não disparar o alarme em uma situação de grande variação de temperatura?",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "1/125"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "5/125"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "12/125"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "13/125"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "16/125"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-PE-028",
+            "numero": 28,
+            "assunto": "Variância e Covariância",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Sejam X e Y duas variáveis aleatórias com as seguintes informações sobre as variâncias:\n(i) Var(X) = 4\n(ii) Var(Y) = 9\n(iii) Var(X+Y) = 9\nQual é o valor da covariância entre X e Y?",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "-4"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "-2"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "0"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "6"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "36"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-PE-029",
+            "numero": 29,
+            "assunto": "Medidas de Dispersão e Coeficiente de Variação",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Um pesquisador recebeu os dados de uma amostra de tamanho 100 de uma população e calculou a média amostral μ, o desvio padrão amostral σ e o coeficiente de variação amostral CV = σ/μ. Antes de iniciar a análise, ele foi informado de que os dados dessa amostra estavam todos errados, mas que podiam ser corrigidos somando-se 3 a cada um dos dados que recebeu.\nApós fazer tal correção, o valor do coeficiente de variação amostral passou a ser",
+            "gabarito": "C",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "3σ / (μ + 3)"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "300σ / (μ + 300)"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "σ / (μ + 3)"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "σ / (μ + 300)"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "σ / (μ + 0,03)"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-PE-030",
+            "numero": 30,
+            "assunto": "Probabilidade e Análise de Dados",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": "<table><tr><td colspan=\"5\"><strong>Em relação a bancos digitais, você...</strong></td></tr><tr><td><strong>45%</strong><br>JÁ OUVIU FALAR</td><td><strong>19%</strong><br>SABE COMO FUNCIONA</td><td><strong>14%</strong><br>POSSUI RELACIONAMENTO</td><td><strong>22%</strong><br>NÃO CONHECE</td></tr><tr><td colspan=\"5\"><strong>Entre aqueles que têm relacionamento com bancos digitais (14%), os principais motivos para iniciar esse relacionamento foram...</strong></td></tr><tr><td><strong>44%</strong><br>Valores das tarifas</td><td><strong>39%</strong><br>Pela inovação de ser um banco 100% digital</td><td><strong>22%</strong><br>Indicação de amigo / parente / conhecido</td><td><strong>16%</strong><br>Por ser diferente de outros bancos</td><td><strong>16%</strong><br>Para dividir o dinheiro em várias contas</td></tr><tr><td><strong>41%</strong><br>Para resolver tudo pela internet</td><td><strong>28%</strong><br>Para ter mais uma fonte de crédito (cartão e limite)</td><td><strong>20%</strong><br>Para poder focar em investimentos</td><td><strong>12%</strong><br>Por estar insatisfeito com banco atual (não digital)</td><td><strong>12%</strong><br>Pela propaganda do banco</td></tr></table>",
+            "texto_complementar": {
+                "conteudo": "A relação do cliente com o sistema bancário tradicional vem passando por transformações nos últimos cincos anos com o crescimento dos bancos digitais. Analisar o perfil dos clientes dos bancos digitais, considerando idade, classe social, renda e motivação, é uma tarefa importante para os bancos tradicionais com o objetivo de preservar a posição de principal Banco na relação com o Cliente.\nPara tal fim, uma agência bancária analisou os seguintes dados de uma pesquisa amostral sobre bancos digitais:\nDisponível em: <https://www.institutoqualibest.com/wp-content/uploads/2019/06/Finan%C3%A7as-Pessoais-V5-Banking-Fintech-Insights.pdf>. Acesso em: 21 jan. 2021. Adaptado."
+            },
+            "enunciado": "Escolhendo-se ao acaso um dos entrevistados dessa pesquisa, qual é, aproximadamente, a probabilidade de esse cliente ter um relacionamento com banco digital e de ter apresentado como motivo para iniciar esse relacionamento a facilidade de poder resolver tudo pela internet?",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "5,7%"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "6,2%"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "6,4%"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "7,2%"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "7,8%"
+                }
+            ]
+        }
+    ]
+}

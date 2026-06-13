@@ -1,0 +1,175 @@
+{
+    "orgao": "Banco do Brasil",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Escriturário",
+    "materia": "Atualidades do Mercado Financeiro",
+    "tipo_materia": "basica",
+    "questoes": [
+        {
+            "codigo": "BB2021-AMF-021",
+            "numero": 21,
+            "assunto": "Fintechs",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Fintechs são empresas que",
+            "gabarito": "E",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "funcionam com o principal objetivo de compartilhar dados cadastrais entre diferentes instituições financeiras autorizadas pelo Banco Central do Brasil (BCB)."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "prestam serviços ao BCB, notadamente a preparação de Relatórios contendo dados e informações sobre as operações de crédito e de câmbio de todas as instituições financeiras."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "prestam serviços ao BCB, notadamente a criação de sistemas de informações on-line que permitem o compartilhamento de dados entre diversos órgãos reguladores, como o próprio BCB, a Comissão de Valores Mobiliários (CVM) e a Superintendência de Seguros Privados (Susep)."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "empregam tecnologias digitais de última geração e oferecem serviços financeiros à margem do sistema bancário tradicional, estando, portanto, livres da regulação do BCB."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "atuam por meio de plataformas on-line, lançando inovações no mercado financeiro, mediante uso intenso de tecnologias digitais com elevado potencial de criação de novos modelos de negócios."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-AMF-022",
+            "numero": 22,
+            "assunto": "Sistemas do Banco Central",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Nos últimos anos, o Banco Central do Brasil (BCB), visando a aprimorar a transparência e a segurança na interrelação entre as instituições financeiras e os clientes, tem procurado introduzir novos sistemas de informação por meio de tecnologias digitais. Um desses sistemas, administrados pelo BCB, permite aos cidadãos terem acesso pela internet, de forma rápida e segura, a Relatórios contendo informações sobre seus relacionamentos com as instituições financeiras, suas operações de crédito e operações de câmbio.\nTrata-se do sistema denominado",
+            "gabarito": "C",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "Pix"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "Blockchain"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "Registrato"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "Bitcoin"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Certificação Digital"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-AMF-023",
+            "numero": 23,
+            "assunto": "Pix",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Um dos objetivos almejados pelo Banco Central do Brasil, ao criar o Pix, é",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "reduzir a velocidade de circulação da moeda."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "inibir a concorrência bancária."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "aumentar os fluxos de pagamento com cartões eletrônicos."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "disseminar os fluxos de pagamento de forma eletrônica."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "aumentar o número de intermediários financeiros envolvidos nos fluxos de pagamentos."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-AMF-024",
+            "numero": 24,
+            "assunto": "Open Banking",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "O Conselho Monetário Nacional e o Banco Central do Brasil (BCB) vêm estabelecendo novas regras no Sistema Financeiro Nacional. Uma delas abre a possibilidade de clientes de produtos financeiros permitirem o compartilhamento de dados cadastrais entre diferentes instituições financeiras autorizadas pelo BCB, bem como a movimentação de suas contas bancárias a partir de diferentes plataformas, e não apenas pelo aplicativo ou site do banco.\nA essa nova modalidade denomina-se",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "Fintech"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "Open banking"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "Shadow banking"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "Internet banking"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "Pix"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-AMF-025",
+            "numero": 25,
+            "assunto": "Funções da Moeda",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": "O texto seguinte trata de uma das funções da moeda.\nAs economias – as “economias reais” – são sistemas de escambo vastos. O problema é que a história mostra que, sem o dinheiro, esses sistemas não acontecem. Até mesmo quando as economias “revertem para o escambo”, como parece ter ocorrido na Europa na Idade Média, elas não abandonam de fato o uso do dinheiro. Elas apenas deixam de usar o dinheiro vivo. Na Idade Média, por exemplo, todos continuaram calculando o valor de ferramentas e gado na antiga moeda romana, mesmo que ela já não circulasse mais.\nGraeber, D. Dívida: os Primeiros 5.000 Anos. São Paulo: Três Estrelas, 2016.",
+            "enunciado": "No trecho citado, o autor destaca que, na Idade Média, a antiga moeda romana continuou exercendo a função de",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "débito"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "crédito"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "meio de troca"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "unidade de conta"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "reserva de valor"
+                }
+            ]
+        }
+    ]
+}

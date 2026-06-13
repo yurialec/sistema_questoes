@@ -1,0 +1,175 @@
+{
+    "orgao": "Banco do Brasil",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Escriturário",
+    "materia": "Matemática",
+    "tipo_materia": "basica",
+    "questoes": [
+        {
+            "codigo": "BB2021-MAT-016",
+            "numero": 16,
+            "assunto": "Regra de Três e Tempo",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Um escriturário mantém um desempenho de preencher 30 relatórios por hora e faz uma pausa de 10 minutos às 13h. Durante a pausa, seu chefe pergunta a que horas receberá todos os relatórios preenchidos.\nSe falta apenas 1 relatório e meio, e o escriturário pretende manter seu desempenho, a partir de que horas o chefe pode contar com todos os relatórios preenchidos?",
+            "gabarito": "E",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "13h02min"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "13h03min"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "13h10min"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "13h12min"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "13h13min"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-MAT-017",
+            "numero": 17,
+            "assunto": "Porcentagem",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Durante um atendimento, o cliente de um banco relata ao gerente de atendimento sua disponibilidade para investir R$400.000,00. O gerente tem ao seu dispor 5 opções de investimento: renda fixa, CDB, fundo de ações, LCI e LCA. Ao cliente foi oferecida uma carteira diversificada de 20%, 10%, 30%, 15% e 25%, respectivamente.\nSendo assim, verifica-se que o valor sugerido para",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "renda fixa foi de R$80.000,00"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "CDB foi de R$60.000,00"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "fundo de ações foi de R$40.000,00"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "LCI foi de R$100.000,00"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "LCA foi de R$120.000,00"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-MAT-018",
+            "numero": 18,
+            "assunto": "Função Exponencial e Logaritmo",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Um fungo está se alastrando na parede, e a área contaminada pelo fungo varia no tempo de acordo com a função A: [0,∞) → ℝ, dada por A(t) = A0 . bt, em que b∈ ℝ é uma constante maior que 1; A0 é a área da parede contaminada no instante inicial; e A(t) é a área contaminada após t dias.\nDe acordo com esse modelo, depois de quantos dias a área contaminada estará triplicada?",
+            "gabarito": "C",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "b³"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "3b"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "logb 3"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "3 log b"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "1/3 log b"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-MAT-019",
+            "numero": 19,
+            "assunto": "Sequências e Padrões",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Um casal está muito apaixonado, mas devido à distância de suas casas e ao regime de trabalho dos dois, eles não conseguem se encontrar com a frequência de que gostariam. A moça só tem folga aos sábados, e o rapaz trabalha três dias seguidos, folgando no quarto dia.\nSe hoje é terça-feira e é dia de folga do rapaz, quantas folgas dele cairão no sábado nos próximos 365 dias?",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "4"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "8"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "12"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "13"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "15"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-MAT-020",
+            "numero": 20,
+            "assunto": "Trabalho Conjunto",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "André, Bianca e Carol precisam pintar um painel de 50m². Para pintar 1m², André gasta 12 minutos, Bianca gasta 20 minutos, e Carol, 15 minutos.\nSupondo-se que os três pintaram, juntos, o mesmo painel, sem fazer pausas e a velocidades constantes, quanto tempo eles levaram para a conclusão da tarefa?",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "3h 40min"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "4h 10min"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "5h 50min"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "6h"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "6h 20min"
+                }
+            ]
+        }
+    ]
+}

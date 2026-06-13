@@ -36,24 +36,9 @@ Route::resource('assuntos', AssuntoController::class);
 Route::resource('questoes', QuestaoController::class);
 Route::resource('alternativas', AlternativaController::class);
 
-Route::get(
-    '/dashboard',
-    [DashboardController::class, 'index']
-);
-
-Route::post(
-    '/dashboard/resetar',
-    [DashboardController::class, 'resetar']
-);
-
-Route::get(
-    '/questao/{id}/responder',
-    [ConcursoController::class, 'responder']
-);
-
-Route::post(
-    '/questao/verificar',
-    [ConcursoController::class, 'verificar']
-);
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
+Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
+Route::post('/questao/verificar', [ConcursoController::class, 'verificar']);
 
 require __DIR__ . '/auth.php';

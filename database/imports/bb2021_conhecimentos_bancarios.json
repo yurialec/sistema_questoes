@@ -1,0 +1,175 @@
+{
+    "orgao": "Banco do Brasil",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Escriturário",
+    "materia": "Conhecimentos Bancários",
+    "tipo_materia": "especifica",
+    "questoes": [
+        {
+            "codigo": "BB2021-CB-031",
+            "numero": 31,
+            "assunto": "Responsabilidade Socioambiental",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Sr. Z resolve empreender na área agrícola, estabelecendo sua sede no interior do Brasil onde seus estudos identificaram uma maior necessidade de empregos. Após realizar as contratações de praxe, inicia suas atividades, gerando um forte crescimento na região onde atua. Não desejando aumentar o número de empregados, diante dos custos fixos da mão de obra, resolve ampliar sua produção, negociando com pequenos empreendimentos locais.\nNecessitando de aporte financeiro, ele apresenta pedido de empréstimo ao Banco Y, que encaminha equipe de auditoria à sede do pretendente. Para surpresa de todos, a auditoria constata em vários pequenos empreendimentos, trabalho infantil não autorizado pela legislação e, por força disso, propõe que o empréstimo seja negado.\nNos termos da Política de Responsabilidade Socioambiental do Banco do Brasil, constatado idêntico ilícito por parte de fornecedor, ocorreria a",
+            "gabarito": "B",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "manutenção do vínculo contratual, por ser relação exterior."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "suspensão do vínculo até regularização dos atos."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "majoração dos juros do empréstimo, pelo risco aumentado."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "análise da relação temporal com o Banco e o valor dos investimentos."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "decisão de realizar o empréstimo, para bater as metas gerenciais."
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-CB-032",
+            "numero": 32,
+            "assunto": "Sigilo Bancário e Lei Complementar 105/2001",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "T é agente fiscal da União Federal, atuando em grupo especial que monitora devedores qualificados. Após divisão interna de trabalho, T fica com a responsabilidade de fiscalizar cinco contribuintes específicos, pois são habituais interessados em procedimentos administrativos, cujo valor é superior a milhões de reais. O trabalho iniciou com o mapeamento das instituições financeiras que mantêm relacionamento negocial com os cinco contribuintes. Ficou apurado que são relevantes os Bancos Z, Y e W, em expressivas movimentações, incluindo depósitos, saques e aplicações financeiras, além de remessas para o exterior. Os dados levantados, no entanto, não são específicos, mas apenas resultado de análise de estatísticas do Banco Central. Para ter acesso ao banco de dados de cada contribuinte, T deve realizar alguns outros atos.\nNos Termos da Lei Complementar nº 105/2001, os agentes fiscais tributários da União poderão examinar documentos, livros e registros de instituições financeiras, inclusive os referentes a contas de depósitos e aplicações financeiras,",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "havendo processo fiscal em curso."
+                },
+                {
+                    "letra": "B",
+                    "descricao": "autorizados pelo Banco Central."
+                },
+                {
+                    "letra": "C",
+                    "descricao": "após diligências locais."
+                },
+                {
+                    "letra": "D",
+                    "descricao": "mediante convênios com instituições financeiras privadas."
+                },
+                {
+                    "letra": "E",
+                    "descricao": "livremente"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-CB-033",
+            "numero": 33,
+            "assunto": "Política Monetária e SELIC",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "No Brasil, a fixação da taxa básica de juros da economia (a Selic) está sob a alçada do",
+            "gabarito": "A",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "Comitê de Política Monetária"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "Conselho Monetário Nacional"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "Ministério da Economia"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "Banco do Brasil"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "mercado financeiro"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-CB-034",
+            "numero": 34,
+            "assunto": "Segmentos de Atuação do Banco do Brasil",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "Se o planejamento estratégico do Banco do Brasil fixar, como meta prioritária, a expansão de suas operações no varejo bancário, o público-alvo serão as(os)",
+            "gabarito": "E",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "companhias de grande porte"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "governos nas esferas federal, estadual e municipal"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "exportadores"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "importadores"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "clientes individuais"
+                }
+            ]
+        },
+        {
+            "codigo": "BB2021-CB-035",
+            "numero": 35,
+            "assunto": "Prevenção à Lavagem de Dinheiro e Carta-Circular 4001/2020",
+            "dificuldade": null,
+            "imagem": null,
+            "tabela_html": null,
+            "texto_complementar": null,
+            "enunciado": "K pretende realizar atividades financeiras no Brasil, buscando maximizar os lucros dos seus inúmeros clientes sediados no exterior. A quase totalidade dos investidores atua nos denominados “paraísos fiscais”.\nDe acordo com as regras da Carta-Circular nº 4001/2020, do Banco Central do Brasil, essas operações devem ser monitoradas na seguinte categoria:",
+            "gabarito": "D",
+            "alternativas": [
+                {
+                    "letra": "A",
+                    "descricao": "custos de empresas"
+                },
+                {
+                    "letra": "B",
+                    "descricao": "operações de crédito"
+                },
+                {
+                    "letra": "C",
+                    "descricao": "contratos operacionais"
+                },
+                {
+                    "letra": "D",
+                    "descricao": "atividades internacionais"
+                },
+                {
+                    "letra": "E",
+                    "descricao": "investimentos mercadológicos"
+                }
+            ]
+        }
+    ]
+}
