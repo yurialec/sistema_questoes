@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/responder', [ConcursoController::class, 'responder'])->name('reponder');
+Route::get('/responder', [ConcursoController::class, 'responder'])->name('responder');
 
 Route::resource('orgaos', OrgaoController::class);
 Route::resource('bancas', BancaController::class);
