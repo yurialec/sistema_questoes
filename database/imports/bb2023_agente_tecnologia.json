@@ -1,0 +1,2742 @@
+[
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Língua Portuguesa",
+        "tipo_materia": "basica",
+        "questoes": [
+            {
+                "codigo": "BB2023-LP-001",
+                "numero": 1,
+                "assunto": "Interpretação de Texto",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O trecho do texto que resume o objetivo do “empreendedorismo social” é",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "“A meta é transformar uma realidade, promover o bem-estar da sociedade e agregar valor com cunho social”. (parágrafo 1)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "“os empreendimentos sociais analisam seu desempenho a partir do impacto social gerado por sua atuação”. (parágrafo 2)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "“ser inovadora; realizável; autossustentável; contar com a participação de diversos segmentos da sociedade”. (parágrafo 4)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "“Quem tem interesse de atuar nessa área precisa trabalhar em grupo e formar parcerias”. (parágrafo 5)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "“o profissional precisa ter flexibilidade e vontade de explorar, pois é possível que ele acabe exercendo um papel que não seja necessariamente na sua área de formação”. (parágrafo 6)",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-002",
+                "numero": 2,
+                "assunto": "Interpretação de Texto",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O texto explica que o empreendedorismo social se diferencia do conceito de negócio social porque o primeiro procura",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "criar profissionais especializados na sua área de atuação.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "excluir do processo a parcela mais carente da população.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "seguir a lógica tradicional do mercado de ações.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "ter como objetivo produzir retorno financeiro.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "transformar a sociedade por meio da inovação.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-003",
+                "numero": 3,
+                "assunto": "Sinônimos e Vocabulário",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No trecho “está relacionado ao ato de empreender ou inovar com o objetivo de alavancar causas sociais e ambientais” (parágrafo 1), a palavra destacada pode ser substituída, sem prejuízo do sentido do texto, por",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "comprovar",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "defender",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "impulsionar",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "modificar",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "subsidiar",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-004",
+                "numero": 4,
+                "assunto": "Conjunções",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No trecho “Ainda que não exista uma concepção única sobre o empreendedorismo social” (parágrafo 1), a expressão destacada pode ser substituída, sem prejuízo do sentido do texto, por",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "À medida que",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "Contanto que",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "De modo que",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Mesmo que",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Por causa de",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-005",
+                "numero": 5,
+                "assunto": "Sinônimos e Vocabulário",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No trecho “Ainda que não exista uma concepção única” (parágrafo 1), a palavra destacada pode ser substituída, sem prejuízo do sentido do texto, por",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "compreensão",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "conciliação",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "convivência",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "capacidade",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "semelhança",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-006",
+                "numero": 6,
+                "assunto": "Concordância Nominal",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A palavra destacada atende às exigências de concordância de acordo com a norma-padrão da língua portuguesa em:",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "A administração de empresas de tecnologia e o marketing profissional estão envolvidos na promoção de novos negócios na área econômica.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "A assistência social às pessoas carentes e os cuidados com o aparecimento de novas doenças são necessárias para manter a saúde da população.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "A iniciativa de implementar mudanças nas empresas e o sucesso ao alcançar êxito são comemoradas pelos funcionários.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "O financiamento de projetos e a assistência aos necessitados, desejadas pelos empreendedores sociais, precisam da atenção redobrada dos responsáveis.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "A vacinação de toda a população e a intensificação dos estudos sobre a pandemia devem ser implementados pelas autoridades.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-007",
+                "numero": 7,
+                "assunto": "Referência Anafórica",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No trecho “os empreendimentos sociais analisam seu desempenho” (parágrafo 2), a palavra destacada se refere a",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "problema",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "comunidade",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "daquele grupo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "retorno financeiro",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "empreendimentos sociais",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-008",
+                "numero": 8,
+                "assunto": "Crase",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "De acordo com a norma-padrão da língua portuguesa, o uso do acento grave indicativo da crase é obrigatório na palavra destacada em:",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "A descrição detalhada de um empreendimento a ser realizado é uma necessidade para a aprovação de sua realização.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "A divulgação do concurso levou muitas pessoas a se candidatarem a vaga mais concorrida na empresa.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "A tentativa de obter a isenção fiscal é buscada a todo custo pelos responsáveis da instituição.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "O sucesso de uma empresa deve ser atribuído a gestores competentes.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "O uso de recursos digitais levou os jovens estudiosos a uma nova forma de aprendizagem em diferentes áreas.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-009",
+                "numero": 9,
+                "assunto": "Pontuação",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O emprego da vírgula atende às exigências da norma-padrão da língua portuguesa em:",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "A execução de novas tarefas em um supermercado, envolve a disposição dos funcionários de aceitarem as mudanças propostas pelo RH.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "Ao consultar os fornecedores de produtos para suas lojas, os responsáveis por esse departamento devem ser cuidadosos.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "A escolha do funcionário para proferir uma palestra em nome da empresa, compete à administração da instituição.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "O profissional interessado em mudanças na sua área de atuação deve estudar, com antecedência as suas possibilidades de crescimento.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Para desenvolver projetos cabe ao gerente da organização, a iniciativa de implementar novas técnicas à disposição dos empreendedores.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LP-010",
+                "numero": 10,
+                "assunto": "Colocação Pronominal",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O pronome oblíquo destacado foi colocado na posição correta, segundo as exigências da norma-padrão da língua portuguesa, em:",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "A área da saúde não encontra-se atendida em regiões afastadas dos grandes centros urbanos nem em comunidades que vivem nas periferias das cidades.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "A preocupação com o meio ambiente tem sido um dos segmentos mais relevantes do empreendedorismo social, porque destina-se a transformar positivamente a sociedade.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "Governantes que têm como missão viabilizar o acesso universal à educação pública de qualidade sempre preocupam-se com ações de inovação e empreendedorismo.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Para uma iniciativa de empreendedorismo destinada à formação de educadores tornar-se produtiva, é preciso identificar as necessidades do público-alvo de cada comunidade.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Quando os profissionais que atuam na área de empreendedorismo social sentem-se desanimados, é preciso que eles avaliem todo o progresso que ajudaram a desenvolver.",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Língua Inglesa",
+        "tipo_materia": "basica",
+        "questoes": [
+            {
+                "codigo": "BB2023-LI-011",
+                "numero": 11,
+                "assunto": "Interpretação de Texto",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "The main purpose of the text is to",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "present a brief history of money.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "relate the history of money with wars.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "regret society’s attitude regarding money.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "deny the importance of money to humankind.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "describe the relevance of money in the world.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LI-012",
+                "numero": 12,
+                "assunto": "Referência Pronominal",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "In the fragment in the fourth paragraph of the text, “It was the Lydians, around 600 BC, who get credit for a critical step in this process: fashioning the first known coins, which were made of a gold and silver alloy” the words in bold refer respectively to:",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "BC – coins",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "600 BC – first",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "600 BC – coins",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Lydians – coins",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Lydians – known",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LI-013",
+                "numero": 13,
+                "assunto": "Interpretação de Texto",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "In the sixth paragraph of the text, the author mentions that paper money first circulated in",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "Italy",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "China",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "England",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Australia",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Germany",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LI-014",
+                "numero": 14,
+                "assunto": "Conectivos e Ideias",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "In the fragment in the seventh paragraph of the text “One of the problems, though, was that counterfeiters had great success with paper bills”, the word in bold is associated with the idea of",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "time",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "addition",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "condition",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "emphasis",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "opposition",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-LI-015",
+                "numero": 15,
+                "assunto": "Interpretação de Texto",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "In the tenth paragraph, the author of the text predicts that there are chances artificial intelligence will be able to",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "manage bank accounts.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "prevent money changes.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "eliminate exchange rates.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "control financial resources.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "avoid inflation and corruption.",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Matemática",
+        "tipo_materia": "basica",
+        "questoes": [
+            {
+                "codigo": "BB2023-MAT-016",
+                "numero": 16,
+                "assunto": "Lógica e Análise Combinatória",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um grande banco formará uma comissão que será comandada por três de suas funcionárias, Alice, Beatriz e Carla. Nessa comissão, uma delas será a presidente, outra será a gerente, e outra, a coordenadora. A distribuição desses cargos deverá, necessariamente, considerar as quatro seguintes restrições:\nI) Se Carla for a gerente, então Beatriz terá de ser a presidente;\nII) Se Alice for a presidente, então Carla terá de ser a gerente;\nIII) Se Beatriz não for a coordenadora, então Alice terá de ser a gerente;\nIV) Se Carla for a coordenadora, então Beatriz terá de ser a gerente.\nNessas circunstâncias, os respectivos cargos de Alice, Beatriz e Carla serão",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "gerente, coordenadora e presidente",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "gerente, presidente e coordenadora",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "coordenadora, presidente e gerente",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "presidente, gerente e coordenadora",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "presidente, coordenadora e gerente",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-MAT-017",
+                "numero": 17,
+                "assunto": "Função do 2º Grau / Otimização",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Uma fábrica vende mensalmente 200 malas a R$ 300,00 cada. O departamento de vendas trabalha com a hipótese de que cada aumento de R$ 10,00 no preço de cada mala implica a venda mensal de 20 malas a menos. Por exemplo, em um mês em que cada mala foi vendida por R$ 320,00, foram vendidas 160 malas. Suponha que a hipótese esteja correta e que, em um determinado mês, cada mala foi vendida por (300 + 10x) reais, sendo x o número inteiro de aumentos de R$ 10,00, tal que 0 < x < 10.\nNesse mês, com a venda dessas malas, o valor y, em reais, arrecadado, em função de x, é dado por",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "y = - 200x2 - 5800x + 63600",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "y = - 200x2 - 4000x + 63600",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "y = - 200x2 - 5800x + 60000",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "y = - 200x2 - 4800x + 60800",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "y = - 200x2 - 4000x + 60000",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-MAT-018",
+                "numero": 18,
+                "assunto": "Progressão Aritmética",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No primeiro dia de agosto, foram registradas 180 reclamações em um órgão de defesa do consumidor. No segundo dia, foram registradas 184 reclamações.\nSupondo-se que há reclamações todos os dias e que cada dia tenha 4 reclamações a mais do que o dia anterior, durante todos os 31 dias do mês de agosto, o total de reclamações registradas será igual a",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "7.108",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "7.440",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "7.860",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "8.184",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "8.880",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-MAT-019",
+                "numero": 19,
+                "assunto": "Sistema de Equações",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Em um pacote, há algumas cédulas de R$ 10,00, algumas de R$ 20,00, algumas de R$ 50,00 e nada mais. Ao todo, são 68 cédulas, que totalizam R$ 1.380,00. Sabe-se que, contando só as cédulas de R$ 50,00, obtém-se R$ 550,00, e contando só as cédulas de R$ 20,00, obtém-se R$ 520,00.\nNesse pacote, o número de cédulas de R$ 10,00 é igual a",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "26",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "31",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "37",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "39",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "42",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-MAT-020",
+                "numero": 20,
+                "assunto": "Raciocínio Lógico / Tempo",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Agora, são H horas e M minutos. Considerando-se apenas as 24 horas do dia de hoje, 3/7 do tempo que já se passou correspondem exatamente ao tempo que falta para a meia-noite.\nDessa forma, H + M é igual a",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "19",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "24",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "37",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "64",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "96",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Atualidades do Mercado Financeiro",
+        "tipo_materia": "basica",
+        "questoes": [
+            {
+                "codigo": "BB2023-AMF-021",
+                "numero": 21,
+                "assunto": "Bancos Digitais",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A principal característica dos bancos exclusivamente digitais é a",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "oferta de produtos e serviços por meio digital.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "oferta de serviços por meio de agências bancárias.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "oferta de todos os serviços operados pelos bancos múltiplos.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "ausência de operações com moeda estrangeira.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "cobrança de taxas similares às cobradas pelos bancos tradicionais.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-AMF-022",
+                "numero": 22,
+                "assunto": "Shadow Banks",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No Sistema Financeiro Nacional, identificam-se os bancos-sombra (shadow banks) como bancos que",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "possuem diversos tipos de carteiras em suas operações ativas.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "se especializam em transações financeiras como bancos estrangeiros.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "se concentram em transações financeiras no mercado local.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "realizam operações financeiras à margem do sistema de regulação e supervisão do Banco Central do Brasil.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "se originam a partir de indivíduos que se associam para prestar serviços financeiros a seus associados.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-AMF-023",
+                "numero": 23,
+                "assunto": "Funções da Moeda",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Ao longo das crises financeiras agudas, em que se observam elevada incerteza e temor em relação à solvência de empresas e bancos, a extrema preferência por liquidez tende a fazer com que os agentes econômicos aumentem as práticas de entesouramento.\nNesse contexto, a moeda assume, precipuamente, a função de",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "meio de financiamento dos investimentos",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "meio de troca",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "unidade de conta",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "escambo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "reserva de valor",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-AMF-024",
+                "numero": 24,
+                "assunto": "Marketplace",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A economia digital propiciou a criação de um modelo de negócios em que uma empresa gerencia uma plataforma digital por meio da qual diversas empresas, concorrentes ou não, ofertam e vendem produtos e serviços on-line num ambiente que se assemelha a um shopping virtual.\nA plataforma digital descrita acima é denominada",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "startup",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "marketplace",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "fintech",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "mobile banking",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "internet banking",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-AMF-025",
+                "numero": 25,
+                "assunto": "Blockchain",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No sistema financeiro contemporâneo, o uso de tecnologias blockchain é considerado revolucionário, porque",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "possibilita o armazenamento e compartilhamento de dados de forma distribuída, criptografada e sem a intermediação de terceiros.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "envolve múltiplos intermediários financeiros, mas mantém a centralização das informações em apenas um deles.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "permite a quebra do sigilo inerente às transações financeiras.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "elimina as práticas ilegais em curso nas transações financeiras, por meio do uso de linguagem criptografada.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "privilegia a linguagem analógica, em detrimento da digital.",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Probabilidade e Estatística",
+        "tipo_materia": "especifica",
+        "questoes": [
+            {
+                "codigo": "BB2023-PE-026",
+                "numero": 26,
+                "assunto": "Distribuição Normal",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A distribuição das alturas dos atletas de vôlei de uma determinada seleção é normal. Sabe-se que 5% dos atletas têm altura superior a 200 cm, e 2,5% têm altura inferior a 192,8 cm.\nO desvio padrão, em centímetros, dessa distribuição é de, aproximadamente,\nDado: Considere que: a variável aleatória Z tem distribuição normal padrão (Z ~ N(0;1)); Prob (Z > 1,64) = 5%; e Prob (Z > 1,96) = 2,5%.",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "2",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "4",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "8",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "16",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "64",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-PE-027",
+                "numero": 27,
+                "assunto": "Distribuição Amostral",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Uma população é formada por quatro números, quais sejam, 2, 5, 10, 15, de modo que a média vale 8, e a variância, 24,5.\nConsiderando-se todas as possíveis amostras aleatórias simples, com reposição, de tamanho 2 dessa população, a variância da distribuição amostral das médias é de",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "3,50",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "4,94",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "12,25",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "24,50",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "32,67",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-PE-028",
+                "numero": 28,
+                "assunto": "Probabilidade / Derangements",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Após uma festa de casamento, a anfitriã percebeu que foram esquecidos quatro telefones celulares. Na manhã seguinte, enviou uma mensagem para o grupo de convidados pelo WhatsApp sobre o esquecimento, e apenas quatro pessoas não responderam, fazendo com que ela presumisse, corretamente, que estas quatro pessoas seriam os proprietários dos telefones. Para devolvê-los, a anfitriã preparou quatro envelopes, cada um contendo um dos endereços desses quatro proprietários. Ato contínuo, colocou aleatoriamente cada celular em um envelope e os despachou para uma entrega expressa.\nA probabilidade de que apenas um desses quatro convidados tenha recebido o seu próprio celular é de",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "3/4",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "2/3",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "1/2",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "3/8",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "1/3",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-PE-029",
+                "numero": 29,
+                "assunto": "Média Ponderada",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Considere que, em uma agência bancária, o tempo médio que um cliente aguardou para começar a ser atendido, na primeira semana de um determinado mês de 2022, foi de 8min 30s e, na semana seguinte, esse tempo médio passou para 5min 30s. Considere, ainda, que na primeira semana foram atendidos 2.700 clientes, e na segunda semana, 1.350 clientes.\nO tempo médio de espera para um cliente começar a ser atendido no caixa, considerando essas duas semanas, foi de, aproximadamente,",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "5min 50s",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "6min 30s",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "6min 50s",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "7min 30s",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "7min 50s",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-PE-030",
+                "numero": 30,
+                "assunto": "Teorema de Bayes",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Para melhorar a educação financeira de seus clientes quanto ao uso do crédito, um banco contratou uma empresa de análise de risco, que classifica os clientes quanto à propensão de usar o cheque especial, em dois tipos: A e B, sendo o tipo A propenso a usar o cheque especial, e o tipo B, a não usar o cheque especial. Para uma determinada agência, um estudo da empresa mostrou que a probabilidade de um cliente tipo A usar o cheque especial, em um intervalo de um ano, é de 80%. Já para o tipo B, a probabilidade de usar é de 10%, no mesmo intervalo de tempo. Considere que, nessa agência, 30% dos clientes são considerados do tipo A.\nNesse contexto, se um cliente entrou no cheque especial, a probabilidade de que seja do tipo A, é de, aproximadamente,",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "65%",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "70%",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "77%",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "82%",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "85%",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Conhecimentos Bancários",
+        "tipo_materia": "especifica",
+        "questoes": [
+            {
+                "codigo": "BB2023-CB-031",
+                "numero": 31,
+                "assunto": "Taxa de Juros Real",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Ao decidir pela aplicação em um ativo financeiro, os investidores levam em conta a chamada taxa de juros real ex-ante.\nSe eles considerarem a taxa de juros SELIC, o índice da taxa de juros real ex-ante para os próximos 12 meses é entendido como o índice da",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "SELIC nominal esperada para os próximos 12 meses, descontado o índice da variação cambial esperada para os próximos 12 meses.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "SELIC nominal esperada para os próximos 12 meses, descontado o índice da inflação esperada para os próximos 12 meses.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "SELIC nominal acumulada nos últimos 12 meses, descontado o índice de variação cambial acumulada nos últimos 12 meses.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "SELIC nominal acumulada nos últimos 12 meses, descontado o índice da inflação acumulada nos últimos 12 meses.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "SELIC nominal acumulada nos últimos 12 meses, descontado o índice de impostos acumulados nos últimos 12 meses, incidentes sobre os rendimentos do ativo.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-CB-032",
+                "numero": 32,
+                "assunto": "Mercado Cambial",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "As operações diárias de compra e venda de divisas estrangeiras (dólares, euros, libras esterlinas, dentre outras) são parte integrante do mercado",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "monetário",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "cambial",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "acionário",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "creditício",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "de trabalho",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-CB-033",
+                "numero": 33,
+                "assunto": "Paridade dos Juros",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A equação da paridade dos juros, a descoberto, estabelece que:\ntaxa de juros interna – taxa de juros externa = expectativas de depreciação da moeda nacional em relação ao Dólar americano + risco-país\nAdmita-se que a deterioração de indicadores macroeconômicos fundamentais no Brasil, como o déficit fiscal e o déficit em transações correntes do balanço de pagamentos, provoque o aumento do risco-país e a fuga de capitais estrangeiros do Brasil.\nSe a equação de paridade dos juros for aplicada ao caso brasileiro, supondo-se que todos os demais indicadores econômicos permaneçam constantes, para que os influxos de capitais estrangeiros no Brasil voltem a se estabilizar, será necessário",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "aumentar o risco-país.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "aumentar a taxa de juros externa.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "aumentar a taxa de juros interna.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "reduzir a taxa de juros interna.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "depreciar o Real brasileiro em relação ao Dólar americano.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-CB-034",
+                "numero": 34,
+                "assunto": "Política Fiscal / Déficit Primário",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Considere-se a execução, em determinado ano, do orçamento público consolidado do Brasil.\nSe, no final desse mesmo ano, o total das despesas primárias relativas a gastos em custeio e investimento – excluídas as despesas de juros incidentes sobre o estoque da dívida pública – tiver sido superior ao total das receitas de impostos arrecadados, o governo brasileiro terá fechado o ano com",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "déficit fiscal primário",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "déficit fiscal nominal",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "superávit fiscal primário",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "superávit fiscal nominal",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "orçamento equilibrado",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-CB-035",
+                "numero": 35,
+                "assunto": "Sigilo Bancário / LC 105",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um pesquisador na área de finanças públicas e privadas atua, também, como consultor de negócios. Em determinado momento, recebe proposta para assessorar empresário que deseja constituir sociedade para negociar informações constantes de dados de instituições financeiras. Tal atividade não é autorizada pela legislação.\nO pesquisador aduz que, consoante a Lei Complementar nº 105/2001, devem observar o sigilo em suas operações ativas e passivas e serviços prestados diversas instituições financeiras, dentre as quais administradoras de",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "imóveis urbanos",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "locação de móveis",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "empréstimo de automóveis",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "bens antigos de raridade comprovada",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "mercado de balcão organizado",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "orgao": "Banco do Brasil",
+        "banca": "Cesgranrio",
+        "ano": 2023,
+        "cargo": "Agente de Tecnologia",
+        "materia": "Tecnologia da Informação",
+        "tipo_materia": "especifica",
+        "questoes": [
+            {
+                "codigo": "BB2023-TI-036",
+                "numero": 36,
+                "assunto": "Python / Scikit-learn",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Analise o código a seguir, feito em Python com o Scikit-learn.\nimport numpy as np\nimport sklearn.linear_model as skl\nbase = np.array([1, 2, 3, 4, 5, 6])\nx = base.reshape((-1, 1))\ny = base*2+3\n# a fazer\nprint('a', model.coef_[0])\nprint('b', model.intercept_)\nA partir desse código, um programador quer obter os parâmetros a e b da equação y = ax + b, por meio de uma regressão linear, usando, para isso, os dados nos vetores x e y definidos no programa.\nQual linha de código deve substituir o comentário # a fazer de modo a realizar essa regressão linear?",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "model = skl.lr(x, y)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "model = skl.lr().fit(x, y)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "model = skl.LinearRegression(x, y)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "model = skl.LinearRegression([x, y])",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "model = skl.LinearRegression().fit(x, y)",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-037",
+                "numero": 37,
+                "assunto": "Swift / String Interpolation",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Em um programa em Swift, o programador deseja incluir o resultado de uma operação dentro de uma string.\nNesse contexto, considere o seguinte código:\nlet quantidade = 4\nlet valor = 10\nDado o código acima, o programador deseja uma string saida cujo valor seja\n\"valor total = 40\"\nPara isso, o programador deve utilizar o seguinte fragmento de código Swift:",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "let saida := \"valor total = \\(quantidade*valor)\"",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "let saida := \"valor total = \\{quantidade*valor}\"",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "let saida = \"valor total = %[quantidade*valor]\"",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "let saida = \"valor total = \\(quantidade*valor)\"",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "let saida = \"valor total = \\[quantidade*valor]\"",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-038",
+                "numero": 38,
+                "assunto": "Java / Interfaces",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um programador foi instruído pelo seu gerente a implementar, em Java, uma classe MemoriaCalculoVenda que implementasse a interface MemoriaCalculo, já criada pela organização e que representa as exigências da organização para classes que implementam memórias de cálculo.\nNesse cenário, com que fragmento de código o programador deve começar, de forma correta, a implementação da classe?",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "class MemoriaCalculoVenda extends MemoriaCalculo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "class MemoriaCalculoVenda implements MemoriaCalculo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "class MemoriaCalculoVenda imports MemoriaCalculo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "class MemoriaCalculoVenda inherits MemoriaCalculo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "class MemoriaCalculoVenda uses MemoriaCalculo",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-039",
+                "numero": 39,
+                "assunto": "Big Data / Hierarquia DIKW",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "No processo de aprendizagem de máquina, busca-se identificar padrões compreensíveis em bases de dados. Desse modo, supõe-se a existência de uma hierarquia de três níveis: a base, com os itens elementares, captados e armazenados por recursos de Tecnologia da Informação; o nível intermediário, no qual esses itens são processados, com significados e contextos bem definidos; e o nível mais alto, contendo os padrões ou os conjuntos cuja formulação pode envolver ou relacionar os níveis inferiores.\nOs três níveis dessa hierarquia, listados, respectivamente, da base para o nível mais alto, são:",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "conhecimento, informação e dado",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "dado, conhecimento e informação",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "dado, informação e conhecimento",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "informação, conhecimento e dado",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "informação, dado e conhecimento",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-040",
+                "numero": 40,
+                "assunto": "TypeScript / Map",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Analise com atenção o código a seguir, escrito em TypeScript 4.0.\nfunction segredo(a: number[]) {\n return a.map(x=>x*2);\n}\nconsole.log(segredo([1,2,3]));\nO que será exibido no console quando o código acima for executado?",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "\"Executed JavaScript Failed:\"",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "[2, 4, 6]",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "[6]",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "6",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "12",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-041",
+                "numero": 41,
+                "assunto": "NLP / Tokenização",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Uma organização decidiu monitorar a opinião do público sobre ela nas redes sociais. Para isso, processou as mensagens com referências ao seu nome, a fim de possibilitar o uso de uma técnica de processamento de linguagem natural conhecida como análise de sentimentos.\nApós transformar cada mensagem em uma string, um dos passos importantes nessa técnica é a tokenização, que consiste em",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "colocar todos os caracteres da mensagem em minúsculas.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "colocar todos os verbos da mensagem no infinitivo.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "dividir o texto da mensagem em palavras isoladas.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "eliminar todos os marcadores HTML ou XML da mensagem.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "substituir todos os caracteres acentuados da mensagem por suas versões sem acento.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-042",
+                "numero": 42,
+                "assunto": "Machine Learning / Não Supervisionado",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Sabendo que existe, na organização em que trabalha, uma base de dados formada por uma grande tabela que contém apenas o id do cliente e colunas do tipo booleano indicando se um cliente possuía ou já tinha possuído cada produto da organização, um funcionário de TI resolveu dividir os clientes em grupos apenas com base nessa informação, utilizando aprendizado de máquina.\nPara essa tarefa, o funcionário de TI deve utilizar o aprendizado de máquina",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "independente",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "não supervisionado",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "por recompensa",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "por reforço",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "supervisionado",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-043",
+                "numero": 43,
+                "assunto": "Big Data / 3 Vs",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Organizações modernas estão sujeitas a uma grande quantidade de dados, principalmente se tratam com grandes quantidades de clientes. Muitas das demandas de tecnologia de informação a que essas organizações estão submetidas passaram a ser organizadas e tratadas dentro do conceito de Big Data.\nAlém do grande volume de dados, o Big Data, em sua definição original, considera também a(s) seguinte(s) propriedade(s):",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "falta de qualidade, apenas",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "variedade, apenas",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "velocidade, apenas",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "variedade e velocidade",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "velocidade e falta de qualidade",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-044",
+                "numero": 44,
+                "assunto": "Big Data / Redução de Dados / PCA",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Ao fazer a preparação para analisar dados em um banco de dados típico de Big Data, um profissional de TI percebeu que o número de atributos, ou colunas, era muito maior do que poderia processar com a ferramenta de análise disponível, sendo necessário, portanto, utilizar uma técnica de redução de dados para prepará-los para análise.\nUma técnica indicada, nesse caso, é a",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "Amostragem Aleatória",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "Amostragem Estratificada",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "Análise de Componentes Principais",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Deduplicação",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Imputação",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-045",
+                "numero": 45,
+                "assunto": "Python / Pandas / Máscaras",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Ao programar em Python com Pandas, é possível usar máscaras para selecionar linhas específicas, de acordo com um padrão.\nNesse cenário, analise o seguinte código:\nimport pandas as pd\ndata = {'x':[1,2,3], 'y':[3, 7, 11], 'z': [False, True, False]}\ndf = pd.DataFrame(data)\nm = df['z'] == False\nef = df[m]\n# a fazer\nprint(ff)\nAo executar esse código, deseja-se obter a seguinte saída:\n x y\n0 1 3\n2 3 11\nO fragmento de código que deve substituir o comentário # a fazer para obter a saída desejada é",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "ff = ef['x','y']",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "ff = ef[] == 'x' or 'y'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "ff = ef[['x','y']]",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "ff = ef.cols('x','y')",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "ff = ef.cols(['x','y'])",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-046",
+                "numero": 46,
+                "assunto": "Android / Activity",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um programador recebeu a incumbência de desenvolver uma aplicação móvel segundo a API 30 do Android, correspondente ao Android 11. Seguindo as melhores práticas, cada tela dessa aplicação, incluindo sua funcionalidade, foi construída como um módulo único e autônomo, totalmente independente de outros módulos similares.\nEsse módulo único e autônomo é conhecido como",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "activity",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "content provider",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "fragment",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "intent",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "manifest",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-047",
+                "numero": 47,
+                "assunto": "React Native / Hooks",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O React Native 0.59 introduziu o conceito de Hooks. Entre os Hooks, tem-se o usestate, que permite",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "calcular o estado de um CEP ou ZIP de acordo com o Locale.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "chamar estados específicos do engine React para alterar seu comportamento.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "declarar uma classe que segue o padrão de design state.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "criar uma enumeration que representa estados.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "manter um estado local em uma função de um componente funcional.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-048",
+                "numero": 48,
+                "assunto": "Android / Java / TextView",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Durante o desenvolvimento de uma aplicação mobile em Java para Android, um programador detectou a necessidade de alterar o texto de um widget da classe TextView, chamado resultado, para \"Sucesso!\".\nPara realizar essa ação, esse programador deve usar o seguinte fragmento de código:",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "TextView resultado = \"Sucesso!\";",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "resultado := \"Sucesso!\";",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "resultado.setValue(\"Sucesso!\");",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "resultado.setText(\"Sucesso!\");",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "resultado = TextView.setValue(\"Sucesso!\");",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-049",
+                "numero": 49,
+                "assunto": "DevOps / Ansible / YAML",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Ansible é uma ferramenta configurável por playbooks, escritos em YAML. Um playbook é composto de",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "plays, que são sequências de modules que, por sua vez, chamam tasks.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "plays, que são sequências de tasks que, por sua vez, chamam modules.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "tasks, que são sequências de modules que, por sua vez, chamam plays.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "tasks, que são sequências de plays que, por sua vez, chamam modules.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "modules, que são sequências de tasks que, por sua vez, chamam play",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-050",
+                "numero": 50,
+                "assunto": "Kotlin / Interoperabilidade com Java",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Kotlin é uma linguagem de programação usada no desenvolvimento Android. Entre suas características, está um grau de compatibilidade com Java, que permite",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "chamar funções feitas em Java, apenas, mas não permite que suas funções Kotlin sejam chamadas por Java.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "ler dados que foram salvos por apps Java, apenas.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "ler e escrever dados que podem ser lidos e escritos por apps Java, apenas.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "ter suas funções chamadas por Java, apenas, mas não consegue chamar funções feitas em Java.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "construir apps com código parcialmente em Java e parcialmente em Kotlin, sem restrições.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-051",
+                "numero": 51,
+                "assunto": "Python / NumPy / Arrays",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A seguir, é apresentado um fragmento de código em Python.\nimport numpy as np\nb = np.array([[1,2,3,5]])\nc = b.transpose()\nprint(b.dot(c),sum(b),sum(c))\nO fragmento de código acima provoca a seguinte saída:",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "39 [11] [11]",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "39 [1 2 3 5] 11",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "[39] [1 2 3 5] 11",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "[[39]] [11] [11]",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "[[39]] [1 2 3 5] [11]",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-052",
+                "numero": 52,
+                "assunto": "NoSQL / Schema Flexibility",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Considere uma empresa que possui dados de clientes, todos bem definidos e estruturados (ex: CPF, nome, e-mail, endereço), armazenados em um banco de dados relacional. Uma oportunidade surge para a empresa enriquecer esse banco de dados com dados de outra natureza, porém não muito bem definidos e pouco estruturados.\nUma solução pode ser adotar um banco de dados NoSQL, de tal forma que:",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "a ausência de um esquema de dados bem definido para os dados necessários de um cliente possa ser corretamente modelada e implementada em um gerenciador de banco de dados adequado.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "a linguagem SQL utilizada para acesso aos dados dos clientes possa ser substituída por outra linguagem de acesso a dados organizados em tabelas segundo o modelo relacional, porém com maior eficiência.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "esse novo banco de dados relacional possa ser melhorado, com os dados não muito bem definidos, sem um esquema rígido.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "o gerenciador de banco de dados relacional utilizado possa ser atualizado para uma versão mais recente, que não utilize a linguagem SQL.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "os atributos que hoje representam chaves primárias e estrangeiras sejam mais bem controlados.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-053",
+                "numero": 53,
+                "assunto": "SQL / JOIN / NOT IN",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Uma empresa de investimentos financeiros busca identificar novas oportunidades de negócio para pessoas jurídicas, em especial dentre aquelas que têm como característica a adoção de governança ambiental, social e corporativa (conhecida como ESG, uma sigla em inglês).\nConsidere que existe um banco de dados nessa empresa com as seguintes tabelas (todas as chaves primárias são numéricas):\nEmpresa (CNPJ, razaoSocial, endereco)\nCaracteristica (cod, sigla, nome)\nTem (CNPJ, cod)\nQue comando SELECT do SQL retorna apenas o CNPJ e a razão social das empresas que não têm \"ESG\" como característica?",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "SELECT *\nFROM Empresa\nWHERE Caracteristica.Sigla <> 'ESG'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "SELECT E.CNPJ, E.razaoSocial\nFROM Empresa E\nJOIN Tem T ON (E.CNPJ = T.CNPJ)\nWHERE Tem.cod = 'ESG'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "SELECT E.CNPJ, E.razaoSocial\nFROM Empresa E\nJOIN Tem T ON (E.CNPJ = T.CNPJ)\nJOIN Caracteristica C ON (C.cod = T.cod)\nWHERE C.nome <> 'ESG'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "SELECT E.CNPJ, E.razaoSocial\nFROM Empresa E\nWHERE E.CNPJ NOT IN (\n SELECT T.CNPJ\n FROM Tem T\n JOIN Caracteristica C ON (T.cod = C.cod)\n WHERE C.sigla = 'ESG'\n)",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "SELECT Empresa.*\nFROM Empresa, Tem\nWHERE Empresa.CNPJ = Tem.cod\nAND Tem.cod <> 'ESG'",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-054",
+                "numero": 54,
+                "assunto": "Banco de Dados / Índices",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um banco de dados (BD) persiste dados de forma organizada e controlada. Em adição, um BD deve prover recursos para permitir que consultas que necessitem de velocidade (baixo tempo de resposta) no acesso aos dados possam ter um bom desempenho.\nUm dos recursos que um profissional de tecnologia da informação tem à disposição para configurar um BD, de modo a melhorar o desempenho de consultas selecionadas, é a criação de",
+                "gabarito": "C",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "regras de integridade",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "visões não materializadas",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "índices",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "sequências",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "gatilhos",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-055",
+                "numero": 55,
+                "assunto": "SQL / JOIN / COUNT",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": "<table><thead><tr><th>nome</th><th>menorIdade</th><th>maiorIdade</th></tr></thead><tbody><tr><td>Jovens</td><td>- não informada -</td><td>19</td></tr><tr><td>Adultos</td><td>20</td><td>59</td></tr><tr><td>Idosos</td><td>60</td><td>- não informada -</td></tr></tbody></table>",
+                "texto_complementar": null,
+                "enunciado": "O banco de dados de uma empresa que comercializa seguros pessoais possui as seguintes tabelas:\nPessoa (email, nome, unidadeFederativaNascimento, faixaEtaria)\nUF (sigla, nome)\nFaixa (nome, menorIdade, maiorIdade)\nA coluna \"unidadeFederativaNascimento\" da tabela Pessoa é uma chave estrangeira que referencia a coluna \"sigla\" da tabela UF; a coluna \"faixaEtaria\" da tabela Pessoa é uma chave estrangeira que aponta para a coluna \"nome\" da tabela Faixa.\nA tabela Faixa possui os seguintes dados:\nConsidere o seguinte comando:\nSELECT COUNT(*)\nFROM Pessoa P, Faixa F\nWHERE P.faixaEtaria = F.nome\nAND P.unidadeFederativaNascimento = 'RJ'\nAND F.maiorIdade <= 19\nEsse comando SQL",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "apresenta quantas são as pessoas que estão na tabela Pessoa, que são jovens e que nasceram no estado do Rio de Janeiro.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "apresenta o nome e o email de jovens nascidos no Rio de Janeiro.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "agrupa pessoas por faixa etária e mostra quantos são os grupos com pessoas nascidas no Rio de Janeiro.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "realiza uma operação equivalente à união de dois outros comandos SQL.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "agrupa pessoas por UF e mostra quantos são os grupos com jovens.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-056",
+                "numero": 56,
+                "assunto": "SQL / Produto Cartesiano",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O banco de dados de uma empresa de investimentos financeiros possui as seguintes tabelas:\nEmpresa (CNPJ, razaoSocial, endereco)\nUF (sigla, nome)\nO que o comando SQL \"SELECT CNPJ, sigla FROM Empresa, UF\" recupera desse banco de dados?",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "A sigla da UF das sedes das empresas cadastradas.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "Alguns pares de CNPJ e sigla, onde o nome da UF é igual à razão social da empresa.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "O CNPJ das empresas cadastradas cuja sigla de UF esteja na tabela UF.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Pares de CNPJ e sigla de todas as empresas cadastradas com as UFs de suas respectivas sedes.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Todos os pares de CNPJ e sigla possíveis, de todas as empresas e de todas as UFs cadastradas.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-057",
+                "numero": 57,
+                "assunto": "SGBD / Funcionalidades",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um Sistema Gerenciador de Banco de Dados (SGBD) é um software bastante utilizado em empresas que precisam armazenar, tratar e utilizar dados em geral. O SGBD é especializado em realizar atividades relacionadas aos dados.\nUma das várias funcionalidades que um SGBD pode executar é",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "alertar os administradores da infraestrutura de TI de uma empresa quando há vírus circulando na rede.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "controlar que usuários podem ter acesso a que dados.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "estimular os gestores de uma empresa a compartilhar dados em benefício de todos.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "garantir a sequência de execução de programas, em especial quando há dependências de dados entre eles.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "identificar que dados importantes ao processo decisório de uma empresa estão ausentes e deveriam ser coletados.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-058",
+                "numero": 58,
+                "assunto": "SQL / JOIN / WHERE",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A CNAE (Classificação Nacional de Atividades Econômicas), de responsabilidade do IBGE, possui códigos que são utilizados para caracterizar as atividades econômicas das empresas no Brasil. Por exemplo: empresas da área de construção de edifícios utilizam o CNAE de código 4120-4/00 para caracterizar a sua atividade econômica principal. Considere que existe um banco de dados em uma empresa, que concede empréstimos a outras empresas, com as seguintes tabelas:\nEmpresa (CNPJ, razaoSocial, endereco, atividade)\nCNAE (codigo, descricao)\nA coluna \"atividade\" da tabela Empresa é uma chave estrangeira que referencia a coluna \"codigo\" da tabela CNAE.\nQue comando SELECT do SQL retorna apenas o CNPJ e a razão social das empresas cuja atividade econômica principal é a construção de edifícios (código 4120-4/00)?",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "SELECT *\nFROM Empresa E, CNAE C\nWHERE E.atividade = C.codigo",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "SELECT *\nFROM Empresa\nWHERE atividade = 'construção de edifícios'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "SELECT CNPJ, razaoSocial\nFROM CNAE\nWHERE codigo = '4120-4/00'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "SELECT CNPJ, razaoSocial\nFROM Empresa E, CNAE C\nWHERE E.atividade = C.codigo\nAND C.codigo = 'construção de edifícios'",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "SELECT CNPJ, razaoSocial\nFROM Empresa\nWHERE atividade = '4120-4/00'",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-059",
+                "numero": 59,
+                "assunto": "NoSQL / Grafos",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Considere um cenário no qual uma empresa de investimentos financeiros tenha realizado uma campanha para que seus colaboradores indicassem outras pessoas que pudessem vir a estar interessadas em seus produtos e serviços. Esses colaboradores também foram estimulados a informar a sua ligação com as pessoas indicadas (ex: amigo, irmão, primo) e as eventuais ligações entre as pessoas indicadas. Estes relacionamentos são importantes para a definição da próxima campanha dessa empresa.\nO banco de dados NoSQL mais indicado para representar esses dados é o que utiliza o modelo",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "chave/valor",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "orientado a colunas",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "orientado a documentos",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "orientado a grafos",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "relacional",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-060",
+                "numero": 60,
+                "assunto": "TypeScript / Tipagem Estática",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "O código abaixo está em linguagem TypeScrip, cuja tipagem é estática.\nlet fraseLegal = 'Bom dia!';\nfraseLegal = 9.5;\nAnalisando o código apresentado, tem-se que a TypeScrip",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "não realiza a inferência de tipo, por isso, o código apresentado vai rodar sem erro.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "realiza a inferência de tipo, por isso, o código apresentado vai rodar sem erro.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "realiza a inferência de tipo, por isso, aceita a atribuição do tipo number para um tipo string sem gerar erro de compilação do código apresentado.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "realiza a inferência de tipo, por isso, não aceita a atribuição do tipo number para um tipo string, o que vai gerar um erro de compilação do código apresentado.",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "não diferencia valores ponto flutuante (decimal) de valores inteiros, por isso, o código apresentado vai rodar sem erro.",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-061",
+                "numero": 61,
+                "assunto": "Python / NumPy / where",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Em uma base de dados (dataset) com avaliações sobre a qualidade de um determinado produto, o campo stars tem um valor de 1 a 5. Na fase de pré-processamento, decidiu-se criar o campo sentimento com valores bom ou ruim, e utilizando-se da biblioteca NumPy, escreveu-se o comando abaixo:\ndataset['sentimento'] = np.where(dataset['stars'] >= 4, 'bom', 'ruim')\nQuanto aos valores do campo sentimento, o referido comando atribuirá o valor",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "bom, para stars entre 2 e 5",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "bom, para stars 4 e 5",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "bom, para stars 3 e 4",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "ruim, para stars 4 e 5",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "ruim, para stars entre 1 e 4",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-062",
+                "numero": 62,
+                "assunto": "Big Data / Outliers",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um profissional de TI está trabalhando com um grande banco de dados (Big Data), realizando uma análise prévia da base de dados, com o objetivo de identificar anomalias ou resultados raros, de forma a tratá-los ou descartá-los para utilização.\nEsse profissional está realizando a seguinte tarefa:",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "Agrupamento dos dados",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "Análise de associações dos dados",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "Análise de segmentação dos dados",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Análise de outliers (pontos fora da curva) ou detecção de desvios",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Classificação dos dados e das anomalias",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-063",
+                "numero": 63,
+                "assunto": "Estruturas de Dados / Busca Binária",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Para entender como o algoritmo de busca binária se comporta, um estudante de computação resolveu inserir um comando System.out.printf() em um método chamado busca. Esse método, escrito em Java, realiza uma busca binária em um array de números inteiros, ordenados de forma ascendente. O objetivo do printf é exibir, no console, o valor de cada elemento do array visitado pelo algoritmo de busca binária.\nPara testar o código que criou, o estudante escreveu o método main a seguir.\npublic class Main {\npublic static void main(String[] args) {\nint lista[]={5,18,27,33,44,49,54,67,69,72,79,86,87,92};\n// o array lista possui 14 elementos\nbusca(78, lista);\n}\npublic static int busca(int val,int lista[]) {\n// código relativo ao algoritmo de busca binária\n}\n}\nO que será exibido no console quando o método main for executado?",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "54 79 69 72",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "49 72 86 79",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "54 86 69 72 79",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "67 86 72 79",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "54 79 67 69 72",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-064",
+                "numero": 64,
+                "assunto": "Java / Herança e Polimorfismo",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Sejam as seguintes classes Java, que ocupam arquivos separados:\npublic class CAx {\nprotected int a;\nprotected int b;\npublic CAx() {\na*=2;\nb*=3;\n}\n{\na=1;\nb=2;\n}\npublic int op1(int x) {\nreturn op2(x)+op3(x)+b;\n}\npublic int op2(int x) {\nreturn x+a;\n}\npublic static int op3(int x) {\nreturn x*2;\n}\n}\npublic class CBy extends CAx {\nprotected int a;\npublic CBy() {\na+=3;\nb+=3;\n}\npublic int op2(int x) {\nreturn x-a;\n}\npublic static int op3(int x) {\nreturn x*3;\n}\n}\npublic class Main {\npublic static void main(String[] args) {\nCAx o=new CBy();\nSystem.out.println(o.op1(2));\n}\n}\nO que será exibido no console quando o método main for executado?",
+                "gabarito": "B",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "10",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "12",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "14",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "18",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "20",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-065",
+                "numero": 65,
+                "assunto": "Java / Tratamento de Exceções",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Considere as seguintes classes Java, que ocupam arquivos separados:\npublic class Pa {\nString x,y,z;\nString r=\"vazio\";\npublic Pa(String s1,String s2, String s3) throws Exception {\nx=s1;\ny=s2;\nz=s3;\ntry {\nif(x==null || y==null || z==null)\nthrow new Exception();\n}\ncatch(Exception e) {\nz=\"a\";\nthrow e;\n}\nfinally {\nif(x==null)\nx=\"***\";\nif(y==null)\ny=\"***\";\nif(z==null)\nz=\"***\";\n}\n}\npublic String get() {\nreturn r;\n}\n}\npublic class Qb extends Pa {\npublic Qb(String s1,String s2, String s3) throws Exception {\nsuper(s1,s2,s3);\nr=x+y+z;\n}\n}\npublic class Main {\npublic static void main(String[] args) {\nPa o=null;\ntry {\no=new Qb(\"a\",\" \",\"c\");\n}\ncatch (Exception e) {\nSystem.out.print(\"***Erro***\");\n}\nfinally {\nif(o!=null)\nSystem.out.print(o.get());\n}\n}\n}\nO que será exibido no console quando o método main for executado?",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "ac",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "a***a",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "a***c",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "***Erro***",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "vazio",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-066",
+                "numero": 66,
+                "assunto": "Estruturas de Dados / Pilhas",
+                "dificuldade": null,
+                "imagem": "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/66.png",
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A Figura a seguir exibe o conteúdo de três pilhas: P1, P2 e P3.\nAdmita que um método Java, chamado exibePilha, receba essas três pilhas como parâmetros e execute os seguintes passos:\n1. Cria duas pilhas auxiliares, A1 e A2, inicialmente vazias;\n2. Remove um elemento de P1 e o insere em A1. Em seguida, remove um elemento de P2 e o insere em A1. Repete esses dois procedimentos até que P1 e P2 fiquem, ambas, vazias;\n3. Remove um elemento de P3 e o insere em A1. Repete esse procedimento até que P3 fique vazia;\n4. Remove um elemento de A1 e o insere em A2. Repete esse procedimento até que A1 fique vazia;\n5. Remove um elemento de A2 e o exibe no console. Repete esse procedimento 4 vezes.\nO que será exibido no console, quando o método exibePilha for executado, tendo P1, P2 e P3 sido passadas como parâmetros?",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "10 15 25 28",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "10 25 30 40",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "15 10 28 25",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "20 35 34 40",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "40 34 30 60",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-067",
+                "numero": 67,
+                "assunto": "Estruturas de Dados / Árvores Binárias",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um estudante de computação decidiu escrever um método Java para exibir, no console, em pré-ordem, os valores dos nós de uma árvore binária recebida como parâmetro. Ao executar esse método, os seguintes valores foram exibidos no console:\n80 84 55 76 72\nConsiderando os valores exibidos, qual árvore foi recebida como parâmetro?",
+                "gabarito": "A",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "Árvore A",
+                        "imagens": [
+                            "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/67_a.png"
+                        ]
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "Árvore B",
+                        "imagens": [
+                            "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/67_b.png"
+                        ]
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "Árvore C",
+                        "imagens": [
+                            "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/67_c.png"
+                        ]
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "Árvore D",
+                        "imagens": [
+                            "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/67_d.png"
+                        ]
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "Árvore E",
+                        "imagens": [
+                            "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/67_e.png"
+                        ]
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-068",
+                "numero": 68,
+                "assunto": "Banco de Dados / Modelo E-R",
+                "dificuldade": null,
+                "imagem": "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/68.png",
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "A Figura abaixo exibe um diagrama E-R que contém duas entidades (ET1 e XT2) e uma relação (S).\nAdmita a existência de um banco de dados relacional composto pelos conjuntos ET1 e XT2, oriundos do mapeamento das entidades ET1 e XT2. Parte do estado atual desse banco de dados é definido pelos seguintes conjuntos:\nET1={e1,e2,e4}\nXT2={t1,t2,t3}\nQual conjunto completa o banco de dados em questão, de modo a atender a todas as regras relativas à relação S?",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "S={ }",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "S={ (e1,t1), (e2,t2), (e2,t3) }",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "S={ (e1,t1), (e2,t2), (e4,t1) }",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "S={ (e1,t1), (e1,t2), (e4,t3), (e4,t2) }",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "S={ (e1,t3), (e2,t2), (e4,t1) }",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-069",
+                "numero": 69,
+                "assunto": "Banco de Dados / Mapeamento E-R para Relacional",
+                "dificuldade": null,
+                "imagem": "questoes/bb2023/agente_tecnologia/tecnologia_da_informacao/69.png",
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Considere o seguinte diagrama E-R:\nFoi criado um conjunto de tabelas relacionais, a partir do modelo E-R acima. Uma vez que as regras de transformações de entidades e relações para tabelas relacionais independem dos tipos de dados dos atributos, todos os atributos do modelo E-R acima foram tratados como itens de dados do tipo cadeia de caracteres (TEXT).\nAs tabelas resultantes são as seguintes:\nCREATE TABLE TX (\nX1 TEXT NOT NULL,\nX2 TEXT NOT NULL,\nX3 TEXT NOT NULL,\nPRIMARY KEY (X1));\nCREATE TABLE EY (\nY1 TEXT NOT NULL,\nY2 TEXT NOT NULL,\nPRIMARY KEY (Y1));\nQual transformação da relação Rel irá preservar a semântica do diagrama E-R apresentado?",
+                "gabarito": "D",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "CREATE TABLE REL (\nX1 TEXT NOT NULL,\nY1 TEXT NOT NULL,\nR1 TEXT NOT NULL,\nR2 TEXT NOT NULL,\nPRIMARY KEY (X1, Y1),\nFOREIGN KEY (X1) REFERENCES TX (X1),\nFOREIGN KEY (Y1) REFERENCES EY (Y1));",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "CREATE TABLE REL (\nX1 TEXT NOT NULL,\nY1 TEXT NOT NULL,\nR1 TEXT NOT NULL,\nR2 TEXT NOT NULL,\nPRIMARY KEY (X1, R1),\nFOREIGN KEY (X1) REFERENCES TX (X1),\nFOREIGN KEY (Y1) REFERENCES EY (Y1));",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "CREATE TABLE REL (\nX1 TEXT NOT NULL,\nY1 TEXT NOT NULL,\nR1 TEXT NOT NULL,\nR2 TEXT NOT NULL,\nPRIMARY KEY (Y1, R1),\nFOREIGN KEY (X1) REFERENCES TX (X1),\nFOREIGN KEY (Y1) REFERENCES EY (Y1));",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "CREATE TABLE REL (\nX1 TEXT NOT NULL,\nY1 TEXT NOT NULL,\nR1 TEXT NOT NULL,\nR2 TEXT NOT NULL,\nPRIMARY KEY (X1, Y1, R1),\nFOREIGN KEY (X1) REFERENCES TX (X1),\nFOREIGN KEY (Y1) REFERENCES EY (Y1));",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "CREATE TABLE REL (\nX1 TEXT NOT NULL,\nY1 TEXT NOT NULL,\nR1 TEXT NOT NULL,\nR2 TEXT NOT NULL,\nPRIMARY KEY (R1),\nFOREIGN KEY (X1) REFERENCES TX (X1),\nFOREIGN KEY (Y1) REFERENCES EY (Y1));",
+                        "imagens": null
+                    }
+                ]
+            },
+            {
+                "codigo": "BB2023-TI-070",
+                "numero": 70,
+                "assunto": "Java / Strings / Caracteres",
+                "dificuldade": null,
+                "imagem": null,
+                "tabela_html": null,
+                "texto_complementar": null,
+                "enunciado": "Um método Java, chamado converte, deve receber uma string (str) como parâmetro e retornar uma string igual a str, exceto pelas letras minúsculas, que devem ser convertidas em letras maiúsculas.\nExemplo:\nString recebida: \"Abc $12d\"\nString retornada: \"ABC $12D\"\nQual método realiza essa tarefa?",
+                "gabarito": "E",
+                "alternativas": [
+                    {
+                        "letra": "A",
+                        "descricao": "public static String converte(String str) {\nString r=\" \";\nint i=0;\ndo {\nchar x=str.charAt(i);\nif(Character.isLowerCase(x))\nr=r.concat(Character.toString(Character.toUpperCase(x)));\nelse\nr=r.concat(Character.toString(x));\ni++;\n} while(i < str.length());\nreturn r;\n}",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "B",
+                        "descricao": "public static String converte(String str) {\nString r=null;\nint i=0;\nwhile(i < str.length()) {\nchar x=str.charAt(i);\nif(Character.isLowerCase(x))\nr=r.concat(Character.toString(Character.toUpperCase(x)));\nelse\nr=r.concat(Character.toString(x));\ni++;\n}\nreturn r;\n}",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "C",
+                        "descricao": "public static String converte(String str) {\nString r=null;\nint i=0;\nwhile(i < str.length()) {\nif(str[i].isLowerCase(x))\nr=r.concat(Character.toString(Character.toUpperCase(str[i])));\nelse\nr=r.concat(Character.toString(str[i]));\ni++;\n}\nreturn r;\n}",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "D",
+                        "descricao": "public static String converte(String str) {\nString r=\" \";\nfor(char x : str)\nif(Character.isLowerCase(x))\nr=r.concat(Character.toString(Character.toUpperCase(x)));\nelse\nr=r.concat(Character.toString(x));\nreturn r;\n}",
+                        "imagens": null
+                    },
+                    {
+                        "letra": "E",
+                        "descricao": "public static String converte(String str) {\nString r=\" \";\nfor(int i=0; i < str.length(); i++)\nif(Character.isLowerCase(str.charAt(i)))\nr=r+Character.toUpperCase(str.charAt(i));\nelse\nr=r+str.charAt(i);\nreturn r;\n}",
+                        "imagens": null
+                    }
+                ]
+            }
+        ]
+    }
+]
