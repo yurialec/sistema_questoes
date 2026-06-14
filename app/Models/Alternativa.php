@@ -14,7 +14,8 @@ class Alternativa extends Model
     ];
 
     protected $casts = [
-        'correta' => 'boolean'
+        'correta' => 'boolean',
+        'imagens' => 'array'
     ];
 
     public function questao()
