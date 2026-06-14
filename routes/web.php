@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/responder', [ConcursoController::class, 'responder'])->name('reponder');
+
 Route::resource('orgaos', OrgaoController::class);
 Route::resource('bancas', BancaController::class);
 Route::resource('anos', AnoController::class);
@@ -38,7 +40,7 @@ Route::resource('alternativas', AlternativaController::class);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
-Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
+// Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
 Route::post('/questao/verificar', [ConcursoController::class, 'verificar']);
 
 require __DIR__ . '/auth.php';

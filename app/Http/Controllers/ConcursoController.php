@@ -10,15 +10,12 @@ use Illuminate\Http\Request;
 
 class ConcursoController extends Controller
 {
-    public function responder($id)
+    public function responder()
     {
-        $questao = Questao::with('alternativas')
-            ->findOrFail($id);
+        $questoes = Questao::with('alternativas')
+            ->paginate(10);
 
-        return view(
-            'questoes.responder',
-            compact('questao')
-        );
+        return view('questoes.responder', compact('questoes'));
     }
 
     public function verificar(Request $request)
