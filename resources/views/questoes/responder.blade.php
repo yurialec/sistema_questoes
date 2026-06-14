@@ -5,9 +5,9 @@
 @section('content')
 <div class="container mt-4">
     <h2 class="mb-4 text-primary fw-bold">Banco de Questões</h2>
-    <h3>
-        <a href="{{route('dashboard')}}" class="text-decoration-none">Dashboard</a>
-    </h3>
+    <h4>
+        <a href="{{route('dashboard')}}" class="text-decoration-none text-dark">Retornar a dashboard</a>
+    </h4>
     {{-- Feedback de Resposta --}}
     @if(session('resultado') !== null)
         <div class="alert {{ session('resultado') ? 'alert-success' : 'alert-danger' }} alert-dismissible fade show mb-4" role="alert">
@@ -81,7 +81,7 @@
                     <fieldset>
                         <legend class="fs-6 text-muted mb-3">Alternativas:</legend>
                         
-                        @foreach($questao->alternativas as $alternativa)
+                        @foreach($questao->alternativas->shuffle() as $alternativa)
                             <div class="form-check mb-2 p-2 rounded hover-bg-light">
                                 <input class="form-check-input" 
                                        type="radio" 

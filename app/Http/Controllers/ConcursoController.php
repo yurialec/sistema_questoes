@@ -13,6 +13,7 @@ class ConcursoController extends Controller
     public function responder()
     {
         $questoes = Questao::with('alternativas')
+            ->inRandomOrder()
             ->paginate(10);
 
         return view('questoes.responder', compact('questoes'));
