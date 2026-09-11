@@ -1,0 +1,605 @@
+[
+  {
+    "orgao": "Caixa Econômica Federal",
+    "banca": "Cesgranrio",
+    "ano": 2024,
+    "cargo": "Técnico Bancário Novo",
+    "materia": "Língua Portuguesa",
+    "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-LP-001", "numero": 1, "assunto": "Interpretação de Texto", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um trecho do texto que enumera benefícios da redução do uso de combustíveis fósseis é:",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "“Você já se imaginou morando em uma cidade onde os setores público e privado promovem projetos com veículos elétricos para transporte público, redução de custos, de ruídos, de poluentes causadores do aquecimento global e de mudanças climáticas para que o transporte público funcione de verdade?” (parágrafo 1)", "imagens": null},
+          {"letra": "B", "descricao": "“Essa cidade existe e se chama Estocolmo, capital da Suécia, que ganhou o prêmio de Cidade Verde Europeia em 2010. Ela apresenta a maior percentagem de veículos não poluentes na Europa” (parágrafo 2)", "imagens": null},
+          {"letra": "C", "descricao": "“Paris liderou na COP21 as assinaturas de medidas para promover energia limpa e mobilidade urbana elétrica em conjunto com mil cidades do mundo.” (parágrafo 4)", "imagens": null},
+          {"letra": "D", "descricao": "“Paris, Londres, Milão e Oslo foram exemplos, ao criar as zonas de baixa emissão de poluentes produzidos pelos combustíveis fósseis.” (parágrafo 4)", "imagens": null},
+          {"letra": "E", "descricao": "“O cenário de avanço pelo mundo é muito promissor. O Brasil, de forma ainda tímida, começa a se inserir nesse cenário global.” (parágrafo 5)", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LP-002", "numero": 2, "assunto": "Progressão Temática", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Em sua progressão temática, depois de informar que algumas cidades e estados brasileiros estão acelerando o processo de desenvolvimento de veículos elétricos e sustentáveis, o texto desenvolve a ideia de que",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "a energia limpa é mais econômica, eficiente e competitiva que os combustíveis fósseis.", "imagens": null},
+          {"letra": "B", "descricao": "a maior cidade brasileira transformou parte de sua frota em veículos elétricos em novembro de 2019, com redução de custos operacionais em relação ao uso do diesel.", "imagens": null},
+          {"letra": "C", "descricao": "a mobilidade urbana se tornou a maior tendência mundial da indústria automotiva, com projetos de construção de veículos elétricos.", "imagens": null},
+          {"letra": "D", "descricao": "uma cidade europeia, que já tem 75% da rede de transportes públicos movida a energias renováveis, ganhou um prêmio ambiental em 2010.", "imagens": null},
+          {"letra": "E", "descricao": "várias cidades europeias estão tomando medidas para promover energia limpa e baixa emissão de poluentes produzidos pelos combustíveis fósseis.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LP-003", "numero": 3, "assunto": "Relações Semânticas", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O segundo parágrafo do texto desempenha, em relação ao primeiro parágrafo, a função de expressar uma",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "adição", "imagens": null}, {"letra": "B", "descricao": "condição", "imagens": null}, {"letra": "C", "descricao": "consequência", "imagens": null}, {"letra": "D", "descricao": "contraposição", "imagens": null}, {"letra": "E", "descricao": "exemplificação", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LP-004", "numero": 4, "assunto": "Pontuação", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A vírgula está empregada plenamente de acordo com as exigências da norma-padrão da língua portuguesa em:",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "A preservação do planeta deve ser considerada, uma das prioridades da humanidade, porque é um dos grandes desafios para a manutenção da vida na Terra.", "imagens": null},
+          {"letra": "B", "descricao": "A redução do uso de plástico, ao abolir as sacolas não recicláveis no comércio, representa não só uma economia no dia a dia mas também a proteção da natureza.", "imagens": null},
+          {"letra": "C", "descricao": "As impressões em papel devem ser evitadas, porque atualmente, a preservação das árvores é essencial à vida humana.", "imagens": null},
+          {"letra": "D", "descricao": "O grande aumento nos níveis de chuva em determinadas regiões, pode ser atribuído ao processo de aquecimento global, e às mudanças climáticas.", "imagens": null},
+          {"letra": "E", "descricao": "Os veículos movidos por energia limpa, representam um incrível progresso na busca por reduzir a poluição atmosférica, nas grandes cidades do mundo.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LP-005", "numero": 5, "assunto": "Crase", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O acento grave indicador de crase está empregado, de acordo com a norma-padrão da língua portuguesa, na palavra destacada em:",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "A bicicleta é a principal alternativa para à diminuição de poluentes que causam o aquecimento global.", "imagens": null},
+          {"letra": "B", "descricao": "A capacidade de deslocamento da população motiva-a à buscar o aprimoramento contínuo dos transportes e enfrentar a realidade diária.", "imagens": null},
+          {"letra": "C", "descricao": "A redução do uso de gasolina, agente poluidor da mais alta intensidade, pode ser conseguida com o incentivo à produção de carros elétricos.", "imagens": null},
+          {"letra": "D", "descricao": "As causas do aquecimento global podem ser minimizadas se houver a intervenção dos órgãos governamentais que garantam acessibilidade à pessoas vulneráveis.", "imagens": null},
+          {"letra": "E", "descricao": "O combate à mudanças climáticas requer grande investimento dos países para a renovação da frota de transporte público.", "imagens": null}
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal", "banca": "Cesgranrio", "ano": 2024, "cargo": "Técnico Bancário Novo",
+    "materia": "Língua Inglesa", "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-LI-006", "numero": 6, "assunto": "Interpretação de Texto", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Paragraphs 1 through 3 indicate that",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "New Mexican families are now less numerous, therefore food provision is cheaper.", "imagens": null},
+          {"letra": "B", "descricao": "the consumption of beef and vegetables has increased, along with their prices.", "imagens": null},
+          {"letra": "C", "descricao": "an avian flu outbreak is affecting the prices of milk and eggs nowadays.", "imagens": null},
+          {"letra": "D", "descricao": "some food items are now more expensive than they were before the pandemic.", "imagens": null},
+          {"letra": "E", "descricao": "popular snacks have had the smallest price increase in the last four years.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LI-007", "numero": 7, "assunto": "Ideias do Texto", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "In paragraph 4, the fragment “While it’s not likely there will be a major drop in grocery prices soon” conveys the idea that it is",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "improbable for grocery items to become significantly cheaper in the near future.", "imagens": null},
+          {"letra": "B", "descricao": "certain that grocery products will become much cheaper in the long term.", "imagens": null},
+          {"letra": "C", "descricao": "mandatory that grocery prices be drastically reduced immediately.", "imagens": null},
+          {"letra": "D", "descricao": "disadvantageous for grocery articles to become considerably cheaper eventually.", "imagens": null},
+          {"letra": "E", "descricao": "imperceptible that grocery prices should be substantially reduced.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LI-008", "numero": 8, "assunto": "Vocabulário", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "In paragraph 4, the section “there are at least 40 housing projects under construction” means that new residential units",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "have just been finished.", "imagens": null}, {"letra": "B", "descricao": "are currently being built.", "imagens": null}, {"letra": "C", "descricao": "might eventually be built.", "imagens": null}, {"letra": "D", "descricao": "couldn’t be finished.", "imagens": null}, {"letra": "E", "descricao": "are temporarily suspended.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LI-009", "numero": 9, "assunto": "Sinônimos", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "In the fragment of paragraph 4 “The average rent in Albuquerque is[...] about $400 higher than in January 2020”, the word “higher” can be replaced, with no change in meaning, by",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "cheaper", "imagens": null}, {"letra": "B", "descricao": "better", "imagens": null}, {"letra": "C", "descricao": "taller", "imagens": null}, {"letra": "D", "descricao": "more manageable", "imagens": null}, {"letra": "E", "descricao": "more expensive", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-LI-010", "numero": 10, "assunto": "Interpretação de Texto", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "The excerpt of paragraph 5 “wage growth rates have surpassed inflation rates since last February” informs that",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "inflation rates have enlarged people’s income.", "imagens": null},
+          {"letra": "B", "descricao": "inflation rates are lower now than last February.", "imagens": null},
+          {"letra": "C", "descricao": "salaries have increased beyond inflation.", "imagens": null},
+          {"letra": "D", "descricao": "salaries have reduced because of inflation.", "imagens": null},
+          {"letra": "E", "descricao": "salaries have been considerably affected by inflation.", "imagens": null}
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal", "banca": "Cesgranrio", "ano": 2024, "cargo": "Técnico Bancário Novo",
+    "materia": "Matemática Financeira", "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-MF-011", "numero": 11, "assunto": "Juros Simples e Compostos", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma empresa investiu R$ 300.000,00 em uma aplicação com prazo de 50 dias, a uma taxa de juro de 0,9% ao mês, no regime de juros simples. Considere mês comercial (30 dias) para essa operação, em todo o período. Em seguida, investiu todo o montante da operação anterior, em outra aplicação, a uma taxa de juro composto de 1,0% ao mês, durante dois meses, resgatando todo o montante dessa segunda aplicação. Considere que ambas as operações são livres de impostos.\nConsiderando-se o valor inicial da 1ª aplicação e o valor final da 2ª aplicação, o valor, em reais, que mais se aproxima do total de juros obtidos pela empresa é igual a",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "10.620,00", "imagens": null}, {"letra": "B", "descricao": "10.840,00", "imagens": null}, {"letra": "C", "descricao": "11.420,00", "imagens": null}, {"letra": "D", "descricao": "12.151,00", "imagens": null}, {"letra": "E", "descricao": "12.440,00", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-MF-012", "numero": 12, "assunto": "Juros Compostos", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Para compor o capital de giro de sua empresa, um empresário tomou um empréstimo de R$ 100.000,00, em janeiro de 2024, a uma taxa de juro composto de 4% ao mês. Em março de 2024, após exatos 2 meses, efetuou o primeiro pagamento da dívida, pagando metade do saldo devedor.\nEm abril não efetuou qualquer pagamento, mas pretende quitar toda a dívida em maio de 2024, após exatos 4 meses.\nConsiderando-se esse fluxo de capitais, o valor mais próximo, em reais, do saldo devedor desse empréstimo, em maio de 2024, é de",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "57.934,00", "imagens": null}, {"letra": "B", "descricao": "58.193,00", "imagens": null}, {"letra": "C", "descricao": "58.493,00", "imagens": null}, {"letra": "D", "descricao": "58.943,00", "imagens": null}, {"letra": "E", "descricao": "59.806,00", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-MF-013", "numero": 13, "assunto": "Juros Compostos", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma determinada quantia foi emprestada a um cliente em janeiro de 2024, a uma taxa de 20% ao mês, no regime de juros compostos. Em fevereiro de 2024, não houve pagamentos. Em março de 2024, exatamente dois meses após a data do empréstimo, o cliente pagou R$ 1.440,00.\nE um mês após, em abril de 2024, pagou R$ 1.728,00, quitando a dívida.\nO valor do empréstimo realizado em janeiro de 2024, em reais, foi igual a",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "1.800,00", "imagens": null}, {"letra": "B", "descricao": "1.900,00", "imagens": null}, {"letra": "C", "descricao": "2.000,00", "imagens": null}, {"letra": "D", "descricao": "2.100,00", "imagens": null}, {"letra": "E", "descricao": "2.200,00", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-MF-014", "numero": 14, "assunto": "Sistema de Amortização Constante (SAC)", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um cliente comprou um imóvel no valor de R$ 600.000,00.\nPara isso, pagou 20% desse valor de entrada, em dezembro de 2023, e financiou o restante em prestações mensais no Sistema de Amortização Constante (SAC), a uma taxa de 0,5% ao mês, em um prazo de 20 anos, com a primeira prestação para janeiro de 2024 e a última para dezembro de 2043. Considere que a prestação mensal será composta de juros, amortização e uma taxa fixa de R$ 100,00 mensais (no ano de 2024) referente ao seguro.\nConsidere também que todas as prestações desse financiamento sejam pagas dentro do prazo.\nA soma das 12 primeiras prestações (referentes ao período de janeiro de 2024 a dezembro de 2024) a serem pagas, em reais, por esse cliente nesse financiamento será igual a",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "53.080,00", "imagens": null}, {"letra": "B", "descricao": "53.340,00", "imagens": null}, {"letra": "C", "descricao": "53.760,00", "imagens": null}, {"letra": "D", "descricao": "53.900,00", "imagens": null}, {"letra": "E", "descricao": "53.960,00", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-MF-015", "numero": 15, "assunto": "Taxas Equivalentes", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Em um certo país, a lei exige que sejam exibidas a taxa mensal e a taxa anual equivalente, no regime de juros compostos, junto ao preço do produto que será financiado.\nConsiderando-se que um estabelecimento cobra uma taxa de juro mensal de 5% ao mês, essa taxa anual é, aproximadamente, de\nDado: 1,05^6 = 1,34",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "34%", "imagens": null}, {"letra": "B", "descricao": "48%", "imagens": null}, {"letra": "C", "descricao": "60%", "imagens": null}, {"letra": "D", "descricao": "80%", "imagens": null}, {"letra": "E", "descricao": "96%", "imagens": null}
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal", "banca": "Cesgranrio", "ano": 2024, "cargo": "Técnico Bancário Novo",
+    "materia": "Noções de Probabilidade e Estatística", "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-PE-016", "numero": 16, "assunto": "Medidas de Posição", "dificuldade": null, "imagem": null, "tabela_html": "<table><thead><tr><th>Produto</th><th>Valor da carteira (em bilhões de reais)</th></tr></thead><tbody><tr><td>Comercial</td><td>31,9</td></tr><tr><td>FIES</td><td>51,7</td></tr><tr><td>Habitação</td><td>523,8</td></tr><tr><td>Minha Casa Minha Vida (Faixa 1)</td><td>9,5</td></tr><tr><td>Rural</td><td>8,4</td></tr><tr><td>Saneamento e Infraestrutura</td><td>95,4</td></tr></tbody></table>",
+        "texto_complementar": null,
+        "enunciado": "A Carteira de Finanças Sustentáveis da Caixa Econômica Federal contém iniciativas por meio das quais a instituição visa contribuir para uma sociedade mais justa e sustentável. Na apresentação de resultados do terceiro trimestre de 2023, a Caixa Econômica Federal divulgou que o valor total dessa carteira era de R$ 720,7 bilhões, conforme descrito a seguir.\nA mediana dos valores da carteira dos produtos, em bilhões de reais, é, aproximadamente,",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "120", "imagens": null}, {"letra": "B", "descricao": "62", "imagens": null}, {"letra": "C", "descricao": "52", "imagens": null}, {"letra": "D", "descricao": "42", "imagens": null}, {"letra": "E", "descricao": "31", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-PE-017", "numero": 17, "assunto": "Média Aritmética", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A Caixa Econômica Federal exerce a gestão e a distribuição centralizada de diversos programas sociais, podendo inclusive desempenhar o papel de administradora do benefício, em alguns casos. Em 2023, esses programas sociais representaram quase R$ 283 bilhões em benefícios pagos à população, entre janeiro e setembro. O destaque foi para o Bolsa Família, responsável por aproximadamente R$ 118 bilhões, beneficiando cerca de 24 milhões de famílias no mesmo período. Considere que esses 24 milhões de famílias foram beneficiados pelo programa durante todo o período considerado, ignorando a saída de famílias beneficiadas ou a entrada de novas famílias ao rol de beneficiados.\nO valor médio dos benefícios, em reais, recebidos por família durante todo o período é, aproximadamente, de",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "5.000,00", "imagens": null}, {"letra": "B", "descricao": "7.000,00", "imagens": null}, {"letra": "C", "descricao": "10.000,00", "imagens": null}, {"letra": "D", "descricao": "11.000,00", "imagens": null}, {"letra": "E", "descricao": "12.000,00", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-PE-018", "numero": 18, "assunto": "Probabilidade", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma pesquisa da Associação Brasileira das Entidades dos Mercados Financeiro e de Capitais (Anbima) mostrou que a probabilidade de um brasileiro adulto investir o seu dinheiro é de apenas 36%. Para esses, o investimento mais popular é a poupança, investimento realizado por 1 a cada 4 investidores brasileiros.\nCom base nessa pesquisa e considerando-se uma população brasileira de 140 milhões de brasileiros adultos, quantos milhões de brasileiros adultos investem na poupança?",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "12,6", "imagens": null}, {"letra": "B", "descricao": "35,0", "imagens": null}, {"letra": "C", "descricao": "50,4", "imagens": null}, {"letra": "D", "descricao": "54,0", "imagens": null}, {"letra": "E", "descricao": "85,4", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-PE-019", "numero": 19, "assunto": "Probabilidade", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A Caixa Econômica Federal é um dos maiores financiadores de habitação no país. A cada dia, são feitas cerca de 200 mil simulações de financiamentos habitacionais e 2.000 contratos novos são assinados.\nA probabilidade de que um par aleatório de simulações independentes resulte em pelo menos um novo contrato assinado é",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "50,00%", "imagens": null}, {"letra": "B", "descricao": "2,00%", "imagens": null}, {"letra": "C", "descricao": "1,99%", "imagens": null}, {"letra": "D", "descricao": "1,98%", "imagens": null}, {"letra": "E", "descricao": "0,01%", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-PE-020", "numero": 20, "assunto": "Coeficiente de Variação", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O gerente de um banco possui apenas quatro contas sob sua gestão, uma com saldo de R$ 30 mil, duas com saldo de R$ 50 mil e uma com saldo de R$ 70 mil.\nO coeficiente de variação dos saldos das contas sob a responsabilidade desse gerente é, aproximadamente,\nDado: √2 = 1,414",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "14,14%", "imagens": null}, {"letra": "B", "descricao": "28,28%", "imagens": null}, {"letra": "C", "descricao": "44,44%", "imagens": null}, {"letra": "D", "descricao": "58,58%", "imagens": null}, {"letra": "E", "descricao": "64,64%", "imagens": null}
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal", "banca": "Cesgranrio", "ano": 2024, "cargo": "Técnico Bancário Novo",
+    "materia": "Comportamentos Éticos e Compliance", "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-CEC-021", "numero": 21, "assunto": "Código de Ética", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um cidadão obtém ingresso nos quadros da Caixa Econômica Federal (CEF), passando a integrar área de investimentos, onde, por força da sua função, é compelido a realizar várias reuniões diárias com autoridades públicas e pretendentes a parceiros de negócios.\nNos termos do Código de Ética, Conduta e Integridade da CEF, todas as reuniões com agentes públicos envolvendo pessoas externas à CEF deverão ser registradas em",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "apontamento", "imagens": null}, {"letra": "B", "descricao": "anotação", "imagens": null}, {"letra": "C", "descricao": "agenda", "imagens": null}, {"letra": "D", "descricao": "arquivo", "imagens": null}, {"letra": "E", "descricao": "ata", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CEC-022", "numero": 22, "assunto": "Responsabilidade Social e Ambiental", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma sociedade empresária apresentou projeto para a Caixa Econômica Federal com necessidade de expressivo aporte financeiro. Na análise realizada por técnicos da instituição, foram verificados, nessa sociedade empresária, problemas com trabalho degradante, segundo informações do órgão competente do Ministério do Trabalho.\nNos termos da Política de Responsabilidade Social, Ambiental e Climática da Caixa Econômica Federal, o financiamento pleiteado",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "terá deferimento, devido ao número de empregos que serão gerados pelo empreendimento.", "imagens": null},
+          {"letra": "B", "descricao": "ocorrerá de acordo com a estrutura econômica da região atingida.", "imagens": null},
+          {"letra": "C", "descricao": "será vedado, pela existência do problema trabalhista indicado.", "imagens": null},
+          {"letra": "D", "descricao": "entrará na fila de pretendentes por ordem de protocolo.", "imagens": null},
+          {"letra": "E", "descricao": "constará do planejamento da instituição para modelo.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CEC-023", "numero": 23, "assunto": "LGPD", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A Lei Geral de Proteção de Dados Pessoais (LGPD), Lei nº 13.709/2018, foi promulgada para proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural. A LGPD estabelece que o tratamento dos dados pessoais pode ser realizado por dois agentes de tratamento: o controlador e o operador.\nEssa lei também prevê o papel do encarregado, que é a pessoa indicada pelo controlador e pelo operador para atuar como canal de comunicação entre o controlador, os titulares dos dados e a",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "ANP", "imagens": null}, {"letra": "B", "descricao": "ANAC", "imagens": null}, {"letra": "C", "descricao": "ANEEL", "imagens": null}, {"letra": "D", "descricao": "ANPD", "imagens": null}, {"letra": "E", "descricao": "ANVISA", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CEC-024", "numero": 24, "assunto": "Princípios da Administração Pública", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Ao visualizar um amigo de infância na longa fila dos guichês de atendimento na agência bancária, um técnico bancário que realizava atendimentos por ordem de senhas pede que seu amigo ultrapasse os demais clientes para que seja desde logo atendido.\nDe acordo com os princípios constitucionais da Administração Pública, o comportamento do técnico bancário",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "viola o princípio da publicidade.", "imagens": null},
+          {"letra": "B", "descricao": "viola o princípio da moralidade.", "imagens": null},
+          {"letra": "C", "descricao": "viola o princípio da hierarquia.", "imagens": null},
+          {"letra": "D", "descricao": "está de acordo com o princípio da dignidade da pessoa humana.", "imagens": null},
+          {"letra": "E", "descricao": "está em conformidade com o princípio da eficiência.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CEC-025", "numero": 25, "assunto": "Lavagem de Dinheiro", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um Banco está estruturando seus procedimentos de monitoramento e seleção de operações que possam configurar indícios de ocorrência dos crimes de “lavagem” ou ocultação de bens, direitos e valores.\nDe acordo com a Carta Circular nº 4.001/2020, incluem-se nas situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento os seguintes exemplos:",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "concentração de depósitos ou outro instrumento de transferência de recurso eletrônico, excluídos os boletos de pagamento, de forma a dissimular o valor total da movimentação.", "imagens": null},
+          {"letra": "B", "descricao": "saques no período de quinze dias úteis em valores superiores aos limites estabelecidos, de forma a dissimular o valor total da operação e evitar comunicações de operações em espécie.", "imagens": null},
+          {"letra": "C", "descricao": "saques em espécie de conta-corrente ou conta-poupança que receba diversos depósitos por transferência eletrônica de uma única origem, em longo período de tempo.", "imagens": null},
+          {"letra": "D", "descricao": "depósitos ou aportes de baixos valores em espécie, de forma única, em caixas ou terminais de autoatendimento próximos, destinados sempre a uma única conta.", "imagens": null},
+          {"letra": "E", "descricao": "depósitos ou aportes em espécie em contas de clientes que exerçam atividade comercial relacionada com negociação de bens de luxo ou de alto valor, tais como obras de arte, imóveis, barcos, joias, automóveis ou aeronaves.", "imagens": null}
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal", "banca": "Cesgranrio", "ano": 2024, "cargo": "Técnico Bancário Novo",
+    "materia": "Tecnologia da Informação", "tipo_materia": "especifica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-TI-026", "numero": 26, "assunto": "Estruturas de Dados / Árvores Binárias", "dificuldade": null, "imagem": "questoes/caixa2024/tecnico_bancario_novo_ti/tecnologia_da_informacao/26.png", "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A Figura a seguir exibe uma árvore binária.\nSuponha que uma função percorra essa árvore em ordem simétrica e exiba os valores de seus nós no console.\nUm dos possíveis somatórios do 2º, do 3º e do 4º valores exibidos por essa função é",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "90", "imagens": null}, {"letra": "B", "descricao": "120", "imagens": null}, {"letra": "C", "descricao": "130", "imagens": null}, {"letra": "D", "descricao": "150", "imagens": null}, {"letra": "E", "descricao": "200", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-027", "numero": 27, "assunto": "Algoritmos de Ordenação", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Considere as seguintes características, encontradas em alguns algoritmos de ordenação:\nI - É estável, ou seja, não altera a ordem relativa dos elementos que possuem o mesmo valor de chave de ordenação.\nII - Percorre repetidamente a lista a ser ordenada, comparando o elemento corrente com o seguinte e, se necessário, trocando os seus valores.\nIII - Divide a lista a ser ordenada em duas partes: uma sublista ordenada de elementos, que é construída da esquerda para a direita (ordem crescente), à frente de uma sublista referente aos elementos não ordenados, sendo que, inicialmente, a primeira lista é vazia, enquanto a segunda contém todos os elementos a serem ordenados.\nEssas características se aplicam, respectivamente, aos seguintes métodos de ordenação:",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "por inserção, da bolha e por seleção", "imagens": null},
+          {"letra": "B", "descricao": "por inserção, por seleção e da bolha", "imagens": null},
+          {"letra": "C", "descricao": "por seleção, da bolha e por inserção", "imagens": null},
+          {"letra": "D", "descricao": "por seleção, por inserção e da bolha", "imagens": null},
+          {"letra": "E", "descricao": "da bolha, por seleção e por inserção", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-028", "numero": 28, "assunto": "Java / Orientação a Objetos", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Seja a seguinte classe Java, que ocupa o seu próprio arquivo:\npublic abstract class Klm{\n void lm01(){ }\n protected final void imprime(){ }\n protected abstract void lm02();\n}\nQual classe poderá ser inserida em um projeto, juntamente com a classe acima, sem produzir erros de compilação?",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "public class Cla extends Klm{ private void lm01(){ } public void lm02(){ } }", "imagens": null},
+          {"letra": "B", "descricao": "public abstract class Clb extends Klm{ public void imprime(String s){ } }", "imagens": null},
+          {"letra": "C", "descricao": "public abstract class Clc extends Klm{ void lm03(){ } public void imprime(){ } }", "imagens": null},
+          {"letra": "D", "descricao": "public class Cld extends Klm{ void fg01(){ } public void imprime(String s){ } }", "imagens": null},
+          {"letra": "E", "descricao": "public class Cle extends Klm{ void fg02(){ } public void imprime(){ } public void lm02(){ } }", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-029", "numero": 29, "assunto": "Estruturas de Dados / Pilha e Fila", "dificuldade": null, "imagem": "questoes/caixa2024/tecnico_bancario_novo_ti/tecnologia_da_informacao/29.png", "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A Figura a seguir exibe uma fila e uma pilha de números inteiros:\nO código Python a seguir implementa essas estruturas de dados por meio de listas.\npilha = [5, 8, 3, 8, 5]\npilAux = []\nfila = [4, 4]\nAdmita que o módulo pilha contém as funções push(pil, e) e pop(pil), que implementam as operações usuais sobre uma pilha, e o módulo fila contém as funções enqueue(fila, e) e dequeue(fila), que implementam as operações usuais sobre uma fila. Ambos os módulos serão importados por um programa Python. Após a definição das estruturas de dados, esse programa Python executa uma sequência de comandos, de modo que, ao término da execução, as variáveis pilha e fila referenciam listas iguais.\nQual é essa sequência de comandos?",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "push(pilAux,pop(pilha))\npush(pilAux,pop(pilha))\npop(pilha)\nenqueue(fila,pop(pilAux))\nenqueue(fila,pop(pilAux))", "imagens": null},
+          {"letra": "B", "descricao": "push(pilAux,pop(pilha))\nenqueue(fila,pop(pilha))\nenqueue(fila,pop(pilAux))\npush(pilha,dequeue(fila))", "imagens": null},
+          {"letra": "C", "descricao": "push(pilAux,pop(pilha))\nenqueue(fila,pop(pilha))\nenqueue(fila,pop(pilAux))\npop(pilha)\npush(pilha,dequeue(fila))", "imagens": null},
+          {"letra": "D", "descricao": "enqueue(fila,pop(pilha))\nenqueue(fila,pop(pilha))\npop(pilha)\npush(pilha,dequeue(fila))", "imagens": null},
+          {"letra": "E", "descricao": "enqueue(fila,pop(pilha))\nenqueue(fila,pop(pilha))\npush(pilha,dequeue(fila))", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-030", "numero": 30, "assunto": "Padrões de Projeto", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um desenvolvedor deseja usar a classe a seguir no projeto de que está participando:\npublic class Services{\n public int srv01(String host, int porta){ ... }\n public int srv02(String s1, int porta, int alt){ ... }\n public String srv03(int end, int porta){ ... }\n public String srv04(int end){ ... }\n}\nEntretanto, ele não deseja expor todas as funcionalidades disponibilizadas pela classe Services e, para tal, optou por encapsular esses serviços em uma classe chamada Connection, que receberá solicitações de métodos de outras classes e as repassará para um objeto da classe Services. A solução adotada para tal fim é a seguinte:\npackage pkge;\nclass Services{ ... }\npackage pkge;\npublic class Connection{\n Services s = new Services();\n public int conn1(String host){ return s.srv01(host, 1200); }\n public String conn2(String host){ return s.srv03(123456, 1200); }\n}\nQue padrão de projeto foi empregado nessa solução?",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "Chain of Responsibility", "imagens": null}, {"letra": "B", "descricao": "Composite", "imagens": null}, {"letra": "C", "descricao": "Strategy", "imagens": null}, {"letra": "D", "descricao": "Mediator", "imagens": null}, {"letra": "E", "descricao": "Adapter", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-031", "numero": 31, "assunto": "UML / Diagrama de Classes", "dificuldade": null, "imagem": "questoes/caixa2024/tecnico_bancario_novo_ti/tecnologia_da_informacao/31.png", "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Seja o diagrama de classes, exibido na Figura a seguir:\nQual conjunto de classes Java é compatível com o diagrama acima?",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "public class Grt{ private Vst[] vst; public void g1(){ } public void g2(){ } }\npublic class Vst{ private Grt grt; public void v1(){ } public void v2(){ } public void v3(){ } }", "imagens": null},
+          {"letra": "B", "descricao": "public class Grt{ private Vst[] vst; public void g1(){ } public void g2(){ } }\npublic class Vst{ private Grt[] grt; public void v1(){ } public void v2(){ } public void v3(){ } }", "imagens": null},
+          {"letra": "C", "descricao": "public class Grt{ public void g1(){ } public void g2(){ } }\npublic class Vst{ private Grt grt; public void v1(){ } public void v2(){ } public void v3(){ } }", "imagens": null},
+          {"letra": "D", "descricao": "public class Grt{ private Vst vst; public void g1(){ } public void g2(){ } }\npublic class Vst{ private Grt[] grt; public void v1(){ } public void v2(){ } public void v3(){ } }", "imagens": null},
+          {"letra": "E", "descricao": "public class Grt{ private Vst vst; public void g1(){ } public void g2(){ } }\npublic class Vst{ private Grt grt; public void v1(){ } public void v2(){ } public void v3(){ } }", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-032", "numero": 32, "assunto": "Modelagem de Dados", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O banco de dados do sistema acadêmico de uma universidade é composto pelas seguintes tabelas, cujas chaves primárias estão sublinhadas:\nALUNO(MATRICULA, NOME)\nCURSO(CODIGO, NOME, DATA_INICIO)\nTURMA(COD_DISCIPLINA, NUMERO)\nPROFESSOR(DEPARTAMENTO, NUMERO, NOME)\nDISCIPLINA(COD_DISCIPLINA, NOME, CARGA_HORARIA)\nPara fins de documentação, um programador resolveu criar um modelo E-R a partir do esquema desse banco de dados.\nNesse modelo E-R, a(s) entidade(s) fraca(s) é(são) APENAS:",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "Turma", "imagens": null}, {"letra": "B", "descricao": "Professor", "imagens": null}, {"letra": "C", "descricao": "Turma e Disciplina", "imagens": null}, {"letra": "D", "descricao": "Turma e Professor", "imagens": null}, {"letra": "E", "descricao": "Aluno e Disciplina", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-033", "numero": 33, "assunto": "Banco de Dados / Performance", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O setor de TI de um colégio de porte médio está trabalhando na modelagem física de um banco de dados para a biblioteca.\nNesse trabalho de modelagem, o setor de TI deve considerar que a(o)",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "utilização de visões não tem impacto na performance do banco de dados.", "imagens": null},
+          {"letra": "B", "descricao": "normalização excessiva pode levar a uma redução na redundância de dados e à otimização do desempenho do banco de dados.", "imagens": null},
+          {"letra": "C", "descricao": "indexação adequada pode acelerar as consultas relacionadas a empréstimo e devolução de livros.", "imagens": null},
+          {"letra": "D", "descricao": "uso de índices é desnecessário, pois eles não afetam significativamente o desempenho do banco de dados.", "imagens": null},
+          {"letra": "E", "descricao": "particionamento de tabelas é dispensável devido ao tamanho limitado dos dados de uma biblioteca de porte médio.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-034", "numero": 34, "assunto": "Banco de Dados / Triggers", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O comando SQL de criação de gatilhos, CREATE TRIGGER, possui algumas informações obrigatórias, dentre elas, a seguinte:",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "a hora na qual o gatilho precisa ser disparado.", "imagens": null},
+          {"letra": "B", "descricao": "a que tabela do banco de dados o gatilho estará vinculado.", "imagens": null},
+          {"letra": "C", "descricao": "o e-mail a ser notificado após a sua execução.", "imagens": null},
+          {"letra": "D", "descricao": "o usuário para o qual o gatilho será disparado automaticamente.", "imagens": null},
+          {"letra": "E", "descricao": "o disparo do gatilho está vinculado à execução de um comando SELECT.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-035", "numero": 35, "assunto": "ITIL", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O Information Technology Infrastructure Library (ITIL) é um conjunto de práticas recomendadas para a gestão de serviços de Tecnologia da Informação (TI). Esse modelo define um conjunto de processos, funções e papéis que deve ser adotado pelas organizações para garantir que os serviços de TI atendam às necessidades de negócio e dos usuários finais.\nSegundo o ITIL v4, o processo de gerenciamento de problemas tem como parte do seu escopo a(o)",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "avaliação de riscos de indisponibilidade de serviços de TI como decorrência de mudanças programadas.", "imagens": null},
+          {"letra": "B", "descricao": "controle das condições ambientais, como detecção de fumaça e fogo em locais que abrigam equipamentos de TI.", "imagens": null},
+          {"letra": "C", "descricao": "diagnóstico da causa raiz de incidentes e a determinação de soluções.", "imagens": null},
+          {"letra": "D", "descricao": "gerenciamento da confidencialidade, da disponibilidade e da integridade dos dados da organização.", "imagens": null},
+          {"letra": "E", "descricao": "monitoramento de eventos que possam causar indisponibilidade de um serviço de TI.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-036", "numero": 36, "assunto": "COBIT", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Dentre os objetivos de governança e gestão no framework do Cobit 2019, há os que incorporam a atividade de integração da gestão do risco organizacional relacionado à Tecnologia da Informação (TI) com a gestão corporativa de riscos.\nQuais objetivos são responsáveis por essa atividade?",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "Alinhar, Planejar e Organizar (APO - Align, Plan and Organize)", "imagens": null},
+          {"letra": "B", "descricao": "Avaliar, Dirigir e Monitorar (EDM - Evaluate, Direct and Monitor)", "imagens": null},
+          {"letra": "C", "descricao": "Construir, Adquirir e Implementar (BAI - Build, Acquire and Implement)", "imagens": null},
+          {"letra": "D", "descricao": "Entregar, Prestar Serviços e Dar Suporte (DSS - Deliver, Service and Support)", "imagens": null},
+          {"letra": "E", "descricao": "Monitorar, Avaliar e Analisar (MEA - Monitor, Evaluate and Assess)", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-037", "numero": 37, "assunto": "Scrum", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Ao final da primeira Sprint de um projeto, o time realizou uma reunião, prevista no Scrum, na qual todos os membros do time de desenvolvimento declararam que estavam satisfeitos por usar teste de unidade e que gostariam que o desenvolvimento fosse dirigido por testes, usando a técnica conhecida como TDD, para melhorar o trabalho.\nA atividade especificamente designada no Scrum para discutir tópicos como esses é a reunião de",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "Alinhamento Técnico", "imagens": null}, {"letra": "B", "descricao": "Inspeção", "imagens": null}, {"letra": "C", "descricao": "Planejamento", "imagens": null}, {"letra": "D", "descricao": "Retrospectiva", "imagens": null}, {"letra": "E", "descricao": "Revisão", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-038", "numero": 38, "assunto": "C#", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um programador utiliza C# para implementar uma função de verificação de saldo em um sistema bancário. Quando o saldo da conta é insuficiente para uma retirada, essa função, denominada aviso, deve exibir uma mensagem indicando essa situação.\nQue trecho de código mostra como essa decisão pode ser escrita em C#?",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "if saldo < retirada: aviso(\"Saldo insuficiente.\")", "imagens": null},
+          {"letra": "B", "descricao": "if(saldo < retirada){ aviso(\"Saldo insuficiente.\"); }", "imagens": null},
+          {"letra": "C", "descricao": "if($saldo < $retirada){ aviso<<\"Saldo insuficiente.\"; }", "imagens": null},
+          {"letra": "D", "descricao": "If saldo < retirada Then aviso(\"Saldo insuficiente.\") End If", "imagens": null},
+          {"letra": "E", "descricao": "if saldo < retirada then begin aviso('Saldo insuficiente.'); end;", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-039", "numero": 39, "assunto": "R", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um cientista de dados utiliza a linguagem de programação R para explorar a distribuição dos saldos das contas dos clientes. Para isso, ele costuma gerar um histograma a partir de um vetor anonimizado contendo os saldos.\nPara gerar corretamente um histograma a partir de um vetor de números reais denominado saldos em R, o cientista de dados pode usar a expressão",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "barplot(saldos)", "imagens": null}, {"letra": "B", "descricao": "graph(saldos, type=\"histogram\")", "imagens": null}, {"letra": "C", "descricao": "plot(saldos, type=\"hist\")", "imagens": null}, {"letra": "D", "descricao": "plot(hist(saldos))", "imagens": null}, {"letra": "E", "descricao": "hist(saldos)", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-040", "numero": 40, "assunto": "Engenharia de Software / User Stories", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma equipe de desenvolvimento de um software para gerência de finanças pessoais decidiu adotar uma abordagem ágil, utilizando Histórias do Usuário para capturar requisitos funcionais. Essa técnica tem como característica descrever as funcionalidades do software do ponto de vista do usuário final. Para assegurar uma compreensão comum entre todos os envolvidos no projeto, é fundamental que a equipe entenda os componentes de uma História do Usuário.\nOs três componentes principais de uma História do Usuário são",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "Cartão, Conversação e Confirmação", "imagens": null},
+          {"letra": "B", "descricao": "Classes, Métodos e Atributos", "imagens": null},
+          {"letra": "C", "descricao": "Entidade, Relacionamento e Atributo", "imagens": null},
+          {"letra": "D", "descricao": "Requisitos Funcionais, Requisitos Não Funcionais e Requisitos de Domínio", "imagens": null},
+          {"letra": "E", "descricao": "Diagrama de Caso de Uso, Diagrama de Atividades e Diagrama de Sequência", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-041", "numero": 41, "assunto": "Scrum / Story Points", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma equipe de desenvolvimento ágil decidiu utilizar Pontos de História (Story Points) para estimar o esforço necessário para implementar as funcionalidades descritas no seu Product Backlog, na forma de Histórias do Usuário.\nConsiderando-se esse contexto, a técnica de Pontos de História ajuda a equipe a compreender o trabalho envolvido em cada história por",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "alocar tarefas específicas da história do usuário aos membros da equipe.", "imagens": null},
+          {"letra": "B", "descricao": "classificar as histórias do usuário em categorias de prioridade, de alta a baixa.", "imagens": null},
+          {"letra": "C", "descricao": "permitir prever o tempo, em horas, que a equipe levará para completar uma história.", "imagens": null},
+          {"letra": "D", "descricao": "determinar o custo financeiro direto associado ao desenvolvimento de uma história do usuário.", "imagens": null},
+          {"letra": "E", "descricao": "estimar o esforço relativo necessário para implementar uma determinada história do usuário, comparando-o ao de outras histórias.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-042", "numero": 42, "assunto": "Cobol", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Ao analisar o código de um grande programa em Cobol para conversão para Java, um técnico de informática precisa encontrar as declarações PICTURE (ou PIC).\nConsiderando-se esse contexto, em qual divisão (DIVISION) o técnico encontrará essas declarações?",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "CLOSING DIVISION", "imagens": null}, {"letra": "B", "descricao": "DATA DIVISION", "imagens": null}, {"letra": "C", "descricao": "ENVIRONMENT DIVISION", "imagens": null}, {"letra": "D", "descricao": "IDENTIFICATION DIVISION", "imagens": null}, {"letra": "E", "descricao": "PROCEDURE DIVISION", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-043", "numero": 43, "assunto": "CMMI e MPS.BR", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "No contexto de desenvolvimento e manutenção de software, o CMMI (Capability Maturity Model Integration) e o MPS.BR (Melhoria de Processo do Software Brasileiro) são reconhecidos por promoverem a melhoria da qualidade e da maturidade dos processos organizacionais na área de TI. Ambos os modelos apresentam níveis de maturidade que refletem a capacidade e a eficácia dos processos de uma organização, porém o MPS.BR é mais detalhado que o CMMI ao definir os seus níveis.\nLevando-se em conta as especificidades e a relação entre os níveis dos dois modelos, o nível 5 do CMMI, quanto ao seu foco principal, é alinhado ao(s)",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "nível A do MPS.BR, pois ambos enfatizam a importância da otimização contínua dos processos para aprimoramento da qualidade e da eficiência.", "imagens": null},
+          {"letra": "B", "descricao": "nível B do MPS.BR, pois ambos enfatizam a importância da otimização contínua dos processos para aprimoramento da qualidade e da eficiência, enquanto o nível A do MPS.BR trata da sustentabilidade, aspecto não encontrado no CMMI.", "imagens": null},
+          {"letra": "C", "descricao": "níveis A e B do MPS.BR, o que reflete um foco combinado na otimização de processos (nível A) e na gerência quantitativa para a melhoria contínua (nível B).", "imagens": null},
+          {"letra": "D", "descricao": "níveis B e C do MPS.BR, o que indica uma ênfase na gerência quantitativa dos processos (nível B) e na implementação de melhorias contínuas em um contexto mais específico (nível C), não sendo encontrado no CMMI alinhamento com nível A do MPS.BR, que trata da sustentabilidade.", "imagens": null},
+          {"letra": "E", "descricao": "níveis A, B e C do MPS.BR, o que demonstra uma progressão desde a gerência quantitativa dos processos (nível B), passando pela otimização contínua (nível A), até a incorporação de práticas específicas de melhoria (nível C).", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-044", "numero": 44, "assunto": "Análise de Pontos de Função", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "A análise por Pontos de Função é uma metodologia utilizada para estimar o tamanho e o esforço necessários para o desenvolvimento e manutenção de software a partir de diversos tipos de funções.\nQuais são as categorias de funções medidas na análise por Pontos de Função?",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "Funções de Autenticação de Usuário, Funções de Autorização, Funções de Log, Funções de Recuperação de Dados e Funções de Exportação de Dados.", "imagens": null},
+          {"letra": "B", "descricao": "Funções de Entrada de Dados, Funções de Saída de Dados, Funções de Consulta, Funções de Estado e Funções de Conexão.", "imagens": null},
+          {"letra": "C", "descricao": "Funções de Entrada de Usuário, Funções de Visualização de Dados, Funções de Atualização de Dados, Funções de Sincronização e Funções de Backup.", "imagens": null},
+          {"letra": "D", "descricao": "Funções de Entrada Externa, Funções de Saída Externa, Funções de Consulta Externa, Arquivos Lógicos Internos e Arquivos de Interface Externa.", "imagens": null},
+          {"letra": "E", "descricao": "Funções de Processamento Interno, Funções de Armazenamento de Dados, Funções de Manipulação de Dados, Funções de Interface de Usuário e Funções de Conexão de Rede.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-045", "numero": 45, "assunto": "Python / Matplotlib", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Em um projeto de análise de dados utilizando Python e a biblioteca Matplotlib, um cientista de dados precisa visualizar rapidamente a distribuição percentual de categorias em um conjunto de dados que está na lista categorias.\nPara isso, ele decide utilizar um gráfico que represente essa distribuição de maneira intuitiva, optando por um gráfico de setores, também conhecido como gráfico de torta ou de pizza.\nConsiderando-se esse contexto, qual fragmento de código deve ser usado pelo cientista de dados?",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "plt.pie(categorias)", "imagens": null}, {"letra": "B", "descricao": "plt.sector(categorias)", "imagens": null}, {"letra": "C", "descricao": "plt.pizza(categorias)", "imagens": null}, {"letra": "D", "descricao": "plt.circle(categorias)", "imagens": null}, {"letra": "E", "descricao": "plt.round(categorias)", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-046", "numero": 46, "assunto": "Python / SciPy", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um cientista de dados está utilizando Python e SciPy no desenvolvimento de um modelo para prever o preço de venda de imóveis com base em sua área construída, de modo a atender a um sistema de financiamento de imóveis. Para isso, obteve dados da área construída, guardados no vetor area, e dos preços de venda de imóveis, guardados no vetor preco, em uma mesma região nos últimos 3 anos.\nConsiderando-se esse contexto, qual fragmento de código é adequado para ajustar um modelo de regressão linear entre a área construída dos imóveis (variável independente) e seus preços de venda (variável dependente)?",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "stats.linear(area, preco)", "imagens": null}, {"letra": "B", "descricao": "stats.linear_model(area, preco)", "imagens": null}, {"letra": "C", "descricao": "stats.linear_regression(area, preco)", "imagens": null}, {"letra": "D", "descricao": "stats.linregress(area, preco)", "imagens": null}, {"letra": "E", "descricao": "stats.regression(area, preco)", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-047", "numero": 47, "assunto": "XML", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um programador foi encarregado de determinar se um determinado documento XML pode ser carregado em um sistema que integra dados recebidos de vários outros sistemas. Para isso, ele deveria verificar se o documento é válido e bem-formado, porém não tinha acesso ao esquema do documento.\nConsiderando-se esse contexto, o programador",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "poderá ler, validar e verificar se o documento é bem-formado.", "imagens": null},
+          {"letra": "B", "descricao": "poderá ler o documento e poderá validá-lo, mas não poderá verificar se o documento é bem-formado.", "imagens": null},
+          {"letra": "C", "descricao": "poderá ler o documento e verificar se o documento é bem-formado, mas não poderá validá-lo.", "imagens": null},
+          {"letra": "D", "descricao": "poderá ler o documento, mas não poderá validá-lo nem verificar se o documento é bem-formado.", "imagens": null},
+          {"letra": "E", "descricao": "não poderá ler o documento XML sem o esquema fornecer a autorização necessária.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-048", "numero": 48, "assunto": "HTTP / Status Codes", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Ao fazer a manutenção de um website, um técnico em informática decidiu implementar um redirecionamento permanente de uma URL antiga para uma nova, a fim de garantir que os usuários e os motores de busca atualizem seus links e referências para a nova localização do recurso. Esse redirecionamento é importante para manter a relevância e a autoridade do conteúdo na web, além de assegurar uma experiência de usuário contínua, mesmo após a mudança de URL. Nesse contexto, considere a necessidade de redirecionamento permanente, e que o servidor deve enviar um código de status HTTP para indicar aos clientes (navegadores ou robôs de busca) que o recurso solicitado foi movido permanentemente para uma nova URL e que futuras requisições devem usar a nova URL.\nQual é o código de status HTTP que o servidor deve enviar para esse fim?",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "100", "imagens": null}, {"letra": "B", "descricao": "200", "imagens": null}, {"letra": "C", "descricao": "301", "imagens": null}, {"letra": "D", "descricao": "401", "imagens": null}, {"letra": "E", "descricao": "500", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-049", "numero": 49, "assunto": "Java / Servlets", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um programador está desenvolvendo um servlet em Java que processa requisições HTTP do tipo GET, que trazem vários parâmetros e seus respectivos valores, obtidos de um formulário HTML. Para isso, ele tem que implementar a função doGet, com o seguinte formato geral:\nprotected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n // Lógica de tratamento da requisição\n}\nPara recuperar o valor da variável idade na forma de um inteiro, que fragmento de código o programador deve usar?",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "int idade = Integer.parseInt(request.getParameter(\"idade\"));", "imagens": null},
+          {"letra": "B", "descricao": "int idade = request.getInt(\"idade\");", "imagens": null},
+          {"letra": "C", "descricao": "int idade = request.getParameter(\"idade\");", "imagens": null},
+          {"letra": "D", "descricao": "int idade = request.getAttribute(\"idade\");", "imagens": null},
+          {"letra": "E", "descricao": "int idade = request.getSession().getAttribute(\"idade\");", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-050", "numero": 50, "assunto": "Testes de Software", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Em um contrato para o desenvolvimento de um software de gestão empresarial, uma cláusula específica solicita a execução, pelo fornecedor, de um “teste alfa” antes da entrega do produto ao cliente.\nPara atender a essa cláusula do contrato, o fornecedor deve",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "realizar uma série de testes que visa garantir que mudanças recentes no código não afetem as funcionalidades existentes do software, mantendo a integridade do sistema após atualizações ou correções.", "imagens": null},
+          {"letra": "B", "descricao": "distribuir o software para um grupo externo de usuários para que estes o utilizem em condições reais e forneçam feedback sobre a experiência antes de distribuir amplamente.", "imagens": null},
+          {"letra": "C", "descricao": "verificar a comunicação e o funcionamento adequados entre diferentes módulos ou componentes do software, assegurando que eles trabalhem juntos conforme esperado.", "imagens": null},
+          {"letra": "D", "descricao": "testar individualmente os menores pedaços de código do software, como funções ou métodos, para garantir que funcionem corretamente.", "imagens": null},
+          {"letra": "E", "descricao": "avaliar o software com uma equipe interna que simula o comportamento do usuário final, buscando identificar falhas antes da liberação para usuários externos.", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-TI-051", "numero": 51, "assunto": "Python / NumPy", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Um time de cientistas de dados usa a linguagem Python e o pacote Numpy para desenvolver um sistema de recomendação que utiliza perfis de usuário baseados em vetores, nos quais cada elemento representa a afinidade do usuário por um determinado produto bancário. Considere dois perfis de usuários, X e Y, e seus respectivos vetores, usuarioX e usuarioY. Para identificar se esses usuários têm gostos similares e fazer recomendações precisas, é crucial calcular a similaridade entre seus perfis.\nUma das métricas utilizadas para esse fim é o cosseno da similaridade, calculado a partir do produto escalar entre os dois vetores de perfis de usuário dividido pelo produto das magnitudes desses vetores.\nConsiderando-se esse contexto, qual fragmento de código calcula corretamente o produto escalar entre os dois vetores, usuarioX e usuarioY?",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "np.cross(usuarioX, usuarioY)", "imagens": null}, {"letra": "B", "descricao": "np.dot(usuarioX, usuarioY)", "imagens": null}, {"letra": "C", "descricao": "np.linalg.norm(usuarioX - usuarioY)", "imagens": null}, {"letra": "D", "descricao": "np.multiply(usuarioX, usuarioY)", "imagens": null}, {"letra": "E", "descricao": "np.product(usuarioX, usuarioY)", "imagens": null}
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal", "banca": "Cesgranrio", "ano": 2024, "cargo": "Técnico Bancário Novo",
+    "materia": "Conhecimentos e Comportamentos Digitais", "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2024-CCD-056", "numero": 56, "assunto": "Inteligência Emocional", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "No seu processo de socialização num Banco público, um novo funcionário teve cada um dos seus diferentes domínios de inteligência emocional avaliados segundo cinco categorias de questões, sendo cada categoria usada para avaliar um determinado domínio.\nCategoria I: Reconhece as suas próprias emoções? Conhece os seus próprios pontos fortes e limitações? Tem certeza do próprio valor e da própria capacidade?\nCategoria II: Sabe lidar com emoções perturbadoras e com impulsos? Assume a responsabilidade pelo seu desempenho? Sente-se à vontade e aberto diante de novas ideias, de novo enfoque e de novas informações?\nCategoria III: Esforça-se para melhorar ou para satisfazer um padrão de excelência? Alinha-se com as metas do grupo ou organização? Está pronto para agir diante das oportunidades? Persiste na perseguição das metas a despeito de obstáculos e de reveses?\nCategoria IV: Pressente os sentimentos e perspectivas dos outros e assume um interesse ativo por suas preocupações? Cultiva oportunidades através de diferentes tipos de pessoas? Lê as correntes emocionais e os relacionamentos de poder de um grupo?\nCategoria V: Implementa táticas eficazes de persuasão? Emite mensagens claras e convincentes? Inspira e guia grupos e pessoas? Inicia ou administra mudanças? Estimula os relacionamentos produtivos? Trabalha com os outros, rumo a metas compartilhadas?\nComo resultado, o novo funcionário foi muito bem avaliado nas categorias I, III e IV e, nas categorias II e V, foi avaliado como tendo pontos a melhorar.\nDiante do exposto, esse funcionário deve melhorar, quanto às categorias II e V, respectivamente, em pontos referentes aos seguintes domínios:",
+        "gabarito": "B",
+        "alternativas": [
+          {"letra": "A", "descricao": "motivação e empatia", "imagens": null},
+          {"letra": "B", "descricao": "autopercepção e autorregulação", "imagens": null},
+          {"letra": "C", "descricao": "empatia e autopercepção", "imagens": null},
+          {"letra": "D", "descricao": "autorregulação e aptidões sociais", "imagens": null},
+          {"letra": "E", "descricao": "aptidões sociais e motivação", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CCD-057", "numero": 57, "assunto": "Arquitetura de Computadores", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Uma instrução de máquina pode fazer referência a um ou a mais operandos fontes, e a localização do operando fonte dependerá do modo de endereçamento adotado pela instrução. Em um desses modos de endereçamento, a instrução tem um campo de endereço que contém o endereço de uma palavra na memória, que, por sua vez, contém o endereço completo do operando.\nEsse modo de endereçamento é o endereçamento",
+        "gabarito": "E",
+        "alternativas": [
+          {"letra": "A", "descricao": "imediato", "imagens": null}, {"letra": "B", "descricao": "direto", "imagens": null}, {"letra": "C", "descricao": "indireto", "imagens": null}, {"letra": "D", "descricao": "indireto por registrador", "imagens": null}, {"letra": "E", "descricao": "de pilha", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CCD-058", "numero": 58, "assunto": "Representação de Dados", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "Há duas formas comuns para representar um número inteiro em binário: a sinal-magnitude e a complemento de dois. Enquanto na primeira há duas representações para o valor zero, na segunda há apenas uma representação do valor zero.\nA representação do número inteiro -127 em complemento de dois é",
+        "gabarito": "C",
+        "alternativas": [
+          {"letra": "A", "descricao": "01111110", "imagens": null}, {"letra": "B", "descricao": "01111111", "imagens": null}, {"letra": "C", "descricao": "10000000", "imagens": null}, {"letra": "D", "descricao": "10000001", "imagens": null}, {"letra": "E", "descricao": "11111111", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CCD-059", "numero": 59, "assunto": "Sistemas Operacionais", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "O Sistema Operacional controla a utilização dos recursos de hardware pelos processos. Dentre as suas principais funções, está a de adotar critérios para determinar a ordem de execução dos processos, dentre os que concorrem pela utilização do processador.\nEsses critérios são definidos pela política de",
+        "gabarito": "A",
+        "alternativas": [
+          {"letra": "A", "descricao": "armazenamento", "imagens": null}, {"letra": "B", "descricao": "escalonamento", "imagens": null}, {"letra": "C", "descricao": "alocação de espaço", "imagens": null}, {"letra": "D", "descricao": "alocação de páginas", "imagens": null}, {"letra": "E", "descricao": "substituição de páginas", "imagens": null}
+        ]
+      },
+      {
+        "codigo": "CEF2024-CCD-060", "numero": 60, "assunto": "Linux", "dificuldade": null, "imagem": null, "tabela_html": null, "texto_complementar": null,
+        "enunciado": "No ambiente Linux, a execução de determinados comandos requer privilégios de root. Por questões de segurança, não é recomendado fazer login como root para obter uma shell com privilégio de root.\nUma abordagem mais segura é fazer login como usuário sem privilégio e executar comandos que requerem privilégios elevados, usando o comando",
+        "gabarito": "D",
+        "alternativas": [
+          {"letra": "A", "descricao": "passwd", "imagens": null}, {"letra": "B", "descricao": "chown", "imagens": null}, {"letra": "C", "descricao": "chmod", "imagens": null}, {"letra": "D", "descricao": "yast2", "imagens": null}, {"letra": "E", "descricao": "sudo", "imagens": null}
+        ]
+      }
+    ]
+  }
+]
