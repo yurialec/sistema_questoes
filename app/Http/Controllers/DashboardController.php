@@ -102,6 +102,46 @@ class DashboardController extends Controller
                 : 0;
         });
 
+        // --- Dados para o gráfico de desempenho diário ---
+        // Busca os últimos 14 dias com respostas
+        $graficoDados = DB::table('historico_respostas as hr')
+            ->select(
+                DB::raw('DATE(hr.respondido_em) as data'),
+                DB::raw('SUM(CASE WHEN hr.acertou = 1 THEN 1 ELSE 0 END) as acertos'),
+                DB::raw('SUM(CASE WHEN hr.acertou = 0 THEN 1 ELSE 0 END) as erros'),
+                DB::raw('COUNT(*) as total')
+            )
+            ->where('hr.respondido_em', '>=', now()->subDays(14))
+            ->groupBy('data')
+            ->orderBy('data', 'asc')
+            ->get();
+
+        // Prepara arrays para o Chart.js
+        $datas = [];
+        $acertosData = [];
+        $errosData = [];
+
+        // Preenche todos os dias dos últimos 14 dias, mesmo sem respostas
+        for ($i = 13; $i >= 0; $i--) {
+            $data = now()->subDays($i)->format('Y-m-d');
+            $datas[] = $data;
+            
+            $registro = $graficoDados->firstWhere('data', $data);
+            
+            if ($registro) {
+                $acertosData[] = (int) $registro->acertos;
+                $errosData[] = (int) $registro->erros;
+            } else {
+                $acertosData[] = 0;
+                $errosData[] = 0;
+            }
+        }
+
+        // Formata datas para exibição (dia/mês)
+        $datasFormatadas = array_map(function($data) {
+            return \Carbon\Carbon::parse($data)->format('d/m');
+        }, $datas);
+
         return view('dashboard.index', compact(
             'total',
             'acertos',
@@ -112,6 +152,9 @@ class DashboardController extends Controller
             'ultimaRespostaLabel',
             'nivel',
             'materias',
+            'datasFormatadas',
+            'acertosData',
+            'errosData'
         ));
     }
 
