@@ -15,4 +15,9 @@ class Assunto extends Model
     {
         return $this->belongsTo(Materia::class);
     }
+
+    public function questoes()
+    {
+        return $this->hasMany(Questao::class);
+    }
 }

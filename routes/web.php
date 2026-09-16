@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('alternativas', AlternativaController::class);
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/desempenho-materia', [DashboardController::class, 'desempenhoPorMateria'])->name('dashboard.desempenho-materia');
     Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
     // Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
     Route::post('/questao/verificar', [ConcursoController::class, 'verificar']);

@@ -125,9 +125,9 @@ class DashboardController extends Controller
         for ($i = 13; $i >= 0; $i--) {
             $data = now()->subDays($i)->format('Y-m-d');
             $datas[] = $data;
-            
+
             $registro = $graficoDados->firstWhere('data', $data);
-            
+
             if ($registro) {
                 $acertosData[] = (int) $registro->acertos;
                 $errosData[] = (int) $registro->erros;
@@ -138,7 +138,7 @@ class DashboardController extends Controller
         }
 
         // Formata datas para exibição (dia/mês)
-        $datasFormatadas = array_map(function($data) {
+        $datasFormatadas = array_map(function ($data) {
             return \Carbon\Carbon::parse($data)->format('d/m');
         }, $datas);
 
@@ -156,6 +156,65 @@ class DashboardController extends Controller
             'acertosData',
             'errosData'
         ));
+    }
+
+    public function desempenhoPorMateria()
+    {
+        $materiasData = Materia::with('assuntos')->get()->map(function ($materia) {
+            $materiaTotalRespondidas = 0;
+            $materiaTotalAcertos = 0;
+            $materiaTotalErros = 0;
+
+            $assuntosData = $materia->assuntos->map(function ($assunto) use (&$materiaTotalRespondidas, &$materiaTotalAcertos, &$materiaTotalErros) {
+                $stats = DB::table('historico_respostas as hr')
+                    ->join('questoes as q', 'q.id', '=', 'hr.questao_id')
+                    ->where('q.assunto_id', $assunto->id)
+                    ->select(
+                        DB::raw('COUNT(hr.id) as respondidas'),
+                        DB::raw('SUM(CASE WHEN hr.acertou = 1 THEN 1 ELSE 0 END) as acertos'),
+                        DB::raw('SUM(CASE WHEN hr.acertou = 0 THEN 1 ELSE 0 END) as erros')
+                    )
+                    ->first();
+
+                $respondidas = $stats->respondidas ?? 0;
+                $acertos = $stats->acertos ?? 0;
+                $erros = $stats->erros ?? 0;
+                $totalQuestoes = $assunto->questoes()->count();
+
+                $aproveitamento = $respondidas > 0 ? round(($acertos / $respondidas) * 100) : 0;
+
+                $materiaTotalRespondidas += $respondidas;
+                $materiaTotalAcertos += $acertos;
+                $materiaTotalErros += $erros;
+
+                return [
+                    'nome' => $assunto->nome,
+                    'total_questoes' => $totalQuestoes,
+                    'respondidas' => $respondidas,
+                    'acertos' => $acertos,
+                    'erros' => $erros,
+                    'aproveitamento' => $aproveitamento,
+                ];
+            });
+
+            $materiaAproveitamento = $materiaTotalRespondidas > 0 ? round(($materiaTotalAcertos / $materiaTotalRespondidas) * 100) : 0;
+
+            return [
+                'id' => $materia->id,
+                'nome' => $materia->nome,
+                'tipo' => $materia->tipo,
+                'total_respondidas' => $materiaTotalRespondidas,
+                'total_acertos' => $materiaTotalAcertos,
+                'total_erros' => $materiaTotalErros,
+                'aproveitamento' => $materiaAproveitamento,
+                'assuntos' => $assuntosData->filter(fn($a) => $a['respondidas'] > 0)->values(),
+            ];
+        });
+
+        // Filtra apenas matérias que possuem pelo menos uma questão respondida
+        $materiasData = $materiasData->filter(fn($m) => $m['total_respondidas'] > 0)->values();
+
+        return view('dashboard.desempenho', compact('materiasData'));
     }
 
     public function resetar()
