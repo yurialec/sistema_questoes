@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/desempenho-materia', [DashboardController::class, 'desempenhoPorMateria'])->name('dashboard.desempenho-materia');
     Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
     // Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
-    Route::post('/questao/verificar', [ConcursoController::class, 'verificar']);
+    Route::post('/questao/verificar', [ConcursoController::class, 'verificar'])->name('questao.verificar');
 });
 
 require __DIR__ . '/auth.php';
