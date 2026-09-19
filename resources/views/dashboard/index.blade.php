@@ -55,22 +55,40 @@
 @section('content')
 <div class="container py-4 mt-4">
 
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    @endif
+
     {{-- ══════════════════════════════════════════════
          CABEÇALHO
     ══════════════════════════════════════════════ --}}
-    <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
         <div>
             <h4 class="fw-semibold mb-0">Dashboard</h4>
             <p class="text-muted small mb-0">Acompanhe seu desempenho nos estudos</p>
         </div>
-        <div>
+
+        <div class="d-flex gap-2">
             <a href="{{ route('dashboard.desempenho-materia') }}" class="btn btn-outline-primary btn-sm px-3">
                 <i class="fas fa-chart-bar me-1"></i> Desempenho por Matéria
             </a>
+
+            <a href="{{ route('responder') }}" class="btn btn-primary btn-sm px-3">
+                <i class="fas fa-play me-1"></i> Responder questões
+            </a>
+
+            <form action="{{ url('/dashboard/resetar') }}" method="POST"
+                onsubmit="return confirm('Tem certeza que deseja zerar todas as estatísticas? Esta ação não pode ser desfeita.');">
+                @csrf
+
+                <button type="submit" class="btn btn-outline-danger btn-sm px-3">
+                    <i class="fas fa-trash-alt me-1"></i> Resetar Estatísticas
+                </button>
+            </form>
         </div>
-        <a href="{{ route('responder') }}" class="btn btn-primary btn-sm px-3">
-            <i class="fas fa-play me-1"></i> Responder questões
-        </a>
     </div>
 
     {{-- ══════════════════════════════════════════════
