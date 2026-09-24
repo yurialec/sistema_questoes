@@ -177,6 +177,54 @@
     </div>
 </div>
 
+@if(session('show_error_modal') && session('erro_id'))
+    @php $erroAtual = \App\Models\CadernoErro::find(session('erro_id')); @endphp
+    
+    <div class="modal fade show d-block" id="modalErro" tabindex="-1" style="background: rgba(0,0,0,0.5);" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">⚠️ Registro de Erro</h5>
+                </div>
+                <form action="{{ route('caderno-erros.salvar-motivo', $erroAtual->id) }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <p class="text-muted small">Entender o motivo do erro é o primeiro passo para não cometê-lo novamente.</p>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="foi_chute" id="foi_chute">
+                                <label class="form-check-label" for="foi_chute">Foi chute (não sabia o conteúdo)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="erro_distraido" id="erro_distraido">
+                                <label class="form-check-label" for="erro_distraido">Sabia a matéria, mas errei por distração no enunciado</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="motivo_erro" class="form-label fw-semibold">Por que você marcou essa alternativa incorreta?</label>
+                            <textarea class="form-control" name="motivo_erro" id="motivo_erro" rows="3" placeholder="Ex: Confundi o conceito de X com Y..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('questoes.index') }}" class="btn btn-outline-secondary">Pular por enquanto</a>
+                        <button type="submit" class="btn btn-danger">Salvar no Caderno de Erros</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Foca no modal ao carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = new bootstrap.Modal(document.getElementById('modalErro'));
+            modal.show();
+        });
+    </script>
+@endif
+
 {{-- Script para o toggle do texto complementar (do seu código anterior) --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {

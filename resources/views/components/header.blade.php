@@ -1,7 +1,8 @@
 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-3 mb-4">
     <div>
         <a href="{{ route('dashboard') }}" class="btn btn-outline-primary btn-sm px-3 d-flex align-items-center gap-2">
-            Dashboard
+            <i class="fas fa-house"></i>
+            <span>Dashboard</span>
         </a>
     </div>
 
@@ -10,6 +11,18 @@
             class="btn btn-outline-primary btn-sm px-3 d-flex align-items-center gap-2">
             <i class="fas fa-chart-bar"></i>
             <span>Desempenho por Matéria</span>
+        </a>
+
+        <a href="{{ route('caderno-erros.index') }}"
+            class="btn btn-outline-warning btn-sm px-3 d-flex align-items-center gap-2">
+            <i class="fas fa-book-open"></i>
+            <span>Caderno de Erros</span>
+        </a>
+
+        <a href="{{ route('reaplicacao.index') }}"
+            class="btn btn-outline-success btn-sm px-3 d-flex align-items-center gap-2">
+            <i class="fas fa-arrows-rotate"></i>
+            <span>Reaplicação</span>
         </a>
 
         <a href="{{ route('responder') }}"

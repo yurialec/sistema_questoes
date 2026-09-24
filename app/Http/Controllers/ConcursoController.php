@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Alternativa;
 use App\Models\Ano;
 use App\Models\Banca;
+use App\Models\CadernoErro;
 use App\Models\Cargo;
 use App\Models\HistoricoResposta;
 use App\Models\Materia;
 use App\Models\Orgao;
 use App\Models\Questao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConcursoController extends Controller
 {
@@ -66,20 +68,51 @@ class ConcursoController extends Controller
 
     public function verificar(Request $request)
     {
-        $alternativa = Alternativa::findOrFail(
-            $request->alternativa_id
-        );
+        $alternativa = Alternativa::findOrFail($request->alternativa_id);
+        $user = $request->user();
 
+        // 1. Registra no histórico normal
         HistoricoResposta::create([
+            'user_id' => $user->id,
             'questao_id' => $alternativa->questao_id,
             'alternativa_id' => $alternativa->id,
             'acertou' => $alternativa->correta,
             'respondido_em' => now()
         ]);
 
-        return back()->with(
-            'resultado',
-            $alternativa->correta
-        );
+        // 2. Lógica do Caderno de Erros
+        if (!$alternativa->correta && $user->ativo_modal_erros) {
+            $erro = CadernoErro::create([
+                'user_id' => $user->id,
+                'questao_id' => $alternativa->questao_id,
+                'alternativa_id' => $alternativa->id,
+                'status' => 'pendente'
+            ]);
+
+            // Redireciona de volta com dados para abrir o modal
+            return redirect()->back()->with([
+                'resultado' => false,
+                'show_error_modal' => true,
+                'erro_id' => $erro->id,
+                'questao_foco_id' => $alternativa->questao_id
+            ]);
+        }
+
+        return back()->with('resultado', $alternativa->correta);
+    }
+
+    // Novo método para salvar os dados do modal
+    public function salvarMotivoErro(Request $request, CadernoErro $erro)
+    {
+        // Garante que o erro pertence ao usuário
+        if ($erro->user_id !== Auth::id()) abort(403);
+
+        $erro->update([
+            'foi_chute' => $request->has('foi_chute'),
+            'erro_distraido' => $request->has('erro_distraido'),
+            'motivo_erro' => $request->input('motivo_erro')
+        ]);
+
+        return redirect()->route('questoes.index')->with('success', 'Erro registrado no Caderno com sucesso!');
     }
 }
