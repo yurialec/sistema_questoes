@@ -81,7 +81,7 @@
                     <button type="submit" class="btn btn-primary btn-sm px-4">
                         <i class="fas fa-filter me-1"></i> Filtrar
                     </button>
-                    <a href="{{ route('questoes.index') }}" class="btn btn-outline-secondary btn-sm px-4">
+                    <a href="{{ route('responder') }}" class="btn btn-outline-secondary btn-sm px-4">
                         <i class="fas fa-eraser me-1"></i> Limpar Filtros
                     </a>
                     <span class="badge bg-light text-dark border ms-auto">
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('questoes.index') }}" class="btn btn-outline-secondary">Pular por enquanto</a>
+                        <a href="{{ route('responder') }}" class="btn btn-outline-secondary">Pular por enquanto</a>
                         <button type="submit" class="btn btn-danger">Salvar no Caderno de Erros</button>
                     </div>
                 </form>

@@ -11,7 +11,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\OrgaoController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\QuestaoController;
 use App\Http\Controllers\ReaplicacaoController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('cargos', CargoController::class);
     Route::resource('materias', MateriaController::class);
     Route::resource('assuntos', AssuntoController::class);
-    Route::resource('questoes', QuestaoController::class);
     Route::resource('alternativas', AlternativaController::class);
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -44,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/questao/verificar', [ConcursoController::class, 'verificar'])->name('questao.verificar');
 
     Route::get('/caderno-erros', [CadernoErrosController::class, 'index'])->name('caderno-erros.index');
-    Route::post('/caderno-erros/{erro}/salvar-motivo', [QuestaoController::class, 'salvarMotivoErro'])->name('caderno-erros.salvar-motivo');
+    Route::post('/caderno-erros/{erro}/salvar-motivo', [ConcursoController::class, 'salvarMotivoErro'])->name('caderno-erros.salvar-motivo');
     Route::patch('/caderno-erros/{erro}/resolver', [CadernoErrosController::class, 'updateComoResolver'])->name('caderno-erros.update-resolver');
 
     Route::get('/reaplicacao', [ReaplicacaoController::class, 'index'])->name('reaplicacao.index');

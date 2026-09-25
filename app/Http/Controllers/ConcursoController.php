@@ -113,6 +113,6 @@ class ConcursoController extends Controller
             'motivo_erro' => $request->input('motivo_erro')
         ]);
 
-        return redirect()->route('questoes.index')->with('success', 'Erro registrado no Caderno com sucesso!');
+        return redirect()->route('responder')->with('success', 'Erro registrado no Caderno com sucesso!');
     }
 }
