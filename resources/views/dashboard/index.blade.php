@@ -317,97 +317,162 @@
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const ctx = document.getElementById('desempenhoChart').getContext('2d');
+document.addEventListener('DOMContentLoaded', function () {
 
-        console.log('DSADSAD');
+    const canvas = document.getElementById('desempenhoChart');
 
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: {
-                    !!json_encode($datasFormatadas) !!
+    if (!canvas) {
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
+
+    const labels = {!! json_encode($datasFormatadas) !!};
+    const acertos = {!! json_encode($acertosData) !!};
+    const erros = {!! json_encode($errosData) !!};
+
+    new Chart(ctx, {
+        type: 'bar',
+
+        data: {
+            labels: labels,
+
+            datasets: [
+                {
+                    label: 'Acertos',
+                    data: acertos,
+                    backgroundColor: '#10B981',
+                    borderColor: '#10B981',
+                    borderWidth: 0,
+                    borderRadius: 5,
+                    borderSkipped: false,
+                    barPercentage: 0.75,
+                    categoryPercentage: 0.75
                 },
-                datasets: [{
-                        label: 'Acertos',
-                        data: {
-                            !!json_encode($acertosData) !!
-                        },
-                        backgroundColor: '#10B981',
-                        // Removido borderRadius para evitar distorção em valores baixos (ex: 1)
-                    },
-                    {
-                        label: 'Erros',
-                        data: {
-                            !!json_encode($errosData) !!
-                        },
-                        backgroundColor: '#EF4444',
-                        // Removido borderRadius para evitar distorção em valores baixos (ex: 1)
-                    }
-                ]
+                {
+                    label: 'Erros',
+                    data: erros,
+                    backgroundColor: '#EF4444',
+                    borderColor: '#EF4444',
+                    borderWidth: 0,
+                    borderRadius: 5,
+                    borderSkipped: false,
+                    barPercentage: 0.75,
+                    categoryPercentage: 0.75
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            interaction: {
+                mode: 'index',
+                intersect: false
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            usePointStyle: true,
-                            pointStyle: 'rectRounded',
-                            padding: 15,
-                            font: {
-                                size: 12,
-                                family: "'Inter', sans-serif",
-                                weight: '500'
-                            }
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        callbacks: {
-                            label: function(context) {
-                                return context.dataset.label + ': ' + context.parsed.y + ' questão(ões)';
-                            }
+
+            plugins: {
+
+                legend: {
+                    position: 'top',
+                    align: 'start',
+
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        padding: 20,
+
+                        color: '#CBD5E1',
+
+                        font: {
+                            size: 12,
+                            family: "'Inter', sans-serif",
+                            weight: '500'
                         }
                     }
                 },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
+
+                tooltip: {
+                    backgroundColor: '#0F172A',
+                    titleColor: '#F8FAFC',
+                    bodyColor: '#CBD5E1',
+                    borderColor: '#334155',
+                    borderWidth: 1,
+
+                    padding: 12,
+                    cornerRadius: 8,
+
+                    callbacks: {
+                        title: function (items) {
+                            return 'Dia: ' + items[0].label;
                         },
-                        ticks: {
-                            font: {
-                                size: 11,
-                                family: "'Inter', sans-serif"
-                            },
-                            color: '#64748B',
-                            maxRotation: 45,
-                            minRotation: 45
+
+                        label: function (context) {
+                            return context.dataset.label + ': ' +
+                                   context.parsed.y +
+                                   (context.parsed.y === 1
+                                       ? ' questão'
+                                       : ' questões');
                         }
+                    }
+                }
+            },
+
+            scales: {
+
+                x: {
+                    stacked: false,
+
+                    grid: {
+                        display: false
                     },
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: '#F1F5F9'
+
+                    border: {
+                        display: false
+                    },
+
+                    ticks: {
+                        color: '#94A3B8',
+
+                        font: {
+                            size: 11,
+                            family: "'Inter', sans-serif"
                         },
-                        ticks: {
-                            stepSize: 1,
-                            precision: 0, // Garante números inteiros no eixo Y
-                            font: {
-                                size: 11,
-                                family: "'Inter', sans-serif"
-                            },
-                            color: '#64748B'
+
+                        maxRotation: 0,
+                        minRotation: 0
+                    }
+                },
+
+                y: {
+                    beginAtZero: true,
+
+                    grid: {
+                        color: 'rgba(148, 163, 184, 0.10)',
+                        drawBorder: false
+                    },
+
+                    border: {
+                        display: false
+                    },
+
+                    ticks: {
+                        color: '#94A3B8',
+                        stepSize: 1,
+                        precision: 0,
+
+                        font: {
+                            size: 11,
+                            family: "'Inter', sans-serif"
                         }
                     }
                 }
             }
-        });
+        }
     });
+});
 </script>
 @endpush
