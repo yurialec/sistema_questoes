@@ -4,14 +4,6 @@
 
 @section('content')
 <div class="container mt-4">
-    <h2 class="mb-4 text-primary fw-bold">Banco de Questões</h2>
-
-    <div class="mb-3">
-        <a href="{{ route('dashboard') }}" class="text-decoration-none text-muted">
-            <i class="fas fa-arrow-left me-1"></i> Retornar ao Dashboard
-        </a>
-    </div>
-
     {{-- FORMULÁRIO DE FILTROS --}}
     <div class="card shadow-sm border-0 mb-4">
         <div class="card-body">

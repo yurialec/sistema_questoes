@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-3 shadow-sm px-3 py-2 mt-3 mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-3 shadow-sm px-3 py-2 mb-4">
 
     <div class="container-fluid p-0">
 
@@ -6,7 +6,6 @@
         <a href="{{ route('dashboard') }}"
             class="navbar-brand d-flex align-items-center gap-2 fw-semibold">
             <i class="fas fa-house"></i>
-            <span>Dashboard</span>
         </a>
 
         {{-- Botão mobile --}}

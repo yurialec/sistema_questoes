@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\CadernoErro;
+use App\Models\GradeEstudo;
 use App\Models\HistoricoResposta;
 use App\Models\Materia;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -142,6 +145,8 @@ class DashboardController extends Controller
             return \Carbon\Carbon::parse($data)->format('d/m');
         }, $datas);
 
+        $sugestaoHoje = $this->getSugestaoDeHoje();
+
         return view('dashboard.index', compact(
             'total',
             'acertos',
@@ -154,7 +159,8 @@ class DashboardController extends Controller
             'materias',
             'datasFormatadas',
             'acertosData',
-            'errosData'
+            'errosData',
+            'sugestaoHoje'
         ));
     }
 
@@ -227,5 +233,60 @@ class DashboardController extends Controller
                 'success',
                 'Estatísticas zeradas.'
             );
+    }
+
+    public function getSugestaoDeHoje()
+    {
+        $user = Auth::user();
+        $diaSemana = now()->dayOfWeek;
+
+        // 1. Verifica se o usuário configurou uma grade para hoje
+        $gradeFixa = GradeEstudo::with('materia')
+            ->where('user_id', $user->id)
+            ->where('dia_semana', $diaSemana)
+            ->orderBy('ordem')
+            ->first();
+
+        if ($gradeFixa) {
+            return $gradeFixa->materia;
+        }
+
+        // 2. FALLBACK INTELIGENTE: Se não houver grade fixa, sugere com base em dados
+        return $this->sugestaoInteligente($user->id);
+    }
+
+    private function sugestaoInteligente($userId)
+    {
+        // Prioridade A: Matéria com mais erros pendentes no Caderno de Erros
+        $materiaComErros = CadernoErro::select('questoes.materia_id', DB::raw('count(*) as total_erros'))
+            ->join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
+            ->where('caderno_erros.user_id', $userId)
+            ->where('caderno_erros.status', 'pendente')
+            ->groupBy('questoes.materia_id')
+            ->orderByDesc('total_erros')
+            ->first();
+
+        if ($materiaComErros) {
+            return Materia::find($materiaComErros->materia_id);
+        }
+
+        // Prioridade B: Matéria com menor percentual de progresso (que tenha pelo menos 1 questão)
+        $materiaMenorProgresso = Materia::has('questoes')
+            ->withCount('questoes as total_questoes')
+            ->with(['assuntos' => function ($q) use ($userId) {
+                $q->withCount(['questoes as questoes_respondidas' => function ($sq) use ($userId) {
+                    $sq->whereHas('historicoRespostas', function ($h) use ($userId) {
+                        $h->where('user_id', $userId);
+                    });
+                }]);
+            }])
+            ->get()
+            ->sortBy(function ($materia) {
+                $respondidas = $materia->assuntos->sum('questoes_respondidas');
+                return $materia->total_questoes > 0 ? ($respondidas / $materia->total_questoes) : 999;
+            })
+            ->first();
+
+        return $materiaMenorProgresso ?: Materia::inRandomOrder()->first(); // Fallback final
     }
 }

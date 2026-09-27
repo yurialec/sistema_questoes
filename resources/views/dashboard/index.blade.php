@@ -61,6 +61,47 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
     @endif
+
+    {{-- ══════════════════════════════════════════════
+     SUGESTÃO DE ESTUDO DE HOJE
+══════════════════════════════════════════════ --}}
+@if($sugestaoHoje)
+    <div class="card border-0 shadow-sm mb-4" >
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="fas fa-bullseye fa-lg"></i>
+                        <h5 class="mb-0 fw-bold">Sugestão de Estudo para Hoje</h5>
+                    </div>
+                    <h2 class="fw-bold mb-2">{{ $sugestaoHoje->nome }}</h2>
+                    <p class="mb-0 opacity-75">
+                        @php
+                            $motivo = '';
+                            $errosPendentes = \App\Models\CadernoErro::join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
+                                ->where('caderno_erros.user_id', auth()->id())
+                                ->where('questoes.materia_id', $sugestaoHoje->id)
+                                ->where('caderno_erros.status', 'pendente')
+                                ->count();
+                                
+                            if ($errosPendentes > 0) {
+                                $motivo = "Você tem {$errosPendentes} erro(s) pendente(s) para revisar nesta matéria.";
+                            } else {
+                                $motivo = "Esta é a matéria com menor progresso ou próxima no seu ciclo de estudos.";
+                            }
+                        @endphp
+                        {{ $motivo }}
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <a href="{{ route('responder', ['materia_id' => $sugestaoHoje->id]) }}" class="btn btn-light text-primary fw-bold px-4 py-2">
+                        <i class="fas fa-play me-2"></i> Estudar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
     
     <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.06em">Visão geral</p>
 
