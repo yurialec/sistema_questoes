@@ -12,7 +12,8 @@ class HistoricoResposta extends Model
         'questao_id',
         'alternativa_id',
         'acertou',
-        'respondido_em'
+        'respondido_em',
+        'user_id',
     ];
 
     protected $casts = [
@@ -28,5 +29,10 @@ class HistoricoResposta extends Model
     public function alternativa()
     {
         return $this->belongsTo(Alternativa::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

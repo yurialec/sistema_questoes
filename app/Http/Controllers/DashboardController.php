@@ -225,12 +225,12 @@ class DashboardController extends Controller
 
     public function resetar()
     {
-        HistoricoResposta::truncate();
-        CadernoErro::truncate();
+        $userId = Auth::id();
 
-        return redirect()
-            ->back()
-            ->with('success', 'Estatísticas e Caderno de Erros zerados com sucesso.');
+        HistoricoResposta::where('user_id', $userId)->delete();
+        CadernoErro::where('user_id', $userId)->delete();
+
+        return redirect()->back()->with('success', 'Suas estatísticas e Caderno de Erros foram zerados com sucesso.');
     }
 
     public function getSugestaoDeHoje()

@@ -70,18 +70,18 @@ class ConcursoController extends Controller
     public function verificar(Request $request)
     {
         $alternativa = Alternativa::findOrFail($request->alternativa_id);
-        $user = $request->user();
+        $user = Auth::user(); // Pega o usuário logado
 
-        // 1. Registra no histórico normal
+        // 1. Salva no histórico
         HistoricoResposta::create([
-            'user_id' => $user->id,
+            'user_id' => $user->id,               // <-- ADICIONE AQUI
             'questao_id' => $alternativa->questao_id,
             'alternativa_id' => $alternativa->id,
             'acertou' => $alternativa->correta,
             'respondido_em' => now()
         ]);
 
-        // 2. Lógica do Caderno de Erros
+        // 2. Lógica do Caderno de Erros (se estiver errada e modal ativo)
         if (!$alternativa->correta && $user->ativo_modal_erros) {
             $erro = CadernoErro::create([
                 'user_id' => $user->id,
@@ -90,7 +90,6 @@ class ConcursoController extends Controller
                 'status' => 'pendente'
             ]);
 
-            // Redireciona de volta com dados para abrir o modal
             return redirect()->back()->with([
                 'resultado' => false,
                 'show_error_modal' => true,
