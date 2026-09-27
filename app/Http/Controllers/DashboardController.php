@@ -226,13 +226,11 @@ class DashboardController extends Controller
     public function resetar()
     {
         HistoricoResposta::truncate();
+        CadernoErro::truncate();
 
         return redirect()
             ->back()
-            ->with(
-                'success',
-                'Estatísticas zeradas.'
-            );
+            ->with('success', 'Estatísticas e Caderno de Erros zerados com sucesso.');
     }
 
     public function getSugestaoDeHoje()

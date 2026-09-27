@@ -25,7 +25,8 @@ class ConcursoController extends Controller
             'cargo.ano',
             'materia',
             'alternativas',
-            'textoComplementar'
+            'textoComplementar',
+            'assunto'
         ]);
 
         $query->when($request->filled('orgao_id'), function ($q) use ($request) {

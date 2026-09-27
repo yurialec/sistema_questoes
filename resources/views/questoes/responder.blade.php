@@ -96,13 +96,42 @@
     {{-- LISTAGEM DE QUESTÕES --}}
     @forelse($questoes as $questao)
     <div class="card shadow-sm border-0 mb-4">
-        <div class="card-header bg-light py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
-            <h5 class="mb-0 fw-semibold">Questão {{ $questao->numero ?? $questao->id }}</h5>
-            <div>
-                <span class="badge bg-secondary me-1">{{ $questao->materia->nome ?? 'Sem matéria' }}</span>
-                <span class="badge bg-info text-dark">{{ $questao->cargo->ano->ano ?? '' }} - {{ $questao->cargo->banca->nome ?? '' }}</span>
+        <div class="card-header bg-white border-bottom py-3">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+            
+            <!-- Lado Esquerdo: Número, Órgão e Assunto -->
+            <div class="d-flex flex-column gap-2">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="badge bg-primary px-3 py-2 fs-6 fw-bold shadow-sm">
+                        Questão {{ $questao->numero ?? $questao->id }}
+                    </span>
+                    <span class="text-muted small d-flex align-items-center gap-1 fw-medium">
+                        <i class="fas fa-building text-secondary"></i> 
+                        {{ $questao->cargo->orgao->nome ?? ($orgao->nome ?? 'Órgão não informado') }}
+                    </span>
+                </div>
+                
+                <h5 class="mb-0 fw-bold text-dark d-flex align-items-center gap-2">
+                    <i class="fas fa-tag text-primary fs-6"></i> 
+                    {{ $questao->assunto->nome ?? 'Assunto não informado' }}
+                </h5>
             </div>
+
+            <!-- Lado Direito: Metadados (Matéria, Ano, Banca) -->
+            <div class="d-flex flex-wrap align-items-center gap-2">
+                <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 px-3 py-2 fw-medium">
+                    <i class="fas fa-book me-1"></i> {{ $questao->materia->nome ?? 'Sem matéria' }}
+                </span>
+                <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 px-3 py-2 fw-medium">
+                    <i class="fas fa-calendar me-1"></i> {{ $questao->cargo->ano->ano ?? 'Ano' }}
+                </span>
+                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 px-3 py-2 fw-medium">
+                    <i class="fas fa-university me-1"></i> {{ $questao->cargo->banca->nome ?? 'Banca' }}
+                </span>
+            </div>
+
         </div>
+    </div>
 
         <div class="card-body">
             @if($questao->imagem)

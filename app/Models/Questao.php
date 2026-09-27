@@ -48,4 +48,9 @@ class Questao extends Model
     {
         return $this->hasMany(HistoricoResposta::class);
     }
+
+    public function historicoRespostas()
+    {
+        return $this->hasMany(HistoricoResposta::class);
+    }
 }

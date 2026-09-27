@@ -12,8 +12,17 @@ class CadernoErrosController extends Controller
     {
         $dataFiltro = $request->input('data', now()->toDateString());
 
-        $erros = CadernoErro::with(['questao.materia', 'alternativa'])
-            ->where('user_id', Auth::id())
+        $erros = CadernoErro::with([
+            'questao.materia',
+            'questao.assunto',
+            'questao.cargo.orgao',
+            'questao.cargo.banca',
+            'questao.cargo.ano',
+            'questao.textoComplementar',
+            'questao.alternativas', // Carrega todas para exibir a lista completa
+            'alternativa' // Carrega especificamente a alternativa errada marcada
+        ])
+            ->where('user_id', auth()->id())
             ->whereDate('created_at', $dataFiltro)
             ->orderByDesc('created_at')
             ->get();
