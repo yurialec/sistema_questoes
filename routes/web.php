@@ -56,6 +56,9 @@ Route::middleware('auth')->group(function () {
         Route::put('/questoes/{id}', [AdminQuestaoController::class, 'update'])->name('admin.questoes.update');
         Route::post('/admin/upload-imagem', [AdminQuestaoController::class, 'uploadImagem'])->name('admin.upload-imagem');
     });
+
+    Route::post('/filtros/salvar', [ConcursoController::class, 'salvarFiltro'])->name('filtros.salvar');
+    Route::delete('/filtros/{id}', [ConcursoController::class, 'excluirFiltro'])->name('filtros.excluir');
 });
 
 require __DIR__ . '/auth.php';

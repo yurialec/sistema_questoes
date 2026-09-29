@@ -12,6 +12,12 @@
     
     <script src="https://cdn.tiny.cloud/1/eajmhxz6yfnoitzg41pbo873068iyta1alws0ds67e94blgo/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
+    <!-- Tom Select CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+    
+    <!-- Tom Select JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
     <script>
         tinymce.init({
             selector: '.tinymce-editor',

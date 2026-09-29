@@ -4,84 +4,161 @@
 
 @section('content')
 <div class="container mt-4">
-    {{-- FORMULÁRIO DE FILTROS --}}
+        {{-- FORMULÁRIO DE FILTROS --}}
     <div class="card shadow-sm border-0 mb-4">
         <div class="card-body">
-            <form method="GET" action="{{ route('responder') }}" class="row g-3">
+            <form method="GET" action="{{ route('responder') }}" id="formFiltros" class="row g-3">
 
+                {{-- Filtros Principais (Múltipla Seleção) --}}
                 <div class="col-md-4 col-lg-2">
                     <label class="form-label small fw-semibold text-muted">Órgão</label>
-                    <select name="orgao_id" class="form-select form-select-sm">
-                        <option value="">Todos</option>
+                    <select name="orgao_id[]" id="selectOrgao" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
                         @foreach($orgaos as $orgao)
-                        <option value="{{ $orgao->id }}" {{ request('orgao_id') == $orgao->id ? 'selected' : '' }}>
-                            {{ $orgao->nome }}
-                        </option>
+                            <option value="{{ $orgao->id }}" {{ in_array($orgao->id, request('orgao_id', [])) ? 'selected' : '' }}>
+                                {{ $orgao->nome }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="col-md-4 col-lg-2">
                     <label class="form-label small fw-semibold text-muted">Banca</label>
-                    <select name="banca_id" class="form-select form-select-sm">
-                        <option value="">Todas</option>
+                    <select name="banca_id[]" id="selectBanca" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
                         @foreach($bancas as $banca)
-                        <option value="{{ $banca->id }}" {{ request('banca_id') == $banca->id ? 'selected' : '' }}>
-                            {{ $banca->nome }}
-                        </option>
+                            <option value="{{ $banca->id }}" {{ in_array($banca->id, request('banca_id', [])) ? 'selected' : '' }}>
+                                {{ $banca->nome }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="col-md-4 col-lg-2">
                     <label class="form-label small fw-semibold text-muted">Ano</label>
-                    <select name="ano_id" class="form-select form-select-sm">
-                        <option value="">Todos</option>
+                    <select name="ano_id[]" id="selectAno" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
                         @foreach($anos as $ano)
-                        <option value="{{ $ano->id }}" {{ request('ano_id') == $ano->id ? 'selected' : '' }}>
-                            {{ $ano->ano }}
-                        </option>
+                            <option value="{{ $ano->id }}" {{ in_array($ano->id, request('ano_id', [])) ? 'selected' : '' }}>
+                                {{ $ano->ano }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
                     <label class="form-label small fw-semibold text-muted">Cargo</label>
-                    <select name="cargo_id" class="form-select form-select-sm">
-                        <option value="">Todos</option>
+                    <select name="cargo_id[]" id="selectCargo" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
                         @foreach($cargos as $cargo)
-                        <option value="{{ $cargo->id }}" {{ request('cargo_id') == $cargo->id ? 'selected' : '' }}>
-                            {{ $cargo->nome }}
-                        </option>
+                            <option value="{{ $cargo->id }}" {{ in_array($cargo->id, request('cargo_id', [])) ? 'selected' : '' }}>
+                                {{ $cargo->nome }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
                     <label class="form-label small fw-semibold text-muted">Matéria</label>
-                    <select name="materia_id" class="form-select form-select-sm">
-                        <option value="">Todas</option>
+                    <select name="materia_id[]" id="selectMateria" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
                         @foreach($materias as $materia)
-                        <option value="{{ $materia->id }}" {{ request('materia_id') == $materia->id ? 'selected' : '' }}>
-                            {{ $materia->nome }}
-                        </option>
+                            <option value="{{ $materia->id }}" {{ in_array($materia->id, request('materia_id', [])) ? 'selected' : '' }}>
+                                {{ $materia->nome }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
-                <div class="col-12 d-flex gap-2 mt-3 align-items-center">
-                    <button type="submit" class="btn btn-primary btn-sm px-4">
-                        <i class="fas fa-filter me-1"></i> Filtrar
-                    </button>
-                    <a href="{{ route('responder') }}" class="btn btn-outline-secondary btn-sm px-4">
-                        <i class="fas fa-eraser me-1"></i> Limpar Filtros
-                    </a>
-                    <span class="badge bg-light text-dark border ms-auto">
-                        <i class="fas fa-list-ol me-1"></i>
-                        {{ $questoes->total() }} {{ Str::plural('questão encontrada', $questoes->total()) }}
-                    </span>
+                {{-- Linha de Ações e Filtros Salvos --}}
+                <div class="col-12 mt-4 border-top pt-3">
+                    <div class="row g-3 align-items-end">
+                        
+                        {{-- Gerenciamento de Filtros Salvos --}}
+                        <div class="col-md-4">
+                            <label class="form-label small fw-semibold text-muted">Filtros Salvos</label>
+                            <div class="input-group">
+                                <select id="selectFiltrosSalvos" class="form-select form-select-sm">
+                                    <option value="">Carregar um filtro salvo...</option>
+                                    @foreach($filtrosSalvos as $filtro)
+                                        <option value="{{ $filtro->id }}" 
+                                                data-filtros="{{ json_encode($filtro->filtros) }}"
+                                                {{ request()->has('filtro_id') && request('filtro_id') == $filtro->id ? 'selected' : '' }}>
+                                            {{ $filtro->nome }} {{ $filtro->is_padrao ? '(Padrão)' : '' }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <button type="button" class="btn btn-outline-primary btn-sm" id="btnCarregarFiltro">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        {{-- Botões de Ação --}}
+                        <div class="col-md-8 d-flex flex-wrap gap-2 justify-content-md-end">
+                            <button type="submit" class="btn btn-primary btn-sm px-4">
+                                <i class="fas fa-filter me-1"></i> Aplicar
+                            </button>
+                            
+                            <a href="{{ route('responder') }}" class="btn btn-outline-secondary btn-sm px-4">
+                                <i class="fas fa-eraser me-1"></i> Limpar
+                            </a>
+
+                            <button type="button" class="btn btn-success btn-sm px-4" data-bs-toggle="modal" data-bs-target="#modalSalvarFiltro">
+                                <i class="fas fa-save me-1"></i> Salvar Filtro
+                            </button>
+
+                            @if(request()->has('filtro_id') || $filtrosSalvos->count() > 0)
+                                <form action="{{ route('filtros.excluir', request('filtro_id', 0)) }}" method="POST" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir este filtro salvo?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger btn-sm px-4" {{ !$filtrosSalvos->count() ? 'disabled' : '' }}>
+                                        <i class="fas fa-trash me-1"></i> Excluir Selecionado
+                                    </button>
+                                </form>
+                            @endif
+
+                            <span class="badge bg-light text-dark border ms-auto d-flex align-items-center px-3 py-2">
+                                <i class="fas fa-list-ol me-2"></i>
+                                {{ $questoes->total() }} {{ Str::plural('questão encontrada', $questoes->total()) }}
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </form>
+        </div>
+    </div>
+
+    {{-- MODAL PARA SALVAR FILTRO --}}
+    <div class="modal fade" id="modalSalvarFiltro" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form action="{{ route('filtros.salvar') }}" method="POST">
+                    @csrf
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title"><i class="fas fa-save me-2"></i>Salvar Filtro Atual</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nomeFiltro" class="form-label fw-bold">Nome do Filtro</label>
+                            <input type="text" class="form-control" id="nomeFiltro" name="nome_filtro" placeholder="Ex: Revisão TI Banco do Brasil" required>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="definirPadrao" name="definir_padrao" value="1">
+                            <label class="form-check-label" for="definirPadrao">
+                                Definir como filtro padrão (carrega automaticamente ao entrar na página)
+                            </label>
+                        </div>
+                        
+                        {{-- Inputs hidden para enviar o estado atual dos selects --}}
+                        <input type="hidden" name="orgao_id" id="hiddenOrgao">
+                        <input type="hidden" name="banca_id" id="hiddenBanca">
+                        <input type="hidden" name="ano_id" id="hiddenAno">
+                        <input type="hidden" name="cargo_id" id="hiddenCargo">
+                        <input type="hidden" name="materia_id" id="hiddenMateria">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -276,3 +353,88 @@
     });
 </script>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Inicializar Tom Select em todos os selects com a classe .tom-select
+        const tomSelectInstances = {};
+        document.querySelectorAll('.tom-select').forEach(el => {
+            tomSelectInstances[el.id] = new TomSelect(el, {
+                plugins: ['remove_button'],
+                placeholder: 'Selecione...',
+                maxItems: null,
+                searchField: ['text', 'value']
+            });
+        });
+
+        // 2. Lógica para Carregar Filtro Salvo
+        document.getElementById('btnCarregarFiltro').addEventListener('click', function() {
+            const select = document.getElementById('selectFiltrosSalvos');
+            const selectedOption = select.options[select.selectedIndex];
+            
+            if (selectedOption && selectedOption.value) {
+                const filtros = JSON.parse(selectedOption.dataset.filtros);
+                
+                // Atualiza os selects e o Tom Select
+                const mapeamento = {
+                    'orgao_id': 'selectOrgao',
+                    'banca_id': 'selectBanca',
+                    'ano_id': 'selectAno',
+                    'cargo_id': 'selectCargo',
+                    'materia_id': 'selectMateria'
+                };
+
+                for (const [chave, idSelect] of Object.entries(mapeamento)) {
+                    const valores = filtros[chave] || [];
+                    const ts = tomSelectInstances[idSelect];
+                    
+                    if (ts) {
+                        ts.clear(); // Limpa a seleção atual
+                        ts.setValue(valores); // Define os novos valores
+                    }
+                }
+
+                // Opcional: Redirecionar automaticamente ou apenas preencher para o usuário clicar em Aplicar
+                // window.location.href = "{{ route('responder') }}?" + new URLSearchParams(filtros).toString();
+            }
+        });
+
+        // 3. Lógica para o Modal de Salvar (Cria inputs dinâmicos para o Laravel)
+        const formSalvar = document.querySelector('#modalSalvarFiltro form');
+        if(formSalvar) {
+            formSalvar.addEventListener('submit', function(e) {
+                e.preventDefault(); // Previne o envio padrão para manipular os dados
+                
+                const mapeamento = {
+                    'orgao_id': 'selectOrgao',
+                    'banca_id': 'selectBanca',
+                    'ano_id': 'selectAno',
+                    'cargo_id': 'selectCargo',
+                    'materia_id': 'selectMateria'
+                };
+
+                // Remove inputs antigos se houver
+                document.querySelectorAll('.input-filtro-dinamico').forEach(el => el.remove());
+
+                for (const [chave, idSelect] of Object.entries(mapeamento)) {
+                    const ts = tomSelectInstances[idSelect];
+                    if (ts) {
+                        const valores = ts.getValue();
+                        valores.forEach(valor => {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = chave + '[]'; // Formato array para o Laravel
+                            input.value = valor;
+                            input.classList.add('input-filtro-dinamico');
+                            formSalvar.appendChild(input);
+                        });
+                    }
+                }
+                
+                formSalvar.submit(); // Envia o formulário agora
+            });
+        }
+    });
+</script>
+@endpush
