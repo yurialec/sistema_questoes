@@ -23,6 +23,7 @@
                 'insertdatetime', 'media', 'table', 'help', 'wordcount', 'codesample', 'paste'
             ],
             toolbar: 'undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | table | codesample | image | help',
+            images_upload_url: '{{ route("admin.upload-imagem") }}',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
             paste_data_images: true, 
             

@@ -77,7 +77,6 @@ class AdminQuestaoController extends Controller
         $questao = Questao::findOrFail($id);
 
         $questao->update([
-            'numero' => $request->numero,
             'materia_id' => $request->materia_id,
             'assunto_id' => $request->assunto_id,
             'cargo_id' => $request->cargo_id,
@@ -119,5 +118,24 @@ class AdminQuestaoController extends Controller
 
         return redirect()->route('admin.questoes.index')
             ->with('success', 'Questão atualizada com sucesso!');
+    }
+
+    public function uploadImagem(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+
+            $request->validate([
+                'file' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048'
+            ]);
+
+            $path = $file->store('questoes/imagens', 'public');
+
+            return response()->json([
+                'location' => asset('storage/' . $path)
+            ]);
+        }
+
+        return response()->json(['error' => 'Falha no upload da imagem'], 400);
     }
 }

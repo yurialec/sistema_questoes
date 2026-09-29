@@ -41,10 +41,6 @@
                 <div id="collapseDados" class="accordion-collapse collapse show" data-bs-parent="#accDadosGerais">
                     <div class="accordion-body bg-white">
                         <div class="row g-3">
-                            <div class="col-md-2">
-                                <label class="form-label small fw-bold">Número</label>
-                                <input type="number" name="numero" class="form-control" value="{{ old('numero', $questao->numero) }}" required>
-                            </div>
                             <div class="col-md-5">
                                 <label class="form-label small fw-bold">Matéria</label>
                                 <select name="materia_id" class="form-select" required>

@@ -4,17 +4,6 @@
 
 @section('content')
 <div class="container py-4">
-    
-    <!-- Cabeçalho -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h2 class="fw-bold text-dark mb-0">✏️ Editar Questões</h2>
-            <p class="text-muted small mb-0">Selecione uma questão para editar o enunciado, texto complementar ou alternativas.</p>
-        </div>
-        <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary btn-sm">
-            <i class="fas fa-arrow-left me-1"></i> Voltar ao Dashboard
-        </a>
-    </div>
 
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">

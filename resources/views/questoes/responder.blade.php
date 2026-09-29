@@ -97,41 +97,40 @@
     @forelse($questoes as $questao)
     <div class="card shadow-sm border-0 mb-4">
         <div class="card-header bg-white border-bottom py-3">
-        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
-            
-            <!-- Lado Esquerdo: Número, Órgão e Assunto -->
-            <div class="d-flex flex-column gap-2">
-                <div class="d-flex align-items-center gap-2 flex-wrap">
-                    <span class="badge bg-primary px-3 py-2 fs-6 fw-bold shadow-sm">
-                        Questão {{ $questao->numero ?? $questao->id }}
+            <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+                
+                <!-- Lado Esquerdo: Número, Órgão e Assunto -->
+                <div class="d-flex flex-column gap-2">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="badge bg-primary px-3 py-2 fs-6 fw-bold shadow-sm">
+                            Questão {{ $questao->numero ?? $questao->id }}
+                        </span>
+                        <span class="text-muted small d-flex align-items-center gap-1 fw-medium">
+                            <i class="fas fa-building text-secondary"></i> 
+                            {{ $questao->cargo->orgao->nome ?? 'Órgão não informado' }}
+                        </span>
+                    </div>
+                    
+                    <h5 class="mb-0 fw-bold text-dark d-flex align-items-center gap-2">
+                        <i class="fas fa-tag text-primary fs-6"></i> 
+                        {{ $questao->assunto->nome ?? 'Assunto não informado' }}
+                    </h5>
+                </div>
+
+                <!-- Lado Direito: Metadados (Matéria, Ano, Banca) -->
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 px-3 py-2 fw-medium">
+                        <i class="fas fa-book me-1"></i> {{ $questao->materia->nome ?? 'Sem matéria' }}
                     </span>
-                    <span class="text-muted small d-flex align-items-center gap-1 fw-medium">
-                        <i class="fas fa-building text-secondary"></i> 
-                        {{ $questao->cargo->orgao->nome ?? ($orgao->nome ?? 'Órgão não informado') }}
+                    <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 px-3 py-2 fw-medium">
+                        <i class="fas fa-calendar me-1"></i> {{ $questao->cargo->ano->ano ?? 'Ano' }}
+                    </span>
+                    <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 px-3 py-2 fw-medium">
+                        <i class="fas fa-university me-1"></i> {{ $questao->cargo->banca->nome ?? 'Banca' }}
                     </span>
                 </div>
-                
-                <h5 class="mb-0 fw-bold text-dark d-flex align-items-center gap-2">
-                    <i class="fas fa-tag text-primary fs-6"></i> 
-                    {{ $questao->assunto->nome ?? 'Assunto não informado' }}
-                </h5>
             </div>
-
-            <!-- Lado Direito: Metadados (Matéria, Ano, Banca) -->
-            <div class="d-flex flex-wrap align-items-center gap-2">
-                <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 px-3 py-2 fw-medium">
-                    <i class="fas fa-book me-1"></i> {{ $questao->materia->nome ?? 'Sem matéria' }}
-                </span>
-                <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 px-3 py-2 fw-medium">
-                    <i class="fas fa-calendar me-1"></i> {{ $questao->cargo->ano->ano ?? 'Ano' }}
-                </span>
-                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 px-3 py-2 fw-medium">
-                    <i class="fas fa-university me-1"></i> {{ $questao->cargo->banca->nome ?? 'Banca' }}
-                </span>
-            </div>
-
         </div>
-    </div>
 
         <div class="card-body">
             @if($questao->imagem)
@@ -149,7 +148,8 @@
             </div>
             <div class="collapse" id="collapseTexto{{ $questao->id }}">
                 <div class="bg-light p-3 rounded border-start border-4 border-info mb-3">
-                    {!! nl2br(e($questao->textoComplementar->conteudo)) !!}
+                    {{-- REMOVIDO O e() E nl2br() AQUI --}}
+                    {!! $questao->textoComplementar->conteudo !!}
                 </div>
             </div>
             <hr class="my-4">
@@ -159,29 +159,37 @@
             <div class="table-responsive mb-3">{!! $questao->tabela_html !!}</div>
             @endif
 
-            <p class="lead fs-6">{!! nl2br(e($questao->enunciado)) !!}</p>
+            {{-- REMOVIDO O e() E nl2br() AQUI, USANDO DIV EM VEZ DE P --}}
+            <div class="enunciado-content lead fs-6">
+                {!! $questao->enunciado !!}
+            </div>
 
             <form method="POST" action="{{ route('questao.verificar') }}" class="mt-4">
                 @csrf
                 <input type="hidden" name="questao_id" value="{{ $questao->id }}">
                 <fieldset>
-                    <legend class="fs-6 text-muted mb-3">Alternativas:</legend>
+                    <legend class="fs-6 text-muted mb-3 fw-semibold">Alternativas:</legend>
                     @foreach($questao->alternativas->shuffle() as $alternativa)
-                    <div class="form-check mb-2 p-2 rounded hover-bg-light">
-                        <input class="form-check-input" type="radio" name="alternativa_id" id="alt_{{ $questao->id }}_{{ $alternativa->letra }}" value="{{ $alternativa->id }}" required>
+                    <div class="form-check mb-3 p-3 rounded border hover-bg-light">
+                        <input class="form-check-input mt-1" type="radio" name="alternativa_id" id="alt_{{ $questao->id }}_{{ $alternativa->letra }}" value="{{ $alternativa->id }}" required>
                         <label class="form-check-label w-100 ps-2" for="alt_{{ $questao->id }}_{{ $alternativa->letra }}">
-                            <strong>{{ $alternativa->letra }})</strong> {{ $alternativa->descricao }}
+                            <strong class="text-primary">{{ $alternativa->letra }})</strong> 
+                            {{-- REMOVIDO O e() AQUI PARA RENDERIZAR HTML/IMAGENS --}}
+                            {!! $alternativa->descricao !!}
+                            
                             @if($alternativa->imagens && is_array($alternativa->imagens))
-                            @foreach($alternativa->imagens as $img)
-                            <br><img src="{{ asset('storage/' . $img) }}" class="img-fluid mt-2 rounded border" style="max-width: 100%; max-height: 200px;">
-                            @endforeach
+                                @foreach($alternativa->imagens as $img)
+                                <br><img src="{{ asset('storage/' . $img) }}" class="img-fluid mt-2 rounded border" style="max-width: 100%; max-height: 200px;">
+                                @endforeach
                             @endif
                         </label>
                     </div>
                     @endforeach
                 </fieldset>
                 <div class="d-grid gap-2 d-md-block mt-4">
-                    <button type="submit" class="btn btn-primary px-4">Responder Questão</button>
+                    <button type="submit" class="btn btn-primary px-4 fw-bold">
+                        <i class="fas fa-check-circle me-1"></i> Responder Questão
+                    </button>
                 </div>
             </form>
         </div>
