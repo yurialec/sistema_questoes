@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminQuestaoController;
 use App\Http\Controllers\AlternativaController;
 use App\Http\Controllers\AnoController;
 use App\Http\Controllers\AssuntoController;
@@ -48,6 +49,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/reaplicacao', [ReaplicacaoController::class, 'index'])->name('reaplicacao.index');
     Route::get('/reaplicacao/iniciar', [ReaplicacaoController::class, 'iniciar'])->name('reaplicacao.iniciar');
     Route::post('/reaplicacao/{erro}/verificar', [ReaplicacaoController::class, 'verificar'])->name('reaplicacao.verificar');
+
+    Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+        Route::get('/questoes', [AdminQuestaoController::class, 'index'])->name('admin.questoes.index');
+        Route::get('/questoes/{id}/edit', [AdminQuestaoController::class, 'edit'])->name('admin.questoes.edit');
+        Route::put('/questoes/{id}', [AdminQuestaoController::class, 'update'])->name('admin.questoes.update');
+    });
 });
 
 require __DIR__ . '/auth.php';

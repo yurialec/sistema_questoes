@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Yuri',
                 'password' => bcrypt('Ya_913526124500'),
+                'is_admin' => true,
             ]
         );
     }

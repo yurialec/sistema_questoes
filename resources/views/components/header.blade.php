@@ -54,6 +54,15 @@
                     <span>Responder questões</span>
                 </a>
 
+                {{-- BOTÃO EXCLUSIVO PARA ADMINISTRADORES --}}
+                @if(auth()->user()->is_admin)
+                    <a href="{{ route('admin.questoes.index') }}"
+                        class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-edit"></i>
+                        <span>Editar Questões</span>
+                    </a>
+                @endif
+
             </div>
 
             {{-- Ações secundárias --}}
