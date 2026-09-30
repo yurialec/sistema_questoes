@@ -94,7 +94,8 @@
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                    <a href="{{ route('responder', ['materia_id' => $sugestaoHoje->id]) }}" class="btn btn-light text-primary fw-bold px-4 py-2">
+                    <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}"
+                        class="btn btn-light text-primary fw-bold px-4 py-2">
                         <i class="fas fa-play me-2"></i> Estudar Agora
                     </a>
                 </div>

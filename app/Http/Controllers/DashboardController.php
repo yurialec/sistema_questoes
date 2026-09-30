@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class DashboardController extends Controller
 {
@@ -235,56 +236,111 @@ class DashboardController extends Controller
 
     public function getSugestaoDeHoje()
     {
-        $user = Auth::user();
-        $diaSemana = now()->dayOfWeek;
+        $user = auth()->user();
 
-        // 1. Verifica se o usuário configurou uma grade para hoje
-        $gradeFixa = GradeEstudo::with('materia')
+        // isoWeekDay() retorna 1 para Segunda e 7 para Domingo (padrão da nossa tabela)
+        $diaSemana = now()->isoWeekDay();
+
+        // REGRA 1: Verifica se o usuário cadastrou uma grade para hoje
+        $gradeHoje = GradeEstudo::with('grupo.materias')
             ->where('user_id', $user->id)
             ->where('dia_semana', $diaSemana)
-            ->orderBy('ordem')
             ->first();
 
-        if ($gradeFixa) {
-            return $gradeFixa->materia;
+        if ($gradeHoje && $gradeHoje->grupo->materias->isNotEmpty()) {
+            // Retorna uma matéria aleatória do grupo definido para hoje
+            return $gradeHoje->grupo->materias->random();
         }
 
-        // 2. FALLBACK INTELIGENTE: Se não houver grade fixa, sugere com base em dados
+        // Se não tiver grade, aplica a sugestão inteligente
         return $this->sugestaoInteligente($user->id);
     }
 
     private function sugestaoInteligente($userId)
     {
-        // Prioridade A: Matéria com mais erros pendentes no Caderno de Erros
-        $materiaComErros = CadernoErro::select('questoes.materia_id', DB::raw('count(*) as total_erros'))
-            ->join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
-            ->where('caderno_erros.user_id', $userId)
-            ->where('caderno_erros.status', 'pendente')
-            ->groupBy('questoes.materia_id')
-            ->orderByDesc('total_erros')
-            ->first();
+        $dataHoje = now()
+            ->timezone('America/Sao_Paulo')
+            ->format('Y-m-d');
 
-        if ($materiaComErros) {
-            return Materia::find($materiaComErros->materia_id);
+        $cacheKey = "sugestao_estudo_{$userId}_{$dataHoje}";
+
+        $materiaId = Cache::remember(
+            $cacheKey,
+            now()->timezone('America/Sao_Paulo')->endOfDay(),
+            function () use ($userId) {
+
+                $todasMaterias = Materia::all();
+
+                if ($todasMaterias->isEmpty()) {
+                    return null;
+                }
+
+                // Matérias que já tiveram pelo menos uma resposta
+                $materiasRespondidasIds = HistoricoResposta::where('user_id', $userId)
+                    ->join(
+                        'questoes',
+                        'historico_respostas.questao_id',
+                        '=',
+                        'questoes.id'
+                    )
+                    ->pluck('questoes.materia_id')
+                    ->unique()
+                    ->toArray();
+
+                // Matérias ainda não respondidas
+                $materiasNaoRespondidas = $todasMaterias
+                    ->whereNotIn('id', $materiasRespondidasIds);
+
+                if ($materiasNaoRespondidas->isNotEmpty()) {
+                    return $materiasNaoRespondidas->random()->id;
+                }
+
+                // Todas já foram respondidas.
+                // Busca aquela com menor percentual de acerto.
+                $stats = DB::table('historico_respostas')
+                    ->join(
+                        'questoes',
+                        'historico_respostas.questao_id',
+                        '=',
+                        'questoes.id'
+                    )
+                    ->where('historico_respostas.user_id', $userId)
+                    ->select(
+                        'questoes.materia_id',
+                        DB::raw(
+                            'SUM(historico_respostas.acertou) as total_acertos'
+                        ),
+                        DB::raw(
+                            'COUNT(*) as total_tentativas'
+                        )
+                    )
+                    ->groupBy('questoes.materia_id')
+                    ->get();
+
+                $materiaPiorDesempenhoId = null;
+                $menorTaxa = 101;
+
+                foreach ($stats as $stat) {
+                    $taxa = (
+                        $stat->total_acertos /
+                        $stat->total_tentativas
+                    ) * 100;
+
+                    if ($taxa < $menorTaxa) {
+                        $menorTaxa = $taxa;
+                        $materiaPiorDesempenhoId = $stat->materia_id;
+                    }
+                }
+
+                return $materiaPiorDesempenhoId
+                    ?? $todasMaterias->random()->id;
+            }
+        );
+
+        if (!$materiaId) {
+            return null;
         }
 
-        // Prioridade B: Matéria com menor percentual de progresso (que tenha pelo menos 1 questão)
-        $materiaMenorProgresso = Materia::has('questoes')
-            ->withCount('questoes as total_questoes')
-            ->with(['assuntos' => function ($q) use ($userId) {
-                $q->withCount(['questoes as questoes_respondidas' => function ($sq) use ($userId) {
-                    $sq->whereHas('historicoRespostas', function ($h) use ($userId) {
-                        $h->where('user_id', $userId);
-                    });
-                }]);
-            }])
-            ->get()
-            ->sortBy(function ($materia) {
-                $respondidas = $materia->assuntos->sum('questoes_respondidas');
-                return $materia->total_questoes > 0 ? ($respondidas / $materia->total_questoes) : 999;
-            })
-            ->first();
-
-        return $materiaMenorProgresso ?: Materia::inRandomOrder()->first(); // Fallback final
+        return Materia::find($materiaId);
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\CadernoErrosController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\ConcursoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GradeEstudoController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\OrgaoController;
 use App\Http\Controllers\ReaplicacaoController;
@@ -60,6 +61,17 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/filtros/salvar', [ConcursoController::class, 'salvarFiltro'])->name('filtros.salvar');
     Route::delete('/filtros/{id}', [ConcursoController::class, 'excluirFiltro'])->name('filtros.excluir');
+
+    Route::get('/grade', [GradeEstudoController::class, 'index'])->name('grade.index');
+    
+    Route::post('/grade/grupos', [GradeEstudoController::class, 'storeGrupo'])->name('grade.grupos.store');
+    Route::post('/grade/grupos/{grupo}/materias', [GradeEstudoController::class, 'addMateria'])->name('grade.materias.add');
+    Route::delete('/grade/grupos/{grupo}/materias/{materia}', [GradeEstudoController::class, 'removeMateria'])->name('grade.materias.remove');
+    
+    Route::post('/grade/dias', [GradeEstudoController::class, 'storeDia'])->name('grade.dias.store');
+    Route::delete('/grade/dias/{id}', [GradeEstudoController::class, 'destroyDia'])->name('grade.dias.destroy');
+
+    Route::delete('/grade/grupos/{grupo}', [GradeEstudoController::class, 'destroyGrupo'])->name('grade.grupos.destroy');
 });
 
 require __DIR__ . '/auth.php';

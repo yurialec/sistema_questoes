@@ -20,4 +20,10 @@ class Materia extends Model
     {
         return $this->hasMany(Questao::class);
     }
+
+    // Adicione este método na classe Materia
+    public function grupos()
+    {
+        return $this->belongsToMany(GrupoEstudo::class, 'grupo_materia', 'materia_id', 'grupo_id')->withTimestamps();
+    }
 }

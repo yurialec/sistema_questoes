@@ -37,6 +37,13 @@
                     <span>Caderno de Erros</span>
                 </a>
 
+                {{-- NOVO BOTÃO: GRADE DE ESTUDOS --}}
+                <a href="{{ route('grade.index') }}"
+                    class="d-none btn btn-outline-info btn-sm px-3 d-flex align-items-center gap-2">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Grade de Estudos</span>
+                </a>
+
                 {{-- Reaplicação --}}
                 <a href="{{ route('reaplicacao.index') }}"
                     class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
