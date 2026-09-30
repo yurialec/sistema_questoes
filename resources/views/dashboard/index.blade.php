@@ -298,62 +298,6 @@
             </div>
         </div>
     </div>
-
-    {{-- ══════════════════════════════════════════════
-         LINHA 3 — PROGRESSO POR MATÉRIA
-    ══════════════════════════════════════════════ --}}
-    <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.06em">Progresso por matéria</p>
-
-    <div class="card border shadow-none">
-        <div class="card-header d-flex align-items-center gap-2 bg-white border-bottom py-3">
-            <span class="badge rounded-2 p-2" style="background:#EEF2FF"><i class="fas fa-layer-group" style="color:#6366F1;font-size:.85rem"></i></span>
-            <div>
-                <p class="fw-semibold mb-0 small">Matérias</p>
-                <p class="text-muted mb-0" style="font-size:.75rem">Questões respondidas e taxa de acerto por matéria</p>
-            </div>
-        </div>
-
-        <div class="card-body p-0">
-            @forelse($materias->sortByDesc('questoes_respondidas') as $materia)
-            <div class="materia-progress px-4 py-3 {{ !$loop->last ? 'border-bottom' : '' }}">
-                <div class="d-flex align-items-center justify-content-between mb-1">
-                    <span class="small fw-semibold">{{ $materia->nome }}</span>
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="small text-muted">{{ $materia->questoes_respondidas }} / {{ $materia->total_questoes }} questão{{ $materia->total_questoes !== 1 ? 'ões' : '' }}</span>
-                        @if($materia->total_tentativas > 0)
-                        @php
-                        $accColor = match(true) {
-                        $materia->percentual_acertos >= 70 => 'background:#D1FAE5;color:#065F46',
-                        $materia->percentual_acertos >= 50 => 'background:#EEF2FF;color:#3730A3',
-                        default => 'background:#FEE2E2;color:#7F1D1D',
-                        };
-                        @endphp
-                        <span class="badge rounded-pill" style="font-size:.7rem;{{ $accColor }}">{{ $materia->percentual_acertos }}% acertos</span>
-                        @else
-                        <span class="badge rounded-pill" style="font-size:.7rem;background:#F1F5F9;color:#64748B">não iniciado</span>
-                        @endif
-                    </div>
-                </div>
-                <div class="progress">
-                    @php
-                    $barColor = match(true) {
-                    $materia->percentual_progresso >= 70 => '#10B981',
-                    $materia->percentual_progresso >= 30 => '#6366F1',
-                    $materia->percentual_progresso > 0 => '#F59E0B',
-                    default => '#E2E8F0',
-                    };
-                    @endphp
-                    <div class="progress-bar" role="progressbar" style="width:{{ max($materia->percentual_progresso, 0) }}%; background:{{ $barColor }}; border-radius:99px" aria-valuenow="{{ $materia->percentual_progresso }}" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-            @empty
-            <div class="text-center py-5 text-muted">
-                <i class="fas fa-book-open fa-2x mb-2 d-block" style="opacity:.3"></i>
-                <p class="small mb-0">Nenhuma matéria cadastrada ainda.</p>
-            </div>
-            @endforelse
-        </div>
-    </div>
 </div>
 @endsection
 

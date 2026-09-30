@@ -22,7 +22,7 @@ class CadernoErrosController extends Controller
             'questao.alternativas', // Carrega todas para exibir a lista completa
             'alternativa' // Carrega especificamente a alternativa errada marcada
         ])
-            ->where('user_id', auth()->id())
+            ->where('user_id', Auth::id())
             ->whereDate('created_at', $dataFiltro)
             ->orderByDesc('created_at')
             ->get();

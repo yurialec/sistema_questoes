@@ -30,6 +30,13 @@
                     <span>Desempenho</span>
                 </a>
 
+                {{-- NOVO: Curva de Aprendizagem --}}
+                <a href="{{ route('relatorios.curva') }}"
+                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
+                    <i class="fas fa-chart-line text-success"></i>
+                    <span>Curva de Aprendizagem</span>
+                </a>
+
                 {{-- Caderno de erros --}}
                 <a href="{{ route('caderno-erros.index') }}"
                     class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">

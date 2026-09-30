@@ -13,6 +13,7 @@ use App\Models\HistoricoResposta;
 use App\Models\Materia;
 use App\Models\Orgao;
 use App\Models\Questao;
+use App\Services\LeitnerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,7 @@ class ConcursoController extends Controller
 {
     public function responder(Request $request)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $queryParams = $request->query();
 
         // 1. Lógica Inteligente: Se não houver filtros na URL, carrega o filtro padrão do usuário
@@ -92,21 +93,25 @@ class ConcursoController extends Controller
         ]);
     }
 
-    public function verificar(Request $request)
+    public function verificar(Request $request, LeitnerService $leitnerService)
     {
-        $alternativa = Alternativa::findOrFail($request->alternativa_id);
-        $user = Auth::user(); // Pega o usuário logado
+        // Carrega a questão junto para evitar uma nova query no banco
+        $alternativa = Alternativa::with('questao')->findOrFail($request->alternativa_id);
+        $user = Auth::user();
 
         // 1. Salva no histórico
         HistoricoResposta::create([
-            'user_id' => $user->id,               // <-- ADICIONE AQUI
+            'user_id' => $user->id,
             'questao_id' => $alternativa->questao_id,
             'alternativa_id' => $alternativa->id,
             'acertou' => $alternativa->correta,
             'respondido_em' => now()
         ]);
 
-        // 2. Lógica do Caderno de Erros (se estiver errada e modal ativo)
+        // 2. ATUALIZA A CAIXA DO SISTEMA LEITNER (Repetição Espaçada)
+        $leitnerService->processarResposta($user, $alternativa->questao, $alternativa->correta);
+
+        // 3. Lógica do Caderno de Erros (se estiver errada e modal ativo)
         if (!$alternativa->correta && $user->ativo_modal_erros) {
             $erro = CadernoErro::create([
                 'user_id' => $user->id,
@@ -143,7 +148,7 @@ class ConcursoController extends Controller
 
     public function salvarFiltro(Request $request)
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         // Validação básica
         $request->validate([
@@ -177,7 +182,7 @@ class ConcursoController extends Controller
 
     public function excluirFiltro($id)
     {
-        $filtro = FiltroSalvo::where('user_id', auth()->id())->findOrFail($id);
+        $filtro = FiltroSalvo::where('user_id', Auth::id())->findOrFail($id);
         $filtro->delete();
 
         return redirect()->back()->with('success', 'Filtro excluído com sucesso!');

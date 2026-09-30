@@ -7,6 +7,7 @@ use App\Models\CadernoErro;
 use App\Models\GradeEstudo;
 use App\Models\HistoricoResposta;
 use App\Models\Materia;
+use App\Models\ProgressoQuestao;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -230,13 +231,14 @@ class DashboardController extends Controller
 
         HistoricoResposta::where('user_id', $userId)->delete();
         CadernoErro::where('user_id', $userId)->delete();
+        ProgressoQuestao::where('user_id', $userId)->delete();
 
-        return redirect()->back()->with('success', 'Suas estatísticas e Caderno de Erros foram zerados com sucesso.');
+        return redirect()->back()->with('success', 'Suas estatísticas, Caderno de Erros e Curva de Aprendizagem foram zerados com sucesso.');
     }
 
     public function getSugestaoDeHoje()
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         // isoWeekDay() retorna 1 para Segunda e 7 para Domingo (padrão da nossa tabela)
         $diaSemana = now()->isoWeekDay();
