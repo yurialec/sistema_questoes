@@ -83,6 +83,12 @@
                     </button>
                 </form>
 
+                <a href="{{ route('profile.edit') }}"
+                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
+                    <i class="fas fa-user"></i>
+                    <span>Meu perfil</span>
+                </a>
+
                 {{-- Logout --}}
                 <form action="{{ route('logout') }}" method="POST" class="m-0">
                     @csrf

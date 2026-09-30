@@ -11,8 +11,8 @@ use App\Http\Controllers\ConcursoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\OrgaoController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReaplicacaoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,10 +24,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/responder', [ConcursoController::class, 'responder'])->name('responder');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile.edit');
+    Route::patch('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 
+    Route::get('/responder', [ConcursoController::class, 'responder'])->name('responder');
+    
     Route::resource('orgaos', OrgaoController::class);
     Route::resource('bancas', BancaController::class);
     Route::resource('anos', AnoController::class);
