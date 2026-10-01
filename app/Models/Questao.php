@@ -53,4 +53,9 @@ class Questao extends Model
     {
         return $this->hasMany(HistoricoResposta::class);
     }
+
+        public function progresso()
+    {
+        return $this->hasOne(ProgressoQuestao::class);
+    }
 }
