@@ -6,10 +6,12 @@
 <div class="container py-4">
     
     <!-- Cabeçalho -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
         <div>
-            <h2 class="fw-bold text-dark mb-0">✏️ Editando Questão #{{ $questao->numero }}</h2>
-            <p class="text-muted small mb-0">ID: {{ $questao->id }} | Matéria: {{ $questao->materia->nome ?? 'N/A' }}</p>
+            <h2 class="h4 fw-bold text-body mb-1">Editando Questão #{{ $questao->numero }}</h2>
+            <p class="text-body-secondary small mb-0">
+                ID: {{ $questao->id }} <span class="mx-1">•</span> Matéria: {{ $questao->materia->nome ?? 'N/A' }}
+            </p>
         </div>
         <a href="{{ route('admin.questoes.index') }}" class="btn btn-outline-secondary btn-sm">
             <i class="fas fa-arrow-left me-1"></i> Voltar para Lista
@@ -17,12 +19,14 @@
     </div>
 
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul class="mb-0">
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 mb-4" role="alert">
+            <div class="fw-semibold mb-1"><i class="fas fa-exclamation-circle me-2"></i>Corrija os erros abaixo:</div>
+            <ul class="mb-0 small">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
 
@@ -31,37 +35,37 @@
         @method('PUT')
 
         <!-- SEÇÃO 1: DADOS GERAIS -->
-        <div class="accordion mb-3" id="accDadosGerais">
+        <div class="accordion mb-4" id="accDadosGerais">
             <div class="accordion-item border-0 shadow-sm">
                 <h2 class="accordion-header">
-                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDados">
+                    <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDados">
                         1. Dados Gerais e Classificação
                     </button>
                 </h2>
                 <div id="collapseDados" class="accordion-collapse collapse show" data-bs-parent="#accDadosGerais">
-                    <div class="accordion-body bg-white">
+                    <div class="accordion-body bg-body">
                         <div class="row g-3">
-                            <div class="col-md-5">
-                                <label class="form-label small fw-bold">Matéria</label>
-                                <select name="materia_id" class="form-select" required>
+                            <div class="col-md-6">
+                                <label for="materia_id" class="form-label small fw-semibold text-body-secondary">Matéria</label>
+                                <select name="materia_id" id="materia_id" class="form-select" required>
                                     <option value="">Selecione...</option>
                                     @foreach($materias as $m)
                                         <option value="{{ $m->id }}" {{ $questao->materia_id == $m->id ? 'selected' : '' }}>{{ $m->nome }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-5">
-                                <label class="form-label small fw-bold">Assunto</label>
-                                <select name="assunto_id" class="form-select">
+                            <div class="col-md-6">
+                                <label for="assunto_id" class="form-label small fw-semibold text-body-secondary">Assunto</label>
+                                <select name="assunto_id" id="assunto_id" class="form-select">
                                     <option value="">Selecione...</option>
                                     @foreach($assuntos as $a)
                                         <option value="{{ $a->id }}" {{ $questao->assunto_id == $a->id ? 'selected' : '' }}>{{ $a->nome }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-12">
-                                <label class="form-label small fw-bold">Cargo / Prova (Órgão - Banca - Ano)</label>
-                                <select name="cargo_id" class="form-select" required>
+                            <div class="col-12">
+                                <label for="cargo_id" class="form-label small fw-semibold text-body-secondary">Cargo / Prova (Órgão - Banca - Ano)</label>
+                                <select name="cargo_id" id="cargo_id" class="form-select" required>
                                     <option value="">Selecione o cargo...</option>
                                     @foreach($cargos as $c)
                                         <option value="{{ $c->id }}" {{ $questao->cargo_id == $c->id ? 'selected' : '' }}>
@@ -70,10 +74,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-12">
-                                <label class="form-label small fw-bold">Caminho da Imagem do Enunciado (Opcional)</label>
-                                <input type="text" name="imagem" class="form-control" value="{{ old('imagem', $questao->imagem) }}" placeholder="ex: questoes/bb2023/ti/66.png">
-                                <small class="text-muted">Deixe vazio se não houver imagem principal.</small>
+                            <div class="col-12">
+                                <label for="imagem" class="form-label small fw-semibold text-body-secondary">Caminho da Imagem do Enunciado (Opcional)</label>
+                                <input type="text" name="imagem" id="imagem" class="form-control" value="{{ old('imagem', $questao->imagem) }}" placeholder="ex: questoes/bb2023/ti/66.png">
+                                <div class="form-text text-body-secondary">Deixe vazio se não houver imagem principal para esta questão.</div>
                             </div>
                         </div>
                     </div>
@@ -82,35 +86,35 @@
         </div>
 
         <!-- SEÇÃO 2: ENUNCIADO E COMPLEMENTAR -->
-        <div class="accordion mb-3" id="accEnunciado">
+        <div class="accordion mb-4" id="accEnunciado">
             <div class="accordion-item border-0 shadow-sm">
                 <h2 class="accordion-header">
-                    <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnunciado">
+                    <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnunciado">
                         2. Enunciado e Texto Complementar
                     </button>
                 </h2>
                 <div id="collapseEnunciado" class="accordion-collapse collapse" data-bs-parent="#accEnunciado">
-                    <div class="accordion-body bg-white">
+                    <div class="accordion-body bg-body">
                         
                         <div class="mb-4">
-                            <label class="form-label small fw-bold text-primary">Enunciado da Questão</label>
-                            <textarea name="enunciado" class="form-control tinymce-editor" rows="10">{{ old('enunciado', $questao->enunciado) }}</textarea>
+                            <label for="enunciado" class="form-label small fw-semibold text-primary">Enunciado da Questão</label>
+                            <textarea name="enunciado" id="enunciado" class="form-control tinymce-editor" rows="10">{{ old('enunciado', $questao->enunciado) }}</textarea>
                         </div>
 
-                        <hr>
+                        <hr class="border-secondary-subtle my-4">
 
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="checkTextoComp" name="tem_texto_complementar" 
                                 {{ old('tem_texto_complementar', $questao->texto_complementar_id) ? 'checked' : '' }}
                                 onchange="document.getElementById('boxTextoComp').classList.toggle('d-none', !this.checked)">
-                            <label class="form-check-label fw-bold" for="checkTextoComp">
+                            <label class="form-check-label fw-semibold text-body" for="checkTextoComp">
                                 Esta questão possui Texto Complementar?
                             </label>
                         </div>
 
                         <div id="boxTextoComp" class="{{ $questao->texto_complementar_id ? '' : 'd-none' }}">
-                            <label class="form-label small fw-bold text-info">Conteúdo do Texto Complementar</label>
-                            <textarea name="texto_complementar" class="form-control tinymce-editor" rows="6">{{ old('texto_complementar', $questao->textoComplementar->conteudo ?? '') }}</textarea>
+                            <label for="texto_complementar" class="form-label small fw-semibold text-info-emphasis">Conteúdo do Texto Complementar</label>
+                            <textarea name="texto_complementar" id="texto_complementar" class="form-control tinymce-editor" rows="6">{{ old('texto_complementar', $questao->textoComplementar->conteudo ?? '') }}</textarea>
                         </div>
 
                     </div>
@@ -119,34 +123,35 @@
         </div>
 
         <!-- SEÇÃO 3: ALTERNATIVAS -->
-        <div class="accordion mb-3" id="accAlternativas">
+        <div class="accordion mb-4" id="accAlternativas">
             <div class="accordion-item border-0 shadow-sm">
                 <h2 class="accordion-header">
-                    <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlts">
+                    <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlts">
                         3. Alternativas e Gabarito
                     </button>
                 </h2>
                 <div id="collapseAlts" class="accordion-collapse collapse" data-bs-parent="#accAlternativas">
-                    <div class="accordion-body bg-white">
-                        <p class="text-muted small mb-3">Preencha o conteúdo de cada alternativa. Marque o radio button ao lado da alternativa correta.</p>
+                    <div class="accordion-body bg-body">
+                        <p class="text-body-secondary small mb-4">
+                            <i class="fas fa-info-circle me-1"></i> Preencha o conteúdo de cada alternativa. Marque o botão de opção ao lado da alternativa correta.
+                        </p>
                         
                         @php $letras = ['A', 'B', 'C', 'D', 'E']; @endphp
                         
                         @foreach($letras as $letra)
                             @php
-                                // Busca a alternativa existente para esta letra
                                 $altExistente = $questao->alternativas->firstWhere('letra', $letra);
                             @endphp
                             
-                            <div class="card mb-3 border-light bg-light">
-                                <div class="card-body">
+                            <div class="card mb-3 border border-secondary-subtle bg-body-tertiary">
+                                <div class="card-body p-3">
                                     <div class="d-flex align-items-start gap-3">
                                         <!-- Radio do Gabarito -->
-                                        <div class="mt-4">
+                                        <div class="mt-1">
                                             <div class="form-check">
-                                                <input class="form-check-input fs-4" type="radio" name="alternativas[{{ $letra }}][correta]" value="1" id="gab_{{ $letra }}"
+                                                <input class="form-check-input mt-1" type="radio" name="alternativas[{{ $letra }}][correta]" value="1" id="gab_{{ $letra }}"
                                                     {{ old("alternativas.{$letra}.correta", $altExistente?->correta) ? 'checked' : '' }}>
-                                                <label class="form-check-label fw-bold text-success" for="gab_{{ $letra }}">
+                                                <label class="form-check-label small fw-semibold text-success-emphasis ms-1" for="gab_{{ $letra }}">
                                                     Gabarito
                                                 </label>
                                             </div>
@@ -155,11 +160,10 @@
                                         <!-- Conteúdo da Alternativa -->
                                         <div class="flex-grow-1">
                                             <div class="d-flex align-items-center mb-2">
-                                                <span class="badge bg-dark fs-6 me-2">{{ $letra }}</span>
-                                                <span class="text-muted small">Conteúdo da Alternativa</span>
+                                                <span class="badge bg-body text-body fw-bold border border-secondary-subtle me-2" style="min-width: 28px; text-align: center;">{{ $letra }}</span>
+                                                <span class="text-body-secondary small fw-semibold">Conteúdo da Alternativa</span>
                                             </div>
                                             
-                                            <!-- Input hidden para manter o ID se for edição -->
                                             <input type="hidden" name="alternativas[{{ $letra }}][id]" value="{{ $altExistente?->id }}">
                                             <input type="hidden" name="alternativas[{{ $letra }}][letra]" value="{{ $letra }}">
 
@@ -176,9 +180,11 @@
         </div>
 
         <!-- BOTÕES DE AÇÃO -->
-        <div class="d-flex justify-content-end gap-2 mt-4 mb-5">
-            <a href="{{ route('admin.questoes.index') }}" class="btn btn-secondary px-4">Cancelar</a>
-            <button type="submit" class="btn btn-success px-5 fw-bold shadow-sm">
+        <div class="d-flex justify-content-end gap-2 mt-4 mb-5 pt-3 border-top border-secondary-subtle">
+            <a href="{{ route('admin.questoes.index') }}" class="btn btn-outline-secondary px-4">
+                Cancelar
+            </a>
+            <button type="submit" class="btn btn-primary px-5 fw-semibold shadow-sm">
                 <i class="fas fa-save me-2"></i> Salvar Alterações
             </button>
         </div>
@@ -194,7 +200,7 @@
         ['A', 'B', 'C', 'D', 'E'].forEach(letra => {
             tinymce.init({
                 selector: `.tinymce-editor-alt-${letra}`,
-                height: 200, // Menor que o enunciado
+                height: 200,
                 menubar: false,
                 plugins: 'lists link image code codesample table paste',
                 toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | codesample | image | table | removeformat',
@@ -202,7 +208,9 @@
                 codesample_languages: [
                     {text: 'SQL', value: 'sql'}, {text: 'Java', value: 'java'}, 
                     {text: 'Python', value: 'python'}, {text: 'JavaScript', value: 'javascript'}
-                ]
+                ],
+                // Garante que o editor do TinyMCE respeite o tema escuro se necessário (opcional, mas recomendado)
+                content_style: 'body { font-family: Helvetica, Arial, sans-serif; font-size: 14px; }'
             });
         });
 
@@ -213,5 +221,4 @@
     });
 </script>
 @endpush
-
 @endsection

@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
-@section('content')
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+@section('title', 'Curva de Aprendizagem')
 
-<div class="container py-4 mt-4">
+@section('content')
+<div class="container py-4">
     
     {{-- ============================================ --}}
     {{-- CABEÇALHO --}}
     {{-- ============================================ --}}
     <div class="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
         <div>
-            <h1 class="h3 fw-bold text-dark mb-1">
-                <i class="fas fa-chart-line text-success me-2"></i>
-                Curva de Aprendizagem
-            </h1>
-            <p class="text-muted mb-0">
-                Selecione uma matéria e depois um assunto para acompanhar evolução, retenção e distribuição das revisões.
+            <h1 class="h3 fw-bold text-body mb-1">Curva de Aprendizagem</h1>
+            <p class="text-body-secondary mb-0">
+                Selecione uma matéria e um assunto para acompanhar evolução, retenção e distribuição das revisões.
             </p>
         </div>
     </div>
@@ -23,11 +20,11 @@
     {{-- ============================================ --}}
     {{-- FILTROS DE MATÉRIA E ASSUNTO --}}
     {{-- ============================================ --}}
-    <div class="card border-0 shadow-sm mb-4">
+    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
         <div class="card-body">
             <form method="GET" action="{{ route('relatorios.curva') }}" class="row g-3 align-items-end">
                 <div class="col-md-5">
-                    <label class="form-label fw-semibold text-muted small">Matéria</label>
+                    <label class="form-label fw-semibold text-body-secondary small">Matéria</label>
                     <select name="materia_id" id="materia_id" class="form-select" onchange="this.form.submit()">
                         <option value="">Todas as matérias</option>
                         @foreach($materiasComProgresso as $materia)
@@ -38,7 +35,7 @@
                     </select>
                 </div>
                 <div class="col-md-5">
-                    <label class="form-label fw-semibold text-muted small">Assunto</label>
+                    <label class="form-label fw-semibold text-body-secondary small">Assunto</label>
                     <select name="assunto_id" id="assunto_id" class="form-select" onchange="this.form.submit()" {{ !$materiaSelecionada ? 'disabled' : '' }}>
                         <option value="">Todos os assuntos</option>
                         @foreach($assuntosComProgresso as $assunto)
@@ -58,80 +55,45 @@
     </div>
 
     {{-- ============================================ --}}
-    {{-- CARDS DE KPIs --}}
+    {{-- CARDS DE KPIs (Minimalistas, sem ícones decorativos) --}}
     {{-- ============================================ --}}
     <div class="row g-3 mb-4">
-        {{-- Domínio Médio --}}
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                            <p class="text-muted small mb-1 fw-semibold">Domínio médio</p>
-                            <h2 class="fw-bold text-dark mb-0">{{ $dominioMedio }}%</h2>
-                        </div>
-                        <div class="bg-success bg-opacity-10 rounded-3 p-2">
-                            <i class="fas fa-trophy text-success"></i>
-                        </div>
-                    </div>
-                    <small class="text-muted">
-                        <i class="fas fa-arrow-up text-success"></i>
-                        Questões nas caixas 4 e 5
-                    </small>
+                    <p class="text-body-secondary small mb-1 fw-semibold text-uppercase" style="letter-spacing: 0.05em;">Domínio médio</p>
+                    <h2 class="fw-bold text-body mb-2">{{ $dominioMedio }}%</h2>
+                    <small class="text-body-secondary">Questões nas caixas 4 e 5</small>
                 </div>
             </div>
         </div>
 
-        {{-- Cartões Ativos --}}
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                            <p class="text-muted small mb-1 fw-semibold">Cartões ativos</p>
-                            <h2 class="fw-bold text-dark mb-0">{{ $totalCartoes }}</h2>
-                        </div>
-                        <div class="bg-primary bg-opacity-10 rounded-3 p-2">
-                            <i class="fas fa-layer-group text-primary"></i>
-                        </div>
-                    </div>
-                    <small class="text-muted">Total em acompanhamento</small>
+                    <p class="text-body-secondary small mb-1 fw-semibold text-uppercase" style="letter-spacing: 0.05em;">Cartões ativos</p>
+                    <h2 class="fw-bold text-body mb-2">{{ $totalCartoes }}</h2>
+                    <small class="text-body-secondary">Total em acompanhamento</small>
                 </div>
             </div>
         </div>
 
-        {{-- Revisões Hoje --}}
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                            <p class="text-muted small mb-1 fw-semibold">Revisões hoje</p>
-                            <h2 class="fw-bold text-dark mb-0">{{ $revisoesHoje }}</h2>
-                        </div>
-                        <div class="bg-warning bg-opacity-10 rounded-3 p-2">
-                            <i class="fas fa-bell text-warning"></i>
-                        </div>
-                    </div>
-                    <small class="text-muted">Cartões programados</small>
+                    <p class="text-body-secondary small mb-1 fw-semibold text-uppercase" style="letter-spacing: 0.05em;">Revisões hoje</p>
+                    <h2 class="fw-bold text-warning-emphasis mb-2">{{ $revisoesHoje }}</h2>
+                    <small class="text-body-secondary">Cartões programados</small>
                 </div>
             </div>
         </div>
 
-        {{-- Sequência --}}
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                            <p class="text-muted small mb-1 fw-semibold">Sequência</p>
-                            <h2 class="fw-bold text-dark mb-0">{{ $sequencia }} {{ Str::plural('dia', $sequencia) }}</h2>
-                        </div>
-                        <div class="bg-danger bg-opacity-10 rounded-3 p-2">
-                            <i class="fas fa-fire text-danger"></i>
-                        </div>
-                    </div>
-                    <small class="text-muted">Estudo consistente 🔥</small>
+                    <p class="text-body-secondary small mb-1 fw-semibold text-uppercase" style="letter-spacing: 0.05em;">Sequência</p>
+                    <h2 class="fw-bold text-body mb-2">{{ $sequencia }} <span class="fs-6 fw-normal text-body-secondary">{{ Str::plural('dia', $sequencia) }}</span></h2>
+                    <small class="text-body-secondary">Estudo consistente</small>
                 </div>
             </div>
         </div>
@@ -147,20 +109,16 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <div>
-                            <h5 class="fw-bold mb-1">Curva de aprendizagem</h5>
-                            <small class="text-muted">Evolução percentual nos últimos 30 dias</small>
+                            <h5 class="fw-bold mb-1 text-body">Curva de aprendizagem</h5>
+                            <small class="text-body-secondary">Evolução percentual nos últimos 30 dias</small>
                         </div>
-                        <span class="badge bg-primary bg-opacity-10 text-primary">
-                            <i class="fas fa-chart-line me-1"></i> Linha suavizada
-                        </span>
                     </div>
                     @if(!empty($labelsLinha))
                         <div style="position: relative; height: 320px;">
                             <canvas id="graficoLinha"></canvas>
                         </div>
                     @else
-                        <div class="text-center py-5 text-muted">
-                            <i class="fas fa-chart-line fa-3x mb-3 opacity-25"></i>
+                        <div class="text-center py-5 text-body-secondary">
                             <p class="mb-0">Ainda não há dados suficientes para exibir a curva.</p>
                         </div>
                     @endif
@@ -173,20 +131,19 @@
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
                     <div class="mb-3">
-                        <h5 class="fw-bold mb-1">Ciclo Leitner</h5>
-                        <small class="text-muted">Cartões distribuídos entre as caixas.</small>
+                        <h5 class="fw-bold mb-1 text-body">Ciclo Leitner</h5>
+                        <small class="text-body-secondary">Cartões distribuídos entre as caixas.</small>
                     </div>
                     @if(array_sum($dadosRosca) > 0)
                         <div class="text-center mb-3">
-                            <h3 class="fw-bold text-dark mb-0">{{ array_sum($dadosRosca) }}</h3>
-                            <small class="text-muted">cartões no ciclo</small>
+                            <h3 class="fw-bold text-body mb-0">{{ array_sum($dadosRosca) }}</h3>
+                            <small class="text-body-secondary">cartões no ciclo</small>
                         </div>
                         <div style="position: relative; height: 220px;">
                             <canvas id="graficoRosca"></canvas>
                         </div>
                     @else
-                        <div class="text-center py-5 text-muted">
-                            <i class="fas fa-circle-notch fa-3x mb-3 opacity-25"></i>
+                        <div class="text-center py-5 text-body-secondary">
                             <p class="mb-0">Sem cartões no ciclo.</p>
                         </div>
                     @endif
@@ -202,10 +159,10 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <div>
-                    <h5 class="fw-bold mb-1">Desempenho por assunto</h5>
-                    <small class="text-muted">
+                    <h5 class="fw-bold mb-1 text-body">Desempenho por assunto</h5>
+                    <small class="text-body-secondary">
                         @if($materiaSelecionada)
-                            Resumo da matéria: <strong>{{ $materiaSelecionada->nome }}</strong>
+                            Resumo da matéria: <strong class="text-body">{{ $materiaSelecionada->nome }}</strong>
                         @else
                             Resumo de todas as matérias
                         @endif
@@ -216,22 +173,22 @@
             @if(!empty($dadosAssuntos))
                 <div class="table-responsive">
                     <table class="table table-hover align-middle mb-0">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="ps-3">Assunto</th>
-                                <th class="text-center">Domínio</th>
-                                <th class="text-center">Cartões</th>
-                                <th class="text-center">Próxima revisão</th>
-                                <th class="text-center pe-3">Status</th>
+                        <thead>
+                            <tr class="text-body-secondary small text-uppercase" style="letter-spacing: 0.05em;">
+                                <th class="ps-3 border-bottom border-secondary-subtle">Assunto</th>
+                                <th class="text-center border-bottom border-secondary-subtle">Domínio</th>
+                                <th class="text-center border-bottom border-secondary-subtle">Cartões</th>
+                                <th class="text-center border-bottom border-secondary-subtle">Próxima revisão</th>
+                                <th class="text-center pe-3 border-bottom border-secondary-subtle">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($dadosAssuntos as $assunto)
                                 <tr>
-                                    <td class="ps-3 fw-semibold text-dark">{{ $assunto['nome'] }}</td>
+                                    <td class="ps-3 fw-semibold text-body">{{ $assunto['nome'] }}</td>
                                     <td class="text-center">
                                         <div class="d-flex align-items-center justify-content-center gap-2">
-                                            <div class="progress" style="width: 80px; height: 6px;">
+                                            <div class="progress" style="width: 80px; height: 6px; background-color: var(--bs-body-tertiary);">
                                                 <div class="progress-bar 
                                                     @if($assunto['porcentagem_dominio'] >= 80) bg-success
                                                     @elseif($assunto['porcentagem_dominio'] >= 50) bg-primary
@@ -241,35 +198,35 @@
                                                     style="width: {{ $assunto['porcentagem_dominio'] }}%">
                                                 </div>
                                             </div>
-                                            <span class="small fw-bold">{{ $assunto['porcentagem_dominio'] }}%</span>
+                                            <span class="small fw-bold text-body">{{ $assunto['porcentagem_dominio'] }}%</span>
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <span class="badge bg-secondary">{{ $assunto['total'] }}</span>
+                                        <span class="badge bg-body-tertiary text-body-secondary border border-secondary-subtle">{{ $assunto['total'] }}</span>
                                     </td>
                                     <td class="text-center">
                                         @if($assunto['proxima_revisao'])
                                             @if($assunto['proxima_revisao']->isPast())
-                                                <span class="badge bg-danger">Atrasada</span>
+                                                <span class="badge bg-danger-subtle text-danger-emphasis">Atrasada</span>
                                             @elseif($assunto['proxima_revisao']->isToday())
-                                                <span class="badge bg-warning text-dark">Hoje</span>
+                                                <span class="badge bg-warning-subtle text-warning-emphasis">Hoje</span>
                                             @else
-                                                <small class="text-muted">{{ $assunto['proxima_revisao']->format('d/m/Y') }}</small>
+                                                <small class="text-body-secondary">{{ $assunto['proxima_revisao']->format('d/m/Y') }}</small>
                                             @endif
                                         @else
-                                            <small class="text-muted">-</small>
+                                            <small class="text-body-secondary">-</small>
                                         @endif
                                     </td>
                                     <td class="text-center pe-3">
                                         @php
                                             $statusClass = match($assunto['status']) {
-                                                'Dominado' => 'bg-success',
-                                                'Em progresso' => 'bg-primary',
-                                                'Aprendizado' => 'bg-warning text-dark',
-                                                default => 'bg-danger'
+                                                'Dominado' => 'bg-success-subtle text-success-emphasis border border-success-subtle',
+                                                'Em progresso' => 'bg-primary-subtle text-primary-emphasis border border-primary-subtle',
+                                                'Aprendizado' => 'bg-warning-subtle text-warning-emphasis border border-warning-subtle',
+                                                default => 'bg-danger-subtle text-danger-emphasis border border-danger-subtle'
                                             };
                                         @endphp
-                                        <span class="badge {{ $statusClass }}">{{ $assunto['status'] }}</span>
+                                        <span class="badge rounded-pill {{ $statusClass }}">{{ $assunto['status'] }}</span>
                                     </td>
                                 </tr>
                             @endforeach
@@ -277,8 +234,7 @@
                     </table>
                 </div>
             @else
-                <div class="text-center py-5 text-muted">
-                    <i class="fas fa-folder-open fa-3x mb-3 opacity-25"></i>
+                <div class="text-center py-5 text-body-secondary">
                     <p class="mb-0">Nenhum assunto encontrado com os filtros selecionados.</p>
                 </div>
             @endif
@@ -288,41 +244,38 @@
     {{-- ============================================ --}}
     {{-- LEGENDA DAS CAIXAS LEITNER --}}
     {{-- ============================================ --}}
-    <div class="card border-0 bg-light shadow-sm">
+    <div class="card border-0 shadow-sm bg-body-tertiary">
         <div class="card-body">
-            <h6 class="fw-bold mb-3">
-                <i class="fas fa-info-circle text-primary me-2"></i>
-                Caixas do método Leitner
-            </h6>
+            <h6 class="fw-bold mb-3 text-body">Caixas do método Leitner</h6>
             <div class="row g-2">
                 <div class="col-md-2 col-6">
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-danger">Cx 1</span>
-                        <small class="text-muted">1 dia</small>
+                        <span class="badge bg-danger-subtle text-danger-emphasis border border-danger-subtle">Cx 1</span>
+                        <small class="text-body-secondary">1 dia</small>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-warning text-dark">Cx 2</span>
-                        <small class="text-muted">3 dias</small>
+                        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">Cx 2</span>
+                        <small class="text-body-secondary">3 dias</small>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-info text-dark">Cx 3</span>
-                        <small class="text-muted">7 dias</small>
+                        <span class="badge bg-info-subtle text-info-emphasis border border-info-subtle">Cx 3</span>
+                        <small class="text-body-secondary">7 dias</small>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-primary">Cx 4</span>
-                        <small class="text-muted">15 dias</small>
+                        <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle">Cx 4</span>
+                        <small class="text-body-secondary">15 dias</small>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-success">Cx 5</span>
-                        <small class="text-muted">30 dias</small>
+                        <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">Cx 5</span>
+                        <small class="text-body-secondary">30 dias</small>
                     </div>
                 </div>
             </div>
@@ -330,15 +283,28 @@
     </div>
 
 </div>
+@endsection
 
-{{-- ============================================ --}}
-{{-- SCRIPTS DOS GRÁFICOS --}}
-{{-- ============================================ --}}
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    Chart.defaults.font.family = "'Segoe UI', Roboto, sans-serif";
+    // Lê as cores do Bootstrap dinamicamente para garantir compatibilidade total com Dark Mode
+    const style = getComputedStyle(document.body);
+    const colorPrimary = style.getPropertyValue('--bs-primary').trim() || '#0d6efd';
+    const colorBody = style.getPropertyValue('--bs-body-color').trim() || '#dee2e6';
+    const colorGrid = style.getPropertyValue('--bs-border-color').trim() || 'rgba(255, 255, 255, 0.1)';
+    
+    // Cores específicas para o gráfico de rosca (usando as cores padrão do Bootstrap)
+    const colorDanger = style.getPropertyValue('--bs-danger').trim() || '#dc3545';
+    const colorWarning = style.getPropertyValue('--bs-warning').trim() || '#ffc107';
+    const colorInfo = style.getPropertyValue('--bs-info').trim() || '#0dcaf0';
+    const colorSuccess = style.getPropertyValue('--bs-success').trim() || '#198754';
+
+    Chart.defaults.font.family = "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
     Chart.defaults.responsive = true;
     Chart.defaults.maintainAspectRatio = false;
+    Chart.defaults.color = colorBody;
 
     // ==========================================
     // GRÁFICO 1: LINHA (Curva de Aprendizagem)
@@ -346,9 +312,10 @@ document.addEventListener('DOMContentLoaded', function() {
     @if(!empty($labelsLinha))
         const ctxLinha = document.getElementById('graficoLinha').getContext('2d');
         
+        // Gradiente adaptável (usa a cor primária com opacidade)
         const gradiente = ctxLinha.createLinearGradient(0, 0, 0, 320);
-        gradiente.addColorStop(0, 'rgba(13, 110, 253, 0.3)');
-        gradiente.addColorStop(1, 'rgba(13, 110, 253, 0.0)');
+        gradiente.addColorStop(0, colorPrimary.replace(')', ', 0.3)').replace('rgb', 'rgba')); 
+        gradiente.addColorStop(1, colorPrimary.replace(')', ', 0.0)').replace('rgb', 'rgba'));
 
         new Chart(ctxLinha, {
             type: 'line',
@@ -357,25 +324,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 datasets: [{
                     label: '% de Acertos',
                     data: @json($dadosLinha),
-                    borderColor: '#0d6efd',
+                    borderColor: colorPrimary,
                     backgroundColor: gradiente,
-                    borderWidth: 3,
+                    borderWidth: 2,
                     fill: true,
                     tension: 0.4,
-                    pointBackgroundColor: '#0d6efd',
-                    pointBorderColor: '#fff',
+                    pointBackgroundColor: colorPrimary,
+                    pointBorderColor: style.getPropertyValue('--bs-body-bg').trim() || '#212529',
                     pointBorderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
+                    pointRadius: 3,
+                    pointHoverRadius: 5
                 }]
             },
             options: {
                 plugins: {
                     legend: { display: false },
                     tooltip: {
-                        backgroundColor: 'rgba(0,0,0,0.85)',
-                        padding: 12,
-                        cornerRadius: 8,
+                        backgroundColor: style.getPropertyValue('--bs-body-bg').trim() || '#212529',
+                        titleColor: colorBody,
+                        bodyColor: colorBody,
+                        borderColor: colorGrid,
+                        borderWidth: 1,
+                        padding: 10,
+                        cornerRadius: 6,
                         callbacks: {
                             label: function(context) {
                                 return ' Acertos: ' + context.parsed.y + '%';
@@ -389,12 +360,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         max: 100,
                         ticks: {
                             callback: function(value) { return value + '%'; },
-                            color: '#6c757d'
+                            color: colorBody
                         },
-                        grid: { color: 'rgba(0,0,0,0.05)' }
+                        grid: { color: colorGrid }
                     },
                     x: {
-                        ticks: { color: '#6c757d', maxRotation: 0 },
+                        ticks: { color: colorBody, maxRotation: 0 },
                         grid: { display: false }
                     }
                 }
@@ -413,27 +384,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 labels: @json($labelsRosca),
                 datasets: [{
                     data: @json($dadosRosca),
-                    backgroundColor: ['#dc3545', '#ffc107', '#0dcaf0', '#0d6efd', '#198754'],
-                    borderWidth: 3,
-                    borderColor: '#fff',
-                    hoverOffset: 8
+                    backgroundColor: [colorDanger, colorWarning, colorInfo, colorPrimary, colorSuccess],
+                    borderWidth: 0,
+                    hoverOffset: 4
                 }]
             },
             options: {
-                cutout: '65%',
+                cutout: '70%',
                 plugins: {
                     legend: {
                         position: 'bottom',
                         labels: {
-                            padding: 12,
+                            padding: 15,
                             usePointStyle: true,
+                            pointStyle: 'circle',
+                            color: colorBody,
                             font: { size: 11 }
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(0,0,0,0.85)',
-                        padding: 12,
-                        cornerRadius: 8,
+                        backgroundColor: style.getPropertyValue('--bs-body-bg').trim() || '#212529',
+                        titleColor: colorBody,
+                        bodyColor: colorBody,
+                        borderColor: colorGrid,
+                        borderWidth: 1,
+                        padding: 10,
+                        cornerRadius: 6,
                         callbacks: {
                             label: function(context) {
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -448,5 +424,4 @@ document.addEventListener('DOMContentLoaded', function() {
     @endif
 });
 </script>
-
-@endsection
+@endpush

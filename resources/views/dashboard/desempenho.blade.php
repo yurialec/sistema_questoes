@@ -1,84 +1,20 @@
-<!-- resources/views/dashboard/desempenho_materia.blade.php -->
 @extends('layouts.app')
 
 @section('title', 'Desempenho por Matéria e Assunto')
-
-@push('styles')
-<style>
-    .progress {
-        height: 10px;
-    }
-
-    .subject-card {
-        border-left: 4px solid #0d6efd;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .subject-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
-    }
-
-    .topic-row {
-        border-bottom: 1px solid #eee;
-        padding: 15px 0;
-    }
-
-    .topic-row:last-child {
-        border-bottom: 0;
-    }
-
-    .small-label {
-        font-size: 0.8rem;
-        color: #6c757d;
-    }
-
-    .materias-tabs {
-        overflow-x: auto;
-        overflow-y: hidden;
-        flex-wrap: nowrap;
-        scrollbar-width: thin;
-    }
-
-    .materias-tabs .nav-link {
-        white-space: nowrap;
-        color: #6c757d;
-        font-weight: 500;
-        border: 0;
-        border-bottom: 3px solid transparent;
-        padding: 0.85rem 1rem;
-    }
-
-    .materias-tabs .nav-link:hover {
-        color: #0d6efd;
-        border-bottom-color: #dee2e6;
-    }
-
-    .materias-tabs .nav-link.active {
-        color: #0d6efd;
-        background: transparent;
-        border-bottom-color: #0d6efd;
-        font-weight: 600;
-    }
-</style>
-@endpush
 
 @section('content')
 <div class="container py-4">
 
     @if(count($materiasData) > 0)
 
-        <!-- ABAS DAS MATÉRIAS -->
-        <div class="card shadow-sm border-0 mb-4">
+        <!-- ABAS DAS MATÉRIAS (Estilo Minimalista com nav-underline) -->
+        <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
             <div class="card-body pb-0">
-
-                <ul class="nav nav-tabs materias-tabs" id="materiasTab" role="tablist">
-
+                <ul class="nav nav-underline overflow-auto flex-nowrap mb-3" id="materiasTab" role="tablist" style="scrollbar-width: thin;">
                     @foreach($materiasData as $index => $materia)
                         <li class="nav-item" role="presentation">
-
                             <button
-                                class="nav-link {{ $index === 0 ? 'active' : '' }}"
+                                class="nav-link text-body-secondary {{ $index === 0 ? 'active text-primary fw-semibold' : '' }}"
                                 id="materia-tab-{{ $index }}"
                                 data-bs-toggle="tab"
                                 data-bs-target="#materia-{{ $index }}"
@@ -88,35 +24,28 @@
                                 aria-selected="{{ $index === 0 ? 'true' : 'false' }}"
                             >
                                 {{ $materia['nome'] }}
-
-                                <span class="badge bg-light text-secondary border ms-1">
+                                <span class="badge bg-body text-body-secondary border border-secondary-subtle ms-1 fw-normal">
                                     {{ $materia['total_respondidas'] }}
                                 </span>
                             </button>
-
                         </li>
                     @endforeach
-
                 </ul>
-
             </div>
         </div>
 
         <!-- CONTEÚDO DAS ABAS -->
         <div class="tab-content" id="materiasTabContent">
-
             @foreach($materiasData as $index => $materia)
-
                 @php
-                    $borderColor = $materia['tipo'] === 'especifica'
-                        ? '#6366F1'
-                        : '#0d6efd';
-
+                    // Mantemos a cor dinâmica, mas usamos variáveis ou classes do Bootstrap quando possível
+                    $borderClass = $materia['tipo'] === 'especifica' ? 'border-primary' : 'border-info';
+                    
                     $badgeClass = $materia['aproveitamento'] >= 70
-                        ? 'bg-success'
+                        ? 'bg-success-subtle text-success-emphasis border border-success-subtle'
                         : ($materia['aproveitamento'] >= 50
-                            ? 'bg-warning text-dark'
-                            : 'bg-danger');
+                            ? 'bg-warning-subtle text-warning-emphasis border border-warning-subtle'
+                            : 'bg-danger-subtle text-danger-emphasis border border-danger-subtle');
                 @endphp
 
                 <div
@@ -126,359 +55,163 @@
                     aria-labelledby="materia-tab-{{ $index }}"
                     tabindex="0"
                 >
+                    <div class="card border-0 shadow-sm mb-4 border-start border-4 {{ $borderClass }}">
+                        <div class="card-body p-4">
 
-                    <div
-                        class="card shadow-sm mb-4 subject-card"
-                        style="border-left-color: {{ $borderColor }};"
-                    >
-                        <div class="card-body">
-
-                            <!-- Título -->
+                            <!-- Cabeçalho da Matéria -->
                             <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
-
                                 <div>
-                                    <h4 class="mb-1 fw-semibold">
-                                        {{ $materia['nome'] }}
-                                    </h4>
-
-                                    <span class="text-muted small">
-                                        {{ $materia['total_respondidas'] }}
-                                        questões respondidas
+                                    <h4 class="mb-1 fw-bold text-body">{{ $materia['nome'] }}</h4>
+                                    <span class="text-body-secondary small">{{ $materia['total_respondidas'] }} questões respondidas</span>
+                                </div>
+                                <div>
+                                    <span class="badge rounded-pill fs-6 px-3 py-2 fw-semibold {{ $badgeClass }}">
+                                        {{ $materia['aproveitamento'] }}% de aproveitamento
                                     </span>
                                 </div>
-
-                                <div>
-                                    <span class="badge {{ $badgeClass }} fs-6 px-3 py-2">
-                                        {{ $materia['aproveitamento'] }}%
-                                        de aproveitamento
-                                    </span>
-                                </div>
-
                             </div>
 
-                            <!-- Indicadores -->
+                            <!-- Indicadores Rápidos (KPIs) -->
                             <div class="row g-3 mb-4">
-
                                 <div class="col-md-4">
-                                    <div class="border rounded p-3 bg-light h-100">
-                                        <div class="small-label fw-semibold text-uppercase">
-                                            Respondidas
-                                        </div>
-
-                                        <div class="fs-3 fw-bold">
-                                            {{ $materia['total_respondidas'] }}
-                                        </div>
+                                    <div class="border border-secondary-subtle rounded-3 p-3 bg-body-tertiary h-100">
+                                        <div class="text-body-secondary small fw-semibold text-uppercase mb-1" style="letter-spacing: 0.05em;">Respondidas</div>
+                                        <div class="fs-3 fw-bold text-body">{{ $materia['total_respondidas'] }}</div>
                                     </div>
                                 </div>
-
                                 <div class="col-md-4">
-                                    <div class="border rounded p-3 bg-light h-100">
-
-                                        <div class="small-label fw-semibold text-uppercase text-success">
-                                            Acertos
-                                        </div>
-
-                                        <div class="fs-3 fw-bold text-success">
-                                            {{ $materia['total_acertos'] }}
-                                        </div>
-
-                                        <small class="text-success fw-semibold">
-                                            {{
-                                                $materia['total_respondidas'] > 0
-                                                    ? round(
-                                                        ($materia['total_acertos'] /
-                                                        $materia['total_respondidas']) * 100
-                                                    )
-                                                    : 0
-                                            }}%
+                                    <div class="border border-success-subtle rounded-3 p-3 bg-success-subtle h-100">
+                                        <div class="text-success-emphasis small fw-semibold text-uppercase mb-1" style="letter-spacing: 0.05em;">Acertos</div>
+                                        <div class="fs-3 fw-bold text-success-emphasis">{{ $materia['total_acertos'] }}</div>
+                                        <small class="text-success-emphasis fw-semibold">
+                                            {{ $materia['total_respondidas'] > 0 ? round(($materia['total_acertos'] / $materia['total_respondidas']) * 100) : 0 }}%
                                         </small>
-
                                     </div>
                                 </div>
-
                                 <div class="col-md-4">
-                                    <div class="border rounded p-3 bg-light h-100">
-
-                                        <div class="small-label fw-semibold text-uppercase text-danger">
-                                            Erros
-                                        </div>
-
-                                        <div class="fs-3 fw-bold text-danger">
-                                            {{ $materia['total_erros'] }}
-                                        </div>
-
-                                        <small class="text-danger fw-semibold">
-                                            {{
-                                                $materia['total_respondidas'] > 0
-                                                    ? round(
-                                                        ($materia['total_erros'] /
-                                                        $materia['total_respondidas']) * 100
-                                                    )
-                                                    : 0
-                                            }}%
+                                    <div class="border border-danger-subtle rounded-3 p-3 bg-danger-subtle h-100">
+                                        <div class="text-danger-emphasis small fw-semibold text-uppercase mb-1" style="letter-spacing: 0.05em;">Erros</div>
+                                        <div class="fs-3 fw-bold text-danger-emphasis">{{ $materia['total_erros'] }}</div>
+                                        <small class="text-danger-emphasis fw-semibold">
+                                            {{ $materia['total_respondidas'] > 0 ? round(($materia['total_erros'] / $materia['total_respondidas']) * 100) : 0 }}%
                                         </small>
-
                                     </div>
                                 </div>
-
                             </div>
 
-                            <!-- Barra geral -->
-                            <div class="mb-4">
-
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span class="small-label fw-semibold">
-                                        Aproveitamento geral
-                                    </span>
-
-                                    <span class="small-label fw-semibold">
-                                        {{ $materia['total_acertos'] }}
-                                        /
-                                        {{ $materia['total_respondidas'] }}
-                                    </span>
+                            <!-- Barra de Progresso Geral -->
+                            <div class="mb-5">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-body-secondary small fw-semibold">Aproveitamento geral</span>
+                                    <span class="text-body-secondary small fw-semibold">{{ $materia['total_acertos'] }} / {{ $materia['total_respondidas'] }}</span>
                                 </div>
-
-                                <div
-                                    class="progress"
-                                    style="height: 14px; border-radius: 99px;"
-                                >
-
+                                <div class="progress" style="height: 12px; border-radius: 99px; background-color: var(--bs-body-tertiary);">
                                     @if($materia['total_respondidas'] > 0)
-
-                                        <div
-                                            class="progress-bar bg-success"
-                                            style="
-                                                width:
-                                                {{
-                                                    ($materia['total_acertos'] /
-                                                    $materia['total_respondidas']) * 100
-                                                }}%
-                                            "
-                                        ></div>
-
-                                        <div
-                                            class="progress-bar bg-danger"
-                                            style="
-                                                width:
-                                                {{
-                                                    ($materia['total_erros'] /
-                                                    $materia['total_respondidas']) * 100
-                                                }}%
-                                            "
-                                        ></div>
-
+                                        <div class="progress-bar bg-success" style="width: {{ ($materia['total_acertos'] / $materia['total_respondidas']) * 100 }}%"></div>
+                                        <div class="progress-bar bg-danger" style="width: {{ ($materia['total_erros'] / $materia['total_respondidas']) * 100 }}%"></div>
                                     @else
-
-                                        <div
-                                            class="progress-bar bg-secondary"
-                                            style="width: 100%"
-                                        ></div>
-
+                                        <div class="progress-bar bg-secondary-subtle" style="width: 100%"></div>
                                     @endif
-
                                 </div>
-
-                                <div class="d-flex justify-content-between mt-2">
-
-                                    <small class="text-success fw-semibold">
-                                        ● Acertos:
-                                        {{ $materia['total_acertos'] }}
-                                    </small>
-
-                                    <small class="text-danger fw-semibold">
-                                        ● Erros:
-                                        {{ $materia['total_erros'] }}
-                                    </small>
-
-                                </div>
-
                             </div>
 
-                            <!-- ASSUNTOS -->
-                            <h5 class="mb-3 fw-semibold border-bottom pb-2">
-                                Desempenho por assunto
-                            </h5>
+                            <!-- Desempenho por Assunto -->
+                            <h5 class="mb-3 fw-bold text-body border-bottom border-secondary-subtle pb-2">Desempenho por assunto</h5>
 
                             @forelse($materia['assuntos'] as $assunto)
-
                                 @php
                                     $assuntoBadgeClass = $assunto['aproveitamento'] >= 70
-                                        ? 'bg-success'
-                                        : (
-                                            $assunto['aproveitamento'] >= 50
-                                                ? 'bg-warning text-dark'
-                                                : 'bg-danger'
-                                        );
+                                        ? 'bg-success-subtle text-success-emphasis border border-success-subtle'
+                                        : ($assunto['aproveitamento'] >= 50
+                                            ? 'bg-warning-subtle text-warning-emphasis border border-warning-subtle'
+                                            : 'bg-danger-subtle text-danger-emphasis border border-danger-subtle');
 
-                                    $acertosPct = $assunto['respondidas'] > 0
-                                        ? round(
-                                            ($assunto['acertos'] /
-                                            $assunto['respondidas']) * 100,
-                                            1
-                                        )
-                                        : 0;
-
-                                    $errosPct = $assunto['respondidas'] > 0
-                                        ? round(
-                                            ($assunto['erros'] /
-                                            $assunto['respondidas']) * 100,
-                                            1
-                                        )
-                                        : 0;
+                                    $acertosPct = $assunto['respondidas'] > 0 ? round(($assunto['acertos'] / $assunto['respondidas']) * 100, 1) : 0;
+                                    $errosPct = $assunto['respondidas'] > 0 ? round(($assunto['erros'] / $assunto['respondidas']) * 100, 1) : 0;
                                 @endphp
 
-                                <div class="topic-row">
-
-                                    <div class="row align-items-center">
-
-                                        <div class="col-md-3 mb-3 mb-md-0">
-
-                                            <strong class="d-block">
-                                                {{ $assunto['nome'] }}
-                                            </strong>
-
-                                            <div class="small text-muted">
-                                                {{ $assunto['respondidas'] }}
-                                                de
-                                                {{ $assunto['total_questoes'] }}
-                                                questões
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-7">
-
-                                            <div class="d-flex justify-content-between mb-1">
-
-                                                <small class="text-success fw-semibold">
-                                                    Acertos
-                                                </small>
-
-                                                <small class="fw-semibold">
-                                                    {{ $assunto['acertos'] }}
-                                                    ({{ $acertosPct }}%)
-                                                </small>
-
-                                            </div>
-
-                                            <div
-                                                class="progress mb-3"
-                                                style="height: 8px; border-radius: 99px;"
-                                            >
-                                                <div
-                                                    class="progress-bar bg-success"
-                                                    style="width: {{ $acertosPct }}%"
-                                                ></div>
-                                            </div>
-
-                                            <div class="d-flex justify-content-between mb-1">
-
-                                                <small class="text-danger fw-semibold">
-                                                    Erros
-                                                </small>
-
-                                                <small class="fw-semibold">
-                                                    {{ $assunto['erros'] }}
-                                                    ({{ $errosPct }}%)
-                                                </small>
-
-                                            </div>
-
-                                            <div
-                                                class="progress"
-                                                style="height: 8px; border-radius: 99px;"
-                                            >
-                                                <div
-                                                    class="progress-bar bg-danger"
-                                                    style="width: {{ $errosPct }}%"
-                                                ></div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-2 text-md-end mt-3 mt-md-0">
-
-                                            <span class="badge {{ $assuntoBadgeClass }} fs-6 px-3 py-2">
-                                                {{ $assunto['aproveitamento'] }}%
-                                            </span>
-
-                                            <div class="small text-muted mt-1 fw-semibold">
-                                                aproveitamento
-                                            </div>
-
-                                        </div>
-
+                                <div class="row align-items-center py-3 border-bottom border-secondary-subtle last-no-border">
+                                    <div class="col-md-3 mb-3 mb-md-0">
+                                        <strong class="d-block text-body mb-1">{{ $assunto['nome'] }}</strong>
+                                        <div class="small text-body-secondary">{{ $assunto['respondidas'] }} de {{ $assunto['total_questoes'] }} questões</div>
                                     </div>
 
-                                </div>
+                                    <div class="col-md-7">
+                                        <!-- Barra de Acertos -->
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <small class="text-success-emphasis fw-semibold">Acertos</small>
+                                            <small class="fw-semibold text-body">{{ $assunto['acertos'] }} ({{ $acertosPct }}%)</small>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 6px; border-radius: 99px; background-color: var(--bs-body-tertiary);">
+                                            <div class="progress-bar bg-success" style="width: {{ $acertosPct }}%"></div>
+                                        </div>
 
+                                        <!-- Barra de Erros -->
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <small class="text-danger-emphasis fw-semibold">Erros</small>
+                                            <small class="fw-semibold text-body">{{ $assunto['erros'] }} ({{ $errosPct }}%)</small>
+                                        </div>
+                                        <div class="progress" style="height: 6px; border-radius: 99px; background-color: var(--bs-body-tertiary);">
+                                            <div class="progress-bar bg-danger" style="width: {{ $errosPct }}%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 text-md-end mt-3 mt-md-0">
+                                        <span class="badge rounded-pill fs-6 px-3 py-2 fw-semibold {{ $assuntoBadgeClass }}">
+                                            {{ $assunto['aproveitamento'] }}%
+                                        </span>
+                                    </div>
+                                </div>
                             @empty
-
-                                <div class="text-center py-4 text-muted">
-
-                                    <i class="fas fa-chart-bar fa-2x mb-2 d-block opacity-50"></i>
-
-                                    <p class="small mb-0">
-                                        Nenhum assunto respondido nesta matéria ainda.
-                                    </p>
-
+                                <div class="text-center py-5 text-body-secondary">
+                                    <p class="small mb-0">Nenhum assunto respondido nesta matéria ainda.</p>
                                 </div>
-
                             @endforelse
 
                         </div>
                     </div>
-
                 </div>
-
             @endforeach
-
         </div>
 
     @else
-
-        <div class="card shadow-sm border-0 text-center py-5">
-
+        <!-- Estado Vazio (Empty State) -->
+        <div class="card border-0 shadow-sm text-center py-5 bg-body-tertiary">
             <div class="card-body">
-
-                <i class="fas fa-clipboard-list fa-3x text-muted mb-3 opacity-50"></i>
-
-                <h5 class="text-muted">
-                    Nenhum dado encontrado
-                </h5>
-
-                <p class="text-muted small">
-                    Responda algumas questões para visualizar seu desempenho
-                    por matéria e assunto.
-                </p>
-
-                <a href="{{ route('responder') }}" class="btn btn-primary mt-2">
-                    <i class="fas fa-play me-1"></i>
-                    Começar a responder
+                <h5 class="text-body fw-bold mb-2">Nenhum dado encontrado</h5>
+                <p class="text-body-secondary small mb-4">Responda algumas questões para visualizar seu desempenho detalhado por matéria e assunto.</p>
+                <a href="{{ route('responder') }}" class="btn btn-primary px-4 fw-semibold">
+                    <i class="fas fa-play me-1"></i> Começar a responder
                 </a>
-
             </div>
-
         </div>
-
     @endif
 
-    <!-- LEGENDA -->
-    <div class="text-muted small bg-light p-3 rounded border mt-4">
-
-        <span class="text-success fw-bold">●</span>
-        Acertos
-
-        &nbsp;&nbsp;&nbsp;
-
-        <span class="text-danger fw-bold">●</span>
-        Erros
-
-        <span class="float-end text-muted fst-italic">
-            * Percentuais calculados com base no total de questões respondidas por assunto.
-        </span>
-
+    <!-- LEGENDA MINIMALISTA -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center bg-body-tertiary border border-secondary-subtle rounded-3 p-3 mt-4 small text-body-secondary">
+        <div class="d-flex gap-3">
+            <span class="d-flex align-items-center gap-1"><div class="rounded-circle bg-success" style="width: 8px; height: 8px;"></div> Acertos</span>
+            <span class="d-flex align-items-center gap-1"><div class="rounded-circle bg-danger" style="width: 8px; height: 8px;"></div> Erros</span>
+        </div>
+        <span class="fst-italic mt-2 mt-md-0">* Percentuais calculados com base no total de questões respondidas por assunto.</span>
     </div>
 
 </div>
 @endsection
+
+@push('styles')
+<style>
+    /* Apenas para remover a borda do último item da lista de assuntos, mantendo o visual limpo */
+    .last-no-border {
+        border-bottom: none !important;
+    }
+    /* Estilização fina da scrollbar das abas no Firefox/Chrome */
+    #materiasTab::-webkit-scrollbar {
+        height: 4px;
+    }
+    #materiasTab::-webkit-scrollbar-thumb {
+        background-color: var(--bs-secondary-bg);
+        border-radius: 4px;
+    }
+</style>
+@endpush

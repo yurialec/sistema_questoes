@@ -7,17 +7,17 @@
 
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">
-            {{ session('success') }}
+            <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
 
     <!-- Formulário de Filtros -->
-    <div class="card shadow-sm border-0 mb-4 bg-light">
+    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.questoes.index') }}" class="row g-3">
+            <form method="GET" action="{{ route('admin.questoes.index') }}" class="row g-3 align-items-end">
                 <div class="col-md-3 col-lg-2">
-                    <label class="form-label small fw-bold text-muted">Órgão</label>
+                    <label class="form-label small fw-semibold text-body-secondary">Órgão</label>
                     <select name="orgao_id" class="form-select form-select-sm">
                         <option value="">Todos</option>
                         @foreach($orgaos as $orgao)
@@ -26,7 +26,7 @@
                     </select>
                 </div>
                 <div class="col-md-3 col-lg-2">
-                    <label class="form-label small fw-bold text-muted">Banca</label>
+                    <label class="form-label small fw-semibold text-body-secondary">Banca</label>
                     <select name="banca_id" class="form-select form-select-sm">
                         <option value="">Todas</option>
                         @foreach($bancas as $banca)
@@ -35,7 +35,7 @@
                     </select>
                 </div>
                 <div class="col-md-3 col-lg-2">
-                    <label class="form-label small fw-bold text-muted">Ano</label>
+                    <label class="form-label small fw-semibold text-body-secondary">Ano</label>
                     <select name="ano_id" class="form-select form-select-sm">
                         <option value="">Todos</option>
                         @foreach($anos as $ano)
@@ -44,7 +44,7 @@
                     </select>
                 </div>
                 <div class="col-md-3 col-lg-3">
-                    <label class="form-label small fw-bold text-muted">Cargo</label>
+                    <label class="form-label small fw-semibold text-body-secondary">Cargo</label>
                     <select name="cargo_id" class="form-select form-select-sm">
                         <option value="">Todos</option>
                         @foreach($cargos as $cargo)
@@ -53,7 +53,7 @@
                     </select>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <label class="form-label small fw-bold text-muted">Matéria</label>
+                    <label class="form-label small fw-semibold text-body-secondary">Matéria</label>
                     <select name="materia_id" class="form-select form-select-sm">
                         <option value="">Todas</option>
                         @foreach($materias as $materia)
@@ -61,9 +61,13 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-12 d-flex gap-2 mt-2">
-                    <button type="submit" class="btn btn-primary btn-sm px-4"><i class="fas fa-filter me-1"></i> Filtrar</button>
-                    <a href="{{ route('admin.questoes.index') }}" class="btn btn-outline-secondary btn-sm px-4"><i class="fas fa-eraser me-1"></i> Limpar</a>
+                <div class="col-12 d-flex flex-wrap gap-2 mt-2 border-top border-secondary-subtle pt-3">
+                    <button type="submit" class="btn btn-primary btn-sm px-4 fw-semibold">
+                        <i class="fas fa-filter me-1"></i> Filtrar
+                    </button>
+                    <a href="{{ route('admin.questoes.index') }}" class="btn btn-outline-secondary btn-sm px-4">
+                        <i class="fas fa-eraser me-1"></i> Limpar
+                    </a>
                 </div>
             </form>
         </div>
@@ -71,55 +75,54 @@
 
     <!-- Listagem de Questões -->
     @forelse($questoes as $questao)
-        <div class="card shadow-sm border-0 mb-3">
-            <div class="card-body">
+        <div class="card border-0 shadow-sm mb-3">
+            <div class="card-body p-3 p-md-4">
                 <div class="row align-items-center">
                     <!-- Informações da Questão -->
                     <div class="col-md-9">
                         <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
-                            <span class="badge bg-primary px-2 py-1">Questão {{ $questao->numero ?? $questao->id }}</span>
-                            <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 px-2 py-1 small">
+                            <span class="badge bg-primary px-2 py-1 fw-semibold">#{{ $questao->numero ?? $questao->id }}</span>
+                            <span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle px-2 py-1 small">
                                 {{ $questao->materia->nome ?? 'Sem matéria' }}
                             </span>
-                            <span class="text-muted small">
-                                <i class="fas fa-building me-1"></i> {{ $questao->cargo->orgao->nome ?? '' }}
-                                <span class="mx-1">|</span>
-                                <i class="fas fa-calendar me-1"></i> {{ $questao->cargo->ano->ano ?? '' }}
-                                <span class="mx-1">|</span>
-                                <i class="fas fa-university me-1"></i> {{ $questao->cargo->banca->nome ?? '' }}
+                            <span class="text-body-secondary small fw-medium">
+                                {{ $questao->cargo->orgao->nome ?? 'Órgão' }} 
+                                <span class="mx-1 text-body-tertiary">•</span>
+                                {{ $questao->cargo->ano->ano ?? 'Ano' }}
+                                <span class="mx-1 text-body-tertiary">•</span>
+                                {{ $questao->cargo->banca->nome ?? 'Banca' }}
                             </span>
                         </div>
                         
-                        <h6 class="fw-bold text-dark mb-1">
+                        <h6 class="fw-bold text-body mb-1">
                             {{ $questao->assunto->nome ?? 'Assunto não definido' }}
                         </h6>
                         
-                        <p class="text-muted small mb-0 text-truncate" style="max-width: 100%;">
+                        <p class="text-body-secondary small mb-0 text-truncate" style="max-width: 100%;">
                             {!! Str::limit(strip_tags($questao->enunciado), 150) !!}
                         </p>
                     </div>
 
                     <!-- Botão de Ação -->
                     <div class="col-md-3 text-md-end mt-3 mt-md-0">
-                        <a href="{{ route('admin.questoes.edit', $questao->id) }}" class="btn btn-warning btn-sm px-4 shadow-sm">
-                            <i class="fas fa-edit me-1"></i> Editar Questão
+                        <a href="{{ route('admin.questoes.edit', $questao->id) }}" class="btn btn-warning text-dark fw-semibold btn-sm px-4 shadow-sm">
+                            <i class="fas fa-edit me-1"></i> Editar
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     @empty
-        <div class="card shadow-sm border-0 text-center py-5 bg-light">
+        <div class="card border-0 shadow-sm text-center py-5 bg-body-tertiary">
             <div class="card-body">
-                <i class="fas fa-search fa-3x text-muted mb-3 opacity-50"></i>
-                <h5 class="text-muted">Nenhuma questão encontrada</h5>
-                <p class="text-muted small">Tente ajustar os filtros acima ou importe novas questões via JSON.</p>
+                <h5 class="text-body fw-bold mb-2">Nenhuma questão encontrada</h5>
+                <p class="text-body-secondary small mb-0">Tente ajustar os filtros acima ou importe novas questões via JSON.</p>
             </div>
         </div>
     @endforelse
 
     <!-- Paginação -->
-    <div class="d-flex justify-content-center mt-4">
+    <div class="d-flex justify-content-center mt-4 mb-5">
         {{ $questoes->appends(request()->query())->links('pagination::bootstrap-5') }}
     </div>
 

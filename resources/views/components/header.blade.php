@@ -1,15 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded-3 shadow-sm px-3 py-2 mb-4">
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container-fluid">
 
-    <div class="container-fluid p-0">
-
-        {{-- Logo / Home --}}
-        <a href="{{ route('dashboard') }}"
-            class="navbar-brand d-flex align-items-center gap-2 fw-semibold">
-            <i class="fas fa-house"></i>
+        {{-- Logo / Home (Limpo e direto) --}}
+        <a href="{{ route('dashboard') }}" class="navbar-brand fw-bold d-flex align-items-center gap-2">
+            <i class="fas fa-layer-group text-primary"></i>
+            <span>Questões</span>
         </a>
 
         {{-- Botão mobile --}}
-        <button class="navbar-toggler"
+        <button class="navbar-toggler border-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mainNavbar"
@@ -21,101 +20,68 @@
 
         <div class="collapse navbar-collapse" id="mainNavbar">
 
-            <div class="d-flex align-items-center gap-2 flex-wrap ms-lg-4 mt-3 mt-lg-0">
+            {{-- Navegação Principal (Texto limpo, sem ícones desnecessários) --}}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.desempenho-materia') }}">Desempenho</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('relatorios.curva') }}">Curva de Aprendizagem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('caderno-erros.index') }}">Caderno de Erros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('reaplicacao.index') }}">Reaplicação</a>
+                </li>
+                
+                {{-- Grade de Estudos (Mantido pronto para quando ativar, de forma limpa) --}}
+                {{-- <li class="nav-item d-none">
+                    <a class="nav-link" href="{{ route('grade.index') }}">Grade de Estudos</a>
+                </li> --}}
 
-                {{-- Desempenho --}}
-                <a href="{{ route('dashboard.desempenho-materia') }}"
-                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
-                    <i class="fas fa-chart-bar text-info"></i>
-                    <span>Desempenho</span>
-                </a>
-
-                {{-- NOVO: Curva de Aprendizagem --}}
-                <a href="{{ route('relatorios.curva') }}"
-                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
-                    <i class="fas fa-chart-line text-success"></i>
-                    <span>Curva de Aprendizagem</span>
-                </a>
-
-                {{-- Caderno de erros --}}
-                <a href="{{ route('caderno-erros.index') }}"
-                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
-                    <i class="fas fa-book-open text-warning"></i>
-                    <span>Caderno de Erros</span>
-                </a>
-
-                {{-- NOVO BOTÃO: GRADE DE ESTUDOS --}}
-                <a href="{{ route('grade.index') }}"
-                    class="d-none btn btn-outline-info btn-sm px-3 d-flex align-items-center gap-2">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Grade de Estudos</span>
-                </a>
-
-                {{-- Reaplicação --}}
-                <a href="{{ route('reaplicacao.index') }}"
-                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
-                    <i class="fas fa-arrows-rotate text-success"></i>
-                    <span>Reaplicação</span>
-                </a>
-
-                {{-- Separador --}}
-                <div class="vr d-none d-lg-block mx-1 text-secondary"></div>
-
-                {{-- Ação principal --}}
-                <a href="{{ route('responder') }}"
-                    class="btn btn-primary btn-sm px-3 d-flex align-items-center gap-2 fw-semibold shadow-sm">
-                    <i class="fas fa-play"></i>
-                    <span>Responder questões</span>
-                </a>
-
-                {{-- BOTÃO EXCLUSIVO PARA ADMINISTRADORES --}}
                 @if(auth()->user()->is_admin)
-                    <a href="{{ route('admin.questoes.index') }}"
-                        class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
-                        <i class="fas fa-edit"></i>
-                        <span>Editar Questões</span>
-                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning fw-medium" href="{{ route('admin.questoes.index') }}">
+                            <i class="fas fa-cog me-1"></i> Admin
+                        </a>
+                    </li>
                 @endif
+            </ul>
 
-            </div>
+            {{-- Ações e Utilitários --}}
+            <div class="d-flex align-items-center gap-2 flex-wrap mt-3 mt-lg-0">
 
-            {{-- Ações secundárias --}}
-            <div class="d-flex align-items-center gap-2 ms-lg-auto mt-3 mt-lg-0">
+                {{-- Ação Principal (Único destaque real na navbar) --}}
+                <a href="{{ route('responder') }}" class="btn btn-primary btn-sm fw-semibold px-3 shadow-sm">
+                    <i class="fas fa-play me-1"></i> Responder
+                </a>
 
-                {{-- Resetar --}}
-                <form action="{{ url('/dashboard/resetar') }}"
-                    method="POST"
-                    class="m-0"
-                    onsubmit="return confirm('Tem certeza que deseja zerar todas as estatísticas? Esta ação não pode ser desfeita.');">
+                {{-- Separador Vertical (Apenas em telas grandes) --}}
+                <div class="vr mx-2 d-none d-lg-block"></div>
+
+                {{-- Perfil --}}
+                <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary btn-sm border-0">
+                    <i class="fas fa-user me-1"></i> Perfil
+                </a>
+
+                {{-- Resetar (Ação discreta para evitar cliques acidentais e poluição visual) --}}
+                <form action="{{ url('/dashboard/resetar') }}" method="POST" class="m-0" onsubmit="return confirm('Tem certeza que deseja zerar todas as estatísticas? Esta ação não pode ser desfeita.');">
                     @csrf
-
-                    <button type="submit"
-                        class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2"
-                        title="Zerar estatísticas">
-                        <i class="fas fa-rotate-left text-danger"></i>
-                        <span>Resetar</span>
+                    <button type="submit" class="btn btn-link text-decoration-none text-secondary p-1" title="Zerar estatísticas">
+                        <i class="fas fa-trash-alt"></i>
                     </button>
                 </form>
-
-                <a href="{{ route('profile.edit') }}"
-                    class="btn btn-dark border border-secondary btn-sm px-3 d-flex align-items-center gap-2">
-                    <i class="fas fa-user"></i>
-                    <span>Meu perfil</span>
-                </a>
 
                 {{-- Logout --}}
                 <form action="{{ route('logout') }}" method="POST" class="m-0">
                     @csrf
-
-                    <button type="submit"
-                        class="btn btn-outline-light btn-sm px-3 d-flex align-items-center gap-2">
+                    <button type="submit" class="btn btn-link text-decoration-none text-secondary p-1" title="Sair do sistema">
                         <i class="fas fa-arrow-right-from-bracket"></i>
-                        <span>Sair</span>
                     </button>
                 </form>
 
             </div>
-
         </div>
     </div>
 </nav>

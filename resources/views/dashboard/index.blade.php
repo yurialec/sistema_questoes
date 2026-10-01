@@ -4,147 +4,117 @@
 
 @push('styles')
 <style>
-    /* ── Animação do anel SVG ─────────────────────────────── */
+    /* Animação suave do anel SVG (usando variáveis do Bootstrap) */
     .accuracy-ring circle.ring-fill {
         transition: stroke-dashoffset 1s ease;
     }
 
-    /* ── Cards padrão ────────────────────────────────────── */
-    .stat-card {
-        border: 1px solid #f0f0f0;
-        transition: box-shadow .15s ease;
-    }
-
-    .stat-card:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, .06) !important;
-    }
-
-    /* ── Progress bar matérias ───────────────────────────── */
-    .materia-progress .progress {
-        height: 5px;
-        border-radius: 99px;
-    }
-
-    /* ── Streak fire pulse ───────────────────────────────── */
+    /* Animação minimalista do Streak */
     @keyframes pulse-fire {
-
-        0%,
-        100% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.15);
-        }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
     }
-
     .streak-icon {
-        animation: pulse-fire 1.4s ease-in-out infinite;
+        animation: pulse-fire 2s ease-in-out infinite;
         display: inline-block;
-    }
-
-    /* ── Gráfico de desempenho ───────────────────────────── */
-    .chart-container {
-        position: relative;
-        height: 300px;
-        width: 100%;
     }
 </style>
 @endpush
 
 @section('content')
-<div class="container py-4 mt-4">
+<div class="container py-4">
 
     @if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
     @endif
 
     {{-- ══════════════════════════════════════════════
-     SUGESTÃO DE ESTUDO DE HOJE
-══════════════════════════════════════════════ --}}
-@if($sugestaoHoje)
-    <div class="card border-0 shadow-sm mb-4" >
+         SUGESTÃO DE ESTUDO DE HOJE
+    ═══════════════════════════════════════════════ --}}
+    @if($sugestaoHoje)
+    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
         <div class="card-body p-4">
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="d-flex align-items-center gap-2 mb-2">
-                        <i class="fas fa-bullseye fa-lg"></i>
+                        <i class="fas fa-bullseye text-primary"></i>
                         <h5 class="mb-0 fw-bold">Sugestão de Estudo para Hoje</h5>
                     </div>
-                    <h2 class="fw-bold mb-2">{{ $sugestaoHoje->nome }}</h2>
-                    <p class="mb-0 opacity-75">
+                    <h2 class="fw-bold mb-2 text-body">{{ $sugestaoHoje->nome }}</h2>
+                    <p class="mb-0 text-body-secondary">
                         @php
-                            $motivo = '';
                             $errosPendentes = \App\Models\CadernoErro::join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
                                 ->where('caderno_erros.user_id', auth()->id())
                                 ->where('questoes.materia_id', $sugestaoHoje->id)
                                 ->where('caderno_erros.status', 'pendente')
                                 ->count();
-                                
-                            if ($errosPendentes > 0) {
-                                $motivo = "Você tem {$errosPendentes} erro(s) pendente(s) para revisar nesta matéria.";
-                            } else {
-                                $motivo = "Esta é a matéria com menor progresso ou próxima no seu ciclo de estudos.";
-                            }
+                            
+                            $motivo = $errosPendentes > 0 
+                                ? "Você tem {$errosPendentes} erro(s) pendente(s) para revisar nesta matéria." 
+                                : "Esta é a matéria com menor progresso ou próxima no seu ciclo de estudos.";
                         @endphp
                         {{ $motivo }}
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                    <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}"
-                        class="btn btn-light text-primary fw-bold px-4 py-2">
+                    <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}" class="btn btn-primary fw-semibold px-4">
                         <i class="fas fa-play me-2"></i> Estudar Agora
                     </a>
                 </div>
             </div>
         </div>
     </div>
-@endif
+    @endif
     
-    <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.06em">Visão geral</p>
+    <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Visão geral</p>
 
     <div class="row g-3 mb-4">
-        {{-- Taxa de acerto (anel SVG) --}}
+        {{-- Taxa de acerto (anel SVG adaptado para Dark Mode) --}}
         <div class="col-12 col-md-5">
-            <div class="card stat-card border shadow-none h-100">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body d-flex align-items-center gap-4 p-4">
                     @php
                     $circumference = 2 * M_PI * 40;
                     $offset = $circumference - ($percentual / 100) * $circumference;
-                    $ringColor = match(true) {
-                    $percentual >= 70 => '#10B981',
-                    $percentual >= 50 => '#6366F1',
-                    default => '#EF4444',
+                    
+                    // Usa classes do Bootstrap para definir a cor via variável CSS
+                    $ringColorClass = match(true) {
+                        $percentual >= 70 => 'success',
+                        $percentual >= 50 => 'primary',
+                        default => 'danger',
                     };
                     @endphp
 
                     <div class="flex-shrink-0">
                         <svg width="110" height="110" viewBox="0 0 100 100" class="accuracy-ring" aria-label="Taxa de acerto: {{ $percentual }}%">
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="#f0f0f0" stroke-width="10" />
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="{{ $ringColor }}" stroke-width="10" stroke-linecap="round" stroke-dasharray="{{ $circumference }}" stroke-dashoffset="{{ $circumference }}" data-offset="{{ $offset }}" class="ring-fill" transform="rotate(-90 50 50)" />
-                            <text x="50" y="46" text-anchor="middle" font-size="18" font-weight="600" fill="#1e293b">{{ $percentual }}%</text>
-                            <text x="50" y="59" text-anchor="middle" font-size="9" fill="#94a3b8">acertos</text>
+                            <!-- Fundo do anel usa a cor de borda padrão do tema -->
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bs-border-color)" stroke-width="8" />
+                            <!-- Preenchimento usa a variável de cor do Bootstrap (success, primary ou danger) -->
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bs-{{ $ringColorClass }})" stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ $circumference }}" stroke-dashoffset="{{ $circumference }}" data-offset="{{ $offset }}" class="ring-fill" transform="rotate(-90 50 50)" />
+                            
+                            <text x="50" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="var(--bs-body-color)">{{ $percentual }}%</text>
+                            <text x="50" y="64" text-anchor="middle" font-size="10" fill="var(--bs-secondary-color)">acertos</text>
                         </svg>
                     </div>
 
                     <div class="flex-grow-1">
-                        <p class="text-muted small fw-semibold text-uppercase mb-1" style="letter-spacing:.05em">questões respondidas</p>
-                        <h2 class="fw-semibold mb-0 lh-1">{{ number_format($total) }}</h2>
-                        <p class="text-muted small mb-3">no total</p>
-                        <div class="d-flex gap-3">
+                        <p class="text-body-secondary small fw-semibold text-uppercase mb-1" style="letter-spacing:.05em">Questões respondidas</p>
+                        <h2 class="fw-bold mb-0 lh-1 text-body">{{ number_format($total) }}</h2>
+                        <p class="text-body-secondary small mb-3">no total</p>
+                        <div class="d-flex gap-4">
                             <div>
-                                <span class="fs-5 fw-semibold text-success">{{ $acertos }}</span>
-                                <span class="badge rounded-pill ms-1" style="background:#D1FAE5;color:#065F46;font-size:.7rem">{{ $total > 0 ? round($acertos/$total*100) : 0 }}%</span>
-                                <p class="text-muted small mb-0">acertos</p>
+                                <span class="fs-5 fw-bold text-success">{{ $acertos }}</span>
+                                <span class="badge rounded-pill ms-1 bg-success-subtle text-success fw-semibold">{{ $total > 0 ? round($acertos/$total*100) : 0 }}%</span>
+                                <p class="text-body-secondary small mb-0 mt-1">acertos</p>
                             </div>
                             <div class="vr"></div>
                             <div>
-                                <span class="fs-5 fw-semibold text-danger">{{ $erros }}</span>
-                                <span class="badge rounded-pill ms-1" style="background:#FEE2E2;color:#7F1D1D;font-size:.7rem">{{ $total > 0 ? round($erros/$total*100) : 0 }}%</span>
-                                <p class="text-muted small mb-0">erros</p>
+                                <span class="fs-5 fw-bold text-danger">{{ $erros }}</span>
+                                <span class="badge rounded-pill ms-1 bg-danger-subtle text-danger fw-semibold">{{ $total > 0 ? round($erros/$total*100) : 0 }}%</span>
+                                <p class="text-body-secondary small mb-0 mt-1">erros</p>
                             </div>
                         </div>
                     </div>
@@ -156,63 +126,59 @@
         <div class="col-12 col-md-7">
             <div class="row g-3 h-100">
                 <div class="col-6">
-                    <div class="card stat-card border shadow-none h-100">
+                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <span class="badge rounded-2 p-2" style="background:#EEF2FF"><i class="fas fa-check-circle" style="color:#6366F1;font-size:.85rem"></i></span>
-                                <span class="small fw-semibold text-uppercase text-muted" style="letter-spacing:.05em">Acertos</span>
+                                <span class="badge rounded-2 p-2 bg-primary-subtle text-primary"><i class="fas fa-check-circle"></i></span>
+                                <span class="small fw-semibold text-uppercase text-body-secondary" style="letter-spacing:.05em">Acertos</span>
                             </div>
-                            <p class="fs-2 fw-semibold mb-0 text-success lh-1">{{ $acertos }}</p>
-                            <p class="small text-muted mt-1 mb-0">de {{ $total }} tentativas</p>
+                            <p class="fs-2 fw-bold mb-0 text-success lh-1">{{ $acertos }}</p>
+                            <p class="small text-body-secondary mt-1 mb-0">de {{ $total }} tentativas</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-6">
-                    <div class="card stat-card border shadow-none h-100">
+                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <span class="badge rounded-2 p-2" style="background:#FEF2F2"><i class="fas fa-times-circle" style="color:#EF4444;font-size:.85rem"></i></span>
-                                <span class="small fw-semibold text-uppercase text-muted" style="letter-spacing:.05em">Erros</span>
+                                <span class="badge rounded-2 p-2 bg-danger-subtle text-danger"><i class="fas fa-times-circle"></i></span>
+                                <span class="small fw-semibold text-uppercase text-body-secondary" style="letter-spacing:.05em">Erros</span>
                             </div>
-                            <p class="fs-2 fw-semibold mb-0 text-danger lh-1">{{ $erros }}</p>
-                            <p class="small text-muted mt-1 mb-0">{{ $erros > 0 ? 'revise os conteúdos' : 'nenhum erro ainda!' }}</p>
+                            <p class="fs-2 fw-bold mb-0 text-danger lh-1">{{ $erros }}</p>
+                            <p class="small text-body-secondary mt-1 mb-0">{{ $erros > 0 ? 'revise os conteúdos' : 'nenhum erro ainda!' }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12">
-                    <div class="card stat-card border shadow-none">
+                    <div class="card border-0 shadow-sm">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <p class="small fw-semibold text-uppercase text-muted mb-1" style="letter-spacing:.05em">Nível do estudante</p>
-                                    <p class="fs-5 fw-semibold mb-0" style="color:#6366F1">{{ $nivel['titulo'] }}</p>
+                                    <p class="small fw-semibold text-uppercase text-body-secondary mb-1" style="letter-spacing:.05em">Nível do estudante</p>
+                                    <p class="fs-5 fw-bold mb-0 text-primary">{{ $nivel['titulo'] }}</p>
                                     @if($nivel['proximo'])
-                                    <p class="small text-muted mb-0">Próximo: <strong>{{ $nivel['proximo'] }}</strong> em {{ $nivel['meta'] - $total }} questões</p>
+                                    <p class="small text-body-secondary mb-0">Próximo: <strong class="text-body">{{ $nivel['proximo'] }}</strong> em {{ $nivel['meta'] - $total }} questões</p>
                                     @else
-                                    <p class="small text-muted mb-0">Nível máximo alcançado! 🏆</p>
+                                    <p class="small text-body-secondary mb-0">Nível máximo alcançado! 🏆</p>
                                     @endif
                                 </div>
-                                <i class="fas fa-graduation-cap fa-2x" style="color:#C7D2FE"></i>
+                                <i class="fas fa-graduation-cap fa-2x text-body-tertiary"></i>
                             </div>
 
                             @if($nivel['meta'])
                             @php
                             $nivelInicio = match($nivel['titulo']) {
-                            'Novato' => 0,
-                            'Iniciante' => 10,
-                            'Estudioso' => 50,
-                            'Dedicado' => 200,
-                            'Avançado' => 500,
-                            default => 0,
+                                'Novato' => 0, 'Iniciante' => 10, 'Estudioso' => 50,
+                                'Dedicado' => 200, 'Avançado' => 500, default => 0,
                             };
                             $nivelProg = $nivel['meta'] - $nivelInicio;
-                            $nivelAtual = $total - $nivelInicio;
+                            $nivelAtual = max(0, $total - $nivelInicio);
                             $nivelPct = min(100, round(($nivelAtual / $nivelProg) * 100));
                             @endphp
-                            <div class="progress mt-2" style="height:4px;border-radius:99px">
-                                <div class="progress-bar" role="progressbar" style="width:{{ $nivelPct }}%;background:#6366F1" aria-valuenow="{{ $nivelPct }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress mt-3" style="height:6px; border-radius:99px; background-color: var(--bs-secondary-bg);">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width:{{ $nivelPct }}%" aria-valuenow="{{ $nivelPct }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             @endif
                         </div>
@@ -225,61 +191,63 @@
     {{-- ══════════════════════════════════════════════
          DESEMPENHO DIÁRIO - GRÁFICO
     ══════════════════════════════════════════════ --}}
-    <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.06em">Desempenho diário (últimos 14 dias)</p>
+    <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Desempenho diário (últimos 14 dias)</p>
 
-    <div class="card border shadow-none mb-4">
+    <div class="card border-0 shadow-sm mb-4">
         <div class="card-body p-4">
-            <div class="chart-container">
+            <div class="chart-container" style="position: relative; height:300px; width:100%;">
                 <canvas id="desempenhoChart"></canvas>
             </div>
         </div>
     </div>
 
     {{-- ══════════════════════════════════════════════
-         LINHA 2 — SEQUÊNCIA E RITMO
+         SEQUÊNCIA E RITMO
     ══════════════════════════════════════════════ --}}
-    <p class="text-uppercase text-muted small fw-semibold mb-2" style="letter-spacing:.06em">Sequência e ritmo</p>
+    <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Sequência e ritmo</p>
 
     <div class="row g-3 mb-4">
         {{-- Streak --}}
         <div class="col-12 col-sm-4">
-            <div class="card stat-card border shadow-none h-100">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-3">
                     @if($streak >= 2)
-                    <span class="streak-icon d-block mb-1" style="font-size:1.6rem">🔥</span>
+                    <span class="streak-icon d-block mb-1 text-warning" style="font-size:1.6rem">🔥</span>
                     @else
-                    <i class="fas fa-calendar-day mb-2 d-block" style="font-size:1.4rem;color:#F59E0B"></i>
+                    <i class="fas fa-calendar-day mb-2 d-block text-warning" style="font-size:1.4rem"></i>
                     @endif
-                    <p class="fs-3 fw-semibold mb-0 lh-1">{{ $streak }} <span class="small fw-normal text-muted">{{ $streak === 1 ? 'dia' : 'dias' }}</span></p>
-                    <p class="small text-muted mb-1">sequência atual</p>
+                    <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $streak }} <span class="small fw-normal text-body-secondary">{{ $streak === 1 ? 'dia' : 'dias' }}</span></p>
+                    <p class="small text-body-secondary mb-2">sequência atual</p>
+                    
                     @if($streak === 0)
-                    <span class="badge rounded-pill" style="background:#FEF9C3;color:#713F12;font-size:.7rem">Comece hoje!</span>
+                        <span class="badge rounded-pill bg-warning-subtle text-warning fw-semibold">Comece hoje!</span>
                     @elseif($streak < 7)
-                        <span class="badge rounded-pill" style="background:#FEF3C7;color:#92400E;font-size:.7rem">Continue assim!</span>
-                        @elseif($streak < 30)
-                            <span class="badge rounded-pill" style="background:#D1FAE5;color:#065F46;font-size:.7rem">Incrível! 🏅</span>
-                            @else
-                            <span class="badge rounded-pill" style="background:#EEF2FF;color:#3730A3;font-size:.7rem">Lendário! 🏆</span>
-                            @endif
+                        <span class="badge rounded-pill bg-warning-subtle text-warning fw-semibold">Continue assim!</span>
+                    @elseif($streak < 30)
+                        <span class="badge rounded-pill bg-success-subtle text-success fw-semibold">Incrível! 🏅</span>
+                    @else
+                        <span class="badge rounded-pill bg-primary-subtle text-primary fw-semibold">Lendário! 🏆</span>
+                    @endif
                 </div>
             </div>
         </div>
 
         {{-- Último estudo --}}
         <div class="col-12 col-sm-4">
-            <div class="card stat-card border shadow-none h-100">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-3">
-                    <i class="fas fa-calendar-check mb-2 d-block" style="font-size:1.4rem;color:#10B981"></i>
-                    <p class="fs-3 fw-semibold mb-0 lh-1">{{ $ultimaRespostaLabel }}</p>
-                    <p class="small text-muted mb-1">último estudo</p>
+                    <i class="fas fa-calendar-check mb-2 d-block text-success" style="font-size:1.4rem"></i>
+                    <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $ultimaRespostaLabel }}</p>
+                    <p class="small text-body-secondary mb-2">último estudo</p>
+                    
                     @if($diasSemResponder === 0)
-                    <span class="badge rounded-pill" style="background:#D1FAE5;color:#065F46;font-size:.7rem">Você estudou hoje! ✅</span>
+                        <span class="badge rounded-pill bg-success-subtle text-success fw-semibold">Você estudou hoje! ✅</span>
                     @elseif($diasSemResponder === 1)
-                    <span class="badge rounded-pill" style="background:#FEF3C7;color:#92400E;font-size:.7rem">Não perca o ritmo!</span>
+                        <span class="badge rounded-pill bg-warning-subtle text-warning fw-semibold">Não perca o ritmo!</span>
                     @elseif($diasSemResponder !== null && $diasSemResponder > 1)
-                    <span class="badge rounded-pill" style="background:#FEE2E2;color:#7F1D1D;font-size:.7rem">Volte a estudar!</span>
+                        <span class="badge rounded-pill bg-danger-subtle text-danger fw-semibold">Volte a estudar!</span>
                     @else
-                    <span class="badge rounded-pill" style="background:#F1F5F9;color:#475569;font-size:.7rem">Nenhuma resposta ainda</span>
+                        <span class="badge rounded-pill bg-body-tertiary text-body-secondary fw-semibold">Nenhuma resposta ainda</span>
                     @endif
                 </div>
             </div>
@@ -287,13 +255,13 @@
 
         {{-- Matérias cadastradas --}}
         <div class="col-12 col-sm-4">
-            <div class="card stat-card border shadow-none h-100">
+            <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-3">
-                    <i class="fas fa-book mb-2 d-block" style="font-size:1.4rem;color:#6366F1"></i>
-                    <p class="fs-3 fw-semibold mb-0 lh-1">{{ $materias->count() }}</p>
-                    <p class="small text-muted mb-1">matérias cadastradas</p>
+                    <i class="fas fa-book mb-2 d-block text-primary" style="font-size:1.4rem"></i>
+                    <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $materias->count() }}</p>
+                    <p class="small text-body-secondary mb-2">matérias cadastradas</p>
                     @php $materiasComResposta = $materias->where('questoes_respondidas', '>', 0)->count(); @endphp
-                    <span class="badge rounded-pill" style="background:#EEF2FF;color:#3730A3;font-size:.7rem">{{ $materiasComResposta }} iniciada{{ $materiasComResposta !== 1 ? 's' : '' }}</span>
+                    <span class="badge rounded-pill bg-primary-subtle text-primary fw-semibold">{{ $materiasComResposta }} iniciada{{ $materiasComResposta !== 1 ? 's' : '' }}</span>
                 </div>
             </div>
         </div>
@@ -303,158 +271,85 @@
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-
     const canvas = document.getElementById('desempenhoChart');
+    if (!canvas) return;
 
-    if (!canvas) {
-        return;
-    }
+    // Lê as cores diretamente das variáveis CSS do Bootstrap para garantir compatibilidade total com Dark Mode
+    const style = getComputedStyle(document.body);
+    const colorSuccess = style.getPropertyValue('--bs-success').trim() || '#198754';
+    const colorDanger = style.getPropertyValue('--bs-danger').trim() || '#dc3545';
+    const colorBody = style.getPropertyValue('--bs-body-color').trim() || '#dee2e6';
+    const colorGrid = style.getPropertyValue('--bs-border-color').trim() || 'rgba(255, 255, 255, 0.1)';
 
     const ctx = canvas.getContext('2d');
 
-    const labels = {!! json_encode($datasFormatadas) !!};
-    const acertos = {!! json_encode($acertosData) !!};
-    const erros = {!! json_encode($errosData) !!};
-
     new Chart(ctx, {
         type: 'bar',
-
         data: {
-            labels: labels,
-
+            labels: {!! json_encode($datasFormatadas) !!},
             datasets: [
                 {
                     label: 'Acertos',
-                    data: acertos,
-                    backgroundColor: '#10B981',
-                    borderColor: '#10B981',
-                    borderWidth: 0,
-                    borderRadius: 5,
-                    borderSkipped: false,
-                    barPercentage: 0.75,
-                    categoryPercentage: 0.75
+                    data: {!! json_encode($acertosData) !!},
+                    backgroundColor: colorSuccess,
+                    borderRadius: 4,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7
                 },
                 {
                     label: 'Erros',
-                    data: erros,
-                    backgroundColor: '#EF4444',
-                    borderColor: '#EF4444',
-                    borderWidth: 0,
-                    borderRadius: 5,
-                    borderSkipped: false,
-                    barPercentage: 0.75,
-                    categoryPercentage: 0.75
+                    data: {!! json_encode($errosData) !!},
+                    backgroundColor: colorDanger,
+                    borderRadius: 4,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7
                 }
             ]
         },
-
         options: {
             responsive: true,
             maintainAspectRatio: false,
-
-            interaction: {
-                mode: 'index',
-                intersect: false
-            },
-
+            interaction: { mode: 'index', intersect: false },
             plugins: {
-
                 legend: {
                     position: 'top',
-                    align: 'start',
-
+                    align: 'end',
                     labels: {
                         usePointStyle: true,
                         pointStyle: 'circle',
                         padding: 20,
-
-                        color: '#CBD5E1',
-
-                        font: {
-                            size: 12,
-                            family: "'Inter', sans-serif",
-                            weight: '500'
-                        }
+                        color: colorBody,
+                        font: { size: 12, weight: '500' }
                     }
                 },
-
                 tooltip: {
-                    backgroundColor: '#0F172A',
-                    titleColor: '#F8FAFC',
-                    bodyColor: '#CBD5E1',
-                    borderColor: '#334155',
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: '#fff',
+                    bodyColor: '#cbd5e1',
+                    borderColor: colorGrid,
                     borderWidth: 1,
-
                     padding: 12,
                     cornerRadius: 8,
-
                     callbacks: {
-                        title: function (items) {
-                            return 'Dia: ' + items[0].label;
-                        },
-
                         label: function (context) {
-                            return context.dataset.label + ': ' +
-                                   context.parsed.y +
-                                   (context.parsed.y === 1
-                                       ? ' questão'
-                                       : ' questões');
+                            return context.dataset.label + ': ' + context.parsed.y + ' questão(ões)';
                         }
                     }
                 }
             },
-
             scales: {
-
                 x: {
-                    stacked: false,
-
-                    grid: {
-                        display: false
-                    },
-
-                    border: {
-                        display: false
-                    },
-
-                    ticks: {
-                        color: '#94A3B8',
-
-                        font: {
-                            size: 11,
-                            family: "'Inter', sans-serif"
-                        },
-
-                        maxRotation: 0,
-                        minRotation: 0
-                    }
+                    grid: { display: false },
+                    border: { display: false },
+                    ticks: { color: colorBody, font: { size: 11 }, maxRotation: 0 }
                 },
-
                 y: {
                     beginAtZero: true,
-
-                    grid: {
-                        color: 'rgba(148, 163, 184, 0.10)',
-                        drawBorder: false
-                    },
-
-                    border: {
-                        display: false
-                    },
-
-                    ticks: {
-                        color: '#94A3B8',
-                        stepSize: 1,
-                        precision: 0,
-
-                        font: {
-                            size: 11,
-                            family: "'Inter', sans-serif"
-                        }
-                    }
+                    grid: { color: colorGrid, drawBorder: false },
+                    border: { display: false },
+                    ticks: { color: colorBody, stepSize: 1, precision: 0, font: { size: 11 } }
                 }
             }
         }
