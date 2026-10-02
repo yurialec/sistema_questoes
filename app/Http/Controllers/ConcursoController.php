@@ -23,20 +23,18 @@ class ConcursoController extends Controller
     {
         $user = Auth::user();
         $queryParams = $request->query();
+        $userId = $user->id;
 
-        // 1. Lógica Inteligente: Se não houver filtros na URL, carrega o filtro padrão do usuário
         if (empty($queryParams)) {
-            $filtroPadrao = FiltroSalvo::where('user_id', $user->id)
+            $filtroPadrao = FiltroSalvo::where('user_id', $userId)
                 ->where('is_padrao', true)
                 ->first();
 
             if ($filtroPadrao) {
-                // Injeta os dados do filtro padrão na requisição para que o código abaixo os processe
                 $request->merge($filtroPadrao->filtros);
             }
         }
 
-        // 2. Inicia a Query com Eager Loading
         $query = Questao::with([
             'cargo.orgao',
             'cargo.banca',
@@ -44,44 +42,66 @@ class ConcursoController extends Controller
             'materia',
             'assunto',
             'alternativas'
-        ]);
+        ])
+            ->select('questoes.*')
 
-        // 3. Aplica os filtros usando whereIn (suporta múltipla seleção)
-        // Órgão
+            ->selectSub(function ($q) use ($userId) {
+                $q->selectRaw('COUNT(hr.id)')
+                    ->from('historico_respostas as hr')
+                    ->join('questoes as q_sub', 'hr.questao_id', '=', 'q_sub.id')
+                    ->whereColumn('q_sub.assunto_id', 'questoes.assunto_id')
+                    ->where('hr.user_id', $userId);
+            }, 'total_respostas_assunto')
+
+            ->selectSub(function ($q) use ($userId) {
+                $q->selectRaw('COALESCE(SUM(CASE WHEN hr.acertou = 0 THEN 1 ELSE 0 END), 0)')
+                    ->from('historico_respostas as hr')
+                    ->join('questoes as q_sub', 'hr.questao_id', '=', 'q_sub.id')
+                    ->whereColumn('q_sub.assunto_id', 'questoes.assunto_id')
+                    ->where('hr.user_id', $userId);
+            }, 'total_erros_assunto')
+
+            ->leftJoin('progresso_questoes as pq', function ($join) use ($userId) {
+                $join->on('questoes.id', '=', 'pq.questao_id')
+                    ->where('pq.user_id', '=', $userId);
+            })
+            ->addSelect('pq.proxima_revisao');
+
         if ($request->filled('orgao_id') && is_array($request->orgao_id) && !empty($request->orgao_id)) {
             $query->whereHas('cargo', function ($q) use ($request) {
                 $q->whereIn('orgao_id', $request->orgao_id);
             });
         }
 
-        // Banca
         if ($request->filled('banca_id') && is_array($request->banca_id) && !empty($request->banca_id)) {
             $query->whereHas('cargo', function ($q) use ($request) {
                 $q->whereIn('banca_id', $request->banca_id);
             });
         }
 
-        // Ano
         if ($request->filled('ano_id') && is_array($request->ano_id) && !empty($request->ano_id)) {
             $query->whereHas('cargo', function ($q) use ($request) {
                 $q->whereIn('ano_id', $request->ano_id);
             });
         }
 
-        // Cargo
         if ($request->filled('cargo_id') && is_array($request->cargo_id) && !empty($request->cargo_id)) {
             $query->whereIn('cargo_id', $request->cargo_id);
         }
 
-        // Matéria
         if ($request->filled('materia_id') && is_array($request->materia_id) && !empty($request->materia_id)) {
             $query->whereIn('materia_id', $request->materia_id);
         }
 
-        // Ordenação e Paginação
-        $questoes = $query->inRandomOrder()->paginate(10);
 
-        // 4. Busca os dados para preencher os selects do formulário
+        $query->orderBy('total_respostas_assunto', 'ASC')
+            ->orderByRaw('CASE WHEN total_respostas_assunto = 0 THEN 0 ELSE (total_erros_assunto * 1.0 / total_respostas_assunto) END DESC')
+            ->orderByRaw('CASE WHEN pq.proxima_revisao <= ? THEN 0 ELSE 1 END ASC', [now()])
+            ->orderBy('pq.proxima_revisao', 'ASC')
+            ->inRandomOrder();
+
+        $questoes = $query->paginate(10);
+
         return view('questoes.responder', [
             'questoes' => $questoes,
             'orgaos' => Orgao::orderBy('nome')->get(),
@@ -89,7 +109,7 @@ class ConcursoController extends Controller
             'anos' => Ano::orderBy('ano', 'desc')->get(),
             'cargos' => Cargo::orderBy('nome')->get(),
             'materias' => Materia::orderBy('nome')->get(),
-            'filtrosSalvos' => FiltroSalvo::where('user_id', $user->id)->orderBy('nome')->get(), // Para o dropdown de filtros salvos
+            'filtrosSalvos' => FiltroSalvo::where('user_id', $userId)->orderBy('nome')->get(),
         ]);
     }
 
