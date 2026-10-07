@@ -16,10 +16,10 @@ class AdminQuestaoController extends Controller
     {
         $query = Questao::with([
             'cargo.orgao',
-            'cargo.banca',
-            'cargo.ano',
+            'ano',
+            'banca',
             'materia',
-            'assunto'
+            'assunto',
         ]);
 
         $query->when($request->filled('orgao_id'), function ($q) use ($request) {
@@ -27,11 +27,11 @@ class AdminQuestaoController extends Controller
         });
 
         $query->when($request->filled('banca_id'), function ($q) use ($request) {
-            $q->whereHas('cargo', fn($cargo) => $cargo->where('banca_id', $request->banca_id));
+            $q->where('banca_id', $request->banca_id);
         });
 
         $query->when($request->filled('ano_id'), function ($q) use ($request) {
-            $q->whereHas('cargo', fn($cargo) => $cargo->where('ano_id', $request->ano_id));
+            $q->where('ano_id', $request->ano_id);
         });
 
         $query->when($request->filled('cargo_id'), function ($q) use ($request) {
@@ -46,10 +46,10 @@ class AdminQuestaoController extends Controller
 
         return view('admin.questoes.index', [
             'questoes' => $questoes,
-            'orgaos' => Orgao::orderBy('nome')->get(),
-            'bancas' => Banca::orderBy('nome')->get(),
-            'anos' => Ano::orderBy('ano', 'desc')->get(),
-            'cargos' => Cargo::orderBy('nome')->get(),
+            'orgaos'   => Orgao::orderBy('nome')->get(),
+            'bancas'   => Banca::orderBy('nome')->get(),
+            'anos'     => Ano::orderBy('ano', 'desc')->get(),
+            'cargos'   => Cargo::orderBy('nome')->get(),
             'materias' => Materia::orderBy('nome')->get(),
         ]);
     }
@@ -60,15 +60,17 @@ class AdminQuestaoController extends Controller
             'alternativas',
             'textoComplementar',
             'materia',
-            'cargo',
-            'assunto'
+            'cargo.orgao',
+            'ano',
+            'banca',
+            'assunto',
         ])->findOrFail($id);
 
         return view('admin.questoes.edit', [
-            'questao' => $questao,
+            'questao'  => $questao,
             'materias' => \App\Models\Materia::orderBy('nome')->get(),
             'assuntos' => \App\Models\Assunto::orderBy('nome')->get(),
-            'cargos' => \App\Models\Cargo::with(['orgao', 'banca', 'ano'])->orderBy('nome')->get(),
+            'cargos'   => Cargo::with('orgao')->orderBy('nome')->get(),
         ]);
     }
 

@@ -16,11 +16,11 @@ class CadernoErrosController extends Controller
             'questao.materia',
             'questao.assunto',
             'questao.cargo.orgao',
-            'questao.cargo.banca',
-            'questao.cargo.ano',
+            'questao.ano',
+            'questao.banca',
             'questao.textoComplementar',
-            'questao.alternativas', // Carrega todas para exibir a lista completa
-            'alternativa' // Carrega especificamente a alternativa errada marcada
+            'questao.alternativas',
+            'alternativa'
         ])
             ->where('user_id', Auth::id())
             ->whereDate('created_at', $dataFiltro)

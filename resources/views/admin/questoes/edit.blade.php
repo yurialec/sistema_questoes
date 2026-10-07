@@ -64,20 +64,26 @@
                                 </select>
                             </div>
                             <div class="col-12">
-                                <label for="cargo_id" class="form-label small fw-semibold text-body-secondary">Cargo / Prova (Órgão - Banca - Ano)</label>
+                                <label for="cargo_id" class="form-label small fw-semibold text-body-secondary">Cargo</label>
                                 <select name="cargo_id" id="cargo_id" class="form-select" required>
                                     <option value="">Selecione o cargo...</option>
                                     @foreach($cargos as $c)
                                         <option value="{{ $c->id }}" {{ $questao->cargo_id == $c->id ? 'selected' : '' }}>
-                                            {{ $c->orgao->nome ?? '' }} - {{ $c->banca->nome ?? '' }} ({{ $c->ano->ano ?? '' }}) - {{ $c->nome }}
+                                            {{ $c->nome }} — {{ $c->orgao->nome ?? '' }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-12">
-                                <label for="imagem" class="form-label small fw-semibold text-body-secondary">Caminho da Imagem do Enunciado (Opcional)</label>
-                                <input type="text" name="imagem" id="imagem" class="form-control" value="{{ old('imagem', $questao->imagem) }}" placeholder="ex: questoes/bb2023/ti/66.png">
-                                <div class="form-text text-body-secondary">Deixe vazio se não houver imagem principal para esta questão.</div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-body-secondary">Ano da Prova</label>
+                                <input type="text" class="form-control" value="{{ $questao->ano->ano ?? '—' }}" readonly>
+                                <div class="form-text text-body-secondary">Definido na importação, não editável.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-body-secondary">Banca</label>
+                                <input type="text" class="form-control" value="{{ $questao->banca->nome ?? '—' }}" readonly>
+                                <div class="form-text text-body-secondary">Definida na importação, não editável.</div>
                             </div>
                         </div>
                     </div>

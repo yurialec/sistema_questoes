@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use App\Models\Orgao;
 use App\Models\Banca;
 use App\Models\Ano;
@@ -48,69 +49,83 @@ class JsonQuestoesSeeder extends Seeder
 
     private function importarBloco(array $bloco, string $nomeArquivo): void
     {
-        Orgao::where('nome', $bloco['orgao'])->delete();
-        $orgao = Orgao::create(['nome' => $bloco['orgao']]);
+        try {
+            // ---- Órgão / Banca / Ano: reutiliza se já existir ----
+            $orgao = Orgao::firstOrCreate(['nome' => $bloco['orgao']]);
+            $banca = Banca::firstOrCreate(['nome' => $bloco['banca']]);
+            $ano   = Ano::firstOrCreate(['ano'   => $bloco['ano']]);
 
-        Banca::where('nome', $bloco['banca'])->delete();
-        $banca = Banca::create(['nome' => $bloco['banca']]);
-
-        Ano::where('ano', $bloco['ano'])->delete();
-        $ano = Ano::create(['ano' => $bloco['ano']]);
-
-        Cargo::where('nome', $bloco['cargo'])->where('ano_id', $ano->id)->delete();
-        $cargo = Cargo::create([
-            'nome' => $bloco['cargo'],
-            'ano_id' => $ano->id,
-            'orgao_id' => $orgao->id,
-            'banca_id' => $banca->id,
-        ]);
-
-        Materia::where('nome', $bloco['materia'])->delete();
-        $materia = Materia::create([
-            'nome' => $bloco['materia'],
-            'tipo' => $bloco['tipo_materia'],
-        ]);
-
-        foreach ($bloco['questoes'] as $dadosQuestao) {
-            Assunto::where('materia_id', $materia->id)->where('nome', $dadosQuestao['assunto'])->delete();
-            $assunto = Assunto::create([
-                'materia_id' => $materia->id,
-                'nome'       => $dadosQuestao['assunto'],
+            // ---- Cargo: único por (nome + orgao_id) ----
+            $cargo = Cargo::firstOrCreate([
+                'nome'     => $bloco['cargo'],
+                'orgao_id' => $orgao->id,
             ]);
 
-            $textoComplementarId = null;
-            $textoCompData = $dadosQuestao['texto_complementar'] ?? null;
+            // ---- Matéria ----
+            $materia = Materia::firstOrCreate(
+                ['nome' => $bloco['materia']],
+                ['tipo' => $bloco['tipo_materia']]
+            );
 
-            if ($textoCompData && isset($textoCompData['conteudo'])) {
-                TextoComplementar::where('conteudo', $textoCompData['conteudo'])->delete();
-                $textoComplementar = TextoComplementar::create([
-                    'conteudo' => $textoCompData['conteudo'],
+            foreach ($bloco['questoes'] as $dadosQuestao) {
+                // ---- Assunto ----
+                $assunto = Assunto::firstOrCreate([
+                    'materia_id' => $materia->id,
+                    'nome'       => $dadosQuestao['assunto'],
                 ]);
-                $textoComplementarId = $textoComplementar->id;
-            }
 
-            Questao::where('codigo', $dadosQuestao['codigo'])->delete();
-            $questao = Questao::create([
-                'codigo'                => $dadosQuestao['codigo'],
-                'cargo_id'              => $cargo->id,
-                'materia_id'            => $materia->id,
-                'assunto_id'            => $assunto->id,
-                'imagem'                => $dadosQuestao['imagem'] ?? null,
-                'tabela_html'           => $dadosQuestao['tabela_html'] ?? null,
-                'texto_complementar_id' => $textoComplementarId,
-                'enunciado'             => $dadosQuestao['enunciado'],
+                // ---- Texto complementar (opcional) ----
+                $textoComplementarId = null;
+                $tcData = $dadosQuestao['texto_complementar'] ?? null;
+
+                if (is_array($tcData) && !empty($tcData['conteudo'])) {
+                    $tc = TextoComplementar::firstOrCreate([
+                        'conteudo' => $tcData['conteudo'],
+                    ]);
+                    $textoComplementarId = $tc->id;
+                }
+
+                // ---- Questão: chave única = codigo ----
+                $questao = Questao::updateOrCreate(
+                    ['codigo' => $dadosQuestao['codigo']],
+                    [
+                        'cargo_id'              => $cargo->id,
+                        'ano_id'                => $ano->id,
+                        'banca_id'              => $banca->id,
+                        'materia_id'            => $materia->id,
+                        'assunto_id'            => $assunto->id,
+                        'imagem'                => $dadosQuestao['imagem'] ?? null,
+                        'tabela_html'           => $dadosQuestao['tabela_html'] ?? null,
+                        'texto_complementar_id' => $textoComplementarId,
+                        'enunciado'             => $dadosQuestao['enunciado'],
+                    ]
+                );
+
+                // ---- Alternativas: limpa e recria (mais simples e seguro) ----
+                Alternativa::where('questao_id', $questao->id)->delete();
+
+                foreach ($dadosQuestao['alternativas'] as $alternativa) {
+                    Alternativa::create([
+                        'questao_id' => $questao->id,
+                        'letra'      => $alternativa['letra'],
+                        'descricao'  => $alternativa['descricao'],
+                        'correta'    => ($alternativa['letra'] === $dadosQuestao['gabarito']),
+                        'imagens'    => $alternativa['imagens'] ?? null,
+                    ]);
+                }
+            }
+        } catch (\Throwable $e) {
+            Log::error("Erro ao importar bloco do arquivo {$nomeArquivo}: " . $e->getMessage(), [
+                'arquivo' => $nomeArquivo,
+                'bloco'   => $bloco,
+                'trace'   => $e->getTraceAsString(),
             ]);
 
-            foreach ($dadosQuestao['alternativas'] as $alternativa) {
-                Alternativa::where('questao_id', $questao->id)->where('letra', $alternativa['letra'])->delete();
-                Alternativa::create([
-                    'questao_id' => $questao->id,
-                    'letra'      => $alternativa['letra'],
-                    'descricao'  => $alternativa['descricao'],
-                    'correta'    => ($alternativa['letra'] === $dadosQuestao['gabarito']),
-                    'imagens'    => $alternativa['imagens'] ?? null,
-                ]);
-            }
+            throw new \Exception(
+                "Falha ao importar bloco do arquivo '{$nomeArquivo}': " . $e->getMessage(),
+                (int) $e->getCode(),
+                $e
+            );
         }
     }
 }

@@ -38,8 +38,8 @@ class ConcursoController extends Controller
 
         $query = Questao::with([
             'cargo.orgao',
-            'cargo.banca',
-            'cargo.ano',
+            'ano',
+            'banca',
             'materia',
             'assunto',
             'alternativas'
@@ -75,15 +75,11 @@ class ConcursoController extends Controller
         }
 
         if ($request->filled('banca_id') && is_array($request->banca_id) && !empty($request->banca_id)) {
-            $query->whereHas('cargo', function ($q) use ($request) {
-                $q->whereIn('banca_id', $request->banca_id);
-            });
+            $query->whereIn('banca_id', $request->banca_id);
         }
 
         if ($request->filled('ano_id') && is_array($request->ano_id) && !empty($request->ano_id)) {
-            $query->whereHas('cargo', function ($q) use ($request) {
-                $q->whereIn('ano_id', $request->ano_id);
-            });
+            $query->whereIn('ano_id', $request->ano_id);
         }
 
         if ($request->filled('cargo_id') && is_array($request->cargo_id) && !empty($request->cargo_id)) {
@@ -93,7 +89,6 @@ class ConcursoController extends Controller
         if ($request->filled('materia_id') && is_array($request->materia_id) && !empty($request->materia_id)) {
             $query->whereIn('materia_id', $request->materia_id);
         }
-
 
         $query->orderBy('total_respostas_assunto', 'ASC')
             ->orderByRaw('CASE WHEN total_respostas_assunto = 0 THEN 0 ELSE (total_erros_assunto * 1.0 / total_respostas_assunto) END DESC')

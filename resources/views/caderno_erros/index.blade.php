@@ -49,10 +49,10 @@
                             {{ $erro->questao->materia->nome ?? 'Sem matéria' }}
                         </span>
                         <span class="badge bg-info-subtle text-info-emphasis border border-info-subtle px-3 py-2 fw-medium">
-                            {{ $erro->questao->cargo->ano->ano ?? 'Ano' }}
+                            {{ $erro->questao->ano->ano ?? 'Ano' }}
                         </span>
                         <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-3 py-2 fw-medium">
-                            {{ $erro->questao->cargo->banca->nome ?? 'Banca' }}
+                            {{ $erro->questao->banca->nome ?? 'Banca' }}
                         </span>
                     </div>
                 </div>

@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ano extends Model
 {
     protected $fillable = [
-        'ano'
+        'ano',
     ];
 
-    public function cargos()
+    public function questoes()
     {
-        return $this->hasMany(Cargo::class);
+        return $this->hasMany(Questao::class);
     }
 }

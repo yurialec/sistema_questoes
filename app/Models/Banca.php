@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Banca extends Model
 {
     protected $fillable = [
-        'nome'
+        'nome',
     ];
 
-    public function cargos()
+    public function questoes()
     {
-        return $this->hasMany(Cargo::class);
+        return $this->hasMany(Questao::class);
     }
 }

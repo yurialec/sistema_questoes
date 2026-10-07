@@ -11,6 +11,8 @@ class Questao extends Model
     protected $fillable = [
         'codigo',
         'cargo_id',
+        'ano_id',        // <- novo
+        'banca_id',      // <- novo
         'materia_id',
         'assunto_id',
         'texto_complementar_id',
@@ -22,6 +24,16 @@ class Questao extends Model
     public function cargo()
     {
         return $this->belongsTo(Cargo::class);
+    }
+
+    public function ano()
+    {
+        return $this->belongsTo(Ano::class);
+    }
+
+    public function banca()
+    {
+        return $this->belongsTo(Banca::class);
     }
 
     public function materia()
@@ -54,7 +66,7 @@ class Questao extends Model
         return $this->hasMany(HistoricoResposta::class);
     }
 
-        public function progresso()
+    public function progresso()
     {
         return $this->hasOne(ProgressoQuestao::class);
     }

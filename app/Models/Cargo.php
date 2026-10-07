@@ -8,24 +8,12 @@ class Cargo extends Model
 {
     protected $fillable = [
         'orgao_id',
-        'banca_id',
-        'ano_id',
-        'nome'
+        'nome',
     ];
 
     public function orgao()
     {
         return $this->belongsTo(Orgao::class);
-    }
-
-    public function banca()
-    {
-        return $this->belongsTo(Banca::class);
-    }
-
-    public function ano()
-    {
-        return $this->belongsTo(Ano::class);
     }
 
     public function questoes()

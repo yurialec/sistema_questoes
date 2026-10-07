@@ -88,9 +88,9 @@
                             <span class="text-body-secondary small fw-medium">
                                 {{ $questao->cargo->orgao->nome ?? 'Órgão' }} 
                                 <span class="mx-1 text-body-tertiary">•</span>
-                                {{ $questao->cargo->ano->ano ?? 'Ano' }}
+                                {{ $questao->ano->ano ?? 'Ano' }}
                                 <span class="mx-1 text-body-tertiary">•</span>
-                                {{ $questao->cargo->banca->nome ?? 'Banca' }}
+                                {{ $questao->banca->nome ?? 'Banca' }}
                             </span>
                         </div>
                         
