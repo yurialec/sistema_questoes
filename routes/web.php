@@ -11,6 +11,7 @@ use App\Http\Controllers\ConcursoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GradeEstudoController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\MetaAprovacaoController;
 use App\Http\Controllers\OrgaoController;
 use App\Http\Controllers\ReaplicacaoController;
 use App\Http\Controllers\RelatorioController;
@@ -44,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
     // Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
     Route::post('/questao/verificar', [ConcursoController::class, 'verificar'])->name('questao.verificar');
+    Route::post('/metas-aprovacao', [MetaAprovacaoController::class, 'store'])->name('metas-aprovacao.store');
+    Route::get('/metas-aprovacao', [MetaAprovacaoController::class, 'show'])->name('metas-aprovacao.show');
+    Route::delete('/metas-aprovacao', [MetaAprovacaoController::class, 'destroy'])->name('metas-aprovacao.destroy');
 
     Route::get('/caderno-erros', [CadernoErrosController::class, 'index'])->name('caderno-erros.index');
     Route::post('/caderno-erros/{erro}/salvar-motivo', [ConcursoController::class, 'salvarMotivoErro'])->name('caderno-erros.salvar-motivo');

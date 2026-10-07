@@ -14,6 +14,7 @@ use App\Models\Materia;
 use App\Models\Orgao;
 use App\Models\Questao;
 use App\Services\LeitnerService;
+use App\Services\MetaAprovacaoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,13 +114,11 @@ class ConcursoController extends Controller
         ]);
     }
 
-    public function verificar(Request $request, LeitnerService $leitnerService)
+    public function verificar(Request $request, LeitnerService $leitnerService, MetaAprovacaoService $metaAprovacaoService)
     {
-        // Carrega a questão junto para evitar uma nova query no banco
         $alternativa = Alternativa::with('questao')->findOrFail($request->alternativa_id);
         $user = Auth::user();
 
-        // 1. Salva no histórico
         HistoricoResposta::create([
             'user_id' => $user->id,
             'questao_id' => $alternativa->questao_id,
@@ -128,10 +127,10 @@ class ConcursoController extends Controller
             'respondido_em' => now()
         ]);
 
-        // 2. ATUALIZA A CAIXA DO SISTEMA LEITNER (Repetição Espaçada)
+        $metaAprovacaoService->recalcularProgresso($user->id);
+
         $leitnerService->processarResposta($user, $alternativa->questao, $alternativa->correta);
 
-        // 3. Lógica do Caderno de Erros (se estiver errada e modal ativo)
         if (!$alternativa->correta && $user->ativo_modal_erros) {
             $erro = CadernoErro::create([
                 'user_id' => $user->id,
@@ -151,10 +150,8 @@ class ConcursoController extends Controller
         return back()->with('resultado', $alternativa->correta);
     }
 
-    // Novo método para salvar os dados do modal
     public function salvarMotivoErro(Request $request, CadernoErro $erro)
     {
-        // Garante que o erro pertence ao usuário
         if ($erro->user_id !== Auth::id()) abort(403);
 
         $erro->update([
@@ -170,26 +167,21 @@ class ConcursoController extends Controller
     {
         $user = Auth::user();
 
-        // Validação básica
         $request->validate([
             'nome_filtro' => 'required|string|max:255',
-            'definir_padrao' => 'nullable|boolean', // Checkbox opcional
+            'definir_padrao' => 'nullable|boolean',
         ]);
 
-        // Coleta apenas os campos de filtro que foram enviados
         $filtrosData = $request->only(['orgao_id', 'banca_id', 'ano_id', 'cargo_id', 'materia_id']);
 
-        // Remove arrays vazios para não salvar lixo no banco
         $filtrosData = array_filter($filtrosData, function ($item) {
             return !empty($item);
         });
 
-        // Se o usuário marcou "Definir como padrão", removemos o padrão anterior dele
         if ($request->has('definir_padrao')) {
             FiltroSalvo::where('user_id', $user->id)->update(['is_padrao' => false]);
         }
 
-        // Cria o novo filtro
         FiltroSalvo::create([
             'user_id' => $user->id,
             'nome' => $request->nome_filtro,

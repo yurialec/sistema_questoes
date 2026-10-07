@@ -31,56 +31,134 @@
     </div>
     @endif
 
-    {{-- ══════════════════════════════════════════════
-         SUGESTÃO DE ESTUDO DE HOJE
-    ═══════════════════════════════════════════════ --}}
-    @if($sugestaoHoje)
-    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
-        <div class="card-body p-4">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <i class="fas fa-bullseye text-primary"></i>
-                        <h5 class="mb-0 fw-bold">Sugestão de Estudo para Hoje</h5>
+    @if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    @endif
+
+    <div class="row mb-4 g-3">
+        <!-- Card da Meta de Aprovação -->
+        <div class="col-12 col-lg-4">
+            <div class="card border shadow-none h-100 bg-body-tertiary">
+                <div class="card-header bg-transparent border-bottom d-flex align-items-center justify-content-between py-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="d-flex align-items-center justify-content-center rounded-2 p-1"
+                            style="width:28px; height:28px; background:#EEF2FF;">
+                            <i class="fa-solid fa-bullseye fa-xs" style="color:#4F46E5;"></i>
+                        </span>
+                        <h6 class="mb-0 fw-semibold">Meta de Aprovação</h6>
                     </div>
-                    <h2 class="fw-bold mb-2 text-body">{{ $sugestaoHoje->nome }}</h2>
-                    <p class="mb-0 text-body-secondary">
-                        @php
-                            $errosPendentes = \App\Models\CadernoErro::join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
-                                ->where('caderno_erros.user_id', auth()->id())
-                                ->where('questoes.materia_id', $sugestaoHoje->id)
-                                ->where('caderno_erros.status', 'pendente')
-                                ->count();
-                            
-                            $motivo = $errosPendentes > 0 
-                                ? "Você tem {$errosPendentes} erro(s) pendente(s) para revisar nesta matéria." 
-                                : "Esta é a matéria com menor progresso ou próxima no seu ciclo de estudos.";
-                        @endphp
-                        {{ $motivo }}
-                    </p>
+                    
+                    @if($metaAtiva)
+                    <form action="{{ route('metas-aprovacao.destroy') }}" method="POST" class="m-0"
+                          onsubmit="return confirm('Tem certeza que deseja excluir sua meta atual? Todo o progresso será perdido.');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-light text-danger border-0" title="Excluir meta">
+                            <i class="fa-solid fa-trash-can fa-xs"></i>
+                        </button>
+                    </form>
+                    @endif
                 </div>
-                <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                    <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}" class="btn btn-primary fw-semibold px-4">
-                        <i class="fas fa-play me-2"></i> Estudar Agora
-                    </a>
+                
+                <div class="card-body d-flex flex-column justify-content-center px-4 py-4">
+                    @if($metaAtiva)
+                        @php
+                            $rankConfig = [
+                                'ruim'      => ['classe' => 'bg-danger',              'barra' => 'bg-danger',              'texto' => 'Ruim',      'status' => 'Não desista, foque nos pontos fracos!'],
+                                'regular'   => ['classe' => 'bg-warning text-dark',   'barra' => 'bg-warning',             'texto' => 'Regular',   'status' => 'Você está evoluindo, continue!'],
+                                'bom'       => ['classe' => 'bg-info text-dark',      'barra' => 'bg-info',                'texto' => 'Bom',       'status' => 'Ótimo progresso, mantenha o ritmo!'],
+                                'excelente' => ['classe' => 'bg-success',             'barra' => 'bg-success',             'texto' => 'Excelente', 'status' => 'Você está pronto para a prova!'],
+                            ];
+                            $config = $rankConfig[$metaAtiva->rank] ?? $rankConfig['ruim'];
+                        @endphp
+
+                        <p class="text-muted small mb-1 text-uppercase fw-semibold" style="letter-spacing:.05em; font-size:11px;">Cargo Alvo</p>
+                        <h5 class="fw-bold mb-3">{{ $metaAtiva->cargo->nome }}</h5>
+
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small fw-semibold text-muted">Progresso</span>
+                            <span class="badge rounded-pill {{ $config['classe'] }}">{{ $config['texto'] }}</span>
+                        </div>
+                        
+                        <div class="progress mb-2" style="height: 8px;">
+                            <div class="progress-bar {{ $config['barra'] }}" role="progressbar" 
+                                 style="width: {{ $metaAtiva->porcentagem }}%;" 
+                                 aria-valuenow="{{ $metaAtiva->porcentagem }}" 
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">{{ $metaAtiva->porcentagem }}%</small>
+                            <small class="text-muted">{{ $config['status'] }}</small>
+                        </div>
+                    @else
+                        <div class="text-center py-3">
+                            <i class="fa-solid fa-circle-info text-muted mb-2" style="font-size: 24px;"></i>
+                            <p class="text-muted small mb-0">Você ainda não definiu uma meta.</p>
+                            <button class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modalMetaAprovacao">
+                                <i class="fa-solid fa-plus fa-xs me-1"></i> Definir Meta
+                            </button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
+
+        {{-- ══════════════════════════════════════════════
+             SUGESTÃO DE ESTUDO DE HOJE
+        ═══════════════════════════════════════════════ --}}
+        @if($sugestaoHoje)
+        <div class="col-12 col-lg-8">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="fas fa-bullseye text-primary"></i>
+                                <h5 class="mb-0 fw-bold">Sugestão de Estudo para Hoje</h5>
+                            </div>
+                            <h2 class="fw-bold mb-2 text-body">{{ $sugestaoHoje->nome }}</h2>
+                            <p class="mb-0 text-body-secondary">
+                                @php
+                                    $errosPendentes = \App\Models\CadernoErro::join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
+                                        ->where('caderno_erros.user_id', auth()->id())
+                                        ->where('questoes.materia_id', $sugestaoHoje->id)
+                                        ->where('caderno_erros.status', 'pendente')
+                                        ->count();
+                                    
+                                    $motivo = $errosPendentes > 0 
+                                        ? "Você tem {$errosPendentes} erro(s) pendente(s) para revisar nesta matéria." 
+                                        : "Esta é a matéria com menor progresso ou próxima no seu ciclo de estudos.";
+                                @endphp
+                                {{ $motivo }}
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}" class="btn btn-primary fw-semibold px-4">
+                                <i class="fas fa-play me-2"></i> Estudar Agora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
-    @endif
     
     <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Visão geral</p>
 
     <div class="row g-3 mb-4">
         {{-- Taxa de acerto (anel SVG adaptado para Dark Mode) --}}
         <div class="col-12 col-md-5">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body d-flex align-items-center gap-4 p-4">
                     @php
                     $circumference = 2 * M_PI * 40;
                     $offset = $circumference - ($percentual / 100) * $circumference;
                     
-                    // Usa classes do Bootstrap para definir a cor via variável CSS
                     $ringColorClass = match(true) {
                         $percentual >= 70 => 'success',
                         $percentual >= 50 => 'primary',
@@ -90,9 +168,7 @@
 
                     <div class="flex-shrink-0">
                         <svg width="110" height="110" viewBox="0 0 100 100" class="accuracy-ring" aria-label="Taxa de acerto: {{ $percentual }}%">
-                            <!-- Fundo do anel usa a cor de borda padrão do tema -->
                             <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bs-border-color)" stroke-width="8" />
-                            <!-- Preenchimento usa a variável de cor do Bootstrap (success, primary ou danger) -->
                             <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bs-{{ $ringColorClass }})" stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ $circumference }}" stroke-dashoffset="{{ $circumference }}" data-offset="{{ $offset }}" class="ring-fill" transform="rotate(-90 50 50)" />
                             
                             <text x="50" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="var(--bs-body-color)">{{ $percentual }}%</text>
@@ -126,7 +202,7 @@
         <div class="col-12 col-md-7">
             <div class="row g-3 h-100">
                 <div class="col-6">
-                    <div class="card border-0 shadow-sm h-100">
+                    <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center gap-2 mb-2">
                                 <span class="badge rounded-2 p-2 bg-primary-subtle text-primary"><i class="fas fa-check-circle"></i></span>
@@ -139,7 +215,7 @@
                 </div>
 
                 <div class="col-6">
-                    <div class="card border-0 shadow-sm h-100">
+                    <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center gap-2 mb-2">
                                 <span class="badge rounded-2 p-2 bg-danger-subtle text-danger"><i class="fas fa-times-circle"></i></span>
@@ -152,7 +228,7 @@
                 </div>
 
                 <div class="col-12">
-                    <div class="card border-0 shadow-sm">
+                    <div class="card border-0 shadow-sm bg-body-tertiary">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -193,7 +269,7 @@
     ══════════════════════════════════════════════ --}}
     <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Desempenho diário (últimos 14 dias)</p>
 
-    <div class="card border-0 shadow-sm mb-4">
+    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
         <div class="card-body p-4">
             <div class="chart-container" style="position: relative; height:300px; width:100%;">
                 <canvas id="desempenhoChart"></canvas>
@@ -209,7 +285,7 @@
     <div class="row g-3 mb-4">
         {{-- Streak --}}
         <div class="col-12 col-sm-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-3">
                     @if($streak >= 2)
                     <span class="streak-icon d-block mb-1 text-warning" style="font-size:1.6rem">🔥</span>
@@ -234,7 +310,7 @@
 
         {{-- Último estudo --}}
         <div class="col-12 col-sm-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-3">
                     <i class="fas fa-calendar-check mb-2 d-block text-success" style="font-size:1.4rem"></i>
                     <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $ultimaRespostaLabel }}</p>
@@ -255,7 +331,7 @@
 
         {{-- Matérias cadastradas --}}
         <div class="col-12 col-sm-4">
-            <div class="card border-0 shadow-sm h-100">
+            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-3">
                     <i class="fas fa-book mb-2 d-block text-primary" style="font-size:1.4rem"></i>
                     <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $materias->count() }}</p>
@@ -276,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById('desempenhoChart');
     if (!canvas) return;
 
-    // Lê as cores diretamente das variáveis CSS do Bootstrap para garantir compatibilidade total com Dark Mode
     const style = getComputedStyle(document.body);
     const colorSuccess = style.getPropertyValue('--bs-success').trim() || '#198754';
     const colorDanger = style.getPropertyValue('--bs-danger').trim() || '#dc3545';

@@ -7,6 +7,7 @@ use App\Models\CadernoErro;
 use App\Models\GradeEstudo;
 use App\Models\HistoricoResposta;
 use App\Models\Materia;
+use App\Models\MetaAprovacao;
 use App\Models\ProgressoQuestao;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -149,6 +150,10 @@ class DashboardController extends Controller
 
         $sugestaoHoje = $this->getSugestaoDeHoje();
 
+        $metaAtiva = MetaAprovacao::with('cargo')
+            ->where('user_id', Auth::id())
+            ->first();
+
         return view('dashboard.index', compact(
             'total',
             'acertos',
@@ -162,7 +167,8 @@ class DashboardController extends Controller
             'datasFormatadas',
             'acertosData',
             'errosData',
-            'sugestaoHoje'
+            'sugestaoHoje',
+            'metaAtiva'
         ));
     }
 
@@ -233,7 +239,12 @@ class DashboardController extends Controller
         CadernoErro::where('user_id', $userId)->delete();
         ProgressoQuestao::where('user_id', $userId)->delete();
 
-        return redirect()->back()->with('success', 'Suas estatísticas, Caderno de Erros e Curva de Aprendizagem foram zerados com sucesso.');
+        MetaAprovacao::where('user_id', $userId)->update([
+            'porcentagem' => 0,
+            'rank'        => 'ruim'
+        ]);
+
+        return redirect()->back()->with('success', 'Suas estatísticas, Caderno de Erros, Curva de Aprendizagem e o progresso da sua Meta foram zerados com sucesso.');
     }
 
     public function getSugestaoDeHoje()

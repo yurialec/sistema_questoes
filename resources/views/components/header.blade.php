@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
     <div class="container-fluid">
 
-        {{-- Logo / Home (Limpo e direto) --}}
+        {{-- Logo / Home --}}
         <a href="{{ route('dashboard') }}" class="navbar-brand fw-bold d-flex align-items-center gap-2">
             <i class="fas fa-layer-group text-primary"></i>
             <span>Questões</span>
@@ -20,7 +20,7 @@
 
         <div class="collapse navbar-collapse" id="mainNavbar">
 
-            {{-- Navegação Principal (Texto limpo, sem ícones desnecessários) --}}
+            {{-- Navegação Principal --}}
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard.desempenho-materia') }}">Desempenho</a>
@@ -32,14 +32,12 @@
                     <a class="nav-link" href="{{ route('caderno-erros.index') }}">Caderno de Erros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('reaplicacao.index') }}">Reaplicação</a>
+                    <a href="#" class="nav-link d-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#modalMetaAprovacao">
+                        <i class="fa-solid fa-bullseye fa-xs"></i>
+                        <span>Meta desejada</span>
+                    </a>
                 </li>
                 
-                {{-- Grade de Estudos (Mantido pronto para quando ativar, de forma limpa) --}}
-                {{-- <li class="nav-item d-none">
-                    <a class="nav-link" href="{{ route('grade.index') }}">Grade de Estudos</a>
-                </li> --}}
-
                 @if(auth()->user()->is_admin)
                     <li class="nav-item">
                         <a class="nav-link text-warning fw-medium" href="{{ route('admin.questoes.index') }}">
@@ -52,20 +50,16 @@
             {{-- Ações e Utilitários --}}
             <div class="d-flex align-items-center gap-2 flex-wrap mt-3 mt-lg-0">
 
-                {{-- Ação Principal (Único destaque real na navbar) --}}
                 <a href="{{ route('responder') }}" class="btn btn-primary btn-sm fw-semibold px-3 shadow-sm">
                     <i class="fas fa-play me-1"></i> Responder
                 </a>
 
-                {{-- Separador Vertical (Apenas em telas grandes) --}}
                 <div class="vr mx-2 d-none d-lg-block"></div>
 
-                {{-- Perfil --}}
                 <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary btn-sm border-0">
                     <i class="fas fa-user me-1"></i> Perfil
                 </a>
 
-                {{-- Resetar (Ação discreta para evitar cliques acidentais e poluição visual) --}}
                 <form action="{{ url('/dashboard/resetar') }}" method="POST" class="m-0" onsubmit="return confirm('Tem certeza que deseja zerar todas as estatísticas? Esta ação não pode ser desfeita.');">
                     @csrf
                     <button type="submit" class="btn btn-link text-decoration-none text-secondary p-1" title="Zerar estatísticas">
@@ -73,7 +67,6 @@
                     </button>
                 </form>
 
-                {{-- Logout --}}
                 <form action="{{ route('logout') }}" method="POST" class="m-0">
                     @csrf
                     <button type="submit" class="btn btn-link text-decoration-none text-secondary p-1" title="Sair do sistema">
@@ -85,3 +78,44 @@
         </div>
     </div>
 </nav>
+
+<!-- Modal Meta de Aprovação -->
+<div class="modal fade" id="modalMetaAprovacao" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        {{-- Formulário padrão do Laravel envolvendo o conteúdo do modal --}}
+        <form action="{{ route('metas-aprovacao.store') }}" method="POST">
+            @csrf
+            
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-semibold">Definir Meta de Aprovação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-muted small mb-3">
+                        Selecione o cargo desejado. O sistema criará automaticamente um filtro e acompanhará seu progresso até a aprovação.
+                    </p>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-uppercase text-muted">
+                            Cargo
+                        </label>
+                        <select class="form-select form-select-sm" name="cargo_id" required>
+                            <option value="" disabled selected>Selecione um cargo</option>
+                            @foreach (\App\Models\Cargo::orderBy('nome')->get() as $cargo)
+                                <option value="{{ $cargo->id }}">
+                                    {{ $cargo->nome }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-sm btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1">
+                        <i class="fa-solid fa-floppy-disk fa-xs"></i> Criar Meta
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -24,4 +24,9 @@ class FiltroSalvo extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function metaAprovacao()
+    {
+        return $this->hasOne(MetaAprovacao::class, 'filtro_salvo_id');
+    }
 }
