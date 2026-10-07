@@ -17,9 +17,6 @@ use App\Models\TextoComplementar;
 
 class JsonQuestoesSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $arquivos = File::files(database_path('imports'));
@@ -33,9 +30,6 @@ class JsonQuestoesSeeder extends Seeder
                     continue;
                 }
 
-                // Normaliza para sempre trabalhar com um array de blocos.
-                // Formato antigo (2021): objeto único  → { orgao, banca, materia, questoes... }
-                // Formato novo  (2023): array de blocos → [{ orgao, banca, materia, questoes... }, ...]
                 $blocos = array_is_list($json) ? $json : [$json];
 
                 foreach ($blocos as $bloco) {
@@ -52,70 +46,70 @@ class JsonQuestoesSeeder extends Seeder
         }
     }
 
-    /**
-     * Importa um único bloco de matéria (com suas questões).
-     * Um "bloco" é o objeto que contém orgao, banca, ano, cargo, materia e questoes[].
-     */
     private function importarBloco(array $bloco, string $nomeArquivo): void
     {
-        $orgao  = Orgao::firstOrCreate(['nome' => $bloco['orgao']]);
-        $banca  = Banca::firstOrCreate(['nome' => $bloco['banca']]);
-        $ano    = Ano::firstOrCreate(['ano'   => $bloco['ano']]);
+        Orgao::where('nome', $bloco['orgao'])->delete();
+        $orgao = Orgao::create(['nome' => $bloco['orgao']]);
 
-        $cargo = Cargo::firstOrCreate(
-            ['nome' => $bloco['cargo'], 'ano_id' => $ano->id],
-            ['orgao_id' => $orgao->id, 'banca_id' => $banca->id]
-        );
+        Banca::where('nome', $bloco['banca'])->delete();
+        $banca = Banca::create(['nome' => $bloco['banca']]);
 
-        $materia = Materia::firstOrCreate(
-            ['nome' => $bloco['materia']],
-            ['tipo' => $bloco['tipo_materia']]
-        );
+        Ano::where('ano', $bloco['ano'])->delete();
+        $ano = Ano::create(['ano' => $bloco['ano']]);
+
+        Cargo::where('nome', $bloco['cargo'])->where('ano_id', $ano->id)->delete();
+        $cargo = Cargo::create([
+            'nome' => $bloco['cargo'],
+            'ano_id' => $ano->id,
+            'orgao_id' => $orgao->id,
+            'banca_id' => $banca->id,
+        ]);
+
+        Materia::where('nome', $bloco['materia'])->delete();
+        $materia = Materia::create([
+            'nome' => $bloco['materia'],
+            'tipo' => $bloco['tipo_materia'],
+        ]);
 
         foreach ($bloco['questoes'] as $dadosQuestao) {
-            $assunto = Assunto::firstOrCreate([
+            Assunto::where('materia_id', $materia->id)->where('nome', $dadosQuestao['assunto'])->delete();
+            $assunto = Assunto::create([
                 'materia_id' => $materia->id,
                 'nome'       => $dadosQuestao['assunto'],
             ]);
 
-            // Texto complementar: pode ser null, ausente ou { conteudo: "..." }
             $textoComplementarId = null;
             $textoCompData = $dadosQuestao['texto_complementar'] ?? null;
 
             if ($textoCompData && isset($textoCompData['conteudo'])) {
-                $textoComplementar   = TextoComplementar::firstOrCreate(
-                    ['conteudo' => $textoCompData['conteudo']]
-                );
+                TextoComplementar::where('conteudo', $textoCompData['conteudo'])->delete();
+                $textoComplementar = TextoComplementar::create([
+                    'conteudo' => $textoCompData['conteudo'],
+                ]);
                 $textoComplementarId = $textoComplementar->id;
             }
 
-            $questao = Questao::updateOrCreate(
-                ['codigo' => $dadosQuestao['codigo']],
-                [
-                    'cargo_id'             => $cargo->id,
-                    'materia_id'           => $materia->id,
-                    'assunto_id'           => $assunto->id,
-                    // 'numero'               => $dadosQuestao['numero'] ?? null,
-                    'imagem'               => $dadosQuestao['imagem'] ?? null,
-                    'tabela_html'          => $dadosQuestao['tabela_html'] ?? null,
-                    'texto_complementar_id' => $textoComplementarId,
-                    'enunciado'            => $dadosQuestao['enunciado'],
-                    // 'dificuldade'       => $dadosQuestao['dificuldade'] ?? null,
-                ]
-            );
+            Questao::where('codigo', $dadosQuestao['codigo'])->delete();
+            $questao = Questao::create([
+                'codigo'                => $dadosQuestao['codigo'],
+                'cargo_id'              => $cargo->id,
+                'materia_id'            => $materia->id,
+                'assunto_id'            => $assunto->id,
+                'imagem'                => $dadosQuestao['imagem'] ?? null,
+                'tabela_html'           => $dadosQuestao['tabela_html'] ?? null,
+                'texto_complementar_id' => $textoComplementarId,
+                'enunciado'             => $dadosQuestao['enunciado'],
+            ]);
 
             foreach ($dadosQuestao['alternativas'] as $alternativa) {
-                Alternativa::updateOrCreate(
-                    [
-                        'questao_id' => $questao->id,
-                        'letra'      => $alternativa['letra'],
-                    ],
-                    [
-                        'descricao' => $alternativa['descricao'],
-                        'correta'   => ($alternativa['letra'] === $dadosQuestao['gabarito']),
-                        'imagens'   => $alternativa['imagens'] ?? null,
-                    ]
-                );
+                Alternativa::where('questao_id', $questao->id)->where('letra', $alternativa['letra'])->delete();
+                Alternativa::create([
+                    'questao_id' => $questao->id,
+                    'letra'      => $alternativa['letra'],
+                    'descricao'  => $alternativa['descricao'],
+                    'correta'    => ($alternativa['letra'] === $dadosQuestao['gabarito']),
+                    'imagens'    => $alternativa['imagens'] ?? null,
+                ]);
             }
         }
     }
