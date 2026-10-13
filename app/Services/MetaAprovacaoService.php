@@ -5,18 +5,13 @@ namespace App\Services;
 use App\Models\Cargo;
 use App\Models\FiltroSalvo;
 use App\Models\MetaAprovacao;
-use App\Models\Questao;
 use Illuminate\Support\Facades\DB;
 use Exception;
 
 class MetaAprovacaoService
 {
-    /**
-     * Cria uma nova meta de aprovação e o filtro vinculado.
-     */
-    public function criarMeta($userId, $cargoId)
+    public function criarMeta($userId, $cargoId, array $anos = [])
     {
-        // Verifica se já existe uma meta ativa para este usuário
         $metaExistente = MetaAprovacao::where('user_id', $userId)->first();
         if ($metaExistente) {
             throw new Exception('Você já possui uma meta ativa. Exclua a atual antes de criar uma nova.');
@@ -24,22 +19,23 @@ class MetaAprovacaoService
 
         $cargo = Cargo::findOrFail($cargoId);
 
-        // 1. Cria o filtro salvo automaticamente
-        // A estrutura do array 'filtros' segue o padrão do seu sistema (arrays)
+        $filtros = ['cargo_id' => [$cargoId]];
+        if (!empty($anos)) {
+            $filtros['ano_id'] = $anos;
+        }
+
         $filtroSalvo = FiltroSalvo::create([
             'user_id'   => $userId,
-            'nome'      => 'Meta Analista ' . $cargo->nome,
-            'filtros'   => [
-                'cargo_id' => [$cargoId] // Array, conforme seu sistema
-            ],
+            'nome'      => 'Meta ' . $cargo->nome,
+            'filtros'   => $filtros,
             'is_padrao' => false,
         ]);
 
-        // 2. Cria a meta de aprovação vinculando o filtro
         $meta = MetaAprovacao::create([
             'user_id'         => $userId,
             'cargo_id'        => $cargoId,
             'filtro_salvo_id' => $filtroSalvo->id,
+            'anos'            => !empty($anos) ? $anos : null,
             'porcentagem'     => 0,
             'rank'            => 'ruim',
         ]);
@@ -47,9 +43,6 @@ class MetaAprovacaoService
         return $meta->load('cargo', 'filtroSalvo');
     }
 
-    /**
-     * Busca a meta ativa do usuário.
-     */
     public function getMetaAtiva($userId)
     {
         return MetaAprovacao::with('cargo', 'filtroSalvo')
@@ -57,9 +50,6 @@ class MetaAprovacaoService
             ->first();
     }
 
-    /**
-     * Exclui a meta ativa do usuário e o filtro vinculado.
-     */
     public function excluirMeta($userId)
     {
         $meta = MetaAprovacao::where('user_id', $userId)->first();
@@ -68,72 +58,70 @@ class MetaAprovacaoService
             throw new Exception('Nenhuma meta ativa encontrada.');
         }
 
-        // Exclui o filtro vinculado
-        $meta->filtroSalvo()->delete();
+        if ($meta->filtro_salvo_id) {
+            FiltroSalvo::where('id', $meta->filtro_salvo_id)
+                ->where('user_id', $userId)
+                ->delete();
+        }
 
-        // Exclui a meta
         $meta->delete();
 
         return true;
     }
 
-    /**
-     * Recalcula o progresso da meta com base no histórico de respostas.
-     * Chamado sempre que o usuário responde uma questão.
-     */
     public function recalcularProgresso($userId)
     {
         $meta = MetaAprovacao::where('user_id', $userId)->first();
 
         if (!$meta) {
-            return null; // Usuário não tem meta ativa
+            return null;
         }
 
-        // Busca as estatísticas do usuário para o cargo da meta
-        $stats = DB::table('historico_respostas as hr')
+        $totalQuery = DB::table('questoes')->where('cargo_id', $meta->cargo_id);
+
+        if (!empty($meta->anos)) {
+            $totalQuery->whereIn('ano_id', $meta->anos);
+        }
+
+        $totalQuestoes = $totalQuery->count();
+
+        $ultimasRespostas = DB::table('historico_respostas as hr')
             ->join('questoes as q', 'hr.questao_id', '=', 'q.id')
             ->where('hr.user_id', $userId)
             ->where('q.cargo_id', $meta->cargo_id)
-            ->selectRaw('COUNT(hr.id) as total_respondidas')
-            ->selectRaw('SUM(CASE WHEN hr.acertou = 1 THEN 1 ELSE 0 END) as total_acertos')
+            ->when(!empty($meta->anos), fn($q) => $q->whereIn('q.ano_id', $meta->anos))
+            ->whereIn('hr.id', function ($sub) use ($userId) {
+                $sub->selectRaw('MAX(hr2.id)')
+                    ->from('historico_respostas as hr2')
+                    ->where('hr2.user_id', $userId)
+                    ->groupBy('hr2.questao_id');
+            })
+            ->selectRaw('SUM(CASE WHEN hr.acertou = 1 THEN 1 ELSE 0 END) as acertos')
+            ->selectRaw('SUM(CASE WHEN hr.acertou = 0 THEN 1 ELSE 0 END) as erros')
             ->first();
 
-        $totalRespondidas = $stats->total_respondidas ?? 0;
-        $totalAcertos = $stats->total_acertos ?? 0;
+        $acertos = (int) ($ultimasRespostas->acertos ?? 0);
+        $erros   = (int) ($ultimasRespostas->erros ?? 0);
+        $saldo   = $acertos - $erros;
 
-        // Calcula a porcentagem
-        if ($totalRespondidas === 0) {
-            $porcentagem = 0;
-        } else {
-            $porcentagem = round(($totalAcertos / $totalRespondidas) * 100);
-        }
+        $porcentagem = $totalQuestoes > 0
+            ? max(0, min(100, (int) round(($saldo / $totalQuestoes) * 100)))
+            : 0;
 
-        // Define o rank baseado na porcentagem
-        $rank = $this->calcularRank($porcentagem);
-
-        // Atualiza a meta
         $meta->update([
             'porcentagem' => $porcentagem,
-            'rank'        => $rank,
+            'rank'        => $this->calcularRank($porcentagem),
         ]);
 
         return $meta->fresh();
     }
 
-    /**
-     * Define o rank com base na porcentagem.
-     * Os thresholds podem ser ajustados conforme necessário.
-     */
     private function calcularRank(int $porcentagem): string
     {
-        if ($porcentagem >= 80) {
-            return 'excelente';
-        } elseif ($porcentagem >= 60) {
-            return 'bom';
-        } elseif ($porcentagem >= 40) {
-            return 'regular';
-        }
-
+        if ($porcentagem >= 71) return 'aprovado';
+        if ($porcentagem >= 36) return 'excelente';
+        if ($porcentagem >= 16) return 'bom';
+        if ($porcentagem >= 1)  return 'regular';
         return 'ruim';
     }
 }

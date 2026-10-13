@@ -14,10 +14,12 @@ class MetaAprovacao extends Model
         'filtro_salvo_id',
         'porcentagem',
         'rank',
+        'anos',
     ];
 
     protected $casts = [
         'porcentagem' => 'integer',
+        'anos'        => 'array',
     ];
 
     public function user()

@@ -67,10 +67,11 @@
                     @if($metaAtiva)
                         @php
                             $rankConfig = [
-                                'ruim'      => ['classe' => 'bg-danger',              'barra' => 'bg-danger',              'texto' => 'Ruim',      'status' => 'Não desista, foque nos pontos fracos!'],
-                                'regular'   => ['classe' => 'bg-warning text-dark',   'barra' => 'bg-warning',             'texto' => 'Regular',   'status' => 'Você está evoluindo, continue!'],
-                                'bom'       => ['classe' => 'bg-info text-dark',      'barra' => 'bg-info',                'texto' => 'Bom',       'status' => 'Ótimo progresso, mantenha o ritmo!'],
-                                'excelente' => ['classe' => 'bg-success',             'barra' => 'bg-success',             'texto' => 'Excelente', 'status' => 'Você está pronto para a prova!'],
+                                'ruim'      => ['classe' => 'bg-danger',              'barra' => 'bg-danger',              'texto' => 'Ruim',       'status' => 'Não desista, foque nos pontos fracos!'],
+                                'regular'   => ['classe' => 'bg-warning text-dark',   'barra' => 'bg-warning',             'texto' => 'Regular',    'status' => 'Você está evoluindo, continue!'],
+                                'bom'       => ['classe' => 'bg-info text-dark',      'barra' => 'bg-info',                'texto' => 'Bom',        'status' => 'Ótimo progresso, mantenha o ritmo!'],
+                                'excelente' => ['classe' => 'bg-success',             'barra' => 'bg-success',             'texto' => 'Excelente',  'status' => 'Reta final, você está perto!'],
+                                'aprovado'  => ['classe' => 'bg-primary',             'barra' => 'bg-primary',             'texto' => 'Aprovado',   'status' => 'Meta batida! Continue revisando.'],
                             ];
                             $config = $rankConfig[$metaAtiva->rank] ?? $rankConfig['ruim'];
                         @endphp

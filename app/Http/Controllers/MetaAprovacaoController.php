@@ -19,10 +19,17 @@ class MetaAprovacaoController extends Controller
     {
         $request->validate([
             'cargo_id' => 'required|exists:cargos,id',
+            'anos'     => 'nullable|array',
+            'anos.*'   => 'exists:anos,id',
         ]);
 
         try {
-            $this->metaAprovacaoService->criarMeta(Auth::id(), $request->cargo_id);
+            
+            $this->metaAprovacaoService->criarMeta(
+                Auth::id(),
+                $request->cargo_id,
+                $request->input('anos', [])
+            );
 
             return redirect()->back()->with('success', 'Meta de aprovação criada com sucesso!');
         } catch (\Exception $e) {

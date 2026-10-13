@@ -102,11 +102,31 @@
                         <select class="form-select form-select-sm" name="cargo_id" required>
                             <option value="" disabled selected>Selecione um cargo</option>
                             @foreach (\App\Models\Cargo::orderBy('nome')->get() as $cargo)
-                                <option value="{{ $cargo->id }}">
-                                    {{ $cargo->nome }}
-                                </option>
+                                <option value="{{ $cargo->id }}">{{ $cargo->nome }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold text-uppercase text-muted d-flex justify-content-between align-items-center">
+                            <span>Anos de referência</span>
+                            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" id="toggleAnos">Marcar/Desmarcar</button>
+                        </label>
+                        <div class="border rounded p-2" style="max-height: 180px; overflow-y: auto;">
+                            @forelse (\App\Models\Ano::orderBy('ano', 'desc')->get() as $ano)
+                                <div class="form-check">
+                                    <input class="form-check-input ano-checkbox" type="checkbox"
+                                        name="anos[]" value="{{ $ano->id }}" id="ano-{{ $ano->id }}">
+                                    <label class="form-check-label small" for="ano-{{ $ano->id }}">
+                                        {{ $ano->ano }}
+                                    </label>
+                                </div>
+                            @empty
+                                <p class="text-muted small mb-0">Nenhum ano cadastrado.</p>
+                            @endforelse
+                        </div>
+                        <small class="text-muted d-block mt-1">
+                            Se nenhum for marcado, considera todos os anos.
+                        </small>
                     </div>
                 </div>
                 <div class="modal-footer border-0 pt-0">
@@ -119,3 +139,18 @@
         </form>
     </div>
 </div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('toggleAnos');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const checks = document.querySelectorAll('.ano-checkbox');
+        const allChecked = [...checks].every(c => c.checked);
+        checks.forEach(c => c.checked = !allChecked);
+    });
+});
+</script>
+@endpush
