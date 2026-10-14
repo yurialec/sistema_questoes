@@ -31,11 +31,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('caderno-erros.index') }}">Caderno de Erros</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link d-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#modalMetaAprovacao">
                         <i class="fa-solid fa-bullseye fa-xs"></i>
                         <span>Meta desejada</span>
                     </a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('simulados.index') }}">Simulado</a>
                 </li>
                 
                 @if(auth()->user()->is_admin)

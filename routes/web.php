@@ -15,6 +15,7 @@ use App\Http\Controllers\MetaAprovacaoController;
 use App\Http\Controllers\OrgaoController;
 use App\Http\Controllers\ReaplicacaoController;
 use App\Http\Controllers\RelatorioController;
+use App\Http\Controllers\SimuladoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 
     Route::get('/responder', [ConcursoController::class, 'responder'])->name('responder');
-    
+
     Route::resource('orgaos', OrgaoController::class);
     Route::resource('bancas', BancaController::class);
     Route::resource('anos', AnoController::class);
@@ -68,17 +69,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/filtros/{id}', [ConcursoController::class, 'excluirFiltro'])->name('filtros.excluir');
 
     Route::get('/grade', [GradeEstudoController::class, 'index'])->name('grade.index');
-    
+
     Route::post('/grade/grupos', [GradeEstudoController::class, 'storeGrupo'])->name('grade.grupos.store');
     Route::post('/grade/grupos/{grupo}/materias', [GradeEstudoController::class, 'addMateria'])->name('grade.materias.add');
     Route::delete('/grade/grupos/{grupo}/materias/{materia}', [GradeEstudoController::class, 'removeMateria'])->name('grade.materias.remove');
-    
+
     Route::post('/grade/dias', [GradeEstudoController::class, 'storeDia'])->name('grade.dias.store');
     Route::delete('/grade/dias/{id}', [GradeEstudoController::class, 'destroyDia'])->name('grade.dias.destroy');
 
     Route::delete('/grade/grupos/{grupo}', [GradeEstudoController::class, 'destroyGrupo'])->name('grade.grupos.destroy');
 
     Route::get('/relatorios/curva-aprendizagem', [RelatorioController::class, 'curvaAprendizagem'])->name('relatorios.curva');
+
+    Route::get('/simulados/estatisticas', [SimuladoController::class, 'estatisticas'])->name('simulados.estatisticas');
+    Route::get('/simulados', [SimuladoController::class, 'index'])->name('simulados.index');
+    Route::post('/simulados', [SimuladoController::class, 'store'])->name('simulados.store');
+    Route::get('/simulados/{simulado}', [SimuladoController::class, 'show'])->name('simulados.show');
+    Route::delete('/simulados/{simulado}', [SimuladoController::class, 'destroy'])->name('simulados.destroy');
+
+    Route::post('/simulados/{simulado}/iniciar',   [SimuladoController::class, 'iniciar'])->name('simulados.iniciar');
+    Route::post('/simulados/{simulado}/pausar',    [SimuladoController::class, 'pausar'])->name('simulados.pausar');
+    Route::post('/simulados/{simulado}/retomar',   [SimuladoController::class, 'retomar'])->name('simulados.retomar');
+    Route::post('/simulados/{simulado}/finalizar', [SimuladoController::class, 'finalizar'])->name('simulados.finalizar');
 });
 
 require __DIR__ . '/auth.php';

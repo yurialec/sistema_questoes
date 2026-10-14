@@ -11,8 +11,8 @@ class Questao extends Model
     protected $fillable = [
         'codigo',
         'cargo_id',
-        'ano_id',        // <- novo
-        'banca_id',      // <- novo
+        'ano_id',
+        'banca_id',
         'materia_id',
         'assunto_id',
         'texto_complementar_id',
