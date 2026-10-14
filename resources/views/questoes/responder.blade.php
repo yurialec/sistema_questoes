@@ -4,127 +4,40 @@
 
 @section('content')
 <div class="container py-4">
-    
-    {{-- ══════════════════════════════════════════════
-         FORMULÁRIO DE FILTROS
-    ═══════════════════════════════════════════════ --}}
     <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
         <div class="card-body">
-            <form method="GET" action="{{ route('responder') }}" id="formFiltros" class="row g-3">
-
-                <div class="col-md-4 col-lg-2">
-                    <label class="form-label small fw-semibold text-body-secondary">Órgão</label>
-                    <select name="orgao_id[]" id="selectOrgao" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
-                        @foreach($orgaos as $orgao)
-                            <option value="{{ $orgao->id }}" {{ in_array($orgao->id, request('orgao_id', [])) ? 'selected' : '' }}>
-                                {{ $orgao->nome }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-md-4 col-lg-2">
-                    <label class="form-label small fw-semibold text-body-secondary">Banca</label>
-                    <select name="banca_id[]" id="selectBanca" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
-                        @foreach($bancas as $banca)
-                            <option value="{{ $banca->id }}" {{ in_array($banca->id, request('banca_id', [])) ? 'selected' : '' }}>
-                                {{ $banca->nome }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-md-4 col-lg-2">
-                    <label class="form-label small fw-semibold text-body-secondary">Ano</label>
-                    <select name="ano_id[]" id="selectAno" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
-                        @foreach($anos as $ano)
-                            <option value="{{ $ano->id }}" {{ in_array($ano->id, request('ano_id', [])) ? 'selected' : '' }}>
-                                {{ $ano->ano }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <label class="form-label small fw-semibold text-body-secondary">Cargo</label>
-                    <select name="cargo_id[]" id="selectCargo" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
-                        @foreach($cargos as $cargo)
-                            <option value="{{ $cargo->id }}" {{ in_array($cargo->id, request('cargo_id', [])) ? 'selected' : '' }}>
-                                {{ $cargo->nome }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <label class="form-label small fw-semibold text-body-secondary">Matéria</label>
-                    <select name="materia_id[]" id="selectMateria" class="form-select form-select-sm tom-select" multiple placeholder="Selecione...">
-                        @foreach($materias as $materia)
-                            <option value="{{ $materia->id }}" {{ in_array($materia->id, request('materia_id', [])) ? 'selected' : '' }}>
-                                {{ $materia->nome }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-                {{-- Linha de Ações e Filtros Salvos --}}
-                <div class="col-12 mt-4 border-top border-secondary-subtle pt-3">
-                    <div class="row g-3 align-items-end">
-                        
-                        <div class="col-md-4">
-                            <label class="form-label small fw-semibold text-body-secondary">Filtros Salvos</label>
-                            <div class="input-group">
-                                <select id="selectFiltrosSalvos" class="form-select form-select-sm">
-                                    <option value="">Carregar um filtro salvo...</option>
-                                    @foreach($filtrosSalvos as $filtro)
-                                        <option value="{{ $filtro->id }}" 
-                                                data-filtros="{{ json_encode($filtro->filtros) }}"
-                                                {{ request()->has('filtro_id') && request('filtro_id') == $filtro->id ? 'selected' : '' }}>
-                                            {{ $filtro->nome }} {{ $filtro->is_padrao ? '(Padrão)' : '' }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <button type="button" class="btn btn-outline-primary btn-sm" id="btnCarregarFiltro" title="Carregar filtro">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="col-md-8 d-flex flex-wrap gap-2 justify-content-md-end">
-                            <button type="submit" class="btn btn-primary btn-sm px-4 fw-semibold">
-                                <i class="fas fa-filter me-1"></i> Aplicar
-                            </button>
+            <form method="POST" action="{{ route('questao.verificar') }}" class="mt-4">
+                @csrf
+                <input type="hidden" name="questao_id" value="{{ $questao->id }}">
+                <input type="hidden" name="url_retorno" value="{{ request()->fullUrl() }}">
+                
+                <fieldset>
+                    <legend class="fs-6 text-body-secondary mb-3 fw-semibold text-uppercase" style="letter-spacing: 0.05em;">Alternativas</legend>
+                    @foreach($questao->alternativas->shuffle() as $alternativa)
+                    <div class="form-check p-3 mb-3 rounded border border-secondary-subtle bg-body-tertiary">
+                        <input class="form-check-input mt-1" type="radio" name="alternativa_id" id="alt_{{ $questao->id }}_{{ $alternativa->letra }}" value="{{ $alternativa->id }}" required>
+                        <label class="form-check-label w-100 ps-2" for="alt_{{ $questao->id }}_{{ $alternativa->letra }}">
+                            <strong class="text-primary me-1">{{ $alternativa->letra }})</strong> 
+                            {!! $alternativa->descricao !!}
                             
-                            <a href="{{ route('responder') }}" class="btn btn-outline-secondary btn-sm px-4">
-                                <i class="fas fa-eraser me-1"></i> Limpar
-                            </a>
-
-                            <button type="button" class="btn btn-outline-success btn-sm px-4" data-bs-toggle="modal" data-bs-target="#modalSalvarFiltro">
-                                <i class="fas fa-save me-1"></i> Salvar
-                            </button>
-
-                            @if(request()->has('filtro_id') || $filtrosSalvos->count() > 0)
-                                <form action="{{ route('filtros.excluir', request('filtro_id', 0)) }}" method="POST" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir este filtro salvo?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm px-4" {{ !$filtrosSalvos->count() ? 'disabled' : '' }} title="Excluir filtro selecionado">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
+                            @if($alternativa->imagens && is_array($alternativa->imagens))
+                                @foreach($alternativa->imagens as $img)
+                                <br><img src="{{ asset('storage/' . $img) }}" class="img-fluid mt-2 rounded border border-secondary-subtle" style="max-width: 100%; max-height: 200px;">
+                                @endforeach
                             @endif
-
-                            <span class="badge bg-body text-body-secondary border border-secondary-subtle ms-auto d-flex align-items-center px-3 py-2">
-                                <i class="fas fa-list-ol me-2"></i>
-                                {{ $questoes->total() }} {{ Str::plural('questão encontrada', $questoes->total()) }}
-                            </span>
-                        </div>
+                        </label>
                     </div>
+                    @endforeach
+                </fieldset>
+                <div class="d-grid gap-2 d-md-block mt-4">
+                    <button type="submit" class="btn btn-primary px-5 fw-semibold shadow-sm">
+                        <i class="fas fa-check-circle me-1"></i> Responder Questão
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
-    {{-- MODAL PARA SALVAR FILTRO --}}
     <div class="modal fade" id="modalSalvarFiltro" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow">
@@ -161,7 +74,6 @@
         </div>
     </div>
 
-    {{-- FEEDBACK DE RESPOSTA --}}
     @if(session('resultado') !== null)
     <div class="alert {{ session('resultado') ? 'alert-success' : 'alert-danger' }} alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert">
         @if(session('resultado')) 
@@ -173,9 +85,6 @@
     </div>
     @endif
 
-    {{-- ══════════════════════════════════════════════
-         LISTAGEM DE QUESTÕES
-    ═══════════════════════════════════════════════ --}}
     @forelse($questoes as $questao)
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-header bg-body-tertiary border-bottom border-secondary-subtle py-3">
@@ -274,14 +183,10 @@
         Nenhuma questão encontrada com os filtros selecionados.
     </div>
     @endforelse
-
-    {{-- PAGINAÇÃO --}}
     <div class="d-flex justify-content-center mt-4 mb-5">
         {{ $questoes->appends(request()->query())->links('pagination::bootstrap-5') }}
     </div>
 </div>
-
-{{-- MODAL DE ERRO (Caderno de Erros) --}}
 @if(session('show_error_modal') && session('erro_id'))
     @php $erroAtual = \App\Models\CadernoErro::find(session('erro_id')); @endphp
     
@@ -331,7 +236,6 @@
 @endif
 
 <script>
-    // Toggle do texto complementar
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(toggle => {
             toggle.addEventListener('click', function() {

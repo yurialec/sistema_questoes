@@ -126,6 +126,10 @@ class ConcursoController extends Controller
 
         $leitnerService->processarResposta($user, $alternativa->questao, $alternativa->correta);
 
+        $urlRetorno = $request->input('url_retorno')
+            ? $request->input('url_retorno')
+            : route('responder');
+
         if (!$alternativa->correta && $user->ativo_modal_erros) {
             $erro = CadernoErro::create([
                 'user_id' => $user->id,
@@ -134,7 +138,7 @@ class ConcursoController extends Controller
                 'status' => 'pendente'
             ]);
 
-            return redirect()->back()->with([
+            return redirect($urlRetorno)->with([
                 'resultado' => false,
                 'show_error_modal' => true,
                 'erro_id' => $erro->id,
@@ -142,7 +146,7 @@ class ConcursoController extends Controller
             ]);
         }
 
-        return back()->with('resultado', $alternativa->correta);
+        return redirect($urlRetorno)->with('resultado', true);
     }
 
     public function salvarMotivoErro(Request $request, CadernoErro $erro)
@@ -155,7 +159,11 @@ class ConcursoController extends Controller
             'motivo_erro' => $request->input('motivo_erro')
         ]);
 
-        return redirect()->route('responder')->with('success', 'Erro registrado no Caderno com sucesso!');
+        $urlRetorno = $request->input('url_retorno')
+            ? $request->input('url_retorno')
+            : route('responder');
+
+        return redirect($urlRetorno)->with('success', 'Erro registrado no Caderno com sucesso!');
     }
 
     public function salvarFiltro(Request $request)
