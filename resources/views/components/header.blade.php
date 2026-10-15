@@ -1,13 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
     <div class="container-fluid">
-
-        {{-- Logo / Home --}}
         <a href="{{ route('dashboard') }}" class="navbar-brand fw-bold d-flex align-items-center gap-2">
-            <i class="fas fa-layer-group text-primary"></i>
-            <span>Questões</span>
+            <i class="fas fa-regular fa-house text-primary"></i>
+            <span>Home</span>
         </a>
-
-        {{-- Botão mobile --}}
         <button class="navbar-toggler border-0"
             type="button"
             data-bs-toggle="collapse"
@@ -23,24 +19,38 @@
             {{-- Navegação Principal --}}
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.desempenho-materia') }}">Desempenho</a>
+                    <a class="nav-link" href="{{ route('responder') }}">
+                        <i class="fas fa-play me-1"></i> Responder
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('relatorios.curva') }}">Curva de Aprendizagem</a>
+
+                {{-- Dropdown Relatórios --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Relatórios
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('dashboard.desempenho-materia') }}">
+                                <i class="fas fa-chart-bar me-2 text-primary"></i> Desempenho
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('relatorios.curva') }}">
+                                <i class="fas fa-chart-line me-2 text-primary"></i> Curva de Aprendizagem
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('caderno-erros.index') }}">Caderno de Erros</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="#" class="nav-link d-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#modalMetaAprovacao">
-                        <i class="fa-solid fa-bullseye fa-xs"></i>
-                        <span>Meta desejada</span>
-                    </a>
-                </li> --}}
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('simulados.index') }}">Simulado</a>
                 </li>
-                
+
                 @if(auth()->user()->is_admin)
                     <li class="nav-item">
                         <a class="nav-link text-warning fw-medium" href="{{ route('admin.questoes.index') }}">
@@ -50,45 +60,109 @@
                 @endif
             </ul>
 
-            {{-- Ações e Utilitários --}}
-            <div class="d-flex align-items-center gap-2 flex-wrap mt-3 mt-lg-0">
-
-                <a href="{{ route('responder') }}" class="btn btn-primary btn-sm fw-semibold px-3 shadow-sm">
-                    <i class="fas fa-play me-1"></i> Responder
-                </a>
-
-                <div class="vr mx-2 d-none d-lg-block"></div>
-
-                <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary btn-sm border-0">
-                    <i class="fas fa-user me-1"></i> Perfil
-                </a>
-
-                <form action="{{ url('/dashboard/resetar') }}" method="POST" class="m-0" onsubmit="return confirm('Tem certeza que deseja zerar todas as estatísticas? Esta ação não pode ser desfeita.');">
-                    @csrf
-                    <button type="submit" class="btn btn-link text-decoration-none text-secondary p-1" title="Zerar estatísticas">
-                        <i class="fas fa-trash-alt"></i>
+            {{-- Dropdown do Usuário (canto direito) --}}
+            <div class="d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
+                <div class="dropdown">
+                    <button class="btn btn-link text-decoration-none text-secondary p-0 border-0 dropdown-toggle-hide"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        title="Minha conta">
+                        <i class="fa-regular fa-circle-user fa-2x"></i>
                     </button>
-                </form>
-
-                <form action="{{ route('logout') }}" method="POST" class="m-0">
-                    @csrf
-                    <button type="submit" class="btn btn-link text-decoration-none text-secondary p-1" title="Sair do sistema">
-                        <i class="fas fa-arrow-right-from-bracket"></i>
-                    </button>
-                </form>
-
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2" href="{{ route('profile.edit') }}">
+                                <i class="fas fa-user text-secondary"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <form action="{{ url('/dashboard/resetar') }}" method="POST" class="m-0" onsubmit="return confirm('Tem certeza que deseja zerar todas as estatísticas? Esta ação não pode ser desfeita.');">
+                                @csrf
+                                <button type="submit" class="dropdown-item d-flex align-items-center gap-2 w-100 border-0 bg-transparent">
+                                    <i class="fas fa-trash-alt text-secondary"></i>
+                                    <span>Zerar Estatísticas</span>
+                                </button>
+                            </form>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" class="m-0">
+                                @csrf
+                                <button type="submit" class="dropdown-item d-flex align-items-center gap-2 w-100 border-0 bg-transparent text-danger">
+                                    <i class="fas fa-arrow-right-from-bracket text-danger"></i>
+                                    <span>Sair</span>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </nav>
 
+{{-- Estilo para efeito hover azul nos botões e links de navegação --}}
+<style>
+    /* Efeito hover azul nos nav-links */
+    .navbar-nav .nav-link {
+        transition: color 0.2s ease, background-color 0.2s ease;
+        border-radius: 0.375rem;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: var(--bs-primary) !important;
+        background-color: rgba(var(--bs-primary-rgb), 0.08);
+    }
+
+    /* Dropdown Relatórios - hover nos itens */
+    .dropdown-item:hover {
+        background-color: rgba(var(--bs-primary-rgb), 0.08);
+        color: var(--bs-primary);
+    }
+
+    /* Dropdown do usuário - hover nos itens */
+    .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(var(--bs-primary-rgb), 0.08);
+        color: var(--bs-primary);
+    }
+
+    /* Exceção: item "Sair" mantém cor vermelha no hover */
+    .dropdown-menu .dropdown-item.text-danger:hover {
+        background-color: rgba(220, 53, 69, 0.08);
+        color: var(--bs-danger) !important;
+    }
+
+    /* Esconder a seta do dropdown do ícone do usuário */
+    .dropdown-toggle-hide::after {
+        display: none !important;
+    }
+
+    /* Ícone do usuário com transição suave */
+    .dropdown-toggle-hide i {
+        transition: color 0.2s ease;
+    }
+
+    .dropdown-toggle-hide:hover i {
+        color: var(--bs-primary) !important;
+    }
+
+    /* Exceção: Admin não muda de cor no hover (permanece warning) */
+    .navbar-nav .nav-link.text-warning:hover {
+        color: var(--bs-warning) !important;
+        background-color: rgba(var(--bs-warning-rgb), 0.08);
+    }
+</style>
+
 <!-- Modal Meta de Aprovação -->
 <div class="modal fade" id="modalMetaAprovacao" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        {{-- Formulário padrão do Laravel envolvendo o conteúdo do modal --}}
         <form action="{{ route('metas-aprovacao.store') }}" method="POST">
             @csrf
-            
+
             <div class="modal-content">
                 <div class="modal-header border-0 pb-0">
                     <h5 class="modal-title fw-semibold">Definir Meta de Aprovação</h5>

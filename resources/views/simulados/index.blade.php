@@ -27,7 +27,7 @@
 
         {{-- ═════════════ Filtros ═════════════ --}}
         <div class="col-lg-3">
-            <div class="card border-0 shadow-sm sticky-lg-top" style="top: 1rem;">
+            <div class="card border-0 shadow-sm sticky-lg-top bg-body-tertiary" style="top: 1rem;">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h6 class="fw-semibold text-body-secondary mb-0 text-uppercase small"
@@ -93,7 +93,7 @@
             <div class="card border-0 shadow-sm overflow-hidden">
                 <div class="table-responsive">
                     <table class="table table-hover align-middle mb-0">
-                        <thead class="bg-body-tertiary">
+                        <thead>
                             <tr class="text-uppercase small text-body-secondary" style="letter-spacing: 0.04em;">
                                 <th class="ps-3 py-3 border-0">Nome</th>
                                 <th class="py-3 border-0">Data</th>
