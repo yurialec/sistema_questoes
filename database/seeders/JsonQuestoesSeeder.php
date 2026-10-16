@@ -22,6 +22,8 @@ class JsonQuestoesSeeder extends Seeder
     {
         $arquivos = File::files(database_path('imports'));
 
+        $totalGeralQuestoes = 0;
+
         foreach ($arquivos as $arquivo) {
             try {
                 $json = json_decode(File::get($arquivo), true);
@@ -33,21 +35,31 @@ class JsonQuestoesSeeder extends Seeder
 
                 $blocos = array_is_list($json) ? $json : [$json];
 
+                $totalQuestoesArquivo = 0;
+
                 foreach ($blocos as $bloco) {
-                    DB::transaction(function () use ($bloco, $arquivo) {
-                        $this->importarBloco($bloco, $arquivo->getFilename());
+                    $qtd = DB::transaction(function () use ($bloco, $arquivo) {
+                        return $this->importarBloco($bloco, $arquivo->getFilename());
                     });
+
+                    $totalQuestoesArquivo += $qtd;
                 }
 
-                $this->command->info("Importado com sucesso: " . $arquivo->getFilename());
+                $totalGeralQuestoes += $totalQuestoesArquivo;
+
+                $this->command->info(
+                    "Importado com sucesso: {$arquivo->getFilename()} ({$totalQuestoesArquivo} questões)"
+                );
             } catch (\Throwable $e) {
                 $this->command->error('Erro em ' . $arquivo->getFilename());
                 $this->command->error($e->getMessage());
             }
         }
+
+        $this->command->info("Total de questões importadas: {$totalGeralQuestoes}");
     }
 
-    private function importarBloco(array $bloco, string $nomeArquivo): void
+    private function importarBloco(array $bloco, string $nomeArquivo): int
     {
         try {
             // ---- Órgão / Banca / Ano: reutiliza se já existir ----
@@ -66,6 +78,8 @@ class JsonQuestoesSeeder extends Seeder
                 ['nome' => $bloco['materia']],
                 ['tipo' => $bloco['tipo_materia']]
             );
+
+            $questoesImportadas = 0;
 
             foreach ($bloco['questoes'] as $dadosQuestao) {
                 // ---- Assunto ----
@@ -113,7 +127,11 @@ class JsonQuestoesSeeder extends Seeder
                         'imagens'    => $alternativa['imagens'] ?? null,
                     ]);
                 }
+
+                $questoesImportadas++;
             }
+
+            return $questoesImportadas;
         } catch (\Throwable $e) {
             Log::error("Erro ao importar bloco do arquivo {$nomeArquivo}: " . $e->getMessage(), [
                 'arquivo' => $nomeArquivo,

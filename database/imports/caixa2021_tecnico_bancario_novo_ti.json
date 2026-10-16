@@ -1,0 +1,1154 @@
+[
+  {
+    "orgao": "Caixa Econômica Federal",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Técnico Bancário Novo",
+    "materia": "Língua Portuguesa",
+    "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2021-LP-001",
+        "numero": 1,
+        "assunto": "Interpretação de Texto",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "O texto tem o objetivo primordial de",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "ensinar a gerir as finanças pessoais de maneira eficaz.", "imagens": null },
+          { "letra": "B", "descricao": "sensibilizar sobre a importância da educação financeira.", "imagens": null },
+          { "letra": "C", "descricao": "prevenir quanto aos perigos do acesso facilitado ao crédito.", "imagens": null },
+          { "letra": "D", "descricao": "alertar para a complexidade maior do mundo financeiro atual.", "imagens": null },
+          { "letra": "E", "descricao": "sugerir a incorporação do hábito de elaborar orçamento familiar.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-002",
+        "numero": 2,
+        "assunto": "Vocabulário",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "Considere a palavra destacada no seguinte trecho do parágrafo 2: \"A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo\". Essa palavra pode, sem prejuízo do sentido desse trecho, ser substituída por",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "básico", "imagens": null },
+          { "letra": "B", "descricao": "essencial", "imagens": null },
+          { "letra": "C", "descricao": "inevitável", "imagens": null },
+          { "letra": "D", "descricao": "desmedido", "imagens": null },
+          { "letra": "E", "descricao": "imprescindível", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-003",
+        "numero": 3,
+        "assunto": "Tipologia Textual",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "Considerando-se a organização composicional do texto lido, compreende-se que ele se classifica como",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "argumentativo, pois defende a ideia de que é importante saber lidar com o dinheiro.", "imagens": null },
+          { "letra": "B", "descricao": "narrativo, pois relata o episódio de uma conversa sobre gestão financeira entre amigos.", "imagens": null },
+          { "letra": "C", "descricao": "descritivo, pois reproduz uma cena de elaboração de orçamento no cotidiano de uma família.", "imagens": null },
+          { "letra": "D", "descricao": "expositivo, pois apresenta informações objetivas sobre conceitos da área de educação financeira.", "imagens": null },
+          { "letra": "E", "descricao": "injuntivo, pois instrui acerca da elaboração de orçamentos para uma vida financeira mais saudável.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-004",
+        "numero": 4,
+        "assunto": "Paralelismo Sintático",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "O paralelismo sintático é uma das convenções estabelecidas para a escrita oficial. A frase cuja organização sintática está plenamente de acordo com essa convenção é:",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "É muito salutar que as pessoas se programem em relação à saúde e financeiramente.", "imagens": null },
+          { "letra": "B", "descricao": "O mundo financeiro, hoje, facilita o acesso ao crédito e leva ao endividamento progressivo.", "imagens": null },
+          { "letra": "C", "descricao": "Nossa vida financeira é saudável quando possibilita equilíbrio, segurança e que realizemos nossos sonhos.", "imagens": null },
+          { "letra": "D", "descricao": "A educação financeira orienta-nos na revisão de gastos excessivos e que comprometem nosso orçamento.", "imagens": null },
+          { "letra": "E", "descricao": "Os especialistas aconselham as escolas a promoverem momentos de discussão sobre educação financeira com os pais dos alunos e que ofereçam aulas sobre o tema para os alunos.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-005",
+        "numero": 5,
+        "assunto": "Ambiguidade",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "Sendo a clareza um requisito básico da escrita, a seguinte frase NÃO apresenta ambiguidade, estando apta a figurar em um texto oficial:",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "A empresa que investe em seus funcionários cuida de seu equilíbrio financeiro.", "imagens": null },
+          { "letra": "B", "descricao": "O economista discutiu com o presidente da empresa, em sua sala, a melhor forma de gerir os negócios.", "imagens": null },
+          { "letra": "C", "descricao": "O nível de educação financeira da população, que cresceu muito nos últimos anos, é o tema da próxima palestra.", "imagens": null },
+          { "letra": "D", "descricao": "O diretor da escola comunicou ao professor que ele ofereceria um curso de educação financeira para a comunidade escolar.", "imagens": null },
+          { "letra": "E", "descricao": "Depois de ler o edital e seu anexo, o gestor solicitou a alteração deste.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-006",
+        "numero": 6,
+        "assunto": "Reescrita de Frases",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "A frase que, ao ser reescrita, guarda o mesmo sentido do trecho do parágrafo 3 \"Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\" é:",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "Enfim, quando todos lidam diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.", "imagens": null },
+          { "letra": "B", "descricao": "Enfim, por todos lidarem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.", "imagens": null },
+          { "letra": "C", "descricao": "Enfim, como todos lidam diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.", "imagens": null },
+          { "letra": "D", "descricao": "Enfim, apesar de todos lidarem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.", "imagens": null },
+          { "letra": "E", "descricao": "Enfim, desde que todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-007",
+        "numero": 7,
+        "assunto": "Orações Subordinadas",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "No trecho do parágrafo 3 \"As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área\", a oração destacada tem valor semântico de",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "causa", "imagens": null },
+          { "letra": "B", "descricao": "proporção", "imagens": null },
+          { "letra": "C", "descricao": "alternância", "imagens": null },
+          { "letra": "D", "descricao": "comparação", "imagens": null },
+          { "letra": "E", "descricao": "consequência", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-008",
+        "numero": 8,
+        "assunto": "Colocação Pronominal",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "A colocação do pronome oblíquo átono está em acordo com a norma-padrão da língua portuguesa em:",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "Poder-se-á levar a educação financeira para as salas de aula, o que será muito proveitoso.", "imagens": null },
+          { "letra": "B", "descricao": "Nos perguntam sempre sobre como gerir melhor a vida financeira.", "imagens": null },
+          { "letra": "C", "descricao": "As famílias nunca preocuparam-se com a educação financeira como parte da formação de seus filhos.", "imagens": null },
+          { "letra": "D", "descricao": "Aqueles que relacionam-se bem com o dinheiro têm uma vida mais organizada.", "imagens": null },
+          { "letra": "E", "descricao": "Compreenderia-se melhor o desempenho da empresa, se o mercado fosse estudado.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-009",
+        "numero": 9,
+        "assunto": "Pontuação",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "As vírgulas estão plenamente empregadas de acordo com o padrão formal da língua escrita em:",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "Há algumas décadas, se alguém falasse, em educação financeira, causaria um certo estranhamento.", "imagens": null },
+          { "letra": "B", "descricao": "Relacionar-se bem com o dinheiro de acordo com os especialistas, é uma forma de levar uma vida mais saudável, sem percalços.", "imagens": null },
+          { "letra": "C", "descricao": "É preciso criar uma cultura de discutir, na família, na escola, com os amigos, sobre como usar melhor os recursos financeiros.", "imagens": null },
+          { "letra": "D", "descricao": "A educação financeira, apesar de não resolver o problema da falta de dinheiro pode auxiliar, com um controle maior, de seu gasto.", "imagens": null },
+          { "letra": "E", "descricao": "Não gastar em demasia, não acumular dívidas, refletir sobre seus ganhos, e gastos, poupar são estratégias para gerir melhor suas finanças.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-LP-010",
+        "numero": 10,
+        "assunto": "Concordância Nominal",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Relacionamento com o dinheiro\nDesde cedo, começamos a lidar com uma série de situações ligadas ao dinheiro. Para tirar melhor proveito do seu dinheiro, é muito importante saber como utilizá-lo da forma mais favorável a você. O aprendizado e a aplicação de conhecimentos práticos de educação financeira podem contribuir para melhorar a gestão de nossas finanças pessoais, tornando nossas vidas mais tranquilas e equilibradas sob o ponto de vista financeiro.\nSe pararmos para pensar, estamos sujeitos a um mundo financeiro muito mais complexo que o das gerações anteriores. No entanto, o nível de educação financeira da população não acompanhou esse aumento de complexidade. A ausência de educação financeira, aliada à facilidade de acesso ao crédito, tem levado muitas pessoas ao endividamento excessivo, privando-as de parte de sua renda em função do pagamento de prestações mensais que reduzem suas capacidades de consumir produtos que lhes trariam satisfação.\nInfelizmente, não faz parte do cotidiano da maioria das pessoas buscar informações que as auxiliem na gestão de suas finanças. Para agravar essa situação, não há uma cultura coletiva, ou seja, uma preocupação da sociedade organizada em torno do tema. Nas escolas, pouco ou nada é falado sobre o assunto. As empresas, não compreendendo a importância de ter seus funcionários alfabetizados financeiramente, também não investem nessa área. Similar problema é encontrado nas famílias, nas quais não há o hábito de reunir os membros para discutir e elaborar um orçamento familiar. Igualmente entre os amigos, assuntos ligados à gestão financeira pessoal muitas vezes são considerados invasão de privacidade e pouco se conversa em torno do tema. Enfim, embora todos lidem diariamente com dinheiro, poucos se dedicam a gerir melhor seus recursos.\nA educação financeira pode trazer diversos benefícios, entre os quais, possibilitar o equilíbrio das finanças pessoais, preparar para o enfrentamento de imprevistos financeiros e para a aposentadoria, qualificar para o bom uso do sistema financeiro, reduzir a possibilidade de o indivíduo cair em fraudes, preparar o caminho para a realização de sonhos, enfim, tornar a vida melhor."
+        },
+        "enunciado": "Considerando-se as regras da norma-padrão da língua portuguesa, a concordância nominal da palavra destacada está adequadamente construída em:",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "Naquela palestra, foram abordadas ensinamentos e orientações sobre o bom uso do dinheiro.", "imagens": null },
+          { "letra": "B", "descricao": "Sempre há bastante investidores interessados em discussões que abordam o mercado de ações.", "imagens": null },
+          { "letra": "C", "descricao": "Perderemos menas oportunidades se nos mantivermos sempre atentos ao mercado financeiro.", "imagens": null },
+          { "letra": "D", "descricao": "O mercado está vendo crescer uma tendência de conglomerados francos-brasileiros no país.", "imagens": null },
+          { "letra": "E", "descricao": "É proibida a movimentação financeira efetuada por menores no âmbito do direito financeiro.", "imagens": null }
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Técnico Bancário Novo",
+    "materia": "Matemática Financeira",
+    "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2021-MF-011",
+        "numero": 11,
+        "assunto": "Progressão Aritmética",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Preocupado com sua saúde, um professor decidiu começar a correr. O profissional que o orientou estabeleceu como meta correr 5 km por dia. Entretanto, como o professor está fora de forma, terá de seguir um programa de treinamento gradual. Nas duas primeiras semanas, ele correrá, diariamente, 1 km e caminhará 4 km; na terceira e na quarta semanas, correrá 1,5 km e caminhará 3,5 km por dia. A cada duas semanas, o programa será alterado, de modo a reduzir a distância diária caminhada em 0,5 km e a aumentar a corrida em 0,5 km. Desse modo, se o professor não interromper o programa de treinamento, ele começará a correr 5 km diários na",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "9ª semana", "imagens": null },
+          { "letra": "B", "descricao": "12ª semana", "imagens": null },
+          { "letra": "C", "descricao": "17ª semana", "imagens": null },
+          { "letra": "D", "descricao": "18ª semana", "imagens": null },
+          { "letra": "E", "descricao": "20ª semana", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-012",
+        "numero": 12,
+        "assunto": "Juros Compostos",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Para ampliar o capital de giro de um novo negócio, um microempreendedor tomou um empréstimo no valor de R$20.000,00, em janeiro de 2021, a uma taxa de juros de 5% ao mês, no regime de juros compostos. Exatamente dois meses depois, em março de 2021, pagou 60% do valor do empréstimo, ou seja, dos R$20.000,00, e liquidou tudo o que devia desse empréstimo em abril de 2021. A quantia paga, em abril de 2021, que liquidou a referida dívida, em reais, foi de",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "11.352,50", "imagens": null },
+          { "letra": "B", "descricao": "11.152,50", "imagens": null },
+          { "letra": "C", "descricao": "10.552,50", "imagens": null },
+          { "letra": "D", "descricao": "10.452,50", "imagens": null },
+          { "letra": "E", "descricao": "10.152,50", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-013",
+        "numero": 13,
+        "assunto": "Juros Simples e Comparação de Investimentos",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Na semana da renda fixa promovida por um determinado banco, o cliente X fez um investimento de 150 mil reais em um banco que paga 8% ao ano, com prazo de vencimento de 1 ano. Nesse mesmo dia, o cliente Y aplicou 150 mil reais na poupança, cuja taxa esperada é de 5% ao ano. Um ano depois, os dois sacaram o montante de cada operação. Considere que o cliente X pagou 20% de imposto de renda sobre os juros obtidos com a aplicação, enquanto o cliente Y não pagou imposto algum, e que nenhum dos dois sacou qualquer valor antes desse resgate. A partir dessas informações, verifica-se que a diferença entre o ganho de capital do cliente X e o ganho de capital do cliente Y, comparando-se apenas as operações apresentadas, em reais, foi de",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "2.100,00", "imagens": null },
+          { "letra": "B", "descricao": "2.400,00", "imagens": null },
+          { "letra": "C", "descricao": "3.500,00", "imagens": null },
+          { "letra": "D", "descricao": "4.100,00", "imagens": null },
+          { "letra": "E", "descricao": "4.500,00", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-014",
+        "numero": 14,
+        "assunto": "Juros Simples e Multa",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um cliente pagou, via internet banking, quatro duplicatas vencidas com exatamente 12 dias de atraso, cujos valores de face são de R$4.200,00; R$3.800,00; R$2.600,00 e R$7.400,00. Nesse caso, para pagamentos até 30 dias após o vencimento, são cobrados juros simples à taxa de 6% ao mês, mais uma multa de 2% sobre o valor de face de cada duplicata. Considerando-se o mês comercial (30 dias), o valor total pago, em reais, por essas quatro duplicatas vencidas foi de",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "18.432,00", "imagens": null },
+          { "letra": "B", "descricao": "18.792,00", "imagens": null },
+          { "letra": "C", "descricao": "18.872,00", "imagens": null },
+          { "letra": "D", "descricao": "18.912,00", "imagens": null },
+          { "letra": "E", "descricao": "18.982,00", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-015",
+        "numero": 15,
+        "assunto": "Sistema de Amortização Constante (SAC)",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um banco oferece a um cliente um empréstimo de financiamento imobiliário pelo sistema SAC, no valor de R$120.000,00, pelo prazo de 12 meses, com taxa de juros de 1% ao mês. Qual é o valor da segunda prestação, em reais, a ser paga pelo cliente?",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "10.000,00", "imagens": null },
+          { "letra": "B", "descricao": "10.500,00", "imagens": null },
+          { "letra": "C", "descricao": "10.900,00", "imagens": null },
+          { "letra": "D", "descricao": "11.100,00", "imagens": null },
+          { "letra": "E", "descricao": "11.200,00", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-016",
+        "numero": 16,
+        "assunto": "Juros Compostos",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Uma pessoa tem uma dívida no valor de R$2.000,00, vencendo no dia de hoje. Com dificuldade de quitá-la, pediu o adiamento do pagamento para daqui a 3 meses. Considerando-se uma taxa de juros compostos de 2% a.m., qual é o valor equivalente, aproximadamente, que o gerente do banco propôs que ela pagasse, em reais?",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "2.020,40", "imagens": null },
+          { "letra": "B", "descricao": "2.040,00", "imagens": null },
+          { "letra": "C", "descricao": "2.080,82", "imagens": null },
+          { "letra": "D", "descricao": "2.120,20", "imagens": null },
+          { "letra": "E", "descricao": "2.122,42", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-017",
+        "numero": 17,
+        "assunto": "Sistema Price",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um cliente de um banco está tentando simular o valor de financiamento imobiliário que pode conseguir para adquirir uma casa. Fazendo seu orçamento, estabeleceu que poderia pagar uma prestação inicial (1º mês) de R$2.669,33. Sabendo-se que o banco utiliza o sistema Price em seus financiamentos, uma taxa de juros de 1% a.m., um prazo de 60 meses e uma amortização inicial (1º mês) de R$1.469,33, qual o valor máximo aproximado, em reais, que ele pode receber?",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "120.000,00", "imagens": null },
+          { "letra": "B", "descricao": "146.933,00", "imagens": null },
+          { "letra": "C", "descricao": "160.159,80", "imagens": null },
+          { "letra": "D", "descricao": "266.933,00", "imagens": null },
+          { "letra": "E", "descricao": "413.866,00", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-018",
+        "numero": 18,
+        "assunto": "Sistema de Amortização Constante (SAC)",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um empréstimo deve ser pago pelo sistema SAC em 5 parcelas mensais com juros de 3% ao mês. Se a terceira parcela paga no financiamento do empréstimo for igual a R$26.160,00, o valor total do empréstimo, em reais, será de",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "120.000,00", "imagens": null },
+          { "letra": "B", "descricao": "124.000,00", "imagens": null },
+          { "letra": "C", "descricao": "128.500,00", "imagens": null },
+          { "letra": "D", "descricao": "132.800,00", "imagens": null },
+          { "letra": "E", "descricao": "135.600,00", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-019",
+        "numero": 19,
+        "assunto": "Taxas Equivalentes",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um banco possui, atualmente, um modelo de financiamento em regime de juros compostos, em que as parcelas são pagas, mensalmente, a uma taxa de juros de 2% ao mês. Para um certo perfil de clientes, o banco pretende possibilitar o pagamento da dívida a cada três meses, a uma taxa de juros trimestral equivalente à praticada no modelo atual. A melhor aproximação para o valor da taxa de juros trimestral desse novo modelo de financiamento é:",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "2,48%", "imagens": null },
+          { "letra": "B", "descricao": "6,00%", "imagens": null },
+          { "letra": "C", "descricao": "6,12%", "imagens": null },
+          { "letra": "D", "descricao": "7,28%", "imagens": null },
+          { "letra": "E", "descricao": "8,00%", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-MF-020",
+        "numero": 20,
+        "assunto": "Sistema Price",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um imóvel pode ser comprado à vista pelo valor de R$240.000,00 ou pode ser financiado em 24 prestações mensais, a serem pagas de acordo com o sistema Price de amortização. Um potencial comprador, ciente da taxa de juros do financiamento, calculou quanto seria a soma das 24 prestações, encontrando, corretamente, o valor de R$272.331,64. A melhor aproximação para o valor da terceira parcela do financiamento, em reais, é de",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "10.200,00", "imagens": null },
+          { "letra": "B", "descricao": "10.240,00", "imagens": null },
+          { "letra": "C", "descricao": "10.460,08", "imagens": null },
+          { "letra": "D", "descricao": "11.124,12", "imagens": null },
+          { "letra": "E", "descricao": "11.347,15", "imagens": null }
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Técnico Bancário Novo",
+    "materia": "Conhecimentos Bancários",
+    "tipo_materia": "basica",
+    "questoes": [
+      {
+        "codigo": "CEF2021-CB-021",
+        "numero": 21,
+        "assunto": "LGPD - Dados Pessoais Sensíveis",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Uma administradora de empresas é responsável por organizar os formulários utilizados pela instituição financeira onde atua. Ao criar novo formulário para seguir comandos legais, depara-se com novos conceitos de dados pessoais que devem ser aplicados. Sendo assim, ela precisa saber que, nos termos da Lei nº 13.709/2018, dados pessoais sensíveis estão relacionados a",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "opção desportiva", "imagens": null },
+          { "letra": "B", "descricao": "convicção religiosa", "imagens": null },
+          { "letra": "C", "descricao": "escolha de lazer", "imagens": null },
+          { "letra": "D", "descricao": "método de trabalho", "imagens": null },
+          { "letra": "E", "descricao": "hábito alimentar", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-022",
+        "numero": 22,
+        "assunto": "Código de Conduta",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um gerente de um determinado banco participa de vários projetos de investimentos em tecnologias de ponta. Antes da divulgação dos editais para escolha dos projetos mais adequados, ele procura um parente e lhe apresenta todos os detalhes necessários para que esse parente possa apresentar uma candidatura ao financiamento. Nos termos do Código de Conduta da Caixa Econômica Federal, caso esses fatos fossem vinculados a servidor da instituição, estaria caracterizado(a)",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "ato de solidariedade", "imagens": null },
+          { "letra": "B", "descricao": "empreendedorismo indevido", "imagens": null },
+          { "letra": "C", "descricao": "conflito de interesses", "imagens": null },
+          { "letra": "D", "descricao": "atividade paralela", "imagens": null },
+          { "letra": "E", "descricao": "quebra de decoro", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-023",
+        "numero": 23,
+        "assunto": "Lei Anticorrupção",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "P foi diretor de sociedade empresária que foi acusada de praticar atos de corrupção, com geração de prejuízos superiores a cem milhões de reais. Após longo período de negociação, P e a sociedade resolvem compor os prejuízos causados. Nos termos da Lei nº 12.846/2013, caso preenchidos os requisitos exigidos, poderá ser realizado(a)",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "compromisso de honestidade", "imagens": null },
+          { "letra": "B", "descricao": "acordo de leniência", "imagens": null },
+          { "letra": "C", "descricao": "negócio jurídico", "imagens": null },
+          { "letra": "D", "descricao": "transação legal", "imagens": null },
+          { "letra": "E", "descricao": "promessa de restauração", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-024",
+        "numero": 24,
+        "assunto": "Crédito Direto ao Consumidor",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "A principal característica do crédito direto ao consumidor (CDC) é que esse instrumento de financiamento dispensa",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "avalista", "imagens": null },
+          { "letra": "B", "descricao": "análise cadastral do cliente", "imagens": null },
+          { "letra": "C", "descricao": "limite de prazo de pagamento", "imagens": null },
+          { "letra": "D", "descricao": "limite de crédito", "imagens": null },
+          { "letra": "E", "descricao": "identificação do cliente", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-025",
+        "numero": 25,
+        "assunto": "Política Monetária",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "O texto seguinte diz respeito à generalização das políticas monetárias consideradas não convencionais por parte dos bancos centrais do mundo inteiro.\nOs bancos centrais globais agora percebem que políticas monetárias antes consideradas não convencionais e temporárias agora se revelam convencionais e duradouras. Obrigados a encontrar novas soluções devido à crise financeira de 2008 e novamente neste ano por causa da pandemia de coronavírus, o Federal Reserve (Fed, na sigla em inglês), o Banco Central Europeu e a maioria dos bancos centrais internacionais se tornaram mais agressivos e inovadores do que nunca na defesa das economias contra a recessão e ameaça de deflação.\nKENNEDY, S; DODGE, S. Política monetária não convencional agora é ferramenta duradoura. Exame, São Paulo, 15 set. 2020. Adaptado. Disponível em: https://exame.com/. Acesso em: 29 ago. 2021."
+        },
+        "enunciado": "Um exemplo de política monetária não convencional é a",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "redução da taxa básica de juros", "imagens": null },
+          { "letra": "B", "descricao": "compra de títulos públicos e privados por parte dos bancos centrais", "imagens": null },
+          { "letra": "C", "descricao": "redução das taxas de redesconto", "imagens": null },
+          { "letra": "D", "descricao": "expansão da base monetária", "imagens": null },
+          { "letra": "E", "descricao": "venda de títulos com o compromisso de recompra pela autoridade monetária", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-026",
+        "numero": 26,
+        "assunto": "Taxa de Câmbio",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Embora as taxas de câmbio R$/US$, cotadas diariamente nos mercados de câmbio à vista, sejam expressas em valores nominais, ao longo do tempo essas taxas podem-se desviar de seus valores reais. Contribui para a apreciação real da moeda brasileira, em relação ao dólar norte-americano, a(o)",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "redução da produtividade média no Brasil, comparativamente à dos Estados Unidos", "imagens": null },
+          { "letra": "B", "descricao": "queda dos preços das commodities exportadas pelo Brasil", "imagens": null },
+          { "letra": "C", "descricao": "taxa de inflação no Brasil maior do que a taxa de inflação norte-americana", "imagens": null },
+          { "letra": "D", "descricao": "compra de reservas internacionais pelo Banco Central do Brasil", "imagens": null },
+          { "letra": "E", "descricao": "maior grau de incerteza no Brasil", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-027",
+        "numero": 27,
+        "assunto": "Pix",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "A principal marca distintiva do Pix, em relação aos mecanismos de pagamento com cartões de débito automático, é que o Pix é um sistema de pagamento instantâneo criado pelo(s)",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "Banco do Brasil", "imagens": null },
+          { "letra": "B", "descricao": "Banco do Nordeste", "imagens": null },
+          { "letra": "C", "descricao": "Banco Central do Brasil", "imagens": null },
+          { "letra": "D", "descricao": "bancos comerciais", "imagens": null },
+          { "letra": "E", "descricao": "bancos de investimento", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-028",
+        "numero": 28,
+        "assunto": "Regime Cambial",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Desde 1999, o Brasil adota um regime de câmbio flutuante (ou flexível). Considerando-se a prática brasileira desde então, nesse regime cambial, a",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "taxa de câmbio é fixada pelo Banco Central do Brasil.", "imagens": null },
+          { "letra": "B", "descricao": "taxa de câmbio é determinada pela oferta e demanda de moeda estrangeira.", "imagens": null },
+          { "letra": "C", "descricao": "taxa de câmbio não sofre interferência do Banco Central do Brasil.", "imagens": null },
+          { "letra": "D", "descricao": "taxa de câmbio não influencia a rentabilidade dos exportadores.", "imagens": null },
+          { "letra": "E", "descricao": "fixação da taxa básica de juros (Selic) torna-se dependente da política cambial.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-029",
+        "numero": 29,
+        "assunto": "Garantias de Financiamento",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Nos contratos de financiamento de automóveis, a garantia de pagamento da dívida é o próprio bem, isto é, o automóvel adquirido pelo devedor. Nesse caso, trata-se de",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "aval", "imagens": null },
+          { "letra": "B", "descricao": "fiança", "imagens": null },
+          { "letra": "C", "descricao": "hipoteca", "imagens": null },
+          { "letra": "D", "descricao": "alienação fiduciária", "imagens": null },
+          { "letra": "E", "descricao": "penhor mercantil", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-CB-030",
+        "numero": 30,
+        "assunto": "FGTS",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um trabalhador é regido pelas regras da CLT e tem conta vinculada ao FGTS. Curioso por saber as hipóteses de levantamento do FGTS, formula consulta ao órgão competente. Nos termos da Lei nº 8.036/1990, a conta vinculada do trabalhador no FGTS poderá ser movimentada no caso de",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "aquisição de imóvel comercial", "imagens": null },
+          { "letra": "B", "descricao": "aposentadoria concedida pela Previdência Social", "imagens": null },
+          { "letra": "C", "descricao": "desligamento por justa causa", "imagens": null },
+          { "letra": "D", "descricao": "compra de automóvel", "imagens": null },
+          { "letra": "E", "descricao": "aluguel de entidade familiar", "imagens": null }
+        ]
+      }
+    ]
+  },
+  {
+    "orgao": "Caixa Econômica Federal",
+    "banca": "Cesgranrio",
+    "ano": 2021,
+    "cargo": "Técnico Bancário Novo",
+    "materia": "Tecnologia da Informação",
+    "tipo_materia": "especifica",
+    "questoes": [
+      {
+        "codigo": "CEF2021-TI-031",
+        "numero": 31,
+        "assunto": "DevOps",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "No âmbito de DevOps, o termo \"shift left testing\" significa que os testes devem",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "ser feitos junto com a entrada em operação do produto.", "imagens": null },
+          { "letra": "B", "descricao": "ser feitos apenas no ambiente de desenvolvimento.", "imagens": null },
+          { "letra": "C", "descricao": "ser feitos apenas por meio de ferramentas de automação de testes.", "imagens": null },
+          { "letra": "D", "descricao": "ser feitos desde as fases iniciais do ciclo de vida do produto.", "imagens": null },
+          { "letra": "E", "descricao": "dirigir o desenvolvimento do produto.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-032",
+        "numero": 32,
+        "assunto": "UML / Generalização",
+        "dificuldade": null,
+        "imagem": "questoes/caixa2021/tecnico_bancario_novo_ti/tecnologia_da_informacao/32.png",
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Uma universidade deseja implementar um sistema de controle de acesso às salas do seu campus. Esse sistema deve levar em consideração o seguinte cenário:\n• Apenas três categorias de pessoas terão acesso às salas: professores, estudantes e funcionários;\n• Alguns funcionários podem ser alunos da universidade;\n• Alguns alunos podem ser professores da universidade.\nA partir desse cenário, deve ser elaborado um modelo conceitual de classe UML, que contenha uma generalização.\nQual generalização é compatível com o cenário acima?",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "Pessoa (superclasse) com Professor e Aluno (subclasses), com restrição {complete, overlapping}.", "imagens": null },
+          { "letra": "B", "descricao": "Pessoa (superclasse) com Funcionário e Aluno (subclasses), com restrição {complete, overlapping}.", "imagens": null },
+          { "letra": "C", "descricao": "Pessoa (superclasse) com Professor, Aluno e Funcionário (subclasses), com restrição {complete, overlapping}.", "imagens": null },
+          { "letra": "D", "descricao": "Pessoa (superclasse) com Professor, Aluno e Funcionário (subclasses), com restrição {incomplete, disjoint}.", "imagens": null },
+          { "letra": "E", "descricao": "Pessoa (superclasse) com Professor e Funcionário (subclasses), com restrição {incomplete, disjoint}.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-033",
+        "numero": 33,
+        "assunto": "Processo Unificado (UP)",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Em quais fases do Processo Unificado (UP) o workflow (disciplina) de requisitos é executado?",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "Inception, Elaboration, Construction e Transition", "imagens": null },
+          { "letra": "B", "descricao": "Inception, Elaboration e Construction, somente", "imagens": null },
+          { "letra": "C", "descricao": "Elaboration e Construction, somente", "imagens": null },
+          { "letra": "D", "descricao": "Elaboration, somente", "imagens": null },
+          { "letra": "E", "descricao": "Inception, somente", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-034",
+        "numero": 34,
+        "assunto": "Java / Herança e Construtores",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "As classes Java a seguir pertencem ao pacote default.\nclass A1{\n protected int val=1,va2=2;\n public A1(int x){\n val+=x;\n va2*=x;\n }\n}\nclass A2 extends A1{\n protected int vbl=10;\n}\nclass A3 extends A2{\n protected int vcl=0;\n public A3(int y){\n vcl=(val+va2)*y;\n }\n}\npublic class Main{\n public static void main(String[] args){\n A3 o=new A3(2);\n System.out.println(o.vcl);\n }\n}"
+        },
+        "enunciado": "Qual construtor poderá ser inserido na classe A2, sem que um erro de compilação seja gerado?",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "public A2() { vbl=val+va2; }", "imagens": null },
+          { "letra": "B", "descricao": "public A2(int z) { super(z); vbl=val+va2; }", "imagens": null },
+          { "letra": "C", "descricao": "public A2() { vbl=val+va2; super(vbl); }", "imagens": null },
+          { "letra": "D", "descricao": "public A2() { super(0); vbl=val+va2; }", "imagens": null },
+          { "letra": "E", "descricao": "public A2() { super(vbl); }", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-035",
+        "numero": 35,
+        "assunto": "Estruturas de Dados / Pilhas",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Duas pilhas, p1 e p2, foram implementadas em Python, por meio de listas em que o último elemento da lista é o topo da pilha. As configurações iniciais dessas pilhas são as seguintes:\np1=[50,40,30,20,10]\np2=[ ]"
+        },
+        "enunciado": "Qual função irá transferir os elementos de p1 para p2, de modo que p1 passe a ser uma pilha vazia, e p2 passe a ter a mesma configuração que p1 tinha, antes da chamada da função?",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "def fa(p1,p2):\n if(len(p1)==0): return\n x=p1[len(p1)-1]\n fa(p1,p2)\n p2.append(x)", "imagens": null },
+          { "letra": "B", "descricao": "def fb(p1,p2):\n if(len(p1)==0): return\n x=p1[len(p1)-1]\n del p1[len(p1)-1]\n fb(p1,p2)\n p2.append(x)", "imagens": null },
+          { "letra": "C", "descricao": "def fc(p1,p2):\n if(len(p1)==0): return\n p2.append(p1.pop())\n fc(p1,p2)", "imagens": null },
+          { "letra": "D", "descricao": "def fd(p1,p2):\n for i in range(len(p1)):\n p2.append(p1.pop())", "imagens": null },
+          { "letra": "E", "descricao": "def fe(p1,p2):\n for i in range(len(p1)):\n p2.append(p1[i])", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-036",
+        "numero": 36,
+        "assunto": "Padrões de Projeto",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Uma aplicação Java deve oferecer suporte para que os serviços disponibilizados por objetos que consomem muitos recursos possam ser requisitados, indiretamente, pelas demais classes (clientes) dessa aplicação. As soluções para esse problema de design devem impedir que esses objetos sejam diretamente referenciados pelos clientes, pois eles só devem ser instanciados quando seus serviços forem realmente solicitados.\nA solução que a equipe de desenvolvimento propôs irá fornecer substitutos para esses objetos reais, de modo a controlar o acesso a eles. As classes dos objetos reais e dos objetos substitutos devem implementar uma mesma interface. Dessa forma, os substitutos servirão de representantes dos objetos reais. Eles receberão requisições dos clientes e as delegarão aos objetos reais.\nA solução proposta pela equipe de desenvolvimento foi baseada no padrão de projeto",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "Facade", "imagens": null },
+          { "letra": "B", "descricao": "Adapter", "imagens": null },
+          { "letra": "C", "descricao": "Proxy", "imagens": null },
+          { "letra": "D", "descricao": "Bridge", "imagens": null },
+          { "letra": "E", "descricao": "Composite", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-037",
+        "numero": 37,
+        "assunto": "Árvore Binária de Busca",
+        "dificuldade": null,
+        "imagem": "questoes/caixa2021/tecnico_bancario_novo_ti/tecnologia_da_informacao/37.png",
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Qual árvore binária pode ser classificada como árvore binária de busca?",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "Árvore com raiz 40, filho esquerdo 50 (com filhos 60 e 70) e filho direito 30 (com filhos 20 e 10).", "imagens": null },
+          { "letra": "B", "descricao": "Árvore com raiz 10, filho esquerdo 30 (com filhos 70 e 60) e filho direito 20 (com filhos 50 e 40).", "imagens": null },
+          { "letra": "C", "descricao": "Árvore com raiz 70, filho esquerdo 60 (com filho esquerdo 50, que tem filho esquerdo 40, que tem filho esquerdo 30).", "imagens": null },
+          { "letra": "D", "descricao": "Árvore com raiz 70, filho esquerdo 60 (com filhos 40 e 30) e filho direito 50 (com filhos 20 e 10).", "imagens": null },
+          { "letra": "E", "descricao": "Árvore com raiz 70, filho esquerdo 60 (com filho esquerdo 40, que tem filho esquerdo 20).", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-038",
+        "numero": 38,
+        "assunto": "Modelo Relacional de Dados",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Leve em conta o conjunto de tabelas a seguir.\nCLIENTE (agencia, conta, CPF, nome, endereco, telefone, titular), onde titular = {10,20,30,40,50}\nCONTA_CORRENTE (agencia, conta, data-de-abertura, saldo)\nMOVIMENTACAO (agencia, conta, data, hora, minuto, valor), onde data, hora e minuto são de uma movimentação (crédito ou débito) realizada"
+        },
+        "enunciado": "Considerando-se o modelo relacional de dados, composto apenas pelas tabelas CLIENTE, CONTA_CORRENTE e MOVIMENTACAO, verifica-se que",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "não é necessário ter os atributos \"hora\" e \"minuto\" como parte da chave primária da tabela MOVIMENTACAO.", "imagens": null },
+          { "letra": "B", "descricao": "o atributo \"CPF\" é uma chave estrangeira na tabela CLIENTE.", "imagens": null },
+          { "letra": "C", "descricao": "o atributo \"data-de-abertura\" deveria fazer parte da chave primária da tabela CONTA_CORRENTE.", "imagens": null },
+          { "letra": "D", "descricao": "o atributo \"titular\" deveria fazer parte da chave primária da tabela CLIENTE.", "imagens": null },
+          { "letra": "E", "descricao": "os atributos \"agencia\" e \"conta\" na tabela CLIENTE formam uma chave estrangeira.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-039",
+        "numero": 39,
+        "assunto": "Banco de Dados / Metadados",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Um sistema gerenciador de banco de dados utiliza metadados, persistidos em bancos de dados, para",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "avaliar o seu próprio desempenho, considerando metas pré-estabelecidas pelo administrador do banco de dados.", "imagens": null },
+          { "letra": "B", "descricao": "decidir que páginas de dados sujas na sua cache precisam ser persistidas em disco.", "imagens": null },
+          { "letra": "C", "descricao": "implementar o isolamento entre transações concorrentes.", "imagens": null },
+          { "letra": "D", "descricao": "permitir a restauração de um estado íntegro do banco de dados, em caso de falha.", "imagens": null },
+          { "letra": "E", "descricao": "validar comandos SQL informados por um usuário.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-040",
+        "numero": 40,
+        "assunto": "Análise de Pontos de Função",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Uma equipe de desenvolvimento precisa informar a quantidade de pontos de função do software que será mantido por uma empresa. Na contagem por ponto de função, um dos itens a ser considerado é o de",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "contagem das linhas do código", "imagens": null },
+          { "letra": "B", "descricao": "contagem de erros do software", "imagens": null },
+          { "letra": "C", "descricao": "funcionalidades implementadas, sob o ponto de vista do desenvolvedor", "imagens": null },
+          { "letra": "D", "descricao": "funcionalidades implementadas, sob o ponto de vista do usuário", "imagens": null },
+          { "letra": "E", "descricao": "funcionalidades implementadas, sob o ponto de vista do testador", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-041",
+        "numero": 41,
+        "assunto": "Java / Blocos de Inicialização",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "As classes Java a seguir pertencem ao pacote default e foram incluídas no arquivo Main.java.\nclass MnoPà {\n static int x=10,y=10,z=10;\n public MnoPà() {\n x*=2;\n {\n y+=5;\n z+=10;\n }\n }\n}\nclass MnoPà extends MnoPà {\n public MnoPà(int c) {\n y*=c;\n {\n z+=y;\n }\n static {\n x=y=z=1;\n }\n }\n}\npublic class Main {\n public static void main(String[] args) {\n MnoPà o=new MnoPà(2);\n System.out.println(MnoPà.x+MnoPà.y+MnoPà.z);\n }\n}"
+        },
+        "enunciado": "O que será exibido no console quando o método main for executado?",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "3", "imagens": null },
+          { "letra": "B", "descricao": "4", "imagens": null },
+          { "letra": "C", "descricao": "19", "imagens": null },
+          { "letra": "D", "descricao": "27", "imagens": null },
+          { "letra": "E", "descricao": "31", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-042",
+        "numero": 42,
+        "assunto": "Arquitetura de Computadores / Memória Virtual",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Na técnica de memória virtual, a tarefa de tradução dos endereços virtuais é realizada por hardware, juntamente com o sistema operacional, para não comprometer o desempenho.\nO dispositivo de hardware responsável por essa tradução é a",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "FPU", "imagens": null },
+          { "letra": "B", "descricao": "ALU", "imagens": null },
+          { "letra": "C", "descricao": "MMU", "imagens": null },
+          { "letra": "D", "descricao": "VU", "imagens": null },
+          { "letra": "E", "descricao": "Cache", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-043",
+        "numero": 43,
+        "assunto": "Sistemas Operacionais / ext2",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "O ext2 (Second Extended File System) é um dos sistemas de arquivos suportados pelo sistema operacional Linux.\nNesse sistema de arquivos, com exceção do nome do arquivo, todos os demais atributos, como permissões de acesso, identificação do dono do arquivo, identificação do grupo do arquivo, tamanho do arquivo, entre outros, são armazenados numa estrutura conhecida como",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "i-node", "imagens": null },
+          { "letra": "B", "descricao": "i-block", "imagens": null },
+          { "letra": "C", "descricao": "i-file", "imagens": null },
+          { "letra": "D", "descricao": "master file table", "imagens": null },
+          { "letra": "E", "descricao": "file allocation table", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-044",
+        "numero": 44,
+        "assunto": "Arquitetura de Computadores / UCP",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "A Unidade Central de Processamento (UCP) controla a operação de um computador e realiza suas funções e processamento de dados.\nO componente da UCP que faz os cálculos ou o processamento de dados, de fato, é o(a)",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "decodificador de instrução", "imagens": null },
+          { "letra": "B", "descricao": "interpretador da instrução", "imagens": null },
+          { "letra": "C", "descricao": "registrador de instrução", "imagens": null },
+          { "letra": "D", "descricao": "unidade lógica e aritmética", "imagens": null },
+          { "letra": "E", "descricao": "unidade de controle", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-045",
+        "numero": 45,
+        "assunto": "Sistemas de Numeração",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "No sistema decimal, os dígitos de 0 a 9 são utilizados para representar números na base 10. No sistema binário, apenas os dígitos 0 e 1 são utilizados para representar os números na base 2.\nA representação do número decimal positivo 16.383, no sistema binário, utilizando 2 bytes, é",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "0000 0111 1111 1111", "imagens": null },
+          { "letra": "B", "descricao": "0000 1111 1111 1111", "imagens": null },
+          { "letra": "C", "descricao": "0001 1111 1111 1111", "imagens": null },
+          { "letra": "D", "descricao": "0011 1111 1111 1111", "imagens": null },
+          { "letra": "E", "descricao": "0111 1111 1111 1111", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-046",
+        "numero": 46,
+        "assunto": "Redes de Computadores / Meios de Transmissão",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Em um sistema de transmissão de dados, o meio de transmissão é o caminho físico entre transmissor e receptor.\nComo exemplos de meios de transmissão guiados, tem-se o",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "cabo par-trançado e o espectro de rádio por satélite", "imagens": null },
+          { "letra": "B", "descricao": "cabo par-trançado e o espectro de rádio terrestre", "imagens": null },
+          { "letra": "C", "descricao": "cabo de fibra ótica e o espectro de rádio por satélite", "imagens": null },
+          { "letra": "D", "descricao": "cabo de fibra ótica e o espectro de rádio terrestre", "imagens": null },
+          { "letra": "E", "descricao": "cabo de fibra ótica e o cabo par-trançado", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-047",
+        "numero": 47,
+        "assunto": "Sistemas Operacionais / Sincronização",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "A sincronização entre processos concorrentes é fundamental para garantir a confiabilidade dos sistemas multiprogramáveis.\nUm mecanismo de sincronização simples, que permite implementar a exclusão mútua sem a deficiência da espera ocupada (busy wait), é o",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "deadlock", "imagens": null },
+          { "letra": "B", "descricao": "mutual lock", "imagens": null },
+          { "letra": "C", "descricao": "escalonamento binário", "imagens": null },
+          { "letra": "D", "descricao": "buffer contador", "imagens": null },
+          { "letra": "E", "descricao": "semáforo mutex", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-048",
+        "numero": 48,
+        "assunto": "Redes de Computadores / TCP-IP",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Na arquitetura TCP/IP, a tarefa da camada inter-redes é permitir que os hosts injetem pacotes em qualquer rede e prover o tráfego dos pacotes até o seu destino, sem garantia de ordem de entrega dos pacotes.\nDentre os protocolos utilizados nessa camada, tem-se o",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "TCP e o IP", "imagens": null },
+          { "letra": "B", "descricao": "UDP e o IP", "imagens": null },
+          { "letra": "C", "descricao": "ICMP e o IP", "imagens": null },
+          { "letra": "D", "descricao": "ICMP e o TCP", "imagens": null },
+          { "letra": "E", "descricao": "TCP e o UDP", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-049",
+        "numero": 49,
+        "assunto": "Arquitetura de Computadores / Modos de Endereçamento",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "O processo de decodificação de uma instrução possibilita determinar o modo de endereçamento utilizado para localizar os operandos. Quando o operando tem magnitude limitada e sua busca não requer um ciclo de memória ou de cache dentro do ciclo de instrução, o modo de endereçamento utilizado pela instrução é o",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "imediato", "imagens": null },
+          { "letra": "B", "descricao": "direto", "imagens": null },
+          { "letra": "C", "descricao": "indireto", "imagens": null },
+          { "letra": "D", "descricao": "indireto por registrador", "imagens": null },
+          { "letra": "E", "descricao": "por deslocamento", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-050",
+        "numero": 50,
+        "assunto": "Protocolos de Correio Eletrônico",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "O serviço de correio eletrônico possibilita o envio e o recebimento de e-mail (electronic mail).\nOs protocolos de comunicação que o cliente de correio utiliza para solicitar a entrega de um e-mail e para acessar a caixa postal de mensagens são, respectivamente, o",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "SFTP e o HTTP", "imagens": null },
+          { "letra": "B", "descricao": "HTTP e o IMAP", "imagens": null },
+          { "letra": "C", "descricao": "SMTP e o SFTP", "imagens": null },
+          { "letra": "D", "descricao": "SMTP e o IMAP", "imagens": null },
+          { "letra": "E", "descricao": "SMTP e o HTTP", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-051",
+        "numero": 51,
+        "assunto": "XML",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": {
+          "conteudo": "Um arquivo, contendo um documento XML, contém exatamente a seguinte informação:\n<?xml version=\"1.0\"?>\n<PEDIDOS>\n <PEDIDO>\n <TITULO>Pedido de Empréstimo</TITULO>\n <REQUERENTE>José da Silva</REQUERENTE>\n <CPF>999.999.999-99</CPF>\n <VALOR>20000</VALOR>\n <PEDIDO>\n<PEDIDOS>"
+        },
+        "enunciado": "A partir desse documento apenas, um processador XML pode garantir que o arquivo é",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "bem-formado, apenas", "imagens": null },
+          { "letra": "B", "descricao": "bem-formado e normalizado", "imagens": null },
+          { "letra": "C", "descricao": "bem-formado e válido", "imagens": null },
+          { "letra": "D", "descricao": "normalizado, apenas", "imagens": null },
+          { "letra": "E", "descricao": "válido, apenas", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-052",
+        "numero": 52,
+        "assunto": "Java EE / Padrões de Apresentação",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Na camada de apresentação do Java EE 8, o uso de um gerente central que trata todos os pedidos (requests), ou um grupo de pedidos, para uma aplicação e os envia para um processo específico, é conhecido como",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "Abstract Command", "imagens": null },
+          { "letra": "B", "descricao": "Command", "imagens": null },
+          { "letra": "C", "descricao": "Data Access Object", "imagens": null },
+          { "letra": "D", "descricao": "Front Controller", "imagens": null },
+          { "letra": "E", "descricao": "Service Locator", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-053",
+        "numero": 53,
+        "assunto": "Testes de Software / TDD",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "O Desenvolvimento Dirigido por Testes se caracteriza por",
+        "gabarito": "D",
+        "alternativas": [
+          { "letra": "A", "descricao": "manter sem modificação um arquivo de código fonte que já tenha sido aprovado em um teste.", "imagens": null },
+          { "letra": "B", "descricao": "escrever o código fonte e, baseado na análise do código, escrever os testes.", "imagens": null },
+          { "letra": "C", "descricao": "escrever as histórias do usuário na forma de testes.", "imagens": null },
+          { "letra": "D", "descricao": "projetar os casos de teste antes de criar o código fonte.", "imagens": null },
+          { "letra": "E", "descricao": "repetir todos os testes a cada modificação do código fonte.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-054",
+        "numero": 54,
+        "assunto": "Gestão de Configuração de Software",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Entre as principais ferramentas de gestão de configuração de software, estão os sistemas de controle de versão, como o svn ou cvs.\nNesses sistemas, o comando de registrar as mudanças locais em um repositório é denominado",
+        "gabarito": "B",
+        "alternativas": [
+          { "letra": "A", "descricao": "branch", "imagens": null },
+          { "letra": "B", "descricao": "commit", "imagens": null },
+          { "letra": "C", "descricao": "save", "imagens": null },
+          { "letra": "D", "descricao": "store", "imagens": null },
+          { "letra": "E", "descricao": "update", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-055",
+        "numero": 55,
+        "assunto": "CMMI 2.0",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "O modelo do CMMI 2.0 está organizado em áreas de prática, que se agrupam em áreas de capacidade, que, por sua vez, são agrupadas em 4 categorias.\nA área de prática \"Resolução e Prevenção de Incidentes\" (Incident Resolution & Prevention – IRP) está agrupada dentro da categoria",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "Apoiando (Supporting)", "imagens": null },
+          { "letra": "B", "descricao": "Fazendo (Doing)", "imagens": null },
+          { "letra": "C", "descricao": "Gerenciando (Managing)", "imagens": null },
+          { "letra": "D", "descricao": "Melhorando (Improving)", "imagens": null },
+          { "letra": "E", "descricao": "Planejando (Planning)", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-056",
+        "numero": 56,
+        "assunto": "RSS",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "As fontes (feed) RSS devem todas fornecer informações em",
+        "gabarito": "E",
+        "alternativas": [
+          { "letra": "A", "descricao": "CSS", "imagens": null },
+          { "letra": "B", "descricao": "HTML 1.0", "imagens": null },
+          { "letra": "C", "descricao": "HTML 1.1", "imagens": null },
+          { "letra": "D", "descricao": "SOAP", "imagens": null },
+          { "letra": "E", "descricao": "XML", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-057",
+        "numero": 57,
+        "assunto": "Testes de Software / Teste de Unidade",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "O teste de unidade tem como finalidade testar os componentes mais simples do software",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "de forma isolada.", "imagens": null },
+          { "letra": "B", "descricao": "quanto à sua coesão.", "imagens": null },
+          { "letra": "C", "descricao": "quanto ao seu acoplamento.", "imagens": null },
+          { "letra": "D", "descricao": "quando unificados na versão a ser lançada.", "imagens": null },
+          { "letra": "E", "descricao": "quanto à sua capacidade de responder a entradas únicas.", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-058",
+        "numero": 58,
+        "assunto": "Banco de Dados / SGBDD",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Os Sistemas de Gerenciamento de Banco de Dados (SGBD) foram afetados pelas demandas trazidas pelo Big Data. Uma das formas de tratar essas demandas são os Sistemas de Gerenciamento de Banco de Dados Distribuídos (SGBDD), nos quais os dados podem estar armazenados em vários servidores, conectados por uma rede de computadores.\nUm SGBDD que usa softwares middleware, de forma que os SGBDs que o compõem estejam fracamente acoplados, é conhecido como",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "Baseado em Grafos", "imagens": null },
+          { "letra": "B", "descricao": "Hierárquico", "imagens": null },
+          { "letra": "C", "descricao": "Federado", "imagens": null },
+          { "letra": "D", "descricao": "Orientado a objetos", "imagens": null },
+          { "letra": "E", "descricao": "NOSql", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-059",
+        "numero": 59,
+        "assunto": "Kotlin",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "Na linguagem de programação Kotlin, é possível criar uma variável cujo valor nunca pode ser mudado, na prática, uma constante, com o nome idademinima, do tipo básico inteiro de 32 bits, com o valor 18.\nPara que isso aconteça, qual das seguintes instruções deve ser usada?",
+        "gabarito": "A",
+        "alternativas": [
+          { "letra": "A", "descricao": "val idademinima : Int = 18", "imagens": null },
+          { "letra": "B", "descricao": "val idademinima : Integer = 18", "imagens": null },
+          { "letra": "C", "descricao": "val idademinima = 18 : Integer", "imagens": null },
+          { "letra": "D", "descricao": "var idademinima : Int = 18", "imagens": null },
+          { "letra": "E", "descricao": "var idademinima : Integer = 18", "imagens": null }
+        ]
+      },
+      {
+        "codigo": "CEF2021-TI-060",
+        "numero": 60,
+        "assunto": "Resolução CMN nº 4.893/2021",
+        "dificuldade": null,
+        "imagem": null,
+        "tabela_html": null,
+        "texto_complementar": null,
+        "enunciado": "A Resolução CMN nº 4.893, de 26 de fevereiro de 2021, dispõe sobre a política de segurança cibernética e sobre os requisitos para a contratação de serviços de processamento e armazenamento de dados e de computação em nuvem, a serem observados pelas instituições autorizadas a funcionar pelo Banco Central do Brasil.\nEssa Resolução determina que a política de segurança cibernética e o plano de ação e de resposta a incidentes devem ser, no mínimo, documentados e revisados",
+        "gabarito": "C",
+        "alternativas": [
+          { "letra": "A", "descricao": "trimestralmente", "imagens": null },
+          { "letra": "B", "descricao": "semestralmente", "imagens": null },
+          { "letra": "C", "descricao": "anualmente", "imagens": null },
+          { "letra": "D", "descricao": "bienalmente", "imagens": null },
+          { "letra": "E", "descricao": "trienalmente", "imagens": null }
+        ]
+      }
+    ]
+  }
+]
