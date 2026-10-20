@@ -286,21 +286,40 @@
 
 {{-- MODAL DE ERRO (Caderno de Erros) --}}
 @if(session('show_error_modal') && session('erro_id'))
-    @php $erroAtual = \App\Models\CadernoErro::find(session('erro_id')); @endphp
-    
     <div class="modal fade show d-block" id="modalErro" tabindex="-1" data-bs-backdrop="static">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content border-0 shadow">
                 <div class="modal-header border-bottom border-secondary-subtle bg-danger-subtle">
-                    <h5 class="modal-title fs-6 fw-bold text-danger-emphasis"><i class="fas fa-exclamation-triangle me-2"></i>Registro de Erro</h5>
+                    <h5 class="modal-title fs-6 fw-bold text-danger-emphasis">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Registro de Erro
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('caderno-erros.salvar-motivo', $erroAtual->id) }}" method="POST">
+                <form action="{{ route('caderno-erros.salvar-motivo', session('erro_id')) }}" method="POST">
                     @csrf
                     <input type="hidden" name="url_retorno" value="{{ request()->fullUrl() }}">
                     <div class="modal-body">
-                        <p class="text-body-secondary small mb-3">Entender o motivo do erro é o primeiro passo para não cometê-lo novamente.</p>
                         
+                        {{-- NOVA DIV: QUESTÃO E ALTERNATIVA SELECIONADA --}}
+                        @if(session('questao_enunciado') && session('alternativa_descricao'))
+                        <div class="alert alert-light border mb-4">
+                            <h6 class="fw-bold text-body-secondary mb-2">
+                                <i class="fas fa-question-circle me-1"></i> Questão:
+                            </h6>
+                            <div class="mb-3 small text-body" style="line-height: 1.6;">
+                                {!! session('questao_enunciado') !!}
+                            </div>
+                            
+                            <h6 class="fw-bold text-danger mb-2">
+                                <i class="fas fa-times-circle me-1"></i> Alternativa Selecionada (Incorreta):
+                            </h6>
+                            <div class="p-3 bg-danger-subtle border border-danger-subtle rounded small text-danger-emphasis">
+                                <strong class="me-1">{{ session('alternativa_letra') }})</strong> 
+                                {!! session('alternativa_descricao') !!}
+                            </div>
+                        </div>
+                        @endif
+
                         <div class="mb-3">
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" name="foi_chute" id="foi_chute">
@@ -313,7 +332,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="motivo_erro" class="form-label fw-semibold small text-body-secondary">Por que você marcou essa alternativa incorreta?</label>
+                            <label for="motivo_erro" class="form-label fw-semibold small text-body-secondary">
+                                Por que você marcou essa alternativa incorreta?
+                            </label>
                             <textarea class="form-control" name="motivo_erro" id="motivo_erro" rows="3" placeholder="Ex: Confundi o conceito de X com Y..."></textarea>
                         </div>
                     </div>

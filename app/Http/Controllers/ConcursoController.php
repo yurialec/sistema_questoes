@@ -123,12 +123,9 @@ class ConcursoController extends Controller
         ]);
 
         $metaAprovacaoService->recalcularProgresso($user->id);
-
         $leitnerService->processarResposta($user, $alternativa->questao, $alternativa->correta);
 
-        $urlRetorno = $request->input('url_retorno')
-            ? $request->input('url_retorno')
-            : route('responder');
+        $urlRetorno = $request->input('url_retorno') ?: route('responder');
 
         if (!$alternativa->correta && $user->ativo_modal_erros) {
             $erro = CadernoErro::create([
@@ -142,7 +139,10 @@ class ConcursoController extends Controller
                 'resultado' => false,
                 'show_error_modal' => true,
                 'erro_id' => $erro->id,
-                'questao_foco_id' => $alternativa->questao_id
+                'questao_foco_id' => $alternativa->questao_id,
+                'questao_enunciado' => $alternativa->questao->enunciado,
+                'alternativa_letra' => $alternativa->letra,
+                'alternativa_descricao' => $alternativa->descricao,
             ]);
         }
 
