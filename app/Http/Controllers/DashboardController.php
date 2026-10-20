@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\CadernoErro;
 use App\Models\GradeEstudo;
 use App\Models\HistoricoResposta;
@@ -10,78 +9,119 @@ use App\Models\Materia;
 use App\Models\MetaAprovacao;
 use App\Models\ProgressoQuestao;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // --- Totais gerais ---
-        $total    = HistoricoResposta::count();
-        $acertos  = HistoricoResposta::where('acertou', true)->count();
-        $erros    = HistoricoResposta::where('acertou', false)->count();
-        $percentual = $total > 0 ? round(($acertos / $total) * 100) : 0;
+        $estatisticas = $this->obterEstatisticasGerais();
 
-        // --- Sequência de dias (streak) ---
+        return view('dashboard.index', [
+            ...$estatisticas,
+            'streak' => $this->calcularSequenciaDeEstudos(),
+            ...$this->obterUltimaAtividade(),
+            'nivel' => $this->obterNivel($estatisticas['total']),
+            'materias' => $this->obterMateriasComEstatisticas(),
+            ...$this->obterDadosGrafico(),
+            'sugestaoHoje' => $this->getSugestaoDeHoje(),
+            'metaAtiva' => $this->obterMetaAtiva(),
+        ]);
+    }
+
+    private function obterEstatisticasGerais(): array
+    {
+        $total = HistoricoResposta::count();
+        $acertos = HistoricoResposta::where('acertou', true)->count();
+        $erros = HistoricoResposta::where('acertou', false)->count();
+
+        return [
+            'total' => $total,
+            'acertos' => $acertos,
+            'erros' => $erros,
+            'percentual' => $total > 0 ? round(($acertos / $total) * 100) : 0,
+        ];
+    }
+
+    private function calcularSequenciaDeEstudos(): int
+    {
         $diasRespondidos = HistoricoResposta::selectRaw('DATE(respondido_em) as dia')
             ->distinct()
             ->orderByDesc('dia')
             ->pluck('dia')
             ->toArray();
 
+        if (empty($diasRespondidos)) {
+            return 0;
+        }
+
+        $hoje = Carbon::today()->toDateString();
+        $ontem = Carbon::yesterday()->toDateString();
+
+        if ($diasRespondidos[0] !== $hoje && $diasRespondidos[0] !== $ontem) {
+            return 0;
+        }
+
         $streak = 0;
-        if (!empty($diasRespondidos)) {
-            $hoje   = Carbon::today()->toDateString();
-            $ontem  = Carbon::yesterday()->toDateString();
+        $esperado = $diasRespondidos[0];
 
-            // Streak só conta se a última resposta foi hoje ou ontem
-            if ($diasRespondidos[0] === $hoje || $diasRespondidos[0] === $ontem) {
-                $esperado = $diasRespondidos[0];
-                foreach ($diasRespondidos as $dia) {
-                    if ($dia === $esperado) {
-                        $streak++;
-                        $esperado = Carbon::parse($dia)->subDay()->toDateString();
-                    } else {
-                        break;
-                    }
-                }
+        foreach ($diasRespondidos as $dia) {
+            if ($dia !== $esperado) {
+                break;
             }
+
+            $streak++;
+            $esperado = Carbon::parse($dia)->subDay()->toDateString();
         }
 
-        // --- Dias desde a última resposta ---
-        $ultimaRespondidaEm = HistoricoResposta::latest('respondido_em')->value('respondido_em');
-        $diasSemResponder   = null;
-        $ultimaRespostaLabel = 'Nunca';
+        return $streak;
+    }
 
-        if ($ultimaRespondidaEm) {
-            $ultima = Carbon::parse($ultimaRespondidaEm);
-            $diasSemResponder = (int) $ultima->diffInDays(now());
+    private function obterUltimaAtividade(): array
+    {
+        $ultimaRespondidaEm = HistoricoResposta::latest('respondido_em')
+            ->value('respondido_em');
 
-            $ultimaRespostaLabel = match (true) {
-                $diasSemResponder === 0 => 'Hoje',
-                $diasSemResponder === 1 => 'Ontem',
-                default                 => "Há {$diasSemResponder} dias",
-            };
+        if (!$ultimaRespondidaEm) {
+            return [
+                'diasSemResponder' => null,
+                'ultimaRespostaLabel' => 'Nunca',
+            ];
         }
 
-        // --- Nível do estudante baseado em total de questões ---
-        $nivel = match (true) {
-            $total === 0          => ['titulo' => 'Novato',     'proximo' => 'Iniciante',   'meta' => 10],
-            $total < 10           => ['titulo' => 'Iniciante',  'proximo' => 'Estudioso',   'meta' => 50],
-            $total < 50           => ['titulo' => 'Estudioso',  'proximo' => 'Dedicado',    'meta' => 200],
-            $total < 200          => ['titulo' => 'Dedicado',   'proximo' => 'Avançado',    'meta' => 500],
-            $total < 500          => ['titulo' => 'Avançado',   'proximo' => 'Expert',      'meta' => 1000],
-            default               => ['titulo' => 'Expert',     'proximo' => null,          'meta' => null],
+        $ultima = Carbon::parse($ultimaRespondidaEm);
+        $diasSemResponder = (int) $ultima->diffInDays(now());
+
+        $ultimaRespostaLabel = match (true) {
+            $diasSemResponder === 0 => 'Hoje',
+            $diasSemResponder === 1 => 'Ontem',
+            default => "Há {$diasSemResponder} dias",
         };
 
-        // --- Matérias com progresso ---
-        // Total de questões por matéria
+        return [
+            'diasSemResponder' => $diasSemResponder,
+            'ultimaRespostaLabel' => $ultimaRespostaLabel,
+        ];
+    }
+
+    private function obterNivel(int $total): array
+    {
+        return match (true) {
+            $total === 0 => ['titulo' => 'Novato', 'proximo' => 'Iniciante', 'meta' => 10],
+            $total < 10 => ['titulo' => 'Iniciante', 'proximo' => 'Estudioso', 'meta' => 50],
+            $total < 50 => ['titulo' => 'Estudioso', 'proximo' => 'Dedicado', 'meta' => 200],
+            $total < 200 => ['titulo' => 'Dedicado', 'proximo' => 'Avançado', 'meta' => 500],
+            $total < 500 => ['titulo' => 'Avançado', 'proximo' => 'Expert', 'meta' => 1000],
+            default => ['titulo' => 'Expert', 'proximo' => null, 'meta' => null],
+        };
+    }
+
+    private function obterMateriasComEstatisticas()
+    {
         $materias = Materia::withCount('questoes as total_questoes')->get();
 
-        // Questões únicas respondidas e acertos por matéria (via JOIN)
         $estatisticasPorMateria = DB::table('historico_respostas as hr')
             ->join('questoes as q', 'q.id', '=', 'hr.questao_id')
             ->select(
@@ -98,18 +138,21 @@ class DashboardController extends Controller
             $stats = $estatisticasPorMateria->get($materia->id);
 
             $materia->questoes_respondidas = $stats?->questoes_respondidas ?? 0;
-            $materia->total_tentativas     = $stats?->total_tentativas ?? 0;
-            $materia->total_acertos        = $stats?->total_acertos ?? 0;
+            $materia->total_tentativas = $stats?->total_tentativas ?? 0;
+            $materia->total_acertos = $stats?->total_acertos ?? 0;
             $materia->percentual_progresso = $materia->total_questoes > 0
                 ? round(($materia->questoes_respondidas / $materia->total_questoes) * 100)
                 : 0;
-            $materia->percentual_acertos   = $materia->total_tentativas > 0
+            $materia->percentual_acertos = $materia->total_tentativas > 0
                 ? round(($materia->total_acertos / $materia->total_tentativas) * 100)
                 : 0;
         });
 
-        // --- Dados para o gráfico de desempenho diário ---
-        // Busca os últimos 14 dias com respostas
+        return $materias;
+    }
+
+    private function obterDadosGrafico(): array
+    {
         $graficoDados = DB::table('historico_respostas as hr')
             ->select(
                 DB::raw('DATE(hr.respondido_em) as data'),
@@ -122,12 +165,10 @@ class DashboardController extends Controller
             ->orderBy('data', 'asc')
             ->get();
 
-        // Prepara arrays para o Chart.js
         $datas = [];
         $acertosData = [];
         $errosData = [];
 
-        // Preenche todos os dias dos últimos 14 dias, mesmo sem respostas
         for ($i = 13; $i >= 0; $i--) {
             $data = now()->subDays($i)->format('Y-m-d');
             $datas[] = $data;
@@ -143,33 +184,22 @@ class DashboardController extends Controller
             }
         }
 
-        // Formata datas para exibição (dia/mês)
         $datasFormatadas = array_map(function ($data) {
-            return \Carbon\Carbon::parse($data)->format('d/m');
+            return Carbon::parse($data)->format('d/m');
         }, $datas);
 
-        $sugestaoHoje = $this->getSugestaoDeHoje();
+        return [
+            'datasFormatadas' => $datasFormatadas,
+            'acertosData' => $acertosData,
+            'errosData' => $errosData,
+        ];
+    }
 
-        $metaAtiva = MetaAprovacao::with('cargo')
+    private function obterMetaAtiva(): ?MetaAprovacao
+    {
+        return MetaAprovacao::with('cargo')
             ->where('user_id', Auth::id())
             ->first();
-
-        return view('dashboard.index', compact(
-            'total',
-            'acertos',
-            'erros',
-            'percentual',
-            'streak',
-            'diasSemResponder',
-            'ultimaRespostaLabel',
-            'nivel',
-            'materias',
-            'datasFormatadas',
-            'acertosData',
-            'errosData',
-            'sugestaoHoje',
-            'metaAtiva'
-        ));
     }
 
     public function desempenhoPorMateria()
@@ -249,68 +279,85 @@ class DashboardController extends Controller
 
     public function getSugestaoDeHoje()
     {
-        $user = Auth::user();
+        $userId = Auth::id();
 
-        // isoWeekDay() retorna 1 para Segunda e 7 para Domingo (padrão da nossa tabela)
-        $diaSemana = now()->isoWeekDay();
-
-        // REGRA 1: Verifica se o usuário cadastrou uma grade para hoje
-        $gradeHoje = GradeEstudo::with('grupo.materias')
-            ->where('user_id', $user->id)
-            ->where('dia_semana', $diaSemana)
-            ->first();
-
-        if ($gradeHoje && $gradeHoje->grupo->materias->isNotEmpty()) {
-            // Retorna uma matéria aleatória do grupo definido para hoje
-            return $gradeHoje->grupo->materias->random();
+        if (!$userId) {
+            return null;
         }
 
-        // Se não tiver grade, aplica a sugestão inteligente
-        return $this->sugestaoInteligente($user->id);
+        $meta = MetaAprovacao::where('user_id', $userId)->first();
+
+        if (!$meta) {
+            return $this->sugestaoInteligente($userId);
+        }
+
+        $materiasIds = DB::table('questoes')
+            ->where('cargo_id', $meta->cargo_id)
+            ->whereNotNull('materia_id')
+            ->distinct()
+            ->pluck('materia_id')
+            ->all();
+
+        if (empty($materiasIds)) {
+            return null;
+        }
+
+        return $this->sugestaoInteligente($userId, $materiasIds);
     }
 
-    private function sugestaoInteligente($userId)
-    {
-        $dataHoje = now()
-            ->timezone('America/Sao_Paulo')
-            ->format('Y-m-d');
+    private function sugestaoInteligente(
+        int $userId,
+        ?array $materiasIds = null
+    ) {
+        $hoje = now('America/Sao_Paulo');
 
-        $cacheKey = "sugestao_estudo_{$userId}_{$dataHoje}";
+        // Normaliza os IDs para manter o cache consistente.
+        if ($materiasIds !== null) {
+            $materiasIds = array_values(
+                array_unique(array_map('intval', $materiasIds))
+            );
+
+            sort($materiasIds);
+
+            if (empty($materiasIds)) {
+                return null;
+            }
+        }
+
+        // Se a meta mudar, o cache também será diferente.
+        $escopo = $materiasIds === null
+            ? 'todas'
+            : 'meta_' . md5(implode(',', $materiasIds));
+
+        $cacheKey = "sugestao_estudo_{$userId}_"
+            . $hoje->format('Y-m-d')
+            . "_{$escopo}";
 
         $materiaId = Cache::remember(
             $cacheKey,
-            now()->timezone('America/Sao_Paulo')->endOfDay(),
-            function () use ($userId) {
+            $hoje->copy()->endOfDay(),
+            function () use ($userId, $materiasIds) {
 
-                $todasMaterias = Materia::all();
+                // Busca somente as matérias permitidas.
+                $query = Materia::query();
+
+                if ($materiasIds !== null) {
+                    $query->whereIn('id', $materiasIds);
+                }
+
+                $todasMaterias = $query->get();
 
                 if ($todasMaterias->isEmpty()) {
                     return null;
                 }
 
-                // Matérias que já tiveram pelo menos uma resposta
-                $materiasRespondidasIds = HistoricoResposta::where('user_id', $userId)
-                    ->join(
-                        'questoes',
-                        'historico_respostas.questao_id',
-                        '=',
-                        'questoes.id'
-                    )
-                    ->pluck('questoes.materia_id')
-                    ->unique()
-                    ->toArray();
+                $idsPermitidos = $todasMaterias
+                    ->pluck('id')
+                    ->all();
 
-                // Matérias ainda não respondidas
-                $materiasNaoRespondidas = $todasMaterias
-                    ->whereNotIn('id', $materiasRespondidasIds);
-
-                if ($materiasNaoRespondidas->isNotEmpty()) {
-                    return $materiasNaoRespondidas->random()->id;
-                }
-
-                // Todas já foram respondidas.
-                // Busca aquela com menor percentual de acerto.
-                $stats = DB::table('historico_respostas')
+                // REGRA 1:
+                // Identifica as matérias que o usuário já respondeu.
+                $materiasRespondidasIds = HistoricoResposta::query()
                     ->join(
                         'questoes',
                         'historico_respostas.questao_id',
@@ -318,22 +365,50 @@ class DashboardController extends Controller
                         'questoes.id'
                     )
                     ->where('historico_respostas.user_id', $userId)
-                    ->select(
-                        'questoes.materia_id',
-                        DB::raw(
-                            'SUM(historico_respostas.acertou) as total_acertos'
-                        ),
-                        DB::raw(
-                            'COUNT(*) as total_tentativas'
-                        )
+                    ->whereIn('questoes.materia_id', $idsPermitidos)
+                    ->distinct()
+                    ->pluck('questoes.materia_id')
+                    ->all();
+
+                // REGRA 2:
+                // Prioriza matérias que ainda não foram respondidas.
+                $materiasNaoRespondidas = $todasMaterias
+                    ->whereNotIn('id', $materiasRespondidasIds);
+
+                if ($materiasNaoRespondidas->isNotEmpty()) {
+                    return $materiasNaoRespondidas->random()->id;
+                }
+
+                // REGRA 3:
+                // Todas as matérias já foram respondidas.
+                // Identifica a matéria com menor aproveitamento.
+                $stats = DB::table('historico_respostas as hr')
+                    ->join(
+                        'questoes as q',
+                        'hr.questao_id',
+                        '=',
+                        'q.id'
                     )
-                    ->groupBy('questoes.materia_id')
+                    ->where('hr.user_id', $userId)
+                    ->whereIn('q.materia_id', $idsPermitidos)
+                    ->select(
+                        'q.materia_id',
+                        DB::raw(
+                            'SUM(CASE WHEN hr.acertou = 1 THEN 1 ELSE 0 END) as total_acertos'
+                        ),
+                        DB::raw('COUNT(*) as total_tentativas')
+                    )
+                    ->groupBy('q.materia_id')
                     ->get();
 
                 $materiaPiorDesempenhoId = null;
                 $menorTaxa = 101;
 
                 foreach ($stats as $stat) {
+                    if ($stat->total_tentativas <= 0) {
+                        continue;
+                    }
+
                     $taxa = (
                         $stat->total_acertos /
                         $stat->total_tentativas
@@ -350,10 +425,8 @@ class DashboardController extends Controller
             }
         );
 
-        if (!$materiaId) {
-            return null;
-        }
-
-        return Materia::find($materiaId);
+        return $materiaId
+            ? Materia::find($materiaId)
+            : null;
     }
 }

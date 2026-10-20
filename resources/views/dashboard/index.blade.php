@@ -25,14 +25,14 @@
 <div class="container py-4">
 
     @if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">
+    <div class="alert alert-success alert-dismissible fade show shadow-sm border" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
     @endif
 
     @if(session('error'))
-    <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm border" role="alert">
         {{ session('error') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
@@ -56,7 +56,7 @@
                           onsubmit="return confirm('Tem certeza que deseja excluir sua meta atual? Todo o progresso será perdido.');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-light text-danger border-0" title="Excluir meta">
+                        <button type="submit" class="btn btn-sm btn-light text-danger border" title="Excluir meta">
                             <i class="fa-solid fa-trash-can fa-xs"></i>
                         </button>
                     </form>
@@ -113,7 +113,7 @@
         ═══════════════════════════════════════════════ --}}
         @if($sugestaoHoje)
         <div class="col-12 col-lg-8">
-            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+            <div class="card shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-4">
                     <div class="row align-items-center">
                         <div class="col-md-8">
@@ -122,20 +122,6 @@
                                 <h5 class="mb-0 fw-bold">Sugestão de Estudo para Hoje</h5>
                             </div>
                             <h2 class="fw-bold mb-2 text-body">{{ $sugestaoHoje->nome }}</h2>
-                            <p class="mb-0 text-body-secondary">
-                                @php
-                                    $errosPendentes = \App\Models\CadernoErro::join('questoes', 'questoes.id', '=', 'caderno_erros.questao_id')
-                                        ->where('caderno_erros.user_id', auth()->id())
-                                        ->where('questoes.materia_id', $sugestaoHoje->id)
-                                        ->where('caderno_erros.status', 'pendente')
-                                        ->count();
-                                    
-                                    $motivo = $errosPendentes > 0 
-                                        ? "Você tem {$errosPendentes} erro(s) pendente(s) para revisar nesta matéria." 
-                                        : "Esta é a matéria com menor progresso ou próxima no seu ciclo de estudos.";
-                                @endphp
-                                {{ $motivo }}
-                            </p>
                         </div>
                         <div class="col-md-4 text-md-end mt-3 mt-md-0">
                             <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}" class="btn btn-primary fw-semibold px-4">
@@ -154,7 +140,7 @@
     <div class="row g-3 mb-4">
         {{-- Taxa de acerto (anel SVG adaptado para Dark Mode) --}}
         <div class="col-12 col-md-5">
-            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+            <div class="card border shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body d-flex align-items-center gap-4 p-4">
                     @php
                     $circumference = 2 * M_PI * 40;
@@ -203,7 +189,7 @@
         <div class="col-12 col-md-7">
             <div class="row g-3 h-100">
                 <div class="col-6">
-                    <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+                    <div class="card border shadow-sm h-100 bg-body-tertiary">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center gap-2 mb-2">
                                 <span class="badge rounded-2 p-2 bg-primary-subtle text-primary"><i class="fas fa-check-circle"></i></span>
@@ -216,7 +202,7 @@
                 </div>
 
                 <div class="col-6">
-                    <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+                    <div class="card border shadow-sm h-100 bg-body-tertiary">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center gap-2 mb-2">
                                 <span class="badge rounded-2 p-2 bg-danger-subtle text-danger"><i class="fas fa-times-circle"></i></span>
@@ -229,7 +215,7 @@
                 </div>
 
                 <div class="col-12">
-                    <div class="card border-0 shadow-sm bg-body-tertiary">
+                    <div class="card border shadow-sm bg-body-tertiary">
                         <div class="card-body p-3">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -270,7 +256,7 @@
     ══════════════════════════════════════════════ --}}
     <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Desempenho diário (últimos 14 dias)</p>
 
-    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
+    <div class="card border shadow-sm mb-4 bg-body-tertiary">
         <div class="card-body p-4">
             <div class="chart-container" style="position: relative; height:300px; width:100%;">
                 <canvas id="desempenhoChart"></canvas>
@@ -286,7 +272,7 @@
     <div class="row g-3 mb-4">
         {{-- Streak --}}
         <div class="col-12 col-sm-4">
-            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+            <div class="card border shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-3">
                     @if($streak >= 2)
                     <span class="streak-icon d-block mb-1 text-warning" style="font-size:1.6rem">🔥</span>
@@ -311,7 +297,7 @@
 
         {{-- Último estudo --}}
         <div class="col-12 col-sm-4">
-            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+            <div class="card border shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-3">
                     <i class="fas fa-calendar-check mb-2 d-block text-success" style="font-size:1.4rem"></i>
                     <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $ultimaRespostaLabel }}</p>
@@ -332,7 +318,7 @@
 
         {{-- Matérias cadastradas --}}
         <div class="col-12 col-sm-4">
-            <div class="card border-0 shadow-sm h-100 bg-body-tertiary">
+            <div class="card border shadow-sm h-100 bg-body-tertiary">
                 <div class="card-body p-3">
                     <i class="fas fa-book mb-2 d-block text-primary" style="font-size:1.4rem"></i>
                     <p class="fs-3 fw-bold mb-0 lh-1 text-body">{{ $materias->count() }}</p>
