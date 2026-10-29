@@ -398,10 +398,16 @@
         </div>
     @endforeach
 
-    <div class="text-center mt-4 mb-5">
+    <div class="text-center mt-4 mb-5 d-flex flex-wrap justify-content-center gap-2">
         <a href="{{ route('simulados.index') }}" class="btn btn-outline-secondary btn-sm px-4">
             <i class="fas fa-arrow-left me-1"></i> Voltar para a lista
         </a>
+        <form action="{{ route('simulados.exportarJson', $simulado) }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-outline-primary btn-sm px-4">
+                <i class="fas fa-file-export me-1"></i> Exportar JSON
+            </button>
+        </form>
     </div>
 @endif
 

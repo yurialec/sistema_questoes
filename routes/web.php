@@ -85,6 +85,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/simulados', [SimuladoController::class, 'index'])->name('simulados.index');
     Route::post('/simulados', [SimuladoController::class, 'store'])->name('simulados.store');
     Route::get('/simulados/{simulado}', [SimuladoController::class, 'show'])->name('simulados.show');
+    Route::post('/simulados/{simulado}/exportar-json', [SimuladoController::class, 'exportarJson'])->name('simulados.exportarJson');
     Route::delete('/simulados/{simulado}', [SimuladoController::class, 'destroy'])->name('simulados.destroy');
 
     Route::post('/simulados/{simulado}/iniciar',   [SimuladoController::class, 'iniciar'])->name('simulados.iniciar');

@@ -12,6 +12,8 @@ use App\Models\SimuladoQuestao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Str;
 
 class SimuladoController extends Controller
 {
@@ -345,5 +347,77 @@ class SimuladoController extends Controller
             'evolucao'            => $evolucao,
             'porMateria'          => $porMateria,
         ]);
+    }
+
+    public function exportarJson(Simulado $simulado)
+    {
+        abort_if($simulado->user_id !== Auth::id(), 403);
+
+        $simulado->load([
+            'questoes' => fn($q) => $q->orderBy('ordem'),
+            'questoes.questao.alternativas' => fn($q) => $q->orderBy('letra'),
+            'questoes.questao.materia',
+            'questoes.questao.assunto',
+            'questoes.questao.banca',
+            'questoes.questao.ano',
+            'questoes.questao.cargo.orgao',
+            'questoes.questao.textoComplementar',
+        ]);
+
+        $payload = [
+            'simulado' => [
+                'id'                    => $simulado->id,
+                'nome'                  => $simulado->nome,
+                'status'                => $simulado->status,
+                'total_questoes'        => $simulado->total_questoes,
+                'total_acertos'         => $simulado->total_acertos,
+                'total_erros'           => $simulado->total_erros,
+                'tempo_total_segundos'  => $simulado->tempo_total_segundos,
+                'criado_em'             => optional($simulado->created_at)->toIso8601String(),
+                'iniciado_em'           => optional($simulado->iniciado_em)->toIso8601String(),
+                'finalizado_em'         => optional($simulado->finalizado_em)->toIso8601String(),
+            ],
+            'questoes' => $simulado->questoes->map(function ($sq) {
+                $q = $sq->questao;
+
+                return [
+                    'ordem'            => $sq->ordem,
+                    'correta'          => (bool) $sq->correta,
+                    'respondida_em'    => optional($sq->respondida_em)->toIso8601String(),
+                    'alternativa_id'   => $sq->alternativa_id,
+
+                    'questao' => [
+                        'id'             => $q->id,
+                        'materia'        => optional($q->materia)->nome,
+                        'assunto'        => optional($q->assunto)->nome,
+                        'banca'          => optional($q->banca)->nome,
+                        'ano'            => optional($q->ano)->ano,
+                        'orgao'          => optional(optional($q->cargo)->orgao)->nome,
+                        'cargo'          => optional($q->cargo)->nome,
+                        'enunciado'      => $q->enunciado,
+                        'tabela_html'    => $q->tabela_html,
+                        'imagem'         => $q->imagem,
+                        'texto_complementar' => optional($q->textoComplementar)->conteudo,
+                        'alternativas'   => $q->alternativas->map(fn($alt) => [
+                            'id'        => $alt->id,
+                            'letra'     => $alt->letra,
+                            'descricao' => $alt->descricao,
+                            'correta'   => (bool) $alt->correta,
+                        ])->values(),
+                    ],
+                ];
+            })->values(),
+        ];
+
+        $nomeArquivo = 'simulado-' . $simulado->id . '-' . Str::slug($simulado->nome) . '.json';
+
+        return Response::make(
+            json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            200,
+            [
+                'Content-Type'        => 'application/json; charset=UTF-8',
+                'Content-Disposition' => 'attachment; filename="' . $nomeArquivo . '"',
+            ]
+        );
     }
 }
