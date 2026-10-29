@@ -146,11 +146,6 @@
                             </label>
                         </div>
                         
-                        <input type="hidden" name="orgao_id" id="hiddenOrgao">
-                        <input type="hidden" name="banca_id" id="hiddenBanca">
-                        <input type="hidden" name="ano_id" id="hiddenAno">
-                        <input type="hidden" name="cargo_id" id="hiddenCargo">
-                        <input type="hidden" name="materia_id" id="hiddenMateria">
                     </div>
                     <div class="modal-footer border-top border-secondary-subtle bg-body-tertiary">
                         <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -381,6 +376,31 @@
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Captura a estrutura agrupada dos assuntos ANTES do Tom Select inicializar.
+        const assuntosEstruturados = (() => {
+            const grupos = {};
+            document.querySelectorAll('#selectAssunto optgroup').forEach(optgroup => {
+                const label = optgroup.getAttribute('label');
+                grupos[label] = Array.from(optgroup.querySelectorAll('option')).map(option => ({
+                    value: String(option.value),
+                    text: option.textContent.trim(),
+                    materiaId: String(option.dataset.materiaId || '')
+                }));
+            });
+
+            // Fallback: se não houver optgroups, monta a partir das options planas
+            if (Object.keys(grupos).length === 0) {
+                const avulsos = Array.from(document.querySelectorAll('#selectAssunto option')).map(option => ({
+                    value: String(option.value),
+                    text: option.textContent.trim(),
+                    materiaId: String(option.dataset.materiaId || '')
+                }));
+                if (avulsos.length > 0) grupos['Assuntos'] = avulsos;
+            }
+
+            return grupos;
+        })();
+
         // 1. Inicializar Tom Select
         const tomSelectInstances = {};
         document.querySelectorAll('.tom-select').forEach(el => {
@@ -391,6 +411,51 @@
                 searchField: ['text', 'value']
             });
         });
+
+        // Assuntos disponíveis dependem das matérias selecionadas.
+        const selectMateria = tomSelectInstances.selectMateria;
+        const selectAssunto = tomSelectInstances.selectAssunto;
+
+        function atualizarAssuntos() {
+            const materiasSelecionadas = (selectMateria.getValue() || []).map(String);
+            const assuntosSelecionados = (selectAssunto.getValue() || []).map(String);
+
+            selectAssunto.clear(true);
+            selectAssunto.clearOptions();
+
+            if (materiasSelecionadas.length === 0) {
+                selectAssunto.settings.placeholder = 'Selecione uma matéria...';
+                selectAssunto.inputState();
+                selectAssunto.refreshOptions(false);
+                return;
+            }
+
+            const idsPermitidos = new Set();
+            Object.entries(assuntosEstruturados).forEach(([labelGrupo, assuntos]) => {
+                const permitidos = assuntos.filter(a => materiasSelecionadas.includes(a.materiaId));
+                if (permitidos.length === 0) return;
+
+                selectAssunto.addOptionGroup(labelGrupo, { label: labelGrupo });
+                permitidos.forEach(a => idsPermitidos.add(a.value));
+                selectAssunto.addOptions(permitidos.map(a => ({
+                    value: a.value,
+                    text: a.text,
+                    optgroup: labelGrupo
+                })));
+            });
+
+            const aindaValidos = assuntosSelecionados.filter(id => idsPermitidos.has(id));
+            if (aindaValidos.length > 0) {
+                selectAssunto.setValue(aindaValidos, true);
+            }
+
+            selectAssunto.settings.placeholder = 'Selecione...';
+            selectAssunto.inputState();
+            selectAssunto.refreshOptions(false);
+        }
+
+        selectMateria.on('change', atualizarAssuntos);
+        atualizarAssuntos();
 
         // 2. Lógica para Carregar Filtro Salvo
         document.getElementById('btnCarregarFiltro').addEventListener('click', function() {
@@ -404,7 +469,8 @@
                     'banca_id': 'selectBanca',
                     'ano_id': 'selectAno',
                     'cargo_id': 'selectCargo',
-                    'materia_id': 'selectMateria'
+                    'materia_id': 'selectMateria',
+                    'assunto_id': 'selectAssunto'
                 };
 
                 for (const [chave, idSelect] of Object.entries(mapeamento)) {
@@ -428,7 +494,8 @@
                     'banca_id': 'selectBanca',
                     'ano_id': 'selectAno',
                     'cargo_id': 'selectCargo',
-                    'materia_id': 'selectMateria'
+                    'materia_id': 'selectMateria',
+                    'assunto_id': 'selectAssunto'
                 };
 
                 document.querySelectorAll('.input-filtro-dinamico').forEach(el => el.remove());

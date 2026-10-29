@@ -20,4 +20,9 @@ class Assunto extends Model
     {
         return $this->hasMany(Questao::class);
     }
+
+    public function grupoAssunto()
+    {
+        return $this->belongsTo(GrupoAssunto::class, 'grupo_assunto_id');
+    }
 }

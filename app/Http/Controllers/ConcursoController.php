@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alternativa;
+use App\Models\Assunto;
 use App\Models\Ano;
 use App\Models\Banca;
 use App\Models\CadernoErro;
 use App\Models\Cargo;
 use App\Models\FiltroSalvo;
+use App\Models\GrupoAssunto;
 use App\Models\HistoricoResposta;
 use App\Models\Materia;
 use App\Models\Orgao;
@@ -90,6 +92,10 @@ class ConcursoController extends Controller
             $query->whereIn('materia_id', $request->materia_id);
         }
 
+        if ($request->filled('assunto_id') && is_array($request->assunto_id) && !empty($request->assunto_id)) {
+            $query->whereIn('assunto_id', $request->assunto_id);
+        }
+
         $query->orderBy('total_respostas_assunto', 'ASC')
             ->orderByRaw('CASE WHEN total_respostas_assunto = 0 THEN 0 ELSE (total_erros_assunto * 1.0 / total_respostas_assunto) END DESC')
             ->orderByRaw('CASE WHEN pq.proxima_revisao <= ? THEN 0 ELSE 1 END ASC', [now()])
@@ -98,6 +104,10 @@ class ConcursoController extends Controller
 
         $questoes = $query->paginate(10);
 
+        $gruposAssunto = GrupoAssunto::with(['assuntos:id,materia_id,grupo_assunto_id'])
+            ->orderBy('nome')
+            ->get();
+
         return view('questoes.responder', [
             'questoes' => $questoes,
             'orgaos' => Orgao::orderBy('nome')->get(),
@@ -105,6 +115,7 @@ class ConcursoController extends Controller
             'anos' => Ano::orderBy('ano', 'desc')->get(),
             'cargos' => Cargo::orderBy('nome')->get(),
             'materias' => Materia::orderBy('nome')->get(),
+            'gruposAssunto' => $gruposAssunto,
             'filtrosSalvos' => FiltroSalvo::where('user_id', $userId)->orderBy('nome')->get(),
         ]);
     }
@@ -175,7 +186,7 @@ class ConcursoController extends Controller
             'definir_padrao' => 'nullable|boolean',
         ]);
 
-        $filtrosData = $request->only(['orgao_id', 'banca_id', 'ano_id', 'cargo_id', 'materia_id']);
+        $filtrosData = $request->only(['orgao_id', 'banca_id', 'ano_id', 'cargo_id', 'materia_id', 'assunto_id']);
 
         $filtrosData = array_filter($filtrosData, function ($item) {
             return !empty($item);
