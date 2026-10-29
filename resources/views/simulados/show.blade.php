@@ -224,7 +224,7 @@
         </form>
 
     {{-- ═══════════════════════════════════════════
-         ESTADO: FINALIZADO (resumo simples por enquanto)
+         ESTADO: FINALIZADO
     ═══════════════════════════════════════════ --}}
     @elseif($simulado->status === 'finalizado')
     @php
@@ -239,7 +239,7 @@
     {{-- Resumo geral --}}
     <div class="row g-3 mb-4">
         <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm text-center h-100">
+            <div class="card border-0 shadow-sm text-center h-100 bg-body-tertiary">
                 <div class="card-body">
                     <i class="fas fa-list-ol fa-2x text-primary mb-2"></i>
                     <h3 class="fw-bold mb-0">{{ $totalQuestoes }}</h3>
@@ -248,7 +248,7 @@
             </div>
         </div>
         <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm text-center h-100">
+            <div class="card border-0 shadow-sm text-center h-100 bg-body-tertiary">
                 <div class="card-body">
                     <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
                     <h3 class="fw-bold mb-0 text-success">{{ $totalAcertos }}</h3>
@@ -257,7 +257,7 @@
             </div>
         </div>
         <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm text-center h-100">
+            <div class="card border-0 shadow-sm text-center h-100 bg-body-tertiary">
                 <div class="card-body">
                     <i class="fas fa-times-circle fa-2x text-danger mb-2"></i>
                     <h3 class="fw-bold mb-0 text-danger">{{ $totalErros }}</h3>
@@ -266,7 +266,7 @@
             </div>
         </div>
         <div class="col-6 col-md-3">
-            <div class="card border-0 shadow-sm text-center h-100">
+            <div class="card border-0 shadow-sm text-center h-100 bg-body-tertiary">
                 <div class="card-body">
                     <i class="fas fa-percent fa-2x text-info mb-2"></i>
                     <h3 class="fw-bold mb-0">{{ $aproveitamento }}%</h3>
@@ -294,9 +294,10 @@
             $acertosMat    = $questoesMat->where('correta', true)->count();
             $errosMat      = $totalMat - $acertosMat;
             $aprovMat      = $totalMat > 0 ? round($acertosMat / $totalMat * 100, 1) : 0;
+            $collapseId    = 'detalhes-materia-' . ($materia->id ?? 'sem');
         @endphp
 
-        <div class="card border-0 shadow-sm mb-3">
+        <div class="card border-0 shadow-sm mb-3 bg-body-tertiary">
             <div class="card-body">
                 <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-3">
                     <div>
@@ -310,9 +311,19 @@
                         </div>
                     </div>
 
-                    <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle px-3 py-2">
-                        {{ $aprovMat }}%
-                    </span>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary-subtle text-primary-emphasis border border-primary-subtle px-3 py-2">
+                            {{ $aprovMat }}%
+                        </span>
+                        <button type="button"
+                                class="btn btn-sm btn-outline-secondary btn-toggle-detalhes"
+                                data-target="#{{ $collapseId }}"
+                                aria-expanded="false"
+                                aria-controls="{{ $collapseId }}"
+                                title="Ver questões">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
                 </div>
 
                 {{-- Quadradinhos --}}
@@ -320,6 +331,66 @@
                     @foreach($questoesMat->sortBy('ordem') as $sq)
                         <div class="quadradinho {{ $sq->correta ? 'quadradinho-acerto' : 'quadradinho-erro' }}"
                              title="Questão #{{ $sq->ordem }} — {{ $sq->correta ? 'Acerto' : 'Erro' }}">
+                        </div>
+                    @endforeach
+                </div>
+
+                {{-- Detalhes das questões (expandível) --}}
+                <div class="mt-3 detalhes-materia" id="{{ $collapseId }}" style="display: none;">
+                    @foreach($questoesMat->sortBy('ordem') as $sq)
+                        @php
+                            $questao            = $sq->questao;
+                            $alternativaMarcada = $questao->alternativas->firstWhere('id', $sq->alternativa_id);
+                            $alternativaCorreta = $questao->alternativas->firstWhere('correta', true);
+                        @endphp
+                        <div class="card border-0 shadow-sm mb-2 bg-body">
+                            <div class="card-body p-3">
+                                <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-2">
+                                    <span class="badge {{ $sq->correta ? 'bg-success' : 'bg-danger' }} px-2 py-1">
+                                        #{{ $sq->ordem }} — {{ $sq->correta ? 'Acerto' : 'Erro' }}
+                                    </span>
+                                    <div class="d-flex flex-wrap gap-1">
+                                        @if($questao->ano)
+                                            <span class="badge bg-info-subtle text-info-emphasis border border-info-subtle">
+                                                {{ $questao->ano->ano }}
+                                            </span>
+                                        @endif
+                                        @if($questao->banca)
+                                            <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">
+                                                {{ $questao->banca->nome }}
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="small text-body mb-2" style="line-height: 1.5;">
+                                    {!! \Illuminate\Support\Str::limit(strip_tags($questao->enunciado), 220) !!}
+                                </div>
+
+                                <div class="small">
+                                    <div class="mb-1">
+                                        <i class="fas fa-hand-pointer me-1 text-body-secondary"></i>
+                                        <strong>Sua resposta:</strong>
+                                        @if($alternativaMarcada)
+                                            <span class="{{ $sq->correta ? 'text-success' : 'text-danger' }} fw-semibold">
+                                                {{ $alternativaMarcada->letra }}) {{ \Illuminate\Support\Str::limit(strip_tags($alternativaMarcada->descricao), 120) }}
+                                            </span>
+                                        @else
+                                            <span class="text-body-secondary fst-italic">Não respondida</span>
+                                        @endif
+                                    </div>
+
+                                    @if(!$sq->correta && $alternativaCorreta)
+                                        <div>
+                                            <i class="fas fa-check me-1 text-success"></i>
+                                            <strong>Resposta correta:</strong>
+                                            <span class="text-success fw-semibold">
+                                                {{ $alternativaCorreta->letra }}) {{ \Illuminate\Support\Str::limit(strip_tags($alternativaCorreta->descricao), 120) }}
+                                            </span>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -365,12 +436,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const total = {{ $simulado->total_questoes }};
         const btnFinalizar = document.getElementById('btnFinalizar');
         const contador = document.getElementById('contadorRespondidas');
-
-        // Progresso por matéria
         const abas = document.querySelectorAll('.aba-materia');
 
         function atualizar() {
-            // Agrupa respondidas por matéria
             const respondidasPorMateria = {};
             const questoesRespondidas = new Set();
 
@@ -385,11 +453,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 respondidasPorMateria[materia].add(questao);
             });
 
-            // Total geral
             contador.textContent = questoesRespondidas.size;
             btnFinalizar.disabled = questoesRespondidas.size < total;
 
-            // Atualiza badges e cores das abas
             abas.forEach(aba => {
                 const materia = aba.dataset.materia;
                 const totalMateria = parseInt(aba.dataset.total, 10);
@@ -398,7 +464,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const badge = aba.querySelector('.badge-progresso');
                 badge.textContent = `${respondidas}/${totalMateria}`;
 
-                // Remove classes de estado
                 aba.classList.remove('aba-concluida', 'aba-pendente');
                 badge.classList.remove(
                     'bg-success-subtle', 'text-success-emphasis',
@@ -424,6 +489,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         atualizar();
     }
+
+    // ===== TOGGLE CHEVRON (JS puro, sem depender do Bootstrap Collapse) =====
+    document.querySelectorAll('.btn-toggle-detalhes').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const seletor = btn.getAttribute('data-target');
+            const alvo = document.querySelector(seletor);
+            if (!alvo) {
+                console.warn('Alvo não encontrado:', seletor);
+                return;
+            }
+
+            const icon = btn.querySelector('i');
+            const visivel = alvo.style.display !== 'none';
+
+            if (visivel) {
+                alvo.style.display = 'none';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                alvo.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
 });
 </script>
 @endpush
@@ -456,12 +551,12 @@ document.addEventListener('DOMContentLoaded', function () {
         color: #fff !important;
     }
     .quadradinho {
-    width: 22px;
-    height: 22px;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    cursor: default;
-    transition: transform 0.1s ease;
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        cursor: default;
+        transition: transform 0.1s ease;
     }
     .quadradinho:hover {
         transform: scale(1.15);
@@ -473,6 +568,18 @@ document.addEventListener('DOMContentLoaded', function () {
     .quadradinho-erro {
         background-color: var(--bs-danger);
         border-color: var(--bs-danger);
+    }
+    .btn-toggle-detalhes {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-toggle-detalhes i {
+        font-size: 0.8rem;
+        transition: transform 0.15s ease;
     }
 </style>
 @endpush
