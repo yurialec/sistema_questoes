@@ -363,8 +363,13 @@
                                     </div>
                                 </div>
 
-                                <div class="small text-body mb-2" style="line-height: 1.5;">
-                                    {!! \Illuminate\Support\Str::limit(strip_tags($questao->enunciado), 220) !!}
+                                <div class="fs-5 text-body mb-3" style="line-height: 1.7;">
+                                    @if($questao->assunto)
+                                        <span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle align-middle me-2 fs-6">
+                                            <i class="fas fa-tag me-1"></i>{{ $questao->assunto->nome }}
+                                        </span>
+                                    @endif
+                                    {!! $questao->enunciado !!}
                                 </div>
 
                                 <div class="small">
