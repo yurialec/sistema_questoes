@@ -67,6 +67,38 @@
                     </select>
                 </div>
 
+                {{-- FILTRO: GRUPO DE ASSUNTO --}}
+                <div class="col-md-6 col-lg-3">
+                    <label class="form-label small fw-semibold text-body-secondary">
+                        Grupo de Assunto
+                    </label>
+
+                    <select
+                        name="grupo_assunto_id[]"
+                        id="selectGrupoAssunto"
+                        class="form-select form-select-sm tom-select"
+                        multiple
+                        placeholder="Selecione uma matéria..."
+                    >
+                    </select>
+                </div>
+
+                {{-- FILTRO: ASSUNTO --}}
+                <div class="col-md-6 col-lg-3">
+                    <label class="form-label small fw-semibold text-body-secondary">
+                        Assunto
+                    </label>
+
+                    <select
+                        name="assunto_id[]"
+                        id="selectAssunto"
+                        class="form-select form-select-sm tom-select"
+                        multiple
+                        placeholder="Selecione uma matéria..."
+                    >
+                    </select>
+                </div>
+
                 {{-- Linha de Ações e Filtros Salvos --}}
                 <div class="col-12 mt-4 border-top border-secondary-subtle pt-3">
                     <div class="row g-3 align-items-end">
@@ -375,148 +407,356 @@
 
 @push('scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Captura a estrutura agrupada dos assuntos ANTES do Tom Select inicializar.
-        const assuntosEstruturados = (() => {
-            const grupos = {};
-            document.querySelectorAll('#selectAssunto optgroup').forEach(optgroup => {
-                const label = optgroup.getAttribute('label');
-                grupos[label] = Array.from(optgroup.querySelectorAll('option')).map(option => ({
-                    value: String(option.value),
-                    text: option.textContent.trim(),
-                    materiaId: String(option.dataset.materiaId || '')
-                }));
-            });
+document.addEventListener('DOMContentLoaded', function () {
 
-            // Fallback: se não houver optgroups, monta a partir das options planas
-            if (Object.keys(grupos).length === 0) {
-                const avulsos = Array.from(document.querySelectorAll('#selectAssunto option')).map(option => ({
-                    value: String(option.value),
-                    text: option.textContent.trim(),
-                    materiaId: String(option.dataset.materiaId || '')
-                }));
-                if (avulsos.length > 0) grupos['Assuntos'] = avulsos;
-            }
+    const dadosGrupos = {{ \Illuminate\Support\Js::from($dadosGruposAssunto) }};
 
-            return grupos;
-        })();
+    const selecaoInicial = {
+        materia_id: {{ \Illuminate\Support\Js::from(request('materia_id', [])) }},
+        grupo_assunto_id: {{ \Illuminate\Support\Js::from(request('grupo_assunto_id', [])) }},
+        assunto_id: {{ \Illuminate\Support\Js::from(request('assunto_id', [])) }}
+    };
 
-        // 1. Inicializar Tom Select
-        const tomSelectInstances = {};
-        document.querySelectorAll('.tom-select').forEach(el => {
-            tomSelectInstances[el.id] = new TomSelect(el, {
-                plugins: ['remove_button'],
-                placeholder: 'Selecione...',
-                maxItems: null,
-                searchField: ['text', 'value']
+    const tomSelectInstances = {};
+
+    // ==========================================
+    // 1. INICIALIZAÇÃO DOS SELECTS
+    // ==========================================
+
+    document.querySelectorAll('.tom-select').forEach(el => {
+        tomSelectInstances[el.id] = new TomSelect(el, {
+            plugins: ['remove_button'],
+            placeholder: 'Selecione...',
+            maxItems: null,
+            searchField: ['text', 'value']
+        });
+    });
+
+    const selectMateria = tomSelectInstances.selectMateria;
+    const selectGrupo = tomSelectInstances.selectGrupoAssunto;
+    const selectAssunto = tomSelectInstances.selectAssunto;
+
+    function valoresArray(valores) {
+        if (valores === null || valores === undefined || valores === '') {
+            return [];
+        }
+
+        return (Array.isArray(valores) ? valores : [valores])
+            .map(String);
+    }
+
+    function atualizarPlaceholder(select, texto) {
+        select.settings.placeholder = texto;
+        select.inputState();
+        select.refreshOptions(false);
+    }
+
+    // ==========================================
+    // 2. ATUALIZAR GRUPOS CONFORME MATÉRIA
+    // ==========================================
+
+    function atualizarGrupos(selecionados = null) {
+
+        const materias = new Set(
+            valoresArray(selectMateria.getValue())
+        );
+
+        const anteriores = valoresArray(
+            selecionados ?? selectGrupo.getValue()
+        );
+
+        selectGrupo.clear(true);
+        selectGrupo.clearOptions();
+
+        if (materias.size === 0) {
+            atualizarPlaceholder(
+                selectGrupo,
+                'Selecione uma matéria...'
+            );
+
+            atualizarAssuntos([]);
+            return;
+        }
+
+        const gruposPermitidos = new Set();
+
+        dadosGrupos.forEach(grupo => {
+
+            const possuiAssunto = grupo.assuntos.some(assunto =>
+                materias.has(String(assunto.materia_id))
+            );
+
+            if (!possuiAssunto) return;
+
+            const id = String(grupo.id);
+
+            gruposPermitidos.add(id);
+
+            selectGrupo.addOption({
+                value: id,
+                text: grupo.nome
             });
         });
 
-        // Assuntos disponíveis dependem das matérias selecionadas.
-        const selectMateria = tomSelectInstances.selectMateria;
-        const selectAssunto = tomSelectInstances.selectAssunto;
+        const validos = anteriores.filter(id =>
+            gruposPermitidos.has(id)
+        );
 
-        function atualizarAssuntos() {
-            const materiasSelecionadas = (selectMateria.getValue() || []).map(String);
-            const assuntosSelecionados = (selectAssunto.getValue() || []).map(String);
+        if (validos.length > 0) {
+            selectGrupo.setValue(validos, true);
+        }
 
-            selectAssunto.clear(true);
-            selectAssunto.clearOptions();
+        atualizarPlaceholder(
+            selectGrupo,
+            'Selecione um grupo...'
+        );
 
-            if (materiasSelecionadas.length === 0) {
-                selectAssunto.settings.placeholder = 'Selecione uma matéria...';
-                selectAssunto.inputState();
-                selectAssunto.refreshOptions(false);
+        atualizarAssuntos();
+    }
+
+    // ==========================================
+    // 3. ATUALIZAR ASSUNTOS CONFORME
+    //    MATÉRIA E GRUPO
+    // ==========================================
+
+    function atualizarAssuntos(selecionados = null) {
+
+        const materias = new Set(
+            valoresArray(selectMateria.getValue())
+        );
+
+        const grupos = new Set(
+            valoresArray(selectGrupo.getValue())
+        );
+
+        const anteriores = valoresArray(
+            selecionados ?? selectAssunto.getValue()
+        );
+
+        selectAssunto.clear(true);
+        selectAssunto.clearOptions();
+        selectAssunto.clearOptionGroups();
+
+        if (materias.size === 0) {
+            atualizarPlaceholder(
+                selectAssunto,
+                'Selecione uma matéria...'
+            );
+            return;
+        }
+
+        const idsPermitidos = new Set();
+
+        dadosGrupos.forEach(grupo => {
+
+            const grupoId = String(grupo.id);
+
+            if (grupos.size > 0 && !grupos.has(grupoId)) {
                 return;
             }
 
-            const idsPermitidos = new Set();
-            Object.entries(assuntosEstruturados).forEach(([labelGrupo, assuntos]) => {
-                const permitidos = assuntos.filter(a => materiasSelecionadas.includes(a.materiaId));
-                if (permitidos.length === 0) return;
+            const assuntosPermitidos = grupo.assuntos.filter(assunto =>
+                materias.has(String(assunto.materia_id))
+            );
 
-                selectAssunto.addOptionGroup(labelGrupo, { label: labelGrupo });
-                permitidos.forEach(a => idsPermitidos.add(a.value));
-                selectAssunto.addOptions(permitidos.map(a => ({
-                    value: a.value,
-                    text: a.text,
-                    optgroup: labelGrupo
-                })));
+            if (assuntosPermitidos.length === 0) {
+                return;
+            }
+
+            const chaveGrupo = 'grupo_' + grupoId;
+
+            selectAssunto.addOptionGroup(chaveGrupo, {
+                label: grupo.nome
             });
 
-            const aindaValidos = assuntosSelecionados.filter(id => idsPermitidos.has(id));
-            if (aindaValidos.length > 0) {
-                selectAssunto.setValue(aindaValidos, true);
-            }
+            assuntosPermitidos.forEach(assunto => {
 
-            selectAssunto.settings.placeholder = 'Selecione...';
-            selectAssunto.inputState();
-            selectAssunto.refreshOptions(false);
-        }
+                const id = String(assunto.id);
 
-        selectMateria.on('change', atualizarAssuntos);
-        atualizarAssuntos();
+                idsPermitidos.add(id);
 
-        // 2. Lógica para Carregar Filtro Salvo
-        document.getElementById('btnCarregarFiltro').addEventListener('click', function() {
-            const select = document.getElementById('selectFiltrosSalvos');
-            const selectedOption = select.options[select.selectedIndex];
-            
-            if (selectedOption && selectedOption.value) {
-                const filtros = JSON.parse(selectedOption.dataset.filtros);
-                const mapeamento = {
-                    'orgao_id': 'selectOrgao',
-                    'banca_id': 'selectBanca',
-                    'ano_id': 'selectAno',
-                    'cargo_id': 'selectCargo',
-                    'materia_id': 'selectMateria',
-                    'assunto_id': 'selectAssunto'
-                };
-
-                for (const [chave, idSelect] of Object.entries(mapeamento)) {
-                    const valores = filtros[chave] || [];
-                    const ts = tomSelectInstances[idSelect];
-                    if (ts) {
-                        ts.clear();
-                        ts.setValue(valores);
-                    }
-                }
-            }
+                selectAssunto.addOption({
+                    value: id,
+                    text: assunto.nome,
+                    optgroup: chaveGrupo
+                });
+            });
         });
 
-        // 3. Lógica para o Modal de Salvar
-        const formSalvar = document.querySelector('#modalSalvarFiltro form');
-        if(formSalvar) {
-            formSalvar.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const mapeamento = {
-                    'orgao_id': 'selectOrgao',
-                    'banca_id': 'selectBanca',
-                    'ano_id': 'selectAno',
-                    'cargo_id': 'selectCargo',
-                    'materia_id': 'selectMateria',
-                    'assunto_id': 'selectAssunto'
-                };
+        const validos = anteriores.filter(id =>
+            idsPermitidos.has(id)
+        );
 
-                document.querySelectorAll('.input-filtro-dinamico').forEach(el => el.remove());
-
-                for (const [chave, idSelect] of Object.entries(mapeamento)) {
-                    const ts = tomSelectInstances[idSelect];
-                    if (ts) {
-                        const valores = ts.getValue();
-                        valores.forEach(valor => {
-                            const input = document.createElement('input');
-                            input.type = 'hidden';
-                            input.name = chave + '[]';
-                            input.value = valor;
-                            input.classList.add('input-filtro-dinamico');
-                            formSalvar.appendChild(input);
-                        });
-                    }
-                }
-                formSalvar.submit();
-            });
+        if (validos.length > 0) {
+            selectAssunto.setValue(validos, true);
         }
+
+        atualizarPlaceholder(
+            selectAssunto,
+            'Selecione um assunto...'
+        );
+    }
+
+    // ==========================================
+    // 4. EVENTOS DOS FILTROS DEPENDENTES
+    // ==========================================
+
+    selectMateria.on('change', function () {
+        atualizarGrupos();
     });
+
+    selectGrupo.on('change', function () {
+        atualizarAssuntos();
+    });
+
+    // Inicialização da página com os filtros
+    // recebidos pela URL ou pelo filtro padrão.
+
+    atualizarGrupos(selecaoInicial.grupo_assunto_id);
+    atualizarAssuntos(selecaoInicial.assunto_id);
+
+    // ==========================================
+    // 5. MAPEAMENTO DOS FILTROS SALVOS
+    // ==========================================
+
+    const mapeamento = {
+        orgao_id: 'selectOrgao',
+        banca_id: 'selectBanca',
+        ano_id: 'selectAno',
+        cargo_id: 'selectCargo',
+        materia_id: 'selectMateria',
+        grupo_assunto_id: 'selectGrupoAssunto',
+        assunto_id: 'selectAssunto'
+    };
+
+    // ==========================================
+    // 6. CARREGAR FILTRO SALVO
+    // ==========================================
+
+    const btnCarregar = document.getElementById('btnCarregarFiltro');
+
+    if (btnCarregar) {
+        btnCarregar.addEventListener('click', function () {
+
+            const select = document.getElementById('selectFiltrosSalvos');
+            const selectedOption = select.options[select.selectedIndex];
+
+            if (!selectedOption || !selectedOption.value) {
+                return;
+            }
+
+            let filtros;
+
+            try {
+                filtros = JSON.parse(selectedOption.dataset.filtros || '{}');
+            } catch (erro) {
+                console.error('Erro ao carregar filtro:', erro);
+                return;
+            }
+
+            // Primeiro, os filtros independentes.
+
+            [
+                'orgao_id',
+                'banca_id',
+                'ano_id',
+                'cargo_id'
+            ].forEach(chave => {
+
+                const ts = tomSelectInstances[mapeamento[chave]];
+
+                if (!ts) return;
+
+                ts.clear(true);
+                ts.setValue(valoresArray(filtros[chave]), true);
+            });
+
+            // Depois, a matéria, pois os outros
+            // dois filtros dependem dela.
+
+            selectMateria.clear(true);
+            selectMateria.setValue(
+                valoresArray(filtros.materia_id),
+                true
+            );
+
+            // Recria grupos válidos e restaura
+            // somente os grupos pertencentes à matéria.
+
+            atualizarGrupos(
+                valoresArray(filtros.grupo_assunto_id)
+            );
+
+            // Recria assuntos válidos e restaura
+            // a seleção anteriormente salva.
+
+            atualizarAssuntos(
+                valoresArray(filtros.assunto_id)
+            );
+        });
+    }
+
+    // ==========================================
+    // 7. SALVAR FILTRO ATUAL
+    // ==========================================
+
+    const formSalvar = document.querySelector(
+        '#modalSalvarFiltro form'
+    );
+
+    if (formSalvar) {
+
+        formSalvar.addEventListener('submit', function(e) {
+
+            e.preventDefault();
+
+            document.querySelectorAll(
+                '.input-filtro-dinamico'
+            ).forEach(el => el.remove());
+
+            for (const [chave, idSelect] of Object.entries(mapeamento)) {
+
+                const ts = tomSelectInstances[idSelect];
+
+                if (!ts) continue;
+
+                const valores = valoresArray(ts.getValue());
+
+                valores.forEach(valor => {
+
+                    const input = document.createElement('input');
+
+                    input.type = 'hidden';
+                    input.name = chave + '[]';
+                    input.value = valor;
+                    input.classList.add('input-filtro-dinamico');
+
+                    formSalvar.appendChild(input);
+                });
+            }
+
+            formSalvar.submit();
+        });
+    }
+
+});
 </script>
 @endpush
+<style>
+     /* Selects nativos */
+    #formFiltros select option {
+        color: #fff !important;
+    }
+
+    /* Opções do Tom Select */
+    #formFiltros .ts-dropdown .option,
+    #formFiltros .ts-dropdown .item {
+        color: #fff !important;
+    }
+
+    /* Texto das opções selecionadas e destacadas */
+    #formFiltros .ts-dropdown .option.active,
+    #formFiltros .ts-dropdown .option.selected {
+        color: #fff !important;
+    }
+</style>

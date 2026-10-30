@@ -88,12 +88,19 @@ class ConcursoController extends Controller
             $query->whereIn('cargo_id', $request->cargo_id);
         }
 
-        if ($request->filled('materia_id') && is_array($request->materia_id) && !empty($request->materia_id)) {
-            $query->whereIn('materia_id', $request->materia_id);
-        }
+        if ($request->filled('materia_id') && is_array($request->materia_id)) {
+            $query->whereIn('questoes.materia_id', $request->materia_id);
 
-        if ($request->filled('assunto_id') && is_array($request->assunto_id) && !empty($request->assunto_id)) {
-            $query->whereIn('assunto_id', $request->assunto_id);
+            if ($request->filled('grupo_assunto_id') && is_array($request->grupo_assunto_id)) {
+                $query->whereHas('assunto', function ($q) use ($request) {
+                    $q->whereIn('grupo_assunto_id', $request->grupo_assunto_id)
+                        ->whereIn('materia_id', $request->materia_id);
+                });
+            }
+
+            if ($request->filled('assunto_id') && is_array($request->assunto_id)) {
+                $query->whereIn('questoes.assunto_id', $request->assunto_id);
+            }
         }
 
         $query->orderBy('total_respostas_assunto', 'ASC')
@@ -104,9 +111,31 @@ class ConcursoController extends Controller
 
         $questoes = $query->paginate(10);
 
-        $gruposAssunto = GrupoAssunto::with(['assuntos:id,materia_id,grupo_assunto_id'])
+        $gruposAssunto = GrupoAssunto::query()
+            ->whereHas('assuntos')
+            ->with([
+                'assuntos' => function ($query) {
+                    $query
+                        ->select('id', 'nome', 'materia_id', 'grupo_assunto_id')
+                        ->orderBy('nome');
+                }
+            ])
             ->orderBy('nome')
             ->get();
+
+        $dadosGruposAssunto = $gruposAssunto->map(function ($grupo) {
+            return [
+                'id' => (string) $grupo->id,
+                'nome' => $grupo->nome,
+                'assuntos' => $grupo->assuntos->map(function ($assunto) {
+                    return [
+                        'id' => (string) $assunto->id,
+                        'nome' => $assunto->nome,
+                        'materia_id' => (string) $assunto->materia_id,
+                    ];
+                })->values()->all(),
+            ];
+        })->values()->all();
 
         return view('questoes.responder', [
             'questoes' => $questoes,
@@ -116,6 +145,7 @@ class ConcursoController extends Controller
             'cargos' => Cargo::orderBy('nome')->get(),
             'materias' => Materia::orderBy('nome')->get(),
             'gruposAssunto' => $gruposAssunto,
+            'dadosGruposAssunto' => $dadosGruposAssunto,
             'filtrosSalvos' => FiltroSalvo::where('user_id', $userId)->orderBy('nome')->get(),
         ]);
     }
