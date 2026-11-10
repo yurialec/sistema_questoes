@@ -308,7 +308,7 @@
           "conteudo": "The new cost of living in New Mexico\nALBUQUERQUE, N.M. — Prices are going up in New Mexico, especially at the grocery store. A recent study found the average New Mexican family is spending up to $286 on groceries per week – and even more when children are involved.\nAccording to the U.S. Bureau of Labor Statistics, the average price for a pound of ground beef was $5.56 last month. That’s about 20 cents cheaper than back in July, but almost a full dollar more expensive than in January 2020 – right before the pandemic hit. It’s a similar trend for milk, but a gallon is only about 50 cents more expensive than four years ago.\nEggs are half the price of what they were last winter, but that’s because there was an avian flu outbreak. Most produce items, like tomatoes and bananas, have stayed around the same price for several years now. That’s probably a good thing, because snacks are getting more expensive. Data shows the average bag of potato chips is almost $2 more expensive than four years ago. The price of chocolate chip cookies is also up almost 40%. All of those small increments add up.\nWhile it’s not likely there will be a major drop in grocery prices soon, there is some potentially good news when it comes to your housing budget. Officials with the Apartment Association of New Mexico say there are at least 40 housing projects under construction in the Albuquerque area. That is expected to bring at least 5,000 rental units to the market in the coming months. State leaders are pitching in too, with several new bills opening up millions of dollars in funding for even more housing projects. The average rent in Albuquerque is sitting at $1,340 a month – about $400 higher than in January 2020. Economists suggest an increased housing supply could reduce prices for everyone.\nThere is also evidence that wage growth is happening. Data from the U.S. Bureau of Labor Statistics showed average hourly earnings increased by 1.4% since last January. It’s worth noting wage growth rates have surpassed inflation rates since last February."
         },
         "enunciado": "In paragraph 4, the section “there are at least 40 housing projects under construction” means that new residential units",
-        "gabarito": "C",
+        "gabarito": "B",
         "alternativas": [
           {
             "letra": "A",
@@ -348,7 +348,7 @@
           "conteudo": "The new cost of living in New Mexico\nALBUQUERQUE, N.M. — Prices are going up in New Mexico, especially at the grocery store. A recent study found the average New Mexican family is spending up to $286 on groceries per week – and even more when children are involved.\nAccording to the U.S. Bureau of Labor Statistics, the average price for a pound of ground beef was $5.56 last month. That’s about 20 cents cheaper than back in July, but almost a full dollar more expensive than in January 2020 – right before the pandemic hit. It’s a similar trend for milk, but a gallon is only about 50 cents more expensive than four years ago.\nEggs are half the price of what they were last winter, but that’s because there was an avian flu outbreak. Most produce items, like tomatoes and bananas, have stayed around the same price for several years now. That’s probably a good thing, because snacks are getting more expensive. Data shows the average bag of potato chips is almost $2 more expensive than four years ago. The price of chocolate chip cookies is also up almost 40%. All of those small increments add up.\nWhile it’s not likely there will be a major drop in grocery prices soon, there is some potentially good news when it comes to your housing budget. Officials with the Apartment Association of New Mexico say there are at least 40 housing projects under construction in the Albuquerque area. That is expected to bring at least 5,000 rental units to the market in the coming months. State leaders are pitching in too, with several new bills opening up millions of dollars in funding for even more housing projects. The average rent in Albuquerque is sitting at $1,340 a month – about $400 higher than in January 2020. Economists suggest an increased housing supply could reduce prices for everyone.\nThere is also evidence that wage growth is happening. Data from the U.S. Bureau of Labor Statistics showed average hourly earnings increased by 1.4% since last January. It’s worth noting wage growth rates have surpassed inflation rates since last February."
         },
         "enunciado": "In the fragment of paragraph 4 “The average rent in Albuquerque is[...] about $400 higher than in January 2020”, the word “higher” can be replaced, with no change in meaning, by",
-        "gabarito": "A",
+        "gabarito": "E",
         "alternativas": [
           {
             "letra": "A",
@@ -874,7 +874,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Uma sociedade empresária apresentou projeto para a Caixa Econômica Federal com necessidade de expressivo aporte financeiro. Na análise realizada por técnicos da instituição, foram verificados, nessa sociedade empresária, problemas com trabalho degradante, segundo informações do órgão competente do Ministério do Trabalho.\nNos termos da Política de Responsabilidade Social, Ambiental e Climática da Caixa Econômica Federal, o financiamento pleiteado",
-        "gabarito": "B",
+        "gabarito": "C",
         "alternativas": [
           {
             "letra": "A",
@@ -950,7 +950,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Ao visualizar um amigo de infância na longa fila dos guichês de atendimento na agência bancária, um técnico bancário que realizava atendimentos por ordem de senhas pede que seu amigo ultrapasse os demais clientes para que seja desde logo atendido.\nDe acordo com os princípios constitucionais da Administração Pública, o comportamento do técnico bancário",
-        "gabarito": "A",
+        "gabarito": "B",
         "alternativas": [
           {
             "letra": "A",
@@ -1188,7 +1188,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Um desenvolvedor deseja usar a classe a seguir no projeto de que está participando:\npublic class Services{\n public int srv01(String host, int porta){ ... }\n public int srv02(String s1, int porta, int alt){ ... }\n public String srv03(int end, int porta){ ... }\n public String srv04(int end){ ... }\n}\nEntretanto, ele não deseja expor todas as funcionalidades disponibilizadas pela classe Services e, para tal, optou por encapsular esses serviços em uma classe chamada Connection, que receberá solicitações de métodos de outras classes e as repassará para um objeto da classe Services. A solução adotada para tal fim é a seguinte:\npackage pkge;\nclass Services{ ... }\npackage pkge;\npublic class Connection{\n Services s = new Services();\n public int conn1(String host){ return s.srv01(host, 1200); }\n public String conn2(String host){ return s.srv03(123456, 1200); }\n}\nQue padrão de projeto foi empregado nessa solução?",
-        "gabarito": "C",
+        "gabarito": "E",
         "alternativas": [
           {
             "letra": "A",
@@ -1264,7 +1264,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "O banco de dados do sistema acadêmico de uma universidade é composto pelas seguintes tabelas, cujas chaves primárias estão sublinhadas:\nALUNO(MATRICULA, NOME)\nCURSO(CODIGO, NOME, DATA_INICIO)\nTURMA(COD_DISCIPLINA, NUMERO)\nPROFESSOR(DEPARTAMENTO, NUMERO, NOME)\nDISCIPLINA(COD_DISCIPLINA, NOME, CARGA_HORARIA)\nPara fins de documentação, um programador resolveu criar um modelo E-R a partir do esquema desse banco de dados.\nNesse modelo E-R, a(s) entidade(s) fraca(s) é(são) APENAS:",
-        "gabarito": "B",
+        "gabarito": "A",
         "alternativas": [
           {
             "letra": "A",
@@ -1340,7 +1340,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "O comando SQL de criação de gatilhos, CREATE TRIGGER, possui algumas informações obrigatórias, dentre elas, a seguinte:",
-        "gabarito": "C",
+        "gabarito": "B",
         "alternativas": [
           {
             "letra": "A",
@@ -1416,7 +1416,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Dentre os objetivos de governança e gestão no framework do Cobit 2019, há os que incorporam a atividade de integração da gestão do risco organizacional relacionado à Tecnologia da Informação (TI) com a gestão corporativa de riscos.\nQuais objetivos são responsáveis por essa atividade?",
-        "gabarito": "E",
+        "gabarito": "A",
         "alternativas": [
           {
             "letra": "A",
@@ -1492,7 +1492,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Um programador utiliza C# para implementar uma função de verificação de saldo em um sistema bancário. Quando o saldo da conta é insuficiente para uma retirada, essa função, denominada aviso, deve exibir uma mensagem indicando essa situação.\nQue trecho de código mostra como essa decisão pode ser escrita em C#?",
-        "gabarito": "D",
+        "gabarito": "B",
         "alternativas": [
           {
             "letra": "A",
@@ -1568,7 +1568,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Uma equipe de desenvolvimento de um software para gerência de finanças pessoais decidiu adotar uma abordagem ágil, utilizando Histórias do Usuário para capturar requisitos funcionais. Essa técnica tem como característica descrever as funcionalidades do software do ponto de vista do usuário final. Para assegurar uma compreensão comum entre todos os envolvidos no projeto, é fundamental que a equipe entenda os componentes de uma História do Usuário.\nOs três componentes principais de uma História do Usuário são",
-        "gabarito": "D",
+        "gabarito": "A",
         "alternativas": [
           {
             "letra": "A",
@@ -1606,7 +1606,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Uma equipe de desenvolvimento ágil decidiu utilizar Pontos de História (Story Points) para estimar o esforço necessário para implementar as funcionalidades descritas no seu Product Backlog, na forma de Histórias do Usuário.\nConsiderando-se esse contexto, a técnica de Pontos de História ajuda a equipe a compreender o trabalho envolvido em cada história por",
-        "gabarito": "C",
+        "gabarito": "E",
         "alternativas": [
           {
             "letra": "A",
@@ -1644,7 +1644,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Ao analisar o código de um grande programa em Cobol para conversão para Java, um técnico de informática precisa encontrar as declarações PICTURE (ou PIC).\nConsiderando-se esse contexto, em qual divisão (DIVISION) o técnico encontrará essas declarações?",
-        "gabarito": "E",
+        "gabarito": "B",
         "alternativas": [
           {
             "letra": "A",
@@ -1682,7 +1682,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "No contexto de desenvolvimento e manutenção de software, o CMMI (Capability Maturity Model Integration) e o MPS.BR (Melhoria de Processo do Software Brasileiro) são reconhecidos por promoverem a melhoria da qualidade e da maturidade dos processos organizacionais na área de TI. Ambos os modelos apresentam níveis de maturidade que refletem a capacidade e a eficácia dos processos de uma organização, porém o MPS.BR é mais detalhado que o CMMI ao definir os seus níveis.\nLevando-se em conta as especificidades e a relação entre os níveis dos dois modelos, o nível 5 do CMMI, quanto ao seu foco principal, é alinhado ao(s)",
-        "gabarito": "B",
+        "gabarito": "C",
         "alternativas": [
           {
             "letra": "A",
@@ -1720,7 +1720,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "A análise por Pontos de Função é uma metodologia utilizada para estimar o tamanho e o esforço necessários para o desenvolvimento e manutenção de software a partir de diversos tipos de funções.\nQuais são as categorias de funções medidas na análise por Pontos de Função?",
-        "gabarito": "C",
+        "gabarito": "D",
         "alternativas": [
           {
             "letra": "A",
@@ -1910,7 +1910,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Um programador está desenvolvendo um servlet em Java que processa requisições HTTP do tipo GET, que trazem vários parâmetros e seus respectivos valores, obtidos de um formulário HTML. Para isso, ele tem que implementar a função doGet, com o seguinte formato geral:\nprotected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n // Lógica de tratamento da requisição\n}\nPara recuperar o valor da variável idade na forma de um inteiro, que fragmento de código o programador deve usar?",
-        "gabarito": "B",
+        "gabarito": "A",
         "alternativas": [
           {
             "letra": "A",
@@ -1948,7 +1948,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Em um contrato para o desenvolvimento de um software de gestão empresarial, uma cláusula específica solicita a execução, pelo fornecedor, de um “teste alfa” antes da entrega do produto ao cliente.\nPara atender a essa cláusula do contrato, o fornecedor deve",
-        "gabarito": "C",
+        "gabarito": "E",
         "alternativas": [
           {
             "letra": "A",
@@ -1986,7 +1986,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Um time de cientistas de dados usa a linguagem Python e o pacote Numpy para desenvolver um sistema de recomendação que utiliza perfis de usuário baseados em vetores, nos quais cada elemento representa a afinidade do usuário por um determinado produto bancário. Considere dois perfis de usuários, X e Y, e seus respectivos vetores, usuarioX e usuarioY. Para identificar se esses usuários têm gostos similares e fazer recomendações precisas, é crucial calcular a similaridade entre seus perfis.\nUma das métricas utilizadas para esse fim é o cosseno da similaridade, calculado a partir do produto escalar entre os dois vetores de perfis de usuário dividido pelo produto das magnitudes desses vetores.\nConsiderando-se esse contexto, qual fragmento de código calcula corretamente o produto escalar entre os dois vetores, usuarioX e usuarioY?",
-        "gabarito": "E",
+        "gabarito": "B",
         "alternativas": [
           {
             "letra": "A",
@@ -2034,7 +2034,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "No seu processo de socialização num Banco público, um novo funcionário teve cada um dos seus diferentes domínios de inteligência emocional avaliados segundo cinco categorias de questões, sendo cada categoria usada para avaliar um determinado domínio.\nCategoria I: Reconhece as suas próprias emoções? Conhece os seus próprios pontos fortes e limitações? Tem certeza do próprio valor e da própria capacidade?\nCategoria II: Sabe lidar com emoções perturbadoras e com impulsos? Assume a responsabilidade pelo seu desempenho? Sente-se à vontade e aberto diante de novas ideias, de novo enfoque e de novas informações?\nCategoria III: Esforça-se para melhorar ou para satisfazer um padrão de excelência? Alinha-se com as metas do grupo ou organização? Está pronto para agir diante das oportunidades? Persiste na perseguição das metas a despeito de obstáculos e de reveses?\nCategoria IV: Pressente os sentimentos e perspectivas dos outros e assume um interesse ativo por suas preocupações? Cultiva oportunidades através de diferentes tipos de pessoas? Lê as correntes emocionais e os relacionamentos de poder de um grupo?\nCategoria V: Implementa táticas eficazes de persuasão? Emite mensagens claras e convincentes? Inspira e guia grupos e pessoas? Inicia ou administra mudanças? Estimula os relacionamentos produtivos? Trabalha com os outros, rumo a metas compartilhadas?\nComo resultado, o novo funcionário foi muito bem avaliado nas categorias I, III e IV e, nas categorias II e V, foi avaliado como tendo pontos a melhorar.\nDiante do exposto, esse funcionário deve melhorar, quanto às categorias II e V, respectivamente, em pontos referentes aos seguintes domínios:",
-        "gabarito": "B",
+        "gabarito": "E",
         "alternativas": [
           {
             "letra": "A",
@@ -2110,7 +2110,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "Há duas formas comuns para representar um número inteiro em binário: a sinal-magnitude e a complemento de dois. Enquanto na primeira há duas representações para o valor zero, na segunda há apenas uma representação do valor zero.\nA representação do número inteiro -127 em complemento de dois é",
-        "gabarito": "C",
+        "gabarito": "D",
         "alternativas": [
           {
             "letra": "A",
@@ -2148,7 +2148,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "O Sistema Operacional controla a utilização dos recursos de hardware pelos processos. Dentre as suas principais funções, está a de adotar critérios para determinar a ordem de execução dos processos, dentre os que concorrem pela utilização do processador.\nEsses critérios são definidos pela política de",
-        "gabarito": "A",
+        "gabarito": "C",
         "alternativas": [
           {
             "letra": "A",
@@ -2186,7 +2186,7 @@
         "tabela_html": null,
         "texto_complementar": null,
         "enunciado": "No ambiente Linux, a execução de determinados comandos requer privilégios de root. Por questões de segurança, não é recomendado fazer login como root para obter uma shell com privilégio de root.\nUma abordagem mais segura é fazer login como usuário sem privilégio e executar comandos que requerem privilégios elevados, usando o comando",
-        "gabarito": "D",
+        "gabarito": "E",
         "alternativas": [
           {
             "letra": "A",
