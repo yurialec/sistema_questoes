@@ -25,16 +25,33 @@ class ConcursoController extends Controller
     public function responder(Request $request)
     {
         $user = Auth::user();
-        $queryParams = $request->query();
         $userId = $user->id;
 
-        if (empty($queryParams)) {
+        if ($request->filled('filtro_salvo_id')) {
+            $filtro = FiltroSalvo::where('user_id', $userId)
+                ->find($request->input('filtro_salvo_id'));
+
+            if ($filtro) {
+                $request->merge(array_replace(
+                    $filtro->filtros ?? [],
+                    $request->only([
+                        'orgao_id',
+                        'banca_id',
+                        'ano_id',
+                        'cargo_id',
+                        'materia_id',
+                        'assunto_id',
+                        'grupo_assunto_id',
+                    ])
+                ));
+            }
+        } elseif (empty($request->query())) {
             $filtroPadrao = FiltroSalvo::where('user_id', $userId)
                 ->where('is_padrao', true)
                 ->first();
 
             if ($filtroPadrao) {
-                $request->merge($filtroPadrao->filtros);
+                $request->merge($filtroPadrao->filtros ?? []);
             }
         }
 

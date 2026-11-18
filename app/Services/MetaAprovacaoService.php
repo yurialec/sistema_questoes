@@ -19,7 +19,14 @@ class MetaAprovacaoService
 
         $cargo = Cargo::findOrFail($cargoId);
 
-        $filtros = ['cargo_id' => [$cargoId]];
+        $filtros = [
+            'cargo_id' => [$cargoId],
+        ];
+
+        if ($cargo->orgao_id) {
+            $filtros['orgao_id'] = [$cargo->orgao_id];
+        }
+
         if (!empty($anos)) {
             $filtros['ano_id'] = $anos;
         }

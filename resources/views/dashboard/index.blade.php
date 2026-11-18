@@ -124,7 +124,11 @@
                             <h2 class="fw-bold mb-2 text-body">{{ $sugestaoHoje->nome }}</h2>
                         </div>
                         <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                            <a href="{{ route('responder', ['materia_id' => [$sugestaoHoje->id]]) }}" class="btn btn-primary fw-semibold px-4">
+                            @php
+                                $filtrosEstudarAgora = ($metaAtiva && $metaAtiva->filtroSalvo) ? $metaAtiva->filtroSalvo->filtros : [];
+                                $filtrosEstudarAgora['materia_id'] = [$sugestaoHoje->id];
+                            @endphp
+                            <a href="{{ route('responder', $filtrosEstudarAgora) }}" class="btn btn-primary fw-semibold px-4">
                                 <i class="fas fa-play me-2"></i> Estudar Agora
                             </a>
                         </div>
