@@ -20,12 +20,25 @@
                         <i class="fas fa-filter me-1"></i> Filtrar
                     </button>
                 </div>
+                @if($modoFiltro)
+                    <div class="col-md-2">
+                        <a href="{{ route('caderno-erros.index') }}" class="btn btn-outline-secondary w-100 fw-semibold">
+                            <i class="fas fa-rotate-left me-1"></i> Voltar ao padrão
+                        </a>
+                    </div>
+                @endif
             </form>
+            @if(!$modoFiltro && $erros->isNotEmpty())
+                <p class="small text-body-secondary mb-0 mt-2">
+                    <i class="fas fa-circle-info me-1"></i>
+                    Exibindo erros pendentes do dia {{ \Carbon\Carbon::parse($dataFiltro)->format('d/m/Y') }} (dia mais antigo com pendências).
+                </p>
+            @endif
         </div>
     </div>
 
     @forelse($erros as $erro)
-        <div class="card border-0 shadow-sm mb-4 border-start border-4 border-danger">
+        <div class="card border-0 shadow-sm mb-4 border-start border-4 {{ $erro->status === 'pendente' ? 'border-danger' : 'border-secondary' }}">
             
             {{-- CABEÇALHO DA QUESTÃO --}}
             <div class="card-header bg-body-tertiary border-bottom border-secondary-subtle py-3">
@@ -35,6 +48,15 @@
                             <span class="badge bg-danger px-3 py-2 fs-6 fw-bold shadow-sm">
                                 Erro em {{ $erro->created_at->format('d/m/Y H:i') }}
                             </span>
+                            @if($erro->status === 'pendente')
+                                <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-1 fw-semibold">
+                                    Pendente
+                                </span>
+                            @else
+                                <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle px-2 py-1 fw-semibold">
+                                    Superado
+                                </span>
+                            @endif
                             <span class="text-body-secondary small fw-medium">
                                 {{ $erro->questao->cargo->orgao->nome ?? 'Órgão não informado' }}
                             </span>
@@ -175,8 +197,13 @@
     @empty
         <div class="card border-0 shadow-sm text-center py-5 bg-body-tertiary">
             <div class="card-body">
-                <h5 class="text-body fw-bold mb-2">Nenhum erro registrado nesta data.</h5>
-                <p class="text-body-secondary small mb-4">Continue estudando! Se errar, o sistema registrará aqui para sua revisão.</p>
+                @if($modoFiltro)
+                    <h5 class="text-body fw-bold mb-2">Nenhum erro registrado em {{ \Carbon\Carbon::parse($dataFiltro)->format('d/m/Y') }}.</h5>
+                    <p class="text-body-secondary small mb-4">Escolha outra data ou volte ao padrão.</p>
+                @else
+                    <h5 class="text-body fw-bold mb-2">Você não tem erros pendentes de revisão. 🎉</h5>
+                    <p class="text-body-secondary small mb-4">Continue estudando! Se errar, o sistema registrará aqui para sua revisão.</p>
+                @endif
                 <a href="{{ route('responder') }}" class="btn btn-primary px-4 fw-semibold">
                     <i class="fas fa-play me-1"></i> Voltar a responder
                 </a>
