@@ -1,11 +1,13 @@
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top" id="mainNavigation">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNavigation">
+    <div class="container-fluid px-3 px-lg-4">
 
         <a href="{{ route('dashboard') }}"
            class="navbar-brand fw-bold d-flex align-items-center gap-2">
-            <i class="fas fa-house text-primary"></i>
-            <span>Home</span>
+            <span class="brand-mark" aria-hidden="true">
+                <i class="fas fa-graduation-cap"></i>
+            </span>
+            <span>Sistema de Questões</span>
         </a>
 
         <button class="navbar-toggler border-0 shadow-none"
@@ -24,7 +26,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('responder') }}">
+                    <a class="nav-link {{ request()->routeIs('responder') ? 'active' : '' }}" href="{{ route('responder') }}" @if(request()->routeIs('responder')) aria-current="page" @endif>
                         <i class="fas fa-play me-2"></i>
                         Responder
                     </a>
@@ -32,7 +34,7 @@
 
                 {{-- Dropdown Relatórios --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"
+                    <a class="nav-link dropdown-toggle {{ request()->routeIs('dashboard.desempenho-materia', 'relatorios.curva') ? 'active' : '' }}"
                        href="#"
                        role="button"
                        data-bs-toggle="dropdown"
@@ -61,14 +63,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('caderno-erros.index') }}">
+                    <a class="nav-link {{ request()->routeIs('caderno-erros.index') ? 'active' : '' }}" href="{{ route('caderno-erros.index') }}" @if(request()->routeIs('caderno-erros.index')) aria-current="page" @endif>
                         <i class="fas fa-book me-2 d-lg-none"></i>
                         Caderno de Erros
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('simulados.index') }}">
+                    <a class="nav-link {{ request()->routeIs('simulados.*') ? 'active' : '' }}" href="{{ route('simulados.index') }}" @if(request()->routeIs('simulados.*')) aria-current="page" @endif>
                         <i class="fas fa-clipboard-check me-2 d-lg-none"></i>
                         Simulado
                     </a>
@@ -76,7 +78,7 @@
 
                 @if(auth()->user()->is_admin)
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-warning fw-medium"
+                        <a class="nav-link dropdown-toggle text-warning fw-medium {{ request()->routeIs('admin.*') ? 'active-admin' : '' }}"
                            href="#"
                            role="button"
                            data-bs-toggle="dropdown"
@@ -178,11 +180,50 @@
 </nav>
 
 <style>
+    #mainNavigation {
+        min-height: 64px;
+        background: rgba(33, 37, 41, 0.96);
+        border-bottom: 1px solid var(--bs-border-color);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        --main-nav-accent: #344d90;
+    }
+
+    #mainNavigation .container-fluid {
+        max-width: 1440px;
+    }
+
+    #mainNavigation .navbar-brand {
+        color: var(--bs-body-color);
+        letter-spacing: -.02em;
+    }
+
+    #mainNavigation .brand-mark {
+        width: 36px;
+        height: 36px;
+        display: inline-grid;
+        place-items: center;
+        border: 1px solid rgba(var(--bs-primary-rgb), 0.35);
+        border-radius: 10px;
+        color: #fff;
+        background: linear-gradient(120deg, #25365e, var(--main-nav-accent));
+        box-shadow: 0 6px 18px rgba(52, 77, 144, 0.18);
+    }
+
     /* Navegação geral */
     #mainNavigation .navbar-nav .nav-link {
         transition: color 0.2s ease, background-color 0.2s ease;
-        border-radius: 0.375rem;
+        border-radius: 10px;
         padding: 0.65rem 0.75rem !important;
+        color: var(--bs-secondary-color);
+    }
+
+    #mainNavigation .navbar-nav .nav-link.active,
+    #mainNavigation .navbar-nav .nav-link.show {
+        color: var(--bs-primary) !important;
+        background: rgba(var(--bs-primary-rgb), 0.12);
+        font-weight: 600;
     }
 
     #mainNavigation .navbar-nav .nav-link:hover {
@@ -199,6 +240,38 @@
     #mainNavigation .dropdown-item:hover {
         background-color: rgba(var(--bs-primary-rgb), 0.08);
         color: var(--bs-primary);
+    }
+
+    #mainNavigation .dropdown-menu {
+        min-width: 220px;
+        margin-top: 0.55rem;
+        padding: 0.45rem;
+        border: 1px solid var(--bs-border-color);
+        border-radius: 12px;
+        background: var(--bs-body-bg);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22) !important;
+    }
+
+    #mainNavigation .navbar-toggler {
+        color: var(--bs-secondary-color);
+        border: 1px solid var(--bs-border-color) !important;
+        border-radius: 10px;
+    }
+
+    #mainNavigation .navbar-nav .nav-link.active-admin,
+    #mainNavigation .navbar-nav .nav-link.active-admin.show {
+        color: var(--bs-warning) !important;
+        background: rgba(var(--bs-warning-rgb), 0.10);
+    }
+
+    #mainNavigation .user-menu-button {
+        width: 40px;
+        height: 40px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 10px;
+        border: 1px solid var(--bs-border-color) !important;
+        background: rgba(var(--bs-secondary-rgb), 0.08);
     }
 
     #mainNavigation .dropdown-item.text-danger:hover {

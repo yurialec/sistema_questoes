@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/dashboard/dominio-bancas', [DominioBancaController::class, 'store'])->name('dashboard.dominio-bancas.store');
+    Route::delete('/dashboard/dominio-bancas/{dominioBanca}', [DominioBancaController::class, 'destroy'])->name('dashboard.dominio-bancas.destroy');
     Route::get('/dashboard/desempenho-materia', [DashboardController::class, 'desempenhoPorMateria'])->name('dashboard.desempenho-materia');
     Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
     // Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);

@@ -14,6 +14,8 @@
     <!-- Tom Select CSS (Versão específica para Bootstrap 5, herda o Dark Mode automaticamente) -->
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
 
+    @include('components.global-styles')
+
     @stack('styles')
     
     <!-- TinyMCE (Mantido exatamente como estava para não quebrar sua configuração de upload e plugins) -->

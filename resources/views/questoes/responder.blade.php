@@ -2,13 +2,73 @@
 
 @section('title', 'Filtrar Questões')
 
+@push('styles')
+<style>
+    .study-responder {
+        --sr-surface: var(--bs-body-bg, #212529);
+        --sr-muted: var(--bs-secondary-color, #94a3b8);
+        --sr-line: var(--bs-border-color, #343a40);
+        --sr-track: var(--bs-tertiary-bg, #2b3035);
+        --sr-accent: var(--bs-primary, #4f46e5);
+        max-width: 1440px;
+        margin: 0 auto;
+        color: var(--bs-body-color);
+    }
+    .sr-heading { font-size: clamp(1.55rem, 2.5vw, 2rem); font-weight: 750; letter-spacing: -.035em; margin: 0; }
+    .sr-subtitle { color: var(--sr-muted); font-size: .875rem; margin: .35rem 0 0; }
+    .sr-card { background: var(--sr-surface); border: 1px solid var(--sr-line); border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,.10); }
+    .sr-filter-card { margin-bottom: 1.25rem; overflow: hidden; }
+    .sr-filter-card .card-body { padding: 1.25rem; }
+    .sr-filter-card .form-label { color: var(--sr-muted); font-size: .78rem; letter-spacing: .01em; margin-bottom: .45rem; }
+    .sr-filter-card .border-top { border-color: var(--sr-line) !important; }
+    .sr-question { border: 1px solid var(--sr-line) !important; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,.10); background: var(--sr-surface); transition: border-color .18s ease, box-shadow .18s ease; }
+    .sr-question:hover { border-color: rgba(var(--bs-primary-rgb), .42) !important; box-shadow: 0 16px 36px rgba(0,0,0,.16); }
+    .sr-question .card-header { background: var(--sr-track) !important; border-bottom: 1px solid var(--sr-line) !important; }
+    .sr-question-number { min-width: 48px; border-radius: 10px; background: linear-gradient(120deg, #25365e, #344d90) !important; }
+    .sr-question .card-body { padding: clamp(1rem, 2.5vw, 1.75rem); }
+    .sr-complementary { border: 1px solid var(--sr-line); border-radius: 12px; background: var(--sr-track); color: var(--bs-body-color); }
+    .sr-complementary:hover { border-color: rgba(var(--bs-primary-rgb), .45); color: var(--bs-primary); }
+    .sr-complementary-content { border: 1px solid var(--sr-line); border-radius: 12px; background: var(--sr-track); }
+    .sr-alternative { position: relative; border: 1px solid var(--sr-line) !important; border-radius: 12px !important; background: var(--sr-track) !important; cursor: pointer; transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+    .sr-alternative:hover { border-color: rgba(var(--bs-primary-rgb), .55) !important; background: rgba(var(--bs-primary-rgb), .08) !important; transform: translateY(-1px); }
+    .sr-alternative.selected { border-color: var(--bs-primary) !important; background: rgba(var(--bs-primary-rgb), .12) !important; box-shadow: inset 3px 0 0 var(--bs-primary); }
+    .sr-alternative .form-check-input { width: 1.1em; height: 1.1em; margin-top: .18em; }
+    .sr-alternative .form-check-label { cursor: pointer; line-height: 1.55; }
+    .sr-submit { min-height: 46px; border-radius: 10px; font-weight: 700; }
+    .sr-results-count { border: 1px solid var(--sr-line) !important; border-radius: 10px; background: var(--sr-track) !important; color: var(--sr-muted) !important; }
+    .sr-empty { border: 1px dashed var(--sr-line); border-radius: 16px; background: var(--sr-surface); }
+    .study-responder .form-control, .study-responder .form-select,
+    .study-responder .ts-control { border-color: var(--sr-line); border-radius: 10px; background: var(--sr-track); color: var(--bs-body-color); }
+    .study-responder .form-control:focus, .study-responder .form-select:focus,
+    .study-responder .ts-control.focus { border-color: var(--bs-primary); box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .12); }
+    .study-responder .modal-content { border: 1px solid var(--sr-line); border-radius: 16px; background: var(--sr-surface); }
+    .study-responder .modal-header, .study-responder .modal-footer { border-color: var(--sr-line) !important; background: var(--sr-track); }
+    .study-responder .pagination { gap: .35rem; }
+    .study-responder .page-link { border: 1px solid var(--sr-line); border-radius: 8px !important; background: var(--sr-surface); color: var(--bs-body-color); }
+    .study-responder .page-link:hover { background: var(--sr-track); color: var(--bs-primary); }
+    @media (max-width: 991.98px) { .study-responder { padding-left: .25rem; padding-right: .25rem; } .sr-filter-card .card-body { padding: 1rem; } }
+    @media (max-width: 575.98px) {
+        .sr-question { border-radius: 12px; }
+        .sr-question .card-header { padding: .9rem 1rem !important; }
+        .sr-question .card-body { padding: 1rem; }
+        .sr-question .enunciado-content { font-size: 1rem !important; }
+        .sr-submit { width: 100%; }
+        .sr-filter-card .btn { min-height: 42px; }
+    }
+</style>
+@endpush
+
 @section('content')
-<div class="container py-4">
+<div class="study-responder container-fluid px-3 px-lg-4 py-4">
+    <header class="mb-4">
+        <h1 class="sr-heading">Banco de questões</h1>
+        <p class="sr-subtitle">Filtre, pratique e acompanhe sua evolução por assunto.</p>
+    </header>
     
     {{-- ══════════════════════════════════════════════
          FORMULÁRIO DE FILTROS
     ═══════════════════════════════════════════════ --}}
-    <div class="card border-0 shadow-sm mb-4 bg-body-tertiary">
+    <div class="card sr-card sr-filter-card">
         <div class="card-body">
             <form method="GET" action="{{ route('responder') }}" id="formFiltros" class="row g-3">
 
@@ -145,7 +205,7 @@
                                 </form>
                             @endif
 
-                            <span class="badge bg-body text-body-secondary border border-secondary-subtle ms-auto d-flex align-items-center px-3 py-2">
+                            <span class="badge sr-results-count ms-auto d-flex align-items-center px-3 py-2">
                                 <i class="fas fa-list-ol me-2"></i>
                                 {{ $questoes->total() }} {{ Str::plural('questão encontrada', $questoes->total()) }}
                             </span>
@@ -204,13 +264,13 @@
          LISTAGEM DE QUESTÕES
     ═══════════════════════════════════════════════ --}}
     @forelse($questoes as $questao)
-    <div class="card border-0 shadow-sm mb-4">
+    <div class="card sr-question mb-4">
         <div class="card-header bg-body-tertiary border-bottom border-secondary-subtle py-3">
             <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
                 
                 <div class="d-flex flex-column gap-2">
                     <div class="d-flex align-items-center gap-2 flex-wrap">
-                        <span class="badge bg-primary px-3 py-2 fs-6 fw-bold shadow-sm">
+                        <span class="badge sr-question-number px-3 py-2 fs-6 fw-bold shadow-sm">
                             #{{ $questao->numero ?? $questao->id }}
                         </span>
                         <span class="text-body-secondary small fw-medium">
@@ -246,13 +306,13 @@
 
             @if($questao->texto_complementar_id && $questao->textoComplementar)
             <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-outline-info d-flex align-items-center justify-content-between px-3 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTexto{{ $questao->id }}">
+                <button class="btn sr-complementary d-flex align-items-center justify-content-between px-3 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTexto{{ $questao->id }}">
                     <span class="fw-medium small">Ver Texto Complementar</span>
                     <span class="icon-toggle ms-2 fs-5 fw-bold lh-1" id="iconText{{ $questao->id }}">+</span>
                 </button>
             </div>
             <div class="collapse" id="collapseTexto{{ $questao->id }}">
-                <div class="bg-body-tertiary p-3 rounded border-start border-4 border-info-subtle mb-4">
+                <div class="sr-complementary-content p-3 mb-4">
                     {!! $questao->textoComplementar->conteudo !!}
                 </div>
             </div>
@@ -275,7 +335,7 @@
                 <fieldset>
                     <legend class="fs-6 text-body-secondary mb-3 fw-semibold text-uppercase" style="letter-spacing: 0.05em;">Alternativas</legend>
                     @foreach($questao->alternativas->shuffle() as $alternativa)
-                    <div class="form-check p-3 mb-3 rounded border border-secondary-subtle bg-body-tertiary">
+                    <div class="form-check sr-alternative p-3 mb-3">
                         <input class="form-check-input mt-1" type="radio" name="alternativa_id" id="alt_{{ $questao->id }}_{{ $alternativa->letra }}" value="{{ $alternativa->id }}" required>
                         <label class="form-check-label w-100 ps-2" for="alt_{{ $questao->id }}_{{ $alternativa->letra }}">
                             <strong class="text-primary me-1">{{ $alternativa->letra }})</strong> 
@@ -291,7 +351,7 @@
                     @endforeach
                 </fieldset>
                 <div class="d-grid gap-2 d-md-block mt-4">
-                    <button type="submit" class="btn btn-primary px-5 fw-semibold shadow-sm">
+                    <button type="submit" class="btn btn-primary sr-submit px-5 fw-semibold shadow-sm">
                         <i class="fas fa-check-circle me-1"></i> Responder Questão
                     </button>
                 </div>
@@ -299,7 +359,7 @@
         </div>
     </div>
     @empty
-    <div class="alert alert-warning text-center py-5 border-0 shadow-sm">
+    <div class="sr-empty text-center py-5">
         <i class="fas fa-search mb-2 d-block fs-1 text-warning-emphasis"></i>
         Nenhuma questão encontrada com os filtros selecionados.
     </div>
@@ -399,6 +459,16 @@
                         iconSpan.classList.replace('text-body', 'text-info');
                     }
                 }, 50);
+            });
+        });
+
+        document.querySelectorAll('.sr-alternative input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const fieldset = this.closest('fieldset');
+                fieldset.querySelectorAll('.sr-alternative').forEach(alternative => {
+                    alternative.classList.remove('selected');
+                });
+                this.closest('.sr-alternative').classList.add('selected');
             });
         });
     });
@@ -743,20 +813,23 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 @endpush
 <style>
-     /* Selects nativos */
-    #formFiltros select option {
-        color: #fff !important;
+    #formFiltros .ts-wrapper.multi .ts-control > div {
+        border: 1px solid var(--bs-border-color);
+        border-radius: 7px;
+        background: rgba(var(--bs-primary-rgb), .10);
+        color: var(--bs-body-color);
     }
 
-    /* Opções do Tom Select */
-    #formFiltros .ts-dropdown .option,
-    #formFiltros .ts-dropdown .item {
-        color: #fff !important;
+    #formFiltros .ts-dropdown {
+        border: 1px solid var(--bs-border-color);
+        border-radius: 10px;
+        background: var(--bs-body-bg);
+        box-shadow: 0 16px 36px rgba(0,0,0,.22);
     }
 
-    /* Texto das opções selecionadas e destacadas */
     #formFiltros .ts-dropdown .option.active,
     #formFiltros .ts-dropdown .option.selected {
-        color: #fff !important;
+        background: rgba(var(--bs-primary-rgb), .12);
+        color: var(--bs-primary);
     }
 </style>

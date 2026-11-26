@@ -64,4 +64,13 @@ class DominioBancaController extends Controller
 
         return redirect()->route('dashboard')->with('success', $mensagem);
     }
+
+    public function destroy(DominioBanca $dominioBanca)
+    {
+        abort_if($dominioBanca->user_id !== Auth::id(), 403);
+
+        $dominioBanca->delete();
+
+        return redirect()->back()->with('success', 'Domínio da banca excluído com sucesso!');
+    }
 }

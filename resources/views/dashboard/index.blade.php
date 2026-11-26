@@ -221,7 +221,17 @@
                 @foreach($dominiosBanca as $dominio)
                     @php $porcentagemDominio = $dominio->porcentagemDominio(); $dominioPct = max(0, min(100, (float) $porcentagemDominio)); @endphp
                     <article class="sd-bank">
-                        <div class="d-flex align-items-start justify-content-between gap-2 mb-3"><h3>{{ $dominio->banca->nome }}</h3><strong class="text-primary">{{ $porcentagemDominio }}%</strong></div>
+                        <div class="d-flex align-items-start justify-content-between gap-2 mb-3">
+                            <h3>{{ $dominio->banca->nome }}</h3>
+                            <div class="d-flex align-items-center gap-2">
+                                <form action="{{ route('dashboard.dominio-bancas.destroy', $dominio) }}" method="POST" class="m-0" onsubmit="return confirm('Tem certeza que deseja excluir o domínio desta banca?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary sd-delete" aria-label="Excluir domínio de {{ $dominio->banca->nome }}" title="Excluir domínio"><i class="fa-solid fa-trash-can" aria-hidden="true"></i></button>
+                                </form>
+                                <strong class="text-primary">{{ $porcentagemDominio }}%</strong>
+                            </div>
+                        </div>
                         <div class="progress sd-progress mb-3" role="progressbar" aria-label="Domínio de {{ $dominio->banca->nome }}" aria-valuenow="{{ $dominioPct }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width: {{ $dominioPct }}%"></div></div>
                         <div class="d-flex flex-wrap justify-content-between gap-2 sd-quiet"><span>Acertos: <strong style="color:var(--sd-green)">{{ $dominio->qtd_acertos }}</strong></span><span>Erros: <strong style="color:var(--sd-red)">{{ $dominio->qtd_erros }}</strong></span></div>
                         <div class="sd-quiet mt-2">Total de questões da banca: {{ $dominio->total_questoes_banca }}</div>
