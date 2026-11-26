@@ -5,22 +5,14 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
-use App\Models\Orgao;
-use App\Models\Banca;
-use App\Models\Ano;
-use App\Models\Cargo;
-use App\Models\Materia;
-use App\Models\Assunto;
-use App\Models\Questao;
-use App\Models\Alternativa;
-use App\Models\TextoComplementar;
+use App\Services\JsonQuestoesImporter;
 
 class JsonQuestoesSeeder extends Seeder
 {
     public function run(): void
     {
         $arquivos = File::files(database_path('imports'));
+        $importador = app(JsonQuestoesImporter::class);
 
         $totalGeralQuestoes = 0;
 
@@ -38,8 +30,8 @@ class JsonQuestoesSeeder extends Seeder
                 $totalQuestoesArquivo = 0;
 
                 foreach ($blocos as $bloco) {
-                    $qtd = DB::transaction(function () use ($bloco, $arquivo) {
-                        return $this->importarBloco($bloco, $arquivo->getFilename());
+                    $qtd = DB::transaction(function () use ($bloco, $arquivo, $importador) {
+                        return $importador->importarBloco($bloco, $arquivo->getFilename());
                     });
 
                     $totalQuestoesArquivo += $qtd;
@@ -57,93 +49,5 @@ class JsonQuestoesSeeder extends Seeder
         }
 
         $this->command->info("Total de questões importadas: {$totalGeralQuestoes}");
-    }
-
-    private function importarBloco(array $bloco, string $nomeArquivo): int
-    {
-        try {
-            // ---- Órgão / Banca / Ano: reutiliza se já existir ----
-            $orgao = Orgao::firstOrCreate(['nome' => $bloco['orgao']]);
-            $banca = Banca::firstOrCreate(['nome' => $bloco['banca']]);
-            $ano   = Ano::firstOrCreate(['ano'   => $bloco['ano']]);
-
-            // ---- Cargo: único por (nome + orgao_id) ----
-            $cargo = Cargo::firstOrCreate([
-                'nome'     => $bloco['cargo'],
-                'orgao_id' => $orgao->id,
-            ]);
-
-            // ---- Matéria ----
-            $materia = Materia::firstOrCreate(
-                ['nome' => $bloco['materia']],
-                ['tipo' => $bloco['tipo_materia']]
-            );
-
-            $questoesImportadas = 0;
-
-            foreach ($bloco['questoes'] as $dadosQuestao) {
-                // ---- Assunto ----
-                $assunto = Assunto::firstOrCreate([
-                    'materia_id' => $materia->id,
-                    'nome'       => $dadosQuestao['assunto'],
-                ]);
-
-                // ---- Texto complementar (opcional) ----
-                $textoComplementarId = null;
-                $tcData = $dadosQuestao['texto_complementar'] ?? null;
-
-                if (is_array($tcData) && !empty($tcData['conteudo'])) {
-                    $tc = TextoComplementar::firstOrCreate([
-                        'conteudo' => $tcData['conteudo'],
-                    ]);
-                    $textoComplementarId = $tc->id;
-                }
-
-                // ---- Questão: chave única = codigo ----
-                $questao = Questao::updateOrCreate(
-                    ['codigo' => $dadosQuestao['codigo']],
-                    [
-                        'cargo_id'              => $cargo->id,
-                        'ano_id'                => $ano->id,
-                        'banca_id'              => $banca->id,
-                        'materia_id'            => $materia->id,
-                        'assunto_id'            => $assunto->id,
-                        'imagem'                => $dadosQuestao['imagem'] ?? null,
-                        'tabela_html'           => $dadosQuestao['tabela_html'] ?? null,
-                        'texto_complementar_id' => $textoComplementarId,
-                        'enunciado'             => $dadosQuestao['enunciado'],
-                    ]
-                );
-
-                // ---- Alternativas: limpa e recria (mais simples e seguro) ----
-                Alternativa::where('questao_id', $questao->id)->delete();
-
-                foreach ($dadosQuestao['alternativas'] as $alternativa) {
-                    Alternativa::create([
-                        'questao_id' => $questao->id,
-                        'letra'      => $alternativa['letra'],
-                        'descricao'  => $alternativa['descricao'],
-                        'correta'    => ($alternativa['letra'] === $dadosQuestao['gabarito']),
-                        'imagens'    => $alternativa['imagens'] ?? null,
-                    ]);
-                }
-
-                $questoesImportadas++;
-            }
-
-            return $questoesImportadas;
-        } catch (\Throwable $e) {
-            Log::error("Erro ao importar bloco do arquivo {$nomeArquivo}: " . $e->getMessage(), [
-                'arquivo' => $nomeArquivo,
-                'bloco'   => $bloco,
-                'trace'   => $e->getTraceAsString(),
-            ]);
-
-            throw new \Exception(
-                "Falha ao importar bloco do arquivo '{$nomeArquivo}': " . $e->getMessage(),
-                (int) $e->getCode(),
-                $e
-            );
-        }
     }
 }

@@ -75,12 +75,32 @@
                 </li>
 
                 @if(auth()->user()->is_admin)
-                    <li class="nav-item">
-                        <a class="nav-link text-warning fw-medium"
-                           href="{{ route('admin.questoes.index') }}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-warning fw-medium"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             <i class="fas fa-cog me-2"></i>
                             Admin
                         </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item"
+                                   href="{{ route('admin.questoes.index') }}">
+                                    <i class="fas fa-pen-to-square me-2 text-primary"></i>
+                                    Editar questões
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   href="{{ route('admin.provas.cadastrar') }}">
+                                    <i class="fas fa-file-circle-plus me-2 text-primary"></i>
+                                    Cadastrar provas
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 @endif
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CadernoErro;
+use App\Models\Banca;
+use App\Models\DominioBanca;
 use App\Models\GradeEstudo;
 use App\Models\HistoricoResposta;
 use App\Models\Materia;
@@ -18,6 +20,28 @@ class DashboardController extends Controller
     public function index()
     {
         $estatisticas = $this->obterEstatisticasGerais();
+        $dominiosBanca = DominioBanca::query()
+            ->with(['banca' => fn($query) => $query->withCount('questoes')])
+            ->where('user_id', Auth::id())
+            ->get();
+
+        foreach ($dominiosBanca as $dominio) {
+            $totalQuestoes = $dominio->banca?->questoes_count ?? 0;
+
+            if ($dominio->total_questoes_banca !== $totalQuestoes) {
+                $dominio->update(['total_questoes_banca' => $totalQuestoes]);
+            }
+        }
+
+        $bancas = Banca::withCount('questoes')->orderBy('nome')->get();
+        $bancasAcompanhadasIds = $dominiosBanca->pluck('banca_id')->all();
+        $todasBancasAcompanhadas = $bancas->isEmpty()
+            || $bancas->every(fn($banca) => in_array($banca->id, $bancasAcompanhadasIds));
+        $erros = session()->get('errors');
+        $errosBancas = collect($erros?->getBag('default')->getMessages() ?? [])
+            ->filter(fn($mensagens, $campo) => $campo === 'bancas' || str_starts_with($campo, 'bancas.'))
+            ->flatten()
+            ->values();
 
         return view('dashboard.index', [
             ...$estatisticas,
@@ -28,6 +52,12 @@ class DashboardController extends Controller
             ...$this->obterDadosGrafico(),
             'sugestaoHoje' => $this->getSugestaoDeHoje(),
             'metaAtiva' => $this->obterMetaAtiva(),
+            'dominiosBanca' => $dominiosBanca,
+            'bancas' => $bancas,
+            'bancasAcompanhadasIds' => $bancasAcompanhadasIds,
+            'todasBancasAcompanhadas' => $todasBancasAcompanhadas,
+            'errosBancas' => $errosBancas,
+            'abrirModalDominioBanca' => $errosBancas->isNotEmpty(),
         ]);
     }
 
@@ -268,13 +298,17 @@ class DashboardController extends Controller
         HistoricoResposta::where('user_id', $userId)->delete();
         CadernoErro::where('user_id', $userId)->delete();
         ProgressoQuestao::where('user_id', $userId)->delete();
+        DominioBanca::where('user_id', $userId)->update([
+            'qtd_erros' => 0,
+            'qtd_acertos' => 0,
+        ]);
 
         MetaAprovacao::where('user_id', $userId)->update([
             'porcentagem' => 0,
             'rank'        => 'ruim'
         ]);
 
-        return redirect()->back()->with('success', 'Suas estatísticas, Caderno de Erros, Curva de Aprendizagem e o progresso da sua Meta foram zerados com sucesso.');
+        return redirect()->back()->with('success', 'Suas estatísticas, domínio das bancas, Caderno de Erros, Curva de Aprendizagem e o progresso da sua Meta foram zerados com sucesso.');
     }
 
     public function getSugestaoDeHoje()

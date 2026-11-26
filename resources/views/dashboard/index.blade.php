@@ -239,6 +239,63 @@
         </div>
     </div>
 
+    <div class="card border shadow-sm mb-4 bg-body-tertiary">
+        <div class="card-header bg-transparent border-bottom d-flex justify-content-between align-items-center gap-3">
+            <h5 class="mb-0 fw-semibold">Domínio da banca</h5>
+            <button type="button" class="btn btn-sm btn-outline-primary"
+                    data-bs-toggle="modal" data-bs-target="#modalDominioBanca">
+                <i class="fa-solid fa-plus me-1"></i>
+                Cadastrar
+            </button>
+        </div>
+
+        <div class="card-body">
+            @if($dominiosBanca->isEmpty())
+                <div class="text-center py-3">
+                    <p class="text-body-secondary mb-3">Domínio da banca não cadastrado</p>
+                    <button type="button" class="btn btn-primary"
+                            data-bs-toggle="modal" data-bs-target="#modalDominioBanca">
+                        <i class="fa-solid fa-plus me-1"></i>
+                        Cadastrar banca
+                    </button>
+                </div>
+            @else
+                <div class="row g-3">
+                    @foreach($dominiosBanca as $dominio)
+                        @php
+                            $porcentagemDominio = $dominio->porcentagemDominio();
+                        @endphp
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <div class="card h-100 border">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                                        <h6 class="fw-semibold mb-0">{{ $dominio->banca->nome }}</h6>
+                                        <span class="badge text-bg-primary">{{ $porcentagemDominio }}%</span>
+                                    </div>
+
+                                    <div class="progress mb-3" style="height: 8px;">
+                                        <div class="progress-bar" role="progressbar"
+                                             style="width: {{ $porcentagemDominio }}%;"
+                                             aria-valuenow="{{ $porcentagemDominio }}"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between small text-body-secondary">
+                                        <span>Acertos: {{ $dominio->qtd_acertos }}</span>
+                                        <span>Erros: {{ $dominio->qtd_erros }}</span>
+                                    </div>
+                                    <div class="small text-body-secondary mt-1">
+                                        Total de questões da banca: {{ $dominio->total_questoes_banca }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </div>
+
     {{-- ══════════════════════════════════════════════
          DESEMPENHO DIÁRIO - GRÁFICO
     ══════════════════════════════════════════════ --}}
@@ -317,6 +374,61 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modalDominioBanca" tabindex="-1"
+         aria-labelledby="modalDominioBancaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form action="{{ route('dashboard.dominio-bancas.store') }}" method="POST" class="modal-content">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title fw-semibold" id="modalDominioBancaLabel">
+                        Cadastrar bancas para acompanhar
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <div class="modal-body">
+                    @if($errosBancas->isNotEmpty())
+                        <div class="alert alert-danger py-2">
+                            @foreach($errosBancas as $erroBanca)
+                                <div>{{ $erroBanca }}</div>
+                            @endforeach
+                        </div>
+                    @endif
+
+                    @forelse($bancas as $banca)
+                        @php
+                            $jaAcompanhada = in_array($banca->id, $bancasAcompanhadasIds);
+                        @endphp
+                        <div class="form-check py-2 border-bottom">
+                            <input class="form-check-input" type="checkbox"
+                                   name="bancas[]" value="{{ $banca->id }}"
+                                   id="dominio-banca-{{ $banca->id }}"
+                                   @checked($jaAcompanhada) @disabled($jaAcompanhada)>
+                            <label class="form-check-label w-100" for="dominio-banca-{{ $banca->id }}">
+                                <span class="fw-medium">{{ $banca->nome }}</span>
+                                <small class="d-block text-body-secondary">
+                                    {{ $banca->questoes_count }} questões
+                                    @if($jaAcompanhada)
+                                        · já acompanhada
+                                    @endif
+                                </small>
+                            </label>
+                        </div>
+                    @empty
+                        <p class="text-body-secondary mb-0">Nenhuma banca cadastrada.</p>
+                    @endforelse
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" @disabled($todasBancasAcompanhadas)>
+                        Acompanhar selecionadas
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection
 
@@ -324,6 +436,13 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    @if($abrirModalDominioBanca)
+        const modalDominioBanca = document.getElementById('modalDominioBanca');
+        if (modalDominioBanca && typeof bootstrap !== 'undefined') {
+            bootstrap.Modal.getOrCreateInstance(modalDominioBanca).show();
+        }
+    @endif
+
     const canvas = document.getElementById('desempenhoChart');
     if (!canvas) return;
 

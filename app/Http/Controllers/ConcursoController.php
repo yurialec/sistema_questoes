@@ -15,10 +15,12 @@ use App\Models\HistoricoResposta;
 use App\Models\Materia;
 use App\Models\Orgao;
 use App\Models\Questao;
+use App\Services\DominioBancaService;
 use App\Services\LeitnerService;
 use App\Services\MetaAprovacaoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ConcursoController extends Controller
 {
@@ -167,18 +169,30 @@ class ConcursoController extends Controller
         ]);
     }
 
-    public function verificar(Request $request, LeitnerService $leitnerService, MetaAprovacaoService $metaAprovacaoService)
-    {
+    public function verificar(
+        Request $request,
+        LeitnerService $leitnerService,
+        MetaAprovacaoService $metaAprovacaoService,
+        DominioBancaService $dominioBancaService
+    ) {
         $alternativa = Alternativa::with('questao')->findOrFail($request->alternativa_id);
         $user = Auth::user();
 
-        HistoricoResposta::create([
-            'user_id' => $user->id,
-            'questao_id' => $alternativa->questao_id,
-            'alternativa_id' => $alternativa->id,
-            'acertou' => $alternativa->correta,
-            'respondido_em' => now()
-        ]);
+        DB::transaction(function () use ($user, $alternativa, $dominioBancaService) {
+            HistoricoResposta::create([
+                'user_id' => $user->id,
+                'questao_id' => $alternativa->questao_id,
+                'alternativa_id' => $alternativa->id,
+                'acertou' => $alternativa->correta,
+                'respondido_em' => now()
+            ]);
+
+            $dominioBancaService->registrarResposta(
+                $user->id,
+                $alternativa->questao,
+                $alternativa->correta
+            );
+        });
 
         $metaAprovacaoService->recalcularProgresso($user->id);
         $leitnerService->processarResposta($user, $alternativa->questao, $alternativa->correta);

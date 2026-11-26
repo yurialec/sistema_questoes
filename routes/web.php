@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminQuestaoController;
+use App\Http\Controllers\AdminProvaController;
 use App\Http\Controllers\AlternativaController;
 use App\Http\Controllers\AnoController;
 use App\Http\Controllers\AssuntoController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\CadernoErrosController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\ConcursoController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DominioBancaController;
 use App\Http\Controllers\GradeEstudoController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\MetaAprovacaoController;
@@ -42,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('alternativas', AlternativaController::class);
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/dashboard/dominio-bancas', [DominioBancaController::class, 'store'])->name('dashboard.dominio-bancas.store');
     Route::get('/dashboard/desempenho-materia', [DashboardController::class, 'desempenhoPorMateria'])->name('dashboard.desempenho-materia');
     Route::post('/dashboard/resetar', [DashboardController::class, 'resetar']);
     // Route::get('/questao/{id}/responder', [ConcursoController::class, 'responder']);
@@ -62,6 +65,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/questoes', [AdminQuestaoController::class, 'index'])->name('admin.questoes.index');
         Route::get('/questoes/{id}/edit', [AdminQuestaoController::class, 'edit'])->name('admin.questoes.edit');
         Route::put('/questoes/{id}', [AdminQuestaoController::class, 'update'])->name('admin.questoes.update');
+        Route::get('/provas', [AdminProvaController::class, 'index'])->name('admin.provas.index');
+        Route::get('/provas/cadastrar', [AdminProvaController::class, 'cadastrar'])->name('admin.provas.cadastrar');
+        Route::post('/provas', [AdminProvaController::class, 'cadastrarProva'])->name('admin.provas.store');
         Route::post('/admin/upload-imagem', [AdminQuestaoController::class, 'uploadImagem'])->name('admin.upload-imagem');
     });
 
