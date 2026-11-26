@@ -4,9 +4,29 @@
 
 @push('styles')
 <style>
-    /* Animação suave do anel SVG (usando variáveis do Bootstrap) */
-    .accuracy-ring circle.ring-fill {
-        transition: stroke-dashoffset 1s ease;
+    .dashboard-donut {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: conic-gradient(var(--bs-success) 0% var(--percentual), var(--bs-danger) var(--percentual) 100%);
+        display: grid;
+        place-items: center;
+    }
+    .dashboard-donut-center {
+        width: 138px;
+        height: 138px;
+        border-radius: 50%;
+        background: var(--bs-card-bg, var(--bs-body-bg));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboard-legend-dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
     }
 
     /* Animação minimalista do Streak */
@@ -142,82 +162,46 @@
     <p class="text-uppercase text-body-secondary small fw-semibold mb-3" style="letter-spacing:.08em">Visão geral</p>
 
     <div class="row g-3 mb-4">
-        {{-- Taxa de acerto (anel SVG adaptado para Dark Mode) --}}
+        {{-- Resumo de acertos e erros --}}
         <div class="col-12 col-md-5">
             <div class="card border shadow-sm h-100 bg-body-tertiary">
-                <div class="card-body d-flex align-items-center gap-4 p-4">
-                    @php
-                    $circumference = 2 * M_PI * 40;
-                    $offset = $circumference - ($percentual / 100) * $circumference;
-                    
-                    $ringColorClass = match(true) {
-                        $percentual >= 70 => 'success',
-                        $percentual >= 50 => 'primary',
-                        default => 'danger',
-                    };
-                    @endphp
-
-                    <div class="flex-shrink-0">
-                        <svg width="110" height="110" viewBox="0 0 100 100" class="accuracy-ring" aria-label="Taxa de acerto: {{ $percentual }}%">
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bs-border-color)" stroke-width="8" />
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--bs-{{ $ringColorClass }})" stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ $circumference }}" stroke-dashoffset="{{ $circumference }}" data-offset="{{ $offset }}" class="ring-fill" transform="rotate(-90 50 50)" />
-                            
-                            <text x="50" y="48" text-anchor="middle" font-size="20" font-weight="700" fill="var(--bs-body-color)">{{ $percentual }}%</text>
-                            <text x="50" y="64" text-anchor="middle" font-size="10" fill="var(--bs-secondary-color)">acertos</text>
-                        </svg>
+                <div class="card-body p-4">
+                    <div class="dashboard-donut mx-auto mb-4" style="--percentual: {{ $percentual }}%;" role="img" aria-label="{{ $percentual }}% de acertos e {{ $total > 0 ? round($erros / $total * 100) : 0 }}% de erros">
+                        <div class="dashboard-donut-center">
+                            <span class="fs-2 fw-bold">{{ $percentual }}%</span>
+                            <small class="text-body-secondary">Aproveitamento</small>
+                        </div>
                     </div>
 
-                    <div class="flex-grow-1">
-                        <p class="text-body-secondary small fw-semibold text-uppercase mb-1" style="letter-spacing:.05em">Questões respondidas</p>
-                        <h2 class="fw-bold mb-0 lh-1 text-body">{{ number_format($total) }}</h2>
-                        <p class="text-body-secondary small mb-3">no total</p>
-                        <div class="d-flex gap-4">
-                            <div>
-                                <span class="fs-5 fw-bold text-success">{{ $acertos }}</span>
-                                <span class="badge rounded-pill ms-1 bg-success-subtle text-success fw-semibold">{{ $total > 0 ? round($acertos/$total*100) : 0 }}%</span>
-                                <p class="text-body-secondary small mb-0 mt-1">acertos</p>
+                    <div class="row text-center">
+                        <div class="col-6 border-end">
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <span class="dashboard-legend-dot bg-success"></span>
+                                <span class="text-body-secondary">Acertos</span>
                             </div>
-                            <div class="vr"></div>
-                            <div>
-                                <span class="fs-5 fw-bold text-danger">{{ $erros }}</span>
-                                <span class="badge rounded-pill ms-1 bg-danger-subtle text-danger fw-semibold">{{ $total > 0 ? round($erros/$total*100) : 0 }}%</span>
-                                <p class="text-body-secondary small mb-0 mt-1">erros</p>
-                            </div>
+                            <div class="fs-3 fw-bold text-success">{{ number_format($acertos) }}</div>
+                            <small class="text-body-secondary">{{ $total > 0 ? round($acertos / $total * 100) : 0 }}%</small>
                         </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center justify-content-center gap-2">
+                                <span class="dashboard-legend-dot bg-danger"></span>
+                                <span class="text-body-secondary">Erros</span>
+                            </div>
+                            <div class="fs-3 fw-bold text-danger">{{ number_format($erros) }}</div>
+                            <small class="text-body-secondary">{{ $total > 0 ? round($erros / $total * 100) : 0 }}%</small>
+                        </div>
+                    </div>
+
+                    <div class="text-center border-top mt-3 pt-3">
+                        <small class="text-body-secondary">Total de questões respondidas</small>
+                        <div class="fs-3 fw-bold">{{ number_format($total) }}</div>
                     </div>
                 </div>
             </div>
         </div>
-
-        {{-- KPIs rápidos --}}
+        {{-- Nível do estudante --}}
         <div class="col-12 col-md-7">
             <div class="row g-3 h-100">
-                <div class="col-6">
-                    <div class="card border shadow-sm h-100 bg-body-tertiary">
-                        <div class="card-body p-3">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span class="badge rounded-2 p-2 bg-primary-subtle text-primary"><i class="fas fa-check-circle"></i></span>
-                                <span class="small fw-semibold text-uppercase text-body-secondary" style="letter-spacing:.05em">Acertos</span>
-                            </div>
-                            <p class="fs-2 fw-bold mb-0 text-success lh-1">{{ $acertos }}</p>
-                            <p class="small text-body-secondary mt-1 mb-0">de {{ $total }} tentativas</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="card border shadow-sm h-100 bg-body-tertiary">
-                        <div class="card-body p-3">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span class="badge rounded-2 p-2 bg-danger-subtle text-danger"><i class="fas fa-times-circle"></i></span>
-                                <span class="small fw-semibold text-uppercase text-body-secondary" style="letter-spacing:.05em">Erros</span>
-                            </div>
-                            <p class="fs-2 fw-bold mb-0 text-danger lh-1">{{ $erros }}</p>
-                            <p class="small text-body-secondary mt-1 mb-0">{{ $erros > 0 ? 'revise os conteúdos' : 'nenhum erro ainda!' }}</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-12">
                     <div class="card border shadow-sm bg-body-tertiary">
                         <div class="card-body p-3">
