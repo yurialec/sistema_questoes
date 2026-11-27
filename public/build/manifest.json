@@ -1,11 +1,20 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-Mx32l8gl.css",
+    "file": "assets/app-B50qap8s.css",
     "name": "app",
     "names": [
       "app.css"
     ],
     "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/sistema-questoes.css": {
+    "file": "assets/sistema-questoes-CojShJrJ.css",
+    "name": "sistema-questoes",
+    "names": [
+      "sistema-questoes.css"
+    ],
+    "src": "resources/css/sistema-questoes.css",
     "isEntry": true
   },
   "resources/js/app.js": {

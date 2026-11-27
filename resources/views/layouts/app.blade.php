@@ -16,6 +16,8 @@
 
     @include('components.global-styles')
 
+    @vite('resources/css/sistema-questoes.css')
+
     @stack('styles')
     
     <!-- TinyMCE (Mantido exatamente como estava para não quebrar sua configuração de upload e plugins) -->

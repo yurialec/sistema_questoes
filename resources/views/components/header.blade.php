@@ -1,33 +1,42 @@
+@php
+    $usuarioAtual = auth()->user();
+    $nomeUsuario = $usuarioAtual->name ?: 'Minha conta';
+    $inicialUsuario = mb_strtoupper(mb_substr(trim($nomeUsuario), 0, 1));
+@endphp
 
-<nav class="navbar navbar-expand-lg sticky-top" id="mainNavigation">
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNavigation" aria-label="Navegação principal">
     <div class="container-fluid px-3 px-lg-4">
 
         <a href="{{ route('dashboard') }}"
-           class="navbar-brand fw-bold d-flex align-items-center gap-2">
+           class="navbar-brand d-flex align-items-center gap-2"
+           aria-label="Sistema de Questões — ir para o dashboard">
             <span class="brand-mark" aria-hidden="true">
                 <i class="fas fa-graduation-cap"></i>
             </span>
-            <span>Sistema de Questões</span>
+            <span class="brand-copy">
+                <span class="brand-title">Sistema de Questões</span>
+                <small class="brand-caption">Painel de estudos</small>
+            </span>
         </a>
 
-        <button class="navbar-toggler border-0 shadow-none"
+        <button class="navbar-toggler sq-navbar-toggler shadow-none"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#mainNavbar"
                 aria-controls="mainNavbar"
                 aria-expanded="false"
                 aria-label="Alternar navegação">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
 
             {{-- Navegação Principal --}}
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
+            <ul class="navbar-nav main-navigation-links me-auto mb-2 mb-lg-0 gap-1 ms-lg-3">
 
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('responder') ? 'active' : '' }}" href="{{ route('responder') }}" @if(request()->routeIs('responder')) aria-current="page" @endif>
-                        <i class="fas fa-play me-2"></i>
+                        <i class="nav-icon fas fa-circle-play" aria-hidden="true"></i>
                         Responder
                     </a>
                 </li>
@@ -39,22 +48,24 @@
                        role="button"
                        data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        <i class="fas fa-chart-bar me-2 d-lg-none"></i>
+                        <i class="nav-icon fas fa-chart-column" aria-hidden="true"></i>
                         Relatórios
                     </a>
 
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item"
-                               href="{{ route('dashboard.desempenho-materia') }}">
+                            <a class="dropdown-item {{ request()->routeIs('dashboard.desempenho-materia') ? 'active' : '' }}"
+                               href="{{ route('dashboard.desempenho-materia') }}"
+                               @if(request()->routeIs('dashboard.desempenho-materia')) aria-current="page" @endif>
                                 <i class="fas fa-chart-bar me-2 text-primary"></i>
                                 Desempenho
                             </a>
                         </li>
 
                         <li>
-                            <a class="dropdown-item"
-                               href="{{ route('relatorios.curva') }}">
+                            <a class="dropdown-item {{ request()->routeIs('relatorios.curva') ? 'active' : '' }}"
+                               href="{{ route('relatorios.curva') }}"
+                               @if(request()->routeIs('relatorios.curva')) aria-current="page" @endif>
                                 <i class="fas fa-chart-line me-2 text-primary"></i>
                                 Curva de Aprendizagem
                             </a>
@@ -64,40 +75,42 @@
 
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('caderno-erros.index') ? 'active' : '' }}" href="{{ route('caderno-erros.index') }}" @if(request()->routeIs('caderno-erros.index')) aria-current="page" @endif>
-                        <i class="fas fa-book me-2 d-lg-none"></i>
+                        <i class="nav-icon fas fa-book-open" aria-hidden="true"></i>
                         Caderno de Erros
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('simulados.*') ? 'active' : '' }}" href="{{ route('simulados.index') }}" @if(request()->routeIs('simulados.*')) aria-current="page" @endif>
-                        <i class="fas fa-clipboard-check me-2 d-lg-none"></i>
-                        Simulado
+                        <i class="nav-icon fas fa-clipboard-check" aria-hidden="true"></i>
+                        Simulados
                     </a>
                 </li>
 
-                @if(auth()->user()->is_admin)
+                @if($usuarioAtual->is_admin)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-warning fw-medium {{ request()->routeIs('admin.*') ? 'active-admin' : '' }}"
                            href="#"
                            role="button"
                            data-bs-toggle="dropdown"
                            aria-expanded="false">
-                            <i class="fas fa-cog me-2"></i>
+                            <i class="nav-icon fas fa-shield-halved" aria-hidden="true"></i>
                             Admin
                         </a>
 
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item"
-                                   href="{{ route('admin.questoes.index') }}">
+                                <a class="dropdown-item {{ request()->routeIs('admin.questoes.*') ? 'active' : '' }}"
+                                   href="{{ route('admin.questoes.index') }}"
+                                   @if(request()->routeIs('admin.questoes.*')) aria-current="page" @endif>
                                     <i class="fas fa-pen-to-square me-2 text-primary"></i>
                                     Editar questões
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item"
-                                   href="{{ route('admin.provas.cadastrar') }}">
+                                <a class="dropdown-item {{ request()->routeIs('admin.provas.*') ? 'active' : '' }}"
+                                   href="{{ route('admin.provas.cadastrar') }}"
+                                   @if(request()->routeIs('admin.provas.*')) aria-current="page" @endif>
                                     <i class="fas fa-file-circle-plus me-2 text-primary"></i>
                                     Cadastrar provas
                                 </a>
@@ -113,26 +126,38 @@
 
                 <div class="dropdown">
 
-                    <button class="btn btn-link text-decoration-none text-secondary border-0 dropdown-toggle-hide user-menu-button"
+                    <button class="btn text-decoration-none dropdown-toggle-hide user-menu-button"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
-                            title="Minha conta">
+                            aria-label="Abrir menu da conta de {{ $nomeUsuario }}">
 
-                        <i class="fa-regular fa-circle-user fa-2x"></i>
+                        <span class="user-avatar" aria-hidden="true">{{ $inicialUsuario }}</span>
 
-                        <span class="d-lg-none fw-medium">
-                            Minha Conta
+                        <span class="user-menu-copy">
+                            <span class="user-name">{{ $nomeUsuario }}</span>
+                            <small class="user-role">{{ $usuarioAtual->is_admin ? 'Administrador' : 'Estudante' }}</small>
                         </span>
 
-                        <i class="fas fa-chevron-down fa-xs d-lg-none ms-auto"></i>
+                        <i class="fas fa-chevron-down user-menu-chevron" aria-hidden="true"></i>
                     </button>
 
-                    <ul class="dropdown-menu dropdown-menu-lg-end shadow-sm">
+                    <ul class="dropdown-menu dropdown-menu-lg-end user-dropdown-menu">
+
+                        <li class="user-dropdown-summary">
+                            <span class="user-avatar user-avatar--large" aria-hidden="true">{{ $inicialUsuario }}</span>
+                            <span class="min-w-0">
+                                <strong class="d-block text-truncate">{{ $nomeUsuario }}</strong>
+                                <small class="d-block text-body-secondary text-truncate">{{ $usuarioAtual->email }}</small>
+                            </span>
+                        </li>
+
+                        <li><hr class="dropdown-divider"></li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center gap-2"
-                               href="{{ route('profile.edit') }}">
+                            <a class="dropdown-item d-flex align-items-center gap-2 {{ request()->routeIs('profile.edit') ? 'active' : '' }}"
+                               href="{{ route('profile.edit') }}"
+                               @if(request()->routeIs('profile.edit')) aria-current="page" @endif>
                                 <i class="fas fa-user text-secondary"></i>
                                 <span>Meu Perfil</span>
                             </a>
@@ -146,8 +171,8 @@
                                 @csrf
 
                                 <button type="submit"
-                                        class="dropdown-item d-flex align-items-center gap-2 w-100 border-0 bg-transparent">
-                                    <i class="fas fa-trash-alt text-secondary"></i>
+                                        class="dropdown-item d-flex align-items-center gap-2 w-100 border-0 bg-transparent text-danger">
+                                    <i class="fas fa-trash-alt text-danger"></i>
                                     <span>Zerar Estatísticas</span>
                                 </button>
                             </form>
@@ -179,282 +204,11 @@
     </div>
 </nav>
 
-<style>
-    #mainNavigation {
-        min-height: 64px;
-        background: rgba(33, 37, 41, 0.96);
-        border-bottom: 1px solid var(--bs-border-color);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        --main-nav-accent: #344d90;
-    }
-
-    #mainNavigation .container-fluid {
-        max-width: 1440px;
-    }
-
-    #mainNavigation .navbar-brand {
-        color: var(--bs-body-color);
-        letter-spacing: -.02em;
-    }
-
-    #mainNavigation .brand-mark {
-        width: 36px;
-        height: 36px;
-        display: inline-grid;
-        place-items: center;
-        border: 1px solid rgba(var(--bs-primary-rgb), 0.35);
-        border-radius: 10px;
-        color: #fff;
-        background: linear-gradient(120deg, #25365e, var(--main-nav-accent));
-        box-shadow: 0 6px 18px rgba(52, 77, 144, 0.18);
-    }
-
-    /* Navegação geral */
-    #mainNavigation .navbar-nav .nav-link {
-        transition: color 0.2s ease, background-color 0.2s ease;
-        border-radius: 10px;
-        padding: 0.65rem 0.75rem !important;
-        color: var(--bs-secondary-color);
-    }
-
-    #mainNavigation .navbar-nav .nav-link.active,
-    #mainNavigation .navbar-nav .nav-link.show {
-        color: var(--bs-primary) !important;
-        background: rgba(var(--bs-primary-rgb), 0.12);
-        font-weight: 600;
-    }
-
-    #mainNavigation .navbar-nav .nav-link:hover {
-        color: var(--bs-primary) !important;
-        background-color: rgba(var(--bs-primary-rgb), 0.08);
-    }
-
-    #mainNavigation .dropdown-item {
-        border-radius: 0.375rem;
-        padding: 0.65rem 0.85rem;
-        transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    #mainNavigation .dropdown-item:hover {
-        background-color: rgba(var(--bs-primary-rgb), 0.08);
-        color: var(--bs-primary);
-    }
-
-    #mainNavigation .dropdown-menu {
-        min-width: 220px;
-        margin-top: 0.55rem;
-        padding: 0.45rem;
-        border: 1px solid var(--bs-border-color);
-        border-radius: 12px;
-        background: var(--bs-body-bg);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22) !important;
-    }
-
-    #mainNavigation .navbar-toggler {
-        color: var(--bs-secondary-color);
-        border: 1px solid var(--bs-border-color) !important;
-        border-radius: 10px;
-    }
-
-    #mainNavigation .navbar-nav .nav-link.active-admin,
-    #mainNavigation .navbar-nav .nav-link.active-admin.show {
-        color: var(--bs-warning) !important;
-        background: rgba(var(--bs-warning-rgb), 0.10);
-    }
-
-    #mainNavigation .user-menu-button {
-        width: 40px;
-        height: 40px;
-        display: inline-grid;
-        place-items: center;
-        border-radius: 10px;
-        border: 1px solid var(--bs-border-color) !important;
-        background: rgba(var(--bs-secondary-rgb), 0.08);
-    }
-
-    #mainNavigation .dropdown-item.text-danger:hover {
-        background-color: rgba(220, 53, 69, 0.08);
-        color: var(--bs-danger) !important;
-    }
-
-    #mainNavigation .dropdown-toggle-hide::after {
-        display: none !important;
-    }
-
-    #mainNavigation .dropdown-toggle-hide i {
-        transition: color 0.2s ease;
-    }
-
-    #mainNavigation .dropdown-toggle-hide:hover i {
-        color: var(--bs-primary) !important;
-    }
-
-    #mainNavigation .nav-link.text-warning:hover {
-        color: var(--bs-warning) !important;
-        background-color: rgba(var(--bs-warning-rgb), 0.08);
-    }
-
-    /* Mobile e tablets */
-    @media (max-width: 991.98px) {
-
-        #mainNavigation .navbar-brand {
-            font-size: 1.1rem;
-        }
-
-        #mainNavigation .navbar-toggler {
-            padding: 0.45rem;
-        }
-
-        #mainNavbar {
-            padding-top: 0.75rem;
-            padding-bottom: 0.5rem;
-            max-height: calc(100dvh - 65px);
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        #mainNavigation .navbar-nav {
-            gap: 0.25rem !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        #mainNavigation .navbar-nav .nav-link {
-            display: flex;
-            align-items: center;
-            min-height: 44px;
-            padding: 0.8rem 0.9rem !important;
-            font-size: 0.95rem;
-        }
-
-        #mainNavigation .navbar-nav .nav-link i {
-            width: 20px;
-            text-align: center;
-        }
-
-        /* Dropdown de Relatórios */
-        #mainNavigation .navbar-nav .dropdown-menu {
-            position: static;
-            float: none;
-            width: 100%;
-            margin: 0.25rem 0 0.5rem;
-            padding: 0.35rem;
-            border: 0;
-            box-shadow: none;
-            background-color: rgba(var(--bs-secondary-rgb), 0.06);
-            border-radius: 0.5rem;
-        }
-
-        #mainNavigation .navbar-nav .dropdown-item {
-            white-space: normal;
-            padding: 0.75rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Área do usuário */
-        #mainNavigation .user-navigation {
-            border-top: 1px solid var(--bs-border-color);
-            padding-top: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        #mainNavigation .user-menu-button {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            width: 100%;
-            min-height: 48px;
-            padding: 0.65rem 0.9rem;
-            text-align: left;
-            border-radius: 0.375rem;
-        }
-
-        #mainNavigation .user-menu-button:hover {
-            background-color: rgba(var(--bs-primary-rgb), 0.08);
-        }
-
-        #mainNavigation .user-menu-button .fa-circle-user {
-            font-size: 1.5rem;
-        }
-
-        #mainNavigation .user-navigation .dropdown-menu {
-            position: static !important;
-            transform: none !important;
-            float: none;
-            width: 100%;
-            margin-top: 0.25rem;
-            padding: 0.35rem;
-            border: 0;
-            box-shadow: none !important;
-            background-color: rgba(var(--bs-secondary-rgb), 0.06);
-            border-radius: 0.5rem;
-        }
-
-        #mainNavigation .user-navigation .dropdown-item {
-            min-height: 44px;
-            white-space: normal;
-            padding: 0.75rem 1rem;
-        }
-
-        #mainNavigation .user-navigation .dropdown-item i {
-            width: 20px;
-            text-align: center;
-        }
-    }
-
-    /* Telas muito pequenas */
-    @media (max-width: 375px) {
-        #mainNavigation .navbar-nav .nav-link {
-            font-size: 0.9rem;
-        }
-
-        #mainNavigation .dropdown-item {
-            font-size: 0.875rem;
-        }
-    }
-
-    /* Modal mobile */
-    @media (max-width: 575.98px) {
-        #modalMetaAprovacao .modal-dialog {
-            margin: 0.75rem;
-        }
-
-        #modalMetaAprovacao .modal-content {
-            border-radius: 0.85rem;
-        }
-
-        #modalMetaAprovacao .modal-header,
-        #modalMetaAprovacao .modal-body,
-        #modalMetaAprovacao .modal-footer {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        #modalMetaAprovacao .modal-title {
-            font-size: 1rem;
-        }
-
-        #modalMetaAprovacao .modal-footer {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        #modalMetaAprovacao .modal-footer .btn {
-            flex: 1;
-            min-height: 42px;
-        }
-
-        #modalMetaAprovacao #toggleAnos {
-            font-size: 0.75rem;
-        }
-    }
-</style>
-
 <!-- Modal Meta de Aprovação -->
 <div class="modal fade"
      id="modalMetaAprovacao"
      tabindex="-1"
+     aria-labelledby="modalMetaAprovacaoTitulo"
      aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -467,7 +221,7 @@
             <div class="modal-content">
 
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-semibold">
+                    <h5 class="modal-title fw-semibold" id="modalMetaAprovacaoTitulo">
                         Definir Meta de Aprovação
                     </h5>
 
@@ -480,37 +234,43 @@
 
                 <div class="modal-body pt-2">
 
-                    <p class="text-muted small mb-3">
+                    <p class="text-body-secondary small mb-3">
                         Selecione o cargo desejado. O sistema criará
                         automaticamente um filtro e acompanhará seu
                         progresso até a aprovação.
                     </p>
 
                     <div class="mb-3">
-                        <label class="form-label small fw-semibold text-uppercase text-muted">
+                        <label class="form-label small fw-semibold text-uppercase text-body-secondary"
+                               for="metaCargo">
                             Cargo
                         </label>
 
-                        <select class="form-select"
+                        <select class="form-select @error('cargo_id') is-invalid @enderror"
+                                id="metaCargo"
                                 name="cargo_id"
                                 required>
 
-                            <option value="" disabled selected>
+                            <option value="" disabled @selected(!old('cargo_id'))>
                                 Selecione um cargo
                             </option>
 
                             @foreach (\App\Models\Cargo::orderBy('nome')->get() as $cargo)
-                                <option value="{{ $cargo->id }}">
+                                <option value="{{ $cargo->id }}" @selected((string) old('cargo_id') === (string) $cargo->id)>
                                     {{ $cargo->nome }}
                                 </option>
                             @endforeach
 
                         </select>
+
+                        @error('cargo_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
 
-                        <label class="form-label small fw-semibold text-uppercase text-muted d-flex justify-content-between align-items-center gap-2">
+                        <div class="form-label small fw-semibold text-uppercase text-body-secondary d-flex justify-content-between align-items-center gap-2">
                             <span>Anos de referência</span>
 
                             <button type="button"
@@ -518,10 +278,10 @@
                                     id="toggleAnos">
                                 Marcar/Desmarcar
                             </button>
-                        </label>
+                        </div>
 
-                        <div class="border rounded p-2"
-                             style="max-height: 180px; overflow-y: auto;">
+                        <div class="year-options border rounded p-2"
+                             aria-describedby="metaAnosAjuda">
 
                             @forelse (\App\Models\Ano::orderBy('ano', 'desc')->get() as $ano)
 
@@ -531,7 +291,8 @@
                                            type="checkbox"
                                            name="anos[]"
                                            value="{{ $ano->id }}"
-                                           id="ano-{{ $ano->id }}">
+                                           id="ano-{{ $ano->id }}"
+                                           @checked(in_array((string) $ano->id, array_map('strval', (array) old('anos', [])), true))>
 
                                     <label class="form-check-label small"
                                            for="ano-{{ $ano->id }}">
@@ -542,7 +303,7 @@
 
                             @empty
 
-                                <p class="text-muted small mb-0">
+                                <p class="text-body-secondary small mb-0">
                                     Nenhum ano cadastrado.
                                 </p>
 
@@ -550,9 +311,17 @@
 
                         </div>
 
-                        <small class="text-muted d-block mt-1">
+                        <small class="text-body-secondary d-block mt-1" id="metaAnosAjuda">
                             Se nenhum for marcado, considera todos os anos.
                         </small>
+
+                        @error('anos')
+                            <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
+
+                        @error('anos.*')
+                            <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
 
                     </div>
                 </div>
@@ -560,7 +329,7 @@
                 <div class="modal-footer border-0 pt-0">
 
                     <button type="button"
-                            class="btn btn-light"
+                            class="btn btn-outline-secondary"
                             data-bs-dismiss="modal">
                         Cancelar
                     </button>
